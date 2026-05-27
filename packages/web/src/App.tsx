@@ -8,7 +8,15 @@ import type {
   TypeDef,
 } from "@cosmsg/schema";
 import { buildSearchRecords, search, type SearchRecord } from "@cosmsg/core/search";
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import {
+  type CSSProperties,
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import bitbadgesLogo from "./assets/bitbadges.png";
 
 /** Lets any FieldTable resolve a referenced type so it can be expanded inline, recursively. */
@@ -72,6 +80,21 @@ export function App() {
   const [tab, setTab] = useState<Tab>("msgs");
   const [query, setQuery] = useState("");
   const [showDocs, setShowDocs] = useState(false);
+  const searchRef = useRef<HTMLInputElement>(null);
+
+  // Press "/" anywhere to jump to search.
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      const el = document.activeElement;
+      const typing = el instanceof HTMLInputElement || el instanceof HTMLTextAreaElement;
+      if (e.key === "/" && !typing) {
+        e.preventDefault();
+        searchRef.current?.focus();
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
 
   useEffect(() => {
     fetch(`${import.meta.env.BASE_URL}dataset.json`)
@@ -127,22 +150,27 @@ export function App() {
             setQuery("");
           }}
         >
-          <span className="logo">cosmsg</span>
-          <span className="tagline">
-            every Msg &amp; query for every Cosmos chain
+          <span className="brand-mark" />
+          <span className="logo">
+            cos<b>msg</b>
           </span>
+          <span className="tagline">multi-chain proto explorer</span>
         </div>
-        <input
-          className="search"
-          type="search"
-          placeholder="Search all chains:  swap · MsgSend · staking…"
-          value={query}
-          onChange={(e) => {
-            setQuery(e.target.value);
-            setShowDocs(false);
-          }}
-          autoFocus
-        />
+        <div className="searchwrap">
+          <input
+            ref={searchRef}
+            className="search"
+            type="search"
+            placeholder="Search Msgs, queries & types across every chain…"
+            value={query}
+            onChange={(e) => {
+              setQuery(e.target.value);
+              setShowDocs(false);
+            }}
+            autoFocus
+          />
+          <span className="kbd">/</span>
+        </div>
         <button
           className={`docs-link ${showDocs ? "active" : ""}`}
           onClick={() => setShowDocs(true)}
@@ -160,9 +188,10 @@ export function App() {
               {totals.queries.toLocaleString()} queries
             </span>
           </div>
-          {dataset.index.chains.map((c) => (
+          {dataset.index.chains.map((c, i) => (
             <button
               key={c.chainName}
+              style={{ "--i": i } as CSSProperties}
               className={`chain-btn ${c.chainName === chain && !query && !showDocs ? "active" : ""}`}
               onClick={() => {
                 setChain(c.chainName);
@@ -562,7 +591,7 @@ function ChainView({
 function MsgRow({ msg }: { msg: MsgDef }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className={`row ${open ? "open" : ""}`}>
+    <div className={`row row-msg ${open ? "open" : ""}`}>
       <button className="row-head" onClick={() => setOpen(!open)}>
         <code className="id">{msg.typeUrl}</code>
         {msg.module && <span className="module">{msg.module}</span>}
@@ -584,7 +613,7 @@ function MsgRow({ msg }: { msg: MsgDef }) {
 function QueryRow({ query }: { query: QueryDef }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className={`row ${open ? "open" : ""}`}>
+    <div className={`row row-query ${open ? "open" : ""}`}>
       <button className="row-head" onClick={() => setOpen(!open)}>
         <code className="id">
           {query.service}.<b>{query.method}</b>
@@ -607,7 +636,7 @@ function QueryRow({ query }: { query: QueryDef }) {
 function TypeRow({ type }: { type: TypeDef }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className={`row ${open ? "open" : ""}`}>
+    <div className={`row row-type ${open ? "open" : ""}`}>
       <button className="row-head" onClick={() => setOpen(!open)}>
         <code className="id">{type.fullName}</code>
         {type.module && <span className="module">{type.module}</span>}
