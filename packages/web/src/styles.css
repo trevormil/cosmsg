@@ -234,12 +234,75 @@ body {
   font-size: 0.8rem;
 }
 
+.ns-group {
+  margin-bottom: 0.5rem;
+}
+.ns-head {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  width: 100%;
+  text-align: left;
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+}
+.ns-head:hover {
+  border-color: var(--accent);
+}
+.ns-group.open .ns-head {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.ns-chevron {
+  color: var(--muted);
+  font-size: 0.7rem;
+  width: 0.8rem;
+}
+.ns-name {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--accent);
+}
+.ns-tag {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.05rem 0.35rem;
+}
+.ns-count {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+  background: var(--bg);
+  border-radius: 10px;
+  padding: 0.1rem 0.5rem;
+}
+.ns-body {
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  padding: 0.5rem;
+  background: rgba(0, 0, 0, 0.12);
+}
+
 .row {
   border: 1px solid var(--border);
   border-radius: 8px;
   margin-bottom: 0.4rem;
   background: var(--panel);
   overflow: hidden;
+}
+.ns-body .row:last-child {
+  margin-bottom: 0;
 }
 .row.open {
   border-color: var(--accent);
@@ -467,4 +530,44 @@ body {
 }
 .docs .muted {
   font-size: 0.85rem;
+}
+
+.codeblock {
+  position: relative;
+  margin: 0.6rem 0 1rem;
+}
+.code-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+  padding: 0.3rem 0.6rem;
+}
+.code-lang {
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+}
+.code-copy {
+  margin-left: auto;
+  font-size: 0.66rem;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.1rem 0.5rem;
+  cursor: pointer;
+}
+.code-copy:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.codeblock pre {
+  margin: 0;
+  border-radius: 0 0 8px 8px;
 }

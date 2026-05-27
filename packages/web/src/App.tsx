@@ -8,11 +8,17 @@ import type {
 } from "@cosmsg/schema";
 import { buildSearchRecords, search, type SearchRecord } from "@cosmsg/core/search";
 import { useEffect, useMemo, useState } from "react";
+import bitbadgesLogo from "./assets/bitbadges.png";
 
 interface Dataset {
   index: DatasetIndex;
   catalogs: Record<string, ChainCatalog>;
 }
+
+/** Local logo overrides that take precedence over the Chain Registry image. */
+const LOGO_OVERRIDES: Record<string, string> = {
+  bitbadges: bitbadgesLogo,
+};
 
 function ChainLogo({
   entry,
@@ -24,12 +30,13 @@ function ChainLogo({
   const [failed, setFailed] = useState(false);
   const label = entry?.prettyName ?? entry?.chainName ?? "?";
   const style = { width: size, height: size, fontSize: size * 0.5 };
-  if (entry?.logoUrl && !failed) {
+  const src = (entry && LOGO_OVERRIDES[entry.chainName]) ?? entry?.logoUrl;
+  if (src && !failed) {
     return (
       <img
         className="logo-img"
         style={style}
-        src={entry.logoUrl}
+        src={src}
         alt=""
         loading="lazy"
         onError={() => setFailed(true)}
@@ -186,71 +193,122 @@ export function App() {
   );
 }
 
+function CodeBlock({ code, lang }: { code: string; lang?: string }) {
+  const [done, setDone] = useState(false);
+  return (
+    <div className="codeblock">
+      <div className="code-bar">
+        {lang && <span className="code-lang">{lang}</span>}
+        <button
+          className="code-copy"
+          onClick={() => {
+            navigator.clipboard.writeText(code);
+            setDone(true);
+            setTimeout(() => setDone(false), 1000);
+          }}
+        >
+          {done ? "copied" : "copy"}
+        </button>
+      </div>
+      <pre>{code}</pre>
+    </div>
+  );
+}
+
 function DocsView({ dataset }: { dataset: Dataset }) {
   const example = dataset.index.chains[0]?.chainName ?? "osmosis";
   return (
     <div className="docs">
-      <h1>cosmsg developer docs</h1>
+      <h1>Integrate cosmsg</h1>
       <p className="lede">
         A single, machine-readable catalog of every transaction <code>Msg</code>{" "}
-        and gRPC query for every Cosmos chain. The data is harvested from each
-        chain's protobuf schema (via gRPC reflection, with a build-from-source
-        fallback) and layered on top of the{" "}
+        and gRPC query for every Cosmos chain — consume it three ways: the raw
+        JSON dataset, the HTTP API, or the MCP server. All three read the same
+        data, harvested from each chain's protobuf schema and layered on the{" "}
         <a href="https://github.com/cosmos/chain-registry">
           Cosmos Chain Registry
         </a>
-        — which stays the source of truth for the chain list, endpoints, and
-        source repos.
+        .
       </p>
 
-      <h2>Consume the dataset directly</h2>
+      <h2>1 · HTTP API</h2>
       <p>
-        Every catalog is plain JSON, committed in the repo under{" "}
-        <code>data/</code> and bundled into this site at{" "}
-        <code>/dataset.json</code>:
+        A thin read API (Hono — runs on Bun locally, deploys to Cloudflare
+        Workers). Run it with <code>bun run api</code> (defaults to{" "}
+        <code>http://localhost:8787</code>).
       </p>
-      <pre>
-{`data/index.json                 # all chains + counts + provenance
-data/<chain>/msgs.json          # array of MsgDef
-data/<chain>/queries.json       # array of QueryDef`}
-      </pre>
+      <CodeBlock
+        lang="endpoints"
+        code={`GET /chains                      list every chain + counts
+GET /chains/${example}              one chain summary + provenance
+GET /chains/${example}/msgs         all Msgs   (?typeUrl=/x.y.MsgZ for one)
+GET /chains/${example}/queries      all queries
+GET /search?q=swap&limit=20      rank Msgs/queries across all chains`}
+      />
+      <CodeBlock
+        lang="curl"
+        code={`curl "http://localhost:8787/chains/${example}/msgs?typeUrl=/cosmos.bank.v1beta1.MsgSend"`}
+      />
+      <CodeBlock
+        lang="response"
+        code={`{
+  "typeUrl": "/cosmos.bank.v1beta1.MsgSend",
+  "module": "bank",
+  "signers": ["from_address"],
+  "fields": [
+    { "name": "from_address", "type": "string",  "number": 1 },
+    { "name": "to_address",   "type": "string",  "number": 2 },
+    { "name": "amount", "type": "cosmos.base.v1beta1.Coin",
+      "number": 3, "repeated": true }
+  ]
+}`}
+      />
 
-      <h2>HTTP API</h2>
+      <h2>2 · MCP server</h2>
       <p>
-        A thin read API (Hono, deployable to Cloudflare Workers) serves the same
-        data:
+        Point any MCP client (Claude Code, Cursor, …) at the server so agents can
+        look up message schemas on demand. Add it to your MCP config:
       </p>
-      <pre>
-{`GET /chains                       # list every chain + counts
-GET /chains/${example}               # one chain's summary + provenance
-GET /chains/${example}/msgs          # all Msgs   (?typeUrl=/x.y.MsgZ for one)
-GET /chains/${example}/queries       # all queries
-GET /search?q=swap&limit=20       # rank Msgs/queries across all chains`}
-      </pre>
-
-      <h2>MCP server</h2>
-      <p>
-        Point any MCP client (Claude Code, etc.) at the bundled server so agents
-        can look up message schemas on demand. Tools:{" "}
-        <code>list_chains</code>, <code>list_msgs</code>, <code>get_msg</code>,{" "}
-        <code>list_queries</code>, <code>get_query</code>,{" "}
-        <code>search</code>.
-      </p>
-      <pre>
-{`{
+      <CodeBlock
+        lang="mcp.json"
+        code={`{
   "mcpServers": {
     "cosmsg": { "command": "bun", "args": ["run", "packages/mcp/src/index.ts"] }
   }
 }`}
-      </pre>
+      />
+      <p>
+        Tools: <code>list_chains</code>, <code>list_msgs</code>,{" "}
+        <code>get_msg</code>, <code>list_queries</code>, <code>get_query</code>,{" "}
+        <code>search</code>. For example, an agent can call{" "}
+        <code>search</code> to find a message across chains:
+      </p>
+      <CodeBlock
+        lang="tool call"
+        code={`get_msg(chain: "${example}", typeUrl: "/cosmos.staking.v1beta1.MsgDelegate")
+search(query: "swap", limit: 10)`}
+      />
+
+      <h2>3 · Raw dataset</h2>
+      <p>
+        Every catalog is plain JSON, committed under <code>data/</code> and
+        bundled into this site at <code>/dataset.json</code>:
+      </p>
+      <CodeBlock
+        lang="files"
+        code={`data/index.json                all chains + counts + provenance
+data/<chain>/msgs.json         array of MsgDef
+data/<chain>/queries.json      array of QueryDef`}
+      />
 
       <h2>Data shape</h2>
-      <pre>
-{`MsgDef   { typeUrl, name, package, module?, signers?, fields[], comment? }
+      <CodeBlock
+        lang="types"
+        code={`MsgDef   { typeUrl, name, package, module?, signers?, fields[], comment? }
 QueryDef { service, method, requestType, responseType,
            requestFields[], httpPath?, comment? }
 FieldDef { name, type, number, repeated, optional, typeRef?, comment? }`}
-      </pre>
+      />
       <p className="muted">
         Each chain records its <code>provenance</code> — whether it was harvested
         via live gRPC <code>reflection</code> or built from <code>source</code>{" "}
@@ -259,8 +317,7 @@ FieldDef { name, type, number, repeated, optional, typeRef?, comment? }`}
 
       <h2>Add a chain</h2>
       <p>
-        Append it to the allowlist in{" "}
-        <code>packages/harvester/src/allowlist.ts</code> (the{" "}
+        Append it to <code>packages/harvester/src/allowlist.ts</code> (the{" "}
         <code>chainName</code> must match its Chain Registry directory), then run{" "}
         <code>bun run harvest &lt;chain&gt;</code>. A weekly GitHub Action
         re-harvests everything and commits the refreshed dataset.
@@ -304,6 +361,56 @@ function SearchView({
   );
 }
 
+/** Standard Cosmos / infra namespaces — sorted after chain-native ones. */
+const STANDARD_NS = new Set([
+  "cosmos",
+  "ibc",
+  "cosmwasm",
+  "ics23",
+  "capability",
+  "tendermint",
+  "google",
+  "gogoproto",
+  "amino",
+  "cosmos_proto",
+  "interchain_security",
+  "feemarket",
+  "ethermint",
+]);
+
+/** Top-level namespace of a proto package, e.g. "cosmos.bank.v1beta1" -> "cosmos". */
+function namespaceOf(pkg: string): string {
+  return pkg.split(".")[0] || pkg;
+}
+
+/** Chain-native namespaces first, then standard infra; alphabetical within each. */
+function sortNamespaces(names: string[]): string[] {
+  return [...names].sort((a, b) => {
+    const sa = STANDARD_NS.has(a) ? 1 : 0;
+    const sb = STANDARD_NS.has(b) ? 1 : 0;
+    return sa - sb || a.localeCompare(b);
+  });
+}
+
+interface Group<T> {
+  ns: string;
+  items: T[];
+}
+
+function groupByNamespace<T>(items: T[], pkgOf: (t: T) => string): Group<T>[] {
+  const map = new Map<string, T[]>();
+  for (const it of items) {
+    const ns = namespaceOf(pkgOf(it));
+    const bucket = map.get(ns);
+    if (bucket) bucket.push(it);
+    else map.set(ns, [it]);
+  }
+  return sortNamespaces([...map.keys()]).map((ns) => ({
+    ns,
+    items: map.get(ns)!,
+  }));
+}
+
 function ChainView({
   catalog,
   entry,
@@ -316,7 +423,7 @@ function ChainView({
   setTab: (t: "msgs" | "queries") => void;
 }) {
   const [filter, setFilter] = useState("");
-  useEffect(() => setFilter(""), [catalog.chainName]);
+  const [expanded, setExpanded] = useState<Set<string>>(new Set());
 
   const f = filter.toLowerCase();
   const msgs = catalog.msgs.filter(
@@ -325,6 +432,29 @@ function ChainView({
   const queries = catalog.queries.filter(
     (q) => !f || `${q.service}.${q.method}`.toLowerCase().includes(f),
   );
+
+  const groups =
+    tab === "msgs"
+      ? groupByNamespace(msgs, (m) => m.package)
+      : groupByNamespace(queries, (q) => q.package);
+
+  // Reset filter and open the first namespace when switching chain/tab.
+  useEffect(() => {
+    setFilter("");
+    const items = tab === "msgs" ? catalog.msgs : catalog.queries;
+    const first = sortNamespaces([
+      ...new Set(items.map((i) => namespaceOf(i.package))),
+    ])[0];
+    setExpanded(first ? new Set([first]) : new Set());
+  }, [catalog.chainName, tab, catalog.msgs, catalog.queries]);
+
+  const toggle = (ns: string) =>
+    setExpanded((prev) => {
+      const next = new Set(prev);
+      next.has(ns) ? next.delete(ns) : next.add(ns);
+      return next;
+    });
+  const isOpen = (ns: string) => (f ? true : expanded.has(ns));
 
   return (
     <>
@@ -364,12 +494,29 @@ function ChainView({
         />
       </div>
 
-      <div className="list">
-        {tab === "msgs"
-          ? msgs.map((m) => <MsgRow key={m.typeUrl} msg={m} />)
-          : queries.map((q) => (
-              <QueryRow key={`${q.service}.${q.method}`} query={q} />
-            ))}
+      <div className="groups">
+        {groups.map((g) => (
+          <section key={g.ns} className={`ns-group ${isOpen(g.ns) ? "open" : ""}`}>
+            <button className="ns-head" onClick={() => toggle(g.ns)}>
+              <span className="ns-chevron">{isOpen(g.ns) ? "▾" : "▸"}</span>
+              <span className="ns-name">{g.ns}</span>
+              {STANDARD_NS.has(g.ns) && <span className="ns-tag">standard</span>}
+              <span className="ns-count">{g.items.length}</span>
+            </button>
+            {isOpen(g.ns) && (
+              <div className="ns-body">
+                {tab === "msgs"
+                  ? (g.items as MsgDef[]).map((m) => (
+                      <MsgRow key={m.typeUrl} msg={m} />
+                    ))
+                  : (g.items as QueryDef[]).map((q) => (
+                      <QueryRow key={`${q.service}.${q.method}`} query={q} />
+                    ))}
+              </div>
+            )}
+          </section>
+        ))}
+        {groups.length === 0 && <div className="status">No matches.</div>}
       </div>
     </>
   );
