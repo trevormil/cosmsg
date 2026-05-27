@@ -637,10 +637,20 @@ function TypeRow({ type, focus }: { type: TypeDef; focus: boolean }) {
   const [open, setOpen] = useState(focus);
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    if (focus) {
-      setOpen(true);
-      ref.current?.scrollIntoView({ block: "center", behavior: "smooth" });
-    }
+    if (!focus) return;
+    setOpen(true);
+    // Wait for the group + this row to expand before scrolling, otherwise rows
+    // rendering above push the target down and we land on the namespace header.
+    let raf2 = 0;
+    const raf1 = requestAnimationFrame(() => {
+      raf2 = requestAnimationFrame(() =>
+        ref.current?.scrollIntoView({ block: "center", behavior: "smooth" }),
+      );
+    });
+    return () => {
+      cancelAnimationFrame(raf1);
+      cancelAnimationFrame(raf2);
+    };
   }, [focus]);
   return (
     <div
