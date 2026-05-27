@@ -8,21 +8,16 @@ import type {
   TypeDef,
 } from "@cosmsg/schema";
 import { buildSearchRecords, search, type SearchRecord } from "@cosmsg/core/search";
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import bitbadgesLogo from "./assets/bitbadges.png";
 
-/** Lets any FieldTable turn a field's type into a link that jumps to that type's definition. */
-const TypeNav = createContext<{
-  types: Set<string>;
-  goto: (fullName: string) => void;
-}>({ types: new Set(), goto: () => {} });
+/** Lets any FieldTable resolve a referenced type so it can be expanded inline, recursively. */
+const TypeLookup = createContext<{
+  getType: (fullName: string) => TypeDef | undefined;
+}>({ getType: () => undefined });
+
+/** Max nesting depth for inline type drill-down (cyclic refs are also stopped via the path). */
+const MAX_NEST_DEPTH = 12;
 
 interface Dataset {
   index: DatasetIndex;
@@ -444,11 +439,10 @@ function ChainView({
 }) {
   const [filter, setFilter] = useState("");
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
-  const [focusType, setFocusType] = useState<string | null>(null);
 
   const f = filter.toLowerCase();
-  const typeSet = useMemo(
-    () => new Set(catalog.types.map((t) => t.fullName)),
+  const typeMap = useMemo(
+    () => new Map(catalog.types.map((t) => [t.fullName, t] as const)),
     [catalog],
   );
 
@@ -471,10 +465,9 @@ function ChainView({
     );
   }, [tab, f, catalog]);
 
-  // Clear filter / focus when the chain changes.
+  // Clear filter when the chain changes.
   useEffect(() => {
     setFilter("");
-    setFocusType(null);
   }, [catalog.chainName]);
 
   // Start collapsed on every chain/tab change — show namespace headers only.
@@ -482,21 +475,13 @@ function ChainView({
     setExpanded(new Set());
   }, [catalog.chainName, tab]);
 
-  const goto = (fullName: string) => {
-    setTab("types");
-    setFilter("");
-    setFocusType(fullName);
-  };
-
-  const focusNs = focusType ? namespaceOf(focusType) : null;
   const toggle = (ns: string) =>
     setExpanded((prev) => {
       const next = new Set(prev);
       next.has(ns) ? next.delete(ns) : next.add(ns);
       return next;
     });
-  const isOpen = (ns: string) =>
-    f ? true : expanded.has(ns) || ns === focusNs;
+  const isOpen = (ns: string) => (f ? true : expanded.has(ns));
 
   const tabs: Tab[] = ["msgs", "queries", "types"];
   const counts = {
@@ -506,7 +491,7 @@ function ChainView({
   };
 
   return (
-    <TypeNav.Provider value={{ types: typeSet, goto }}>
+    <TypeLookup.Provider value={{ getType: (n) => typeMap.get(n) }}>
       <div className="chain-header">
         <ChainLogo entry={entry} size={40} />
         <div>
@@ -562,11 +547,7 @@ function ChainView({
                   ))}
                 {tab === "types" &&
                   (g.items as TypeDef[]).map((t) => (
-                    <TypeRow
-                      key={t.fullName}
-                      type={t}
-                      focus={focusType === t.fullName}
-                    />
+                    <TypeRow key={t.fullName} type={t} />
                   ))}
               </div>
             )}
@@ -574,7 +555,7 @@ function ChainView({
         ))}
         {groups.length === 0 && <div className="status">No matches.</div>}
       </div>
-    </TypeNav.Provider>
+    </TypeLookup.Provider>
   );
 }
 
@@ -613,9 +594,9 @@ function QueryRow({ query }: { query: QueryDef }) {
       {open && (
         <div className="row-body">
           {query.comment && <p className="doc">{query.comment}</p>}
-          <p className="response">
-            → <TypeLink name={query.responseType} />
-          </p>
+          <div className="response">
+            → <ExpandableType name={query.responseType} />
+          </div>
           <FieldTable fields={query.requestFields} />
         </div>
       )}
@@ -623,30 +604,10 @@ function QueryRow({ query }: { query: QueryDef }) {
   );
 }
 
-function TypeRow({ type, focus }: { type: TypeDef; focus: boolean }) {
-  const [open, setOpen] = useState(focus);
-  const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    if (!focus) return;
-    setOpen(true);
-    // Wait for the group + this row to expand before scrolling, otherwise rows
-    // rendering above push the target down and we land on the namespace header.
-    let raf2 = 0;
-    const raf1 = requestAnimationFrame(() => {
-      raf2 = requestAnimationFrame(() =>
-        ref.current?.scrollIntoView({ block: "center", behavior: "smooth" }),
-      );
-    });
-    return () => {
-      cancelAnimationFrame(raf1);
-      cancelAnimationFrame(raf2);
-    };
-  }, [focus]);
+function TypeRow({ type }: { type: TypeDef }) {
+  const [open, setOpen] = useState(false);
   return (
-    <div
-      ref={ref}
-      className={`row ${open ? "open" : ""} ${focus ? "focus" : ""}`}
-    >
+    <div className={`row ${open ? "open" : ""}`}>
       <button className="row-head" onClick={() => setOpen(!open)}>
         <code className="id">{type.fullName}</code>
         {type.module && <span className="module">{type.module}</span>}
@@ -655,44 +616,97 @@ function TypeRow({ type, focus }: { type: TypeDef; focus: boolean }) {
       {open && (
         <div className="row-body">
           {type.comment && <p className="doc">{type.comment}</p>}
-          <FieldTable fields={type.fields} />
+          <FieldTable fields={type.fields} path={[type.fullName]} />
         </div>
       )}
     </div>
   );
 }
 
-/** Render a fully-qualified type name, linking to its definition when we have it. */
-function TypeLink({ name }: { name: string }) {
-  const nav = useContext(TypeNav);
-  if (nav.types.has(name))
-    return (
-      <button className="type-link" onClick={() => nav.goto(name)}>
+/** A standalone type reference (e.g. a query response) that expands its fields inline. */
+function ExpandableType({ name }: { name: string }) {
+  const { getType } = useContext(TypeLookup);
+  const [open, setOpen] = useState(false);
+  const target = getType(name);
+  if (!target) return <span className="type-plain">{name}</span>;
+  return (
+    <>
+      <button className="type-expand" onClick={() => setOpen(!open)}>
+        <span className="ns-chevron">{open ? "▾" : "▸"}</span>
         {name}
       </button>
-    );
-  return <>{name}</>;
+      {open && (
+        <div className="nested">
+          {target.comment && <p className="doc">{target.comment}</p>}
+          <FieldTable fields={target.fields} path={[name]} />
+        </div>
+      )}
+    </>
+  );
 }
 
-function FieldTable({ fields }: { fields: FieldDef[] }) {
+function FieldTable({
+  fields,
+  path = [],
+}: {
+  fields: FieldDef[];
+  path?: string[];
+}) {
   if (fields.length === 0) return <p className="empty">no fields</p>;
   return (
     <table className="fields">
       <tbody>
         {fields.map((f) => (
-          <tr key={f.number}>
-            <td className="fnum">{f.number}</td>
-            <td className="fname">{f.name}</td>
-            <td className="ftype">
-              {f.repeated && <span className="rep">repeated </span>}
-              {f.typeRef ? <TypeLink name={f.typeRef} /> : f.type}
-              {f.optional && <span className="opt"> ?</span>}
-            </td>
-            <td className="fcomment">{f.comment}</td>
-          </tr>
+          <FieldRow key={f.number} field={f} path={path} />
         ))}
       </tbody>
     </table>
+  );
+}
+
+/** One field row; if its type resolves to a known message, it can be expanded inline. */
+function FieldRow({ field, path }: { field: FieldDef; path: string[] }) {
+  const { getType } = useContext(TypeLookup);
+  const [open, setOpen] = useState(false);
+  const ref = field.typeRef;
+  const target = ref ? getType(ref) : undefined;
+  const cyclic = ref ? path.includes(ref) : false;
+  const expandable = !!target && !cyclic && path.length < MAX_NEST_DEPTH;
+  return (
+    <>
+      <tr>
+        <td className="fnum">{field.number}</td>
+        <td className="fname">{field.name}</td>
+        <td className="ftype">
+          {field.repeated && <span className="rep">repeated </span>}
+          {expandable ? (
+            <button className="type-expand" onClick={() => setOpen(!open)}>
+              <span className="ns-chevron">{open ? "▾" : "▸"}</span>
+              {field.type}
+            </button>
+          ) : cyclic ? (
+            <span className="type-cyclic" title="recursive reference">
+              {field.type} ↻
+            </span>
+          ) : (
+            field.type
+          )}
+          {field.optional && <span className="opt"> ?</span>}
+        </td>
+        <td className="fcomment">{field.comment}</td>
+      </tr>
+      {open && target && (
+        <tr className="nested-row">
+          <td />
+          <td colSpan={3}>
+            <div className="nested">
+              {target.comment && <p className="doc">{target.comment}</p>}
+              <FieldTable fields={target.fields} path={[...path, ref!]} />
+            </div>
+          </td>
+        </tr>
+      )}
+    </>
   );
 }
 
