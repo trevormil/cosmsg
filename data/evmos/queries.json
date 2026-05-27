@@ -1,0 +1,612 @@
+[
+  {
+    "service": "ethermint.evm.v1.Query",
+    "method": "Account",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "requestType": "ethermint.evm.v1.QueryAccountRequest",
+    "responseType": "ethermint.evm.v1.QueryAccountResponse",
+    "requestFields": [
+      {
+        "name": "address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "address is the ethereum hex address to query the account for."
+      }
+    ],
+    "comment": "Account queries an Ethereum account."
+  },
+  {
+    "service": "ethermint.evm.v1.Query",
+    "method": "CosmosAccount",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "requestType": "ethermint.evm.v1.QueryCosmosAccountRequest",
+    "responseType": "ethermint.evm.v1.QueryCosmosAccountResponse",
+    "requestFields": [
+      {
+        "name": "address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "address is the ethereum hex address to query the account for."
+      }
+    ],
+    "comment": "CosmosAccount queries an Ethereum account's Cosmos Address."
+  },
+  {
+    "service": "ethermint.evm.v1.Query",
+    "method": "ValidatorAccount",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "requestType": "ethermint.evm.v1.QueryValidatorAccountRequest",
+    "responseType": "ethermint.evm.v1.QueryValidatorAccountResponse",
+    "requestFields": [
+      {
+        "name": "cons_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "cons_address is the validator cons address to query the account for."
+      }
+    ],
+    "comment": "ValidatorAccount queries an Ethereum account's from a validator consensus\n Address."
+  },
+  {
+    "service": "ethermint.evm.v1.Query",
+    "method": "Balance",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "requestType": "ethermint.evm.v1.QueryBalanceRequest",
+    "responseType": "ethermint.evm.v1.QueryBalanceResponse",
+    "requestFields": [
+      {
+        "name": "address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "address is the ethereum hex address to query the balance for."
+      }
+    ],
+    "comment": "Balance queries the balance of a the EVM denomination for a single\n account."
+  },
+  {
+    "service": "ethermint.evm.v1.Query",
+    "method": "Storage",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "requestType": "ethermint.evm.v1.QueryStorageRequest",
+    "responseType": "ethermint.evm.v1.QueryStorageResponse",
+    "requestFields": [
+      {
+        "name": "address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "address is the ethereum hex address to query the storage state for."
+      },
+      {
+        "name": "key",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "key defines the key of the storage state"
+      }
+    ],
+    "comment": "Storage queries the balance of all coins for a single account."
+  },
+  {
+    "service": "ethermint.evm.v1.Query",
+    "method": "Code",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "requestType": "ethermint.evm.v1.QueryCodeRequest",
+    "responseType": "ethermint.evm.v1.QueryCodeResponse",
+    "requestFields": [
+      {
+        "name": "address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "address is the ethereum hex address to query the code for."
+      }
+    ],
+    "comment": "Code queries the balance of all coins for a single account."
+  },
+  {
+    "service": "ethermint.evm.v1.Query",
+    "method": "Params",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "requestType": "ethermint.evm.v1.QueryParamsRequest",
+    "responseType": "ethermint.evm.v1.QueryParamsResponse",
+    "requestFields": [],
+    "comment": "Params queries the parameters of x/evm module."
+  },
+  {
+    "service": "ethermint.evm.v1.Query",
+    "method": "EthCall",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "requestType": "ethermint.evm.v1.EthCallRequest",
+    "responseType": "ethermint.evm.v1.MsgEthereumTxResponse",
+    "requestFields": [
+      {
+        "name": "args",
+        "type": "bytes",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "args uses the same json format as the json rpc api."
+      },
+      {
+        "name": "gas_cap",
+        "type": "uint64",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "gas_cap defines the default gas cap to be used"
+      },
+      {
+        "name": "proposer_address",
+        "type": "bytes",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "proposer_address of the requested block in hex format"
+      },
+      {
+        "name": "chain_id",
+        "type": "int64",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "chain_id is the eip155 chain id parsed from the requested block header"
+      }
+    ],
+    "comment": "EthCall implements the `eth_call` rpc api"
+  },
+  {
+    "service": "ethermint.evm.v1.Query",
+    "method": "EstimateGas",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "requestType": "ethermint.evm.v1.EthCallRequest",
+    "responseType": "ethermint.evm.v1.EstimateGasResponse",
+    "requestFields": [
+      {
+        "name": "args",
+        "type": "bytes",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "args uses the same json format as the json rpc api."
+      },
+      {
+        "name": "gas_cap",
+        "type": "uint64",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "gas_cap defines the default gas cap to be used"
+      },
+      {
+        "name": "proposer_address",
+        "type": "bytes",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "proposer_address of the requested block in hex format"
+      },
+      {
+        "name": "chain_id",
+        "type": "int64",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "chain_id is the eip155 chain id parsed from the requested block header"
+      }
+    ],
+    "comment": "EstimateGas implements the `eth_estimateGas` rpc api"
+  },
+  {
+    "service": "ethermint.evm.v1.Query",
+    "method": "TraceTx",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "requestType": "ethermint.evm.v1.QueryTraceTxRequest",
+    "responseType": "ethermint.evm.v1.QueryTraceTxResponse",
+    "requestFields": [
+      {
+        "name": "msg",
+        "type": "ethermint.evm.v1.MsgEthereumTx",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ethermint.evm.v1.MsgEthereumTx",
+        "comment": "msg is the MsgEthereumTx for the requested transaction"
+      },
+      {
+        "name": "trace_config",
+        "type": "ethermint.evm.v1.TraceConfig",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ethermint.evm.v1.TraceConfig",
+        "comment": "trace_config holds extra parameters to trace functions."
+      },
+      {
+        "name": "predecessors",
+        "type": "ethermint.evm.v1.MsgEthereumTx",
+        "number": 4,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "ethermint.evm.v1.MsgEthereumTx",
+        "comment": "predecessors is an array of transactions included in the same block\n need to be replayed first to get correct context for tracing."
+      },
+      {
+        "name": "block_number",
+        "type": "int64",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "comment": "block_number of requested transaction"
+      },
+      {
+        "name": "block_hash",
+        "type": "string",
+        "number": 6,
+        "repeated": false,
+        "optional": false,
+        "comment": "block_hash of requested transaction"
+      },
+      {
+        "name": "block_time",
+        "type": "google.protobuf.Timestamp",
+        "number": 7,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Timestamp",
+        "comment": "block_time of requested transaction"
+      },
+      {
+        "name": "proposer_address",
+        "type": "bytes",
+        "number": 8,
+        "repeated": false,
+        "optional": false,
+        "comment": "proposer_address is the proposer of the requested block"
+      },
+      {
+        "name": "chain_id",
+        "type": "int64",
+        "number": 9,
+        "repeated": false,
+        "optional": false,
+        "comment": "chain_id is the eip155 chain id parsed from the requested block header"
+      },
+      {
+        "name": "block_max_gas",
+        "type": "int64",
+        "number": 10,
+        "repeated": false,
+        "optional": false,
+        "comment": "block_max_gas of the block of the requested transaction"
+      }
+    ],
+    "comment": "TraceTx implements the `debug_traceTransaction` rpc api"
+  },
+  {
+    "service": "ethermint.evm.v1.Query",
+    "method": "TraceBlock",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "requestType": "ethermint.evm.v1.QueryTraceBlockRequest",
+    "responseType": "ethermint.evm.v1.QueryTraceBlockResponse",
+    "requestFields": [
+      {
+        "name": "txs",
+        "type": "ethermint.evm.v1.MsgEthereumTx",
+        "number": 1,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "ethermint.evm.v1.MsgEthereumTx",
+        "comment": "txs is an array of messages in the block"
+      },
+      {
+        "name": "trace_config",
+        "type": "ethermint.evm.v1.TraceConfig",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ethermint.evm.v1.TraceConfig",
+        "comment": "trace_config holds extra parameters to trace functions."
+      },
+      {
+        "name": "block_number",
+        "type": "int64",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "comment": "block_number of the traced block"
+      },
+      {
+        "name": "block_hash",
+        "type": "string",
+        "number": 6,
+        "repeated": false,
+        "optional": false,
+        "comment": "block_hash (hex) of the traced block"
+      },
+      {
+        "name": "block_time",
+        "type": "google.protobuf.Timestamp",
+        "number": 7,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Timestamp",
+        "comment": "block_time of the traced block"
+      },
+      {
+        "name": "proposer_address",
+        "type": "bytes",
+        "number": 8,
+        "repeated": false,
+        "optional": false,
+        "comment": "proposer_address is the address of the requested block"
+      },
+      {
+        "name": "chain_id",
+        "type": "int64",
+        "number": 9,
+        "repeated": false,
+        "optional": false,
+        "comment": "chain_id is the eip155 chain id parsed from the requested block header"
+      },
+      {
+        "name": "block_max_gas",
+        "type": "int64",
+        "number": 10,
+        "repeated": false,
+        "optional": false,
+        "comment": "block_max_gas of the traced block"
+      }
+    ],
+    "comment": "TraceBlock implements the `debug_traceBlockByNumber` and `debug_traceBlockByHash` rpc api"
+  },
+  {
+    "service": "ethermint.evm.v1.Query",
+    "method": "BaseFee",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "requestType": "ethermint.evm.v1.QueryBaseFeeRequest",
+    "responseType": "ethermint.evm.v1.QueryBaseFeeResponse",
+    "requestFields": [],
+    "comment": "BaseFee queries the base fee of the parent block of the current block,\n it's similar to feemarket module's method, but also checks london hardfork status."
+  },
+  {
+    "service": "ethermint.evm.v1.Query",
+    "method": "GlobalMinGasPrice",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "requestType": "ethermint.evm.v1.QueryGlobalMinGasPriceRequest",
+    "responseType": "ethermint.evm.v1.QueryGlobalMinGasPriceResponse",
+    "requestFields": [],
+    "comment": "GlobalMinGasPrice queries the MinGasPrice\n it's similar to feemarket module's method,\n but makes the conversion to 18 decimals\n when the evm denom is represented with a different precision."
+  },
+  {
+    "service": "ethermint.evm.v1.Query",
+    "method": "Config",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "requestType": "ethermint.evm.v1.QueryConfigRequest",
+    "responseType": "ethermint.evm.v1.QueryConfigResponse",
+    "requestFields": [],
+    "comment": "Config queries the EVM configuration"
+  },
+  {
+    "service": "ethermint.feemarket.v1.Query",
+    "method": "Params",
+    "package": "ethermint.feemarket.v1",
+    "module": "feemarket",
+    "requestType": "ethermint.feemarket.v1.QueryParamsRequest",
+    "responseType": "ethermint.feemarket.v1.QueryParamsResponse",
+    "requestFields": [],
+    "comment": "Params queries the parameters of x/feemarket module."
+  },
+  {
+    "service": "ethermint.feemarket.v1.Query",
+    "method": "BaseFee",
+    "package": "ethermint.feemarket.v1",
+    "module": "feemarket",
+    "requestType": "ethermint.feemarket.v1.QueryBaseFeeRequest",
+    "responseType": "ethermint.feemarket.v1.QueryBaseFeeResponse",
+    "requestFields": [],
+    "comment": "BaseFee queries the base fee of the parent block of the current block."
+  },
+  {
+    "service": "ethermint.feemarket.v1.Query",
+    "method": "BlockGas",
+    "package": "ethermint.feemarket.v1",
+    "module": "feemarket",
+    "requestType": "ethermint.feemarket.v1.QueryBlockGasRequest",
+    "responseType": "ethermint.feemarket.v1.QueryBlockGasResponse",
+    "requestFields": [],
+    "comment": "BlockGas queries the gas used at a given block height"
+  },
+  {
+    "service": "evmos.epochs.v1.Query",
+    "method": "EpochInfos",
+    "package": "evmos.epochs.v1",
+    "module": "epochs",
+    "requestType": "evmos.epochs.v1.QueryEpochsInfoRequest",
+    "responseType": "evmos.epochs.v1.QueryEpochsInfoResponse",
+    "requestFields": [
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageRequest",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageRequest",
+        "comment": "pagination defines an optional pagination for the request."
+      }
+    ],
+    "comment": "EpochInfos provide running epochInfos"
+  },
+  {
+    "service": "evmos.epochs.v1.Query",
+    "method": "CurrentEpoch",
+    "package": "evmos.epochs.v1",
+    "module": "epochs",
+    "requestType": "evmos.epochs.v1.QueryCurrentEpochRequest",
+    "responseType": "evmos.epochs.v1.QueryCurrentEpochResponse",
+    "requestFields": [
+      {
+        "name": "identifier",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "identifier of the current epoch"
+      }
+    ],
+    "comment": "CurrentEpoch provide current epoch of specified identifier"
+  },
+  {
+    "service": "evmos.erc20.v1.Query",
+    "method": "TokenPairs",
+    "package": "evmos.erc20.v1",
+    "module": "erc20",
+    "requestType": "evmos.erc20.v1.QueryTokenPairsRequest",
+    "responseType": "evmos.erc20.v1.QueryTokenPairsResponse",
+    "requestFields": [
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageRequest",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageRequest",
+        "comment": "pagination defines an optional pagination for the request."
+      }
+    ],
+    "comment": "TokenPairs retrieves registered token pairs"
+  },
+  {
+    "service": "evmos.erc20.v1.Query",
+    "method": "TokenPair",
+    "package": "evmos.erc20.v1",
+    "module": "erc20",
+    "requestType": "evmos.erc20.v1.QueryTokenPairRequest",
+    "responseType": "evmos.erc20.v1.QueryTokenPairResponse",
+    "requestFields": [
+      {
+        "name": "token",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "token identifier can be either the hex contract address of the ERC20 or the\n Cosmos base denomination"
+      }
+    ],
+    "comment": "TokenPair retrieves a registered token pair"
+  },
+  {
+    "service": "evmos.erc20.v1.Query",
+    "method": "Params",
+    "package": "evmos.erc20.v1",
+    "module": "erc20",
+    "requestType": "evmos.erc20.v1.QueryParamsRequest",
+    "responseType": "evmos.erc20.v1.QueryParamsResponse",
+    "requestFields": [],
+    "comment": "Params retrieves the erc20 module params"
+  },
+  {
+    "service": "evmos.inflation.v1.Query",
+    "method": "Period",
+    "package": "evmos.inflation.v1",
+    "module": "inflation",
+    "requestType": "evmos.inflation.v1.QueryPeriodRequest",
+    "responseType": "evmos.inflation.v1.QueryPeriodResponse",
+    "requestFields": [],
+    "comment": "Period retrieves current period."
+  },
+  {
+    "service": "evmos.inflation.v1.Query",
+    "method": "EpochMintProvision",
+    "package": "evmos.inflation.v1",
+    "module": "inflation",
+    "requestType": "evmos.inflation.v1.QueryEpochMintProvisionRequest",
+    "responseType": "evmos.inflation.v1.QueryEpochMintProvisionResponse",
+    "requestFields": [],
+    "comment": "EpochMintProvision retrieves current minting epoch provision value."
+  },
+  {
+    "service": "evmos.inflation.v1.Query",
+    "method": "SkippedEpochs",
+    "package": "evmos.inflation.v1",
+    "module": "inflation",
+    "requestType": "evmos.inflation.v1.QuerySkippedEpochsRequest",
+    "responseType": "evmos.inflation.v1.QuerySkippedEpochsResponse",
+    "requestFields": [],
+    "comment": "SkippedEpochs retrieves the total number of skipped epochs."
+  },
+  {
+    "service": "evmos.inflation.v1.Query",
+    "method": "CirculatingSupply",
+    "package": "evmos.inflation.v1",
+    "module": "inflation",
+    "requestType": "evmos.inflation.v1.QueryCirculatingSupplyRequest",
+    "responseType": "evmos.inflation.v1.QueryCirculatingSupplyResponse",
+    "requestFields": [],
+    "comment": "CirculatingSupply retrieves the total number of tokens that are in\n circulation (i.e. excluding unvested tokens)."
+  },
+  {
+    "service": "evmos.inflation.v1.Query",
+    "method": "InflationRate",
+    "package": "evmos.inflation.v1",
+    "module": "inflation",
+    "requestType": "evmos.inflation.v1.QueryInflationRateRequest",
+    "responseType": "evmos.inflation.v1.QueryInflationRateResponse",
+    "requestFields": [],
+    "comment": "InflationRate retrieves the inflation rate of the current period."
+  },
+  {
+    "service": "evmos.inflation.v1.Query",
+    "method": "Params",
+    "package": "evmos.inflation.v1",
+    "module": "inflation",
+    "requestType": "evmos.inflation.v1.QueryParamsRequest",
+    "responseType": "evmos.inflation.v1.QueryParamsResponse",
+    "requestFields": [],
+    "comment": "Params retrieves the total set of minting parameters."
+  },
+  {
+    "service": "evmos.vesting.v2.Query",
+    "method": "Balances",
+    "package": "evmos.vesting.v2",
+    "module": "vesting",
+    "requestType": "evmos.vesting.v2.QueryBalancesRequest",
+    "responseType": "evmos.vesting.v2.QueryBalancesResponse",
+    "requestFields": [
+      {
+        "name": "address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "address of the clawback vesting account"
+      }
+    ],
+    "comment": "Balances retrieves the unvested, vested and locked tokens for a vesting account"
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "chainName": "stargaze",
+  "prettyName": "Stargaze",
+  "chainId": "stargaze-1",
+  "msgCount": 153,
+  "queryCount": 283,
+  "provenance": {
+    "source": "reflection",
+    "harvestedAt": "2026-05-27T16:51:04.559Z",
+    "origin": "reflection:stargaze-grpc.polkachu.com:13790",
+    "commentsFromSource": false
+  }
+}

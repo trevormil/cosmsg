@@ -1,0 +1,1667 @@
+[
+  {
+    "typeUrl": "/gaia.globalfee.v1beta1.MsgUpdateParams",
+    "name": "MsgUpdateParams",
+    "package": "gaia.globalfee.v1beta1",
+    "module": "globalfee",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "Authority is the address of the governance account."
+      },
+      {
+        "name": "params",
+        "type": "gaia.globalfee.v1beta1.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "gaia.globalfee.v1beta1.Params",
+        "comment": "params defines the x/globalfee parameters to update.\n\n NOTE: All parameters must be supplied."
+      }
+    ],
+    "comment": "MsgUpdateParams is the MsgUpdateParams request type.\n\n Since: 0.47"
+  },
+  {
+    "typeUrl": "/neutron.coinfactory.v1beta1.MsgCreateDenom",
+    "name": "MsgCreateDenom",
+    "package": "neutron.coinfactory.v1beta1",
+    "module": "coinfactory",
+    "signers": [
+      "sender"
+    ],
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "subdenom",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "subdenom can be up to 44 \"alphanumeric\" characters long."
+      }
+    ],
+    "comment": "MsgCreateDenom defines the message structure for the CreateDenom gRPC service\n method. It allows an account to create a new denom. It requires a sender\n address and a sub denomination. The (sender_address, sub_denomination) tuple\n must be unique and cannot be re-used.\n\n The resulting denom created is defined as\n <factory.{creatorAddress}.{subdenom}>. The resulting denom's admin is\n originally set to be the creator, but this can be changed later. The token\n denom does not indicate the current admin."
+  },
+  {
+    "typeUrl": "/neutron.coinfactory.v1beta1.MsgMint",
+    "name": "MsgMint",
+    "package": "neutron.coinfactory.v1beta1",
+    "module": "coinfactory",
+    "signers": [
+      "sender"
+    ],
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      },
+      {
+        "name": "mintToAddress",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "MsgMint is the sdk.Msg type for allowing an admin account to mint\n more of a token.  For now, we only support minting to the sender account"
+  },
+  {
+    "typeUrl": "/neutron.coinfactory.v1beta1.MsgBurn",
+    "name": "MsgBurn",
+    "package": "neutron.coinfactory.v1beta1",
+    "module": "coinfactory",
+    "signers": [
+      "sender"
+    ],
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      },
+      {
+        "name": "burnFromAddress",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "MsgBurn is the sdk.Msg type for allowing an admin account to burn\n a token.  For now, we only support burning from the sender account."
+  },
+  {
+    "typeUrl": "/neutron.coinfactory.v1beta1.MsgChangeAdmin",
+    "name": "MsgChangeAdmin",
+    "package": "neutron.coinfactory.v1beta1",
+    "module": "coinfactory",
+    "signers": [
+      "sender"
+    ],
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "denom",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "new_admin",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "MsgChangeAdmin is the sdk.Msg type for allowing an admin account to reassign\n adminship of a denom to a new account"
+  },
+  {
+    "typeUrl": "/neutron.coinfactory.v1beta1.MsgSetDenomMetadata",
+    "name": "MsgSetDenomMetadata",
+    "package": "neutron.coinfactory.v1beta1",
+    "module": "coinfactory",
+    "signers": [
+      "sender"
+    ],
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "metadata",
+        "type": "cosmos.bank.v1beta1.Metadata",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.bank.v1beta1.Metadata"
+      }
+    ],
+    "comment": "MsgSetDenomMetadata is the sdk.Msg type for allowing an admin account to set\n the denom's bank metadata"
+  },
+  {
+    "typeUrl": "/neutron.coinfactory.v1beta1.MsgSetBeforeSendHook",
+    "name": "MsgSetBeforeSendHook",
+    "package": "neutron.coinfactory.v1beta1",
+    "module": "coinfactory",
+    "signers": [
+      "sender"
+    ],
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "denom",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "contract_addr",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "MsgSetBeforeSendHook is the sdk.Msg type for allowing an admin account to\n assign a CosmWasm contract to call with a BeforeSend hook"
+  },
+  {
+    "typeUrl": "/neutron.coinfactory.v1beta1.MsgForceTransfer",
+    "name": "MsgForceTransfer",
+    "package": "neutron.coinfactory.v1beta1",
+    "module": "coinfactory",
+    "signers": [
+      "sender"
+    ],
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      },
+      {
+        "name": "transferFromAddress",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "transferToAddress",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/neutron.coinfactory.v1beta1.MsgUpdateParams",
+    "name": "MsgUpdateParams",
+    "package": "neutron.coinfactory.v1beta1",
+    "module": "coinfactory",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "Authority is the address of the governance account."
+      },
+      {
+        "name": "params",
+        "type": "neutron.coinfactory.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "neutron.coinfactory.Params",
+        "comment": "params defines the x/coinfactory parameters to update.\n\n NOTE: All parameters must be supplied."
+      }
+    ],
+    "comment": "MsgUpdateParams is the MsgUpdateParams request type.\n\n Since: 0.47"
+  },
+  {
+    "typeUrl": "/neutron.contractmanager.MsgUpdateParams",
+    "name": "MsgUpdateParams",
+    "package": "neutron.contractmanager",
+    "module": "contractmanager",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "Authority is the address of the governance account."
+      },
+      {
+        "name": "params",
+        "type": "neutron.contractmanager.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "neutron.contractmanager.Params",
+        "comment": "params defines the x/contractmanager parameters to update.\n\n NOTE: All parameters must be supplied."
+      }
+    ],
+    "comment": "MsgUpdateParams is the MsgUpdateParams request type.\n\n Since: 0.47"
+  },
+  {
+    "typeUrl": "/neutron.contractmanager.MsgResubmitFailure",
+    "name": "MsgResubmitFailure",
+    "package": "neutron.contractmanager",
+    "module": "contractmanager",
+    "signers": [
+      "sender"
+    ],
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "sender is the contract which failure to acknowledge is resubmitted."
+      },
+      {
+        "name": "failure_id",
+        "type": "uint64",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "failure_id is id of failure to resubmit"
+      }
+    ],
+    "comment": "MsgResubmitFailure - contract that has failed acknowledgement can resubmit its failure"
+  },
+  {
+    "typeUrl": "/neutron.cron.MsgAddSchedule",
+    "name": "MsgAddSchedule",
+    "package": "neutron.cron",
+    "module": "cron",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "The address of the governance account."
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "Name of the schedule"
+      },
+      {
+        "name": "period",
+        "type": "uint64",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "Period in blocks"
+      },
+      {
+        "name": "msgs",
+        "type": "neutron.cron.MsgExecuteContract",
+        "number": 4,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "neutron.cron.MsgExecuteContract",
+        "comment": "Msgs that will be executed every certain number of blocks, specified in the `period` field"
+      },
+      {
+        "name": "execution_stage",
+        "type": "neutron.cron.ExecutionStage",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "neutron.cron.ExecutionStage",
+        "comment": "Stage when messages will be executed"
+      }
+    ],
+    "comment": "The MsgAddSchedule request type."
+  },
+  {
+    "typeUrl": "/neutron.cron.MsgRemoveSchedule",
+    "name": "MsgRemoveSchedule",
+    "package": "neutron.cron",
+    "module": "cron",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "The address of the governance account."
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "Name of the schedule"
+      }
+    ],
+    "comment": "The MsgRemoveSchedule request type."
+  },
+  {
+    "typeUrl": "/neutron.cron.MsgUpdateParams",
+    "name": "MsgUpdateParams",
+    "package": "neutron.cron",
+    "module": "cron",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "The address of the governance account."
+      },
+      {
+        "name": "params",
+        "type": "neutron.cron.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "neutron.cron.Params",
+        "comment": "Defines the x/cron parameters to update.\n\n NOTE: All parameters must be supplied."
+      }
+    ],
+    "comment": "The MsgUpdateParams request type.\n\n Since: 0.47"
+  },
+  {
+    "typeUrl": "/neutron.dex.MsgDeposit",
+    "name": "MsgDeposit",
+    "package": "neutron.dex",
+    "module": "dex",
+    "signers": [
+      "creator"
+    ],
+    "fields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "receiver",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "token_a",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "token_b",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "amounts_a",
+        "type": "string",
+        "number": 5,
+        "repeated": true,
+        "optional": false
+      },
+      {
+        "name": "amounts_b",
+        "type": "string",
+        "number": 6,
+        "repeated": true,
+        "optional": false
+      },
+      {
+        "name": "tick_indexes_a_to_b",
+        "type": "int64",
+        "number": 7,
+        "repeated": true,
+        "optional": false
+      },
+      {
+        "name": "fees",
+        "type": "uint64",
+        "number": 8,
+        "repeated": true,
+        "optional": false
+      },
+      {
+        "name": "options",
+        "type": "neutron.dex.DepositOptions",
+        "number": 9,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "neutron.dex.DepositOptions"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/neutron.dex.MsgWithdrawal",
+    "name": "MsgWithdrawal",
+    "package": "neutron.dex",
+    "module": "dex",
+    "signers": [
+      "creator"
+    ],
+    "fields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "receiver",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "token_a",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "token_b",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "shares_to_remove",
+        "type": "string",
+        "number": 5,
+        "repeated": true,
+        "optional": false
+      },
+      {
+        "name": "tick_indexes_a_to_b",
+        "type": "int64",
+        "number": 6,
+        "repeated": true,
+        "optional": false
+      },
+      {
+        "name": "fees",
+        "type": "uint64",
+        "number": 7,
+        "repeated": true,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/neutron.dex.MsgWithdrawalWithShares",
+    "name": "MsgWithdrawalWithShares",
+    "package": "neutron.dex",
+    "module": "dex",
+    "signers": [
+      "creator"
+    ],
+    "fields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "receiver",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "shares_to_remove",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 3,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/neutron.dex.MsgPlaceLimitOrder",
+    "name": "MsgPlaceLimitOrder",
+    "package": "neutron.dex",
+    "module": "dex",
+    "signers": [
+      "creator"
+    ],
+    "fields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "receiver",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "token_in",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "token_out",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "tick_index_in_to_out",
+        "type": "int64",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "comment": "DEPRECATED: tick_index_in_to_out will be removed in future release; limit_sell_price should be used instead."
+      },
+      {
+        "name": "amount_in",
+        "type": "string",
+        "number": 7,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "order_type",
+        "type": "neutron.dex.LimitOrderType",
+        "number": 8,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "neutron.dex.LimitOrderType"
+      },
+      {
+        "name": "expiration_time",
+        "type": "google.protobuf.Timestamp",
+        "number": 9,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Timestamp",
+        "comment": "expirationTime is only valid iff orderType == GOOD_TIL_TIME."
+      },
+      {
+        "name": "max_amount_out",
+        "type": "string",
+        "number": 10,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "limit_sell_price",
+        "type": "string",
+        "number": 11,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "min_average_sell_price",
+        "type": "string",
+        "number": 12,
+        "repeated": false,
+        "optional": false,
+        "comment": "min_average_sell_price is DEPRECATED"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/neutron.dex.MsgWithdrawFilledLimitOrder",
+    "name": "MsgWithdrawFilledLimitOrder",
+    "package": "neutron.dex",
+    "module": "dex",
+    "signers": [
+      "creator"
+    ],
+    "fields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "tranche_key",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/neutron.dex.MsgCancelLimitOrder",
+    "name": "MsgCancelLimitOrder",
+    "package": "neutron.dex",
+    "module": "dex",
+    "signers": [
+      "creator"
+    ],
+    "fields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "tranche_key",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/neutron.dex.MsgMultiHopSwap",
+    "name": "MsgMultiHopSwap",
+    "package": "neutron.dex",
+    "module": "dex",
+    "signers": [
+      "creator"
+    ],
+    "fields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "receiver",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "routes",
+        "type": "neutron.dex.MultiHopRoute",
+        "number": 3,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "neutron.dex.MultiHopRoute"
+      },
+      {
+        "name": "amount_in",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "exit_limit_price",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "pick_best_route",
+        "type": "bool",
+        "number": 6,
+        "repeated": false,
+        "optional": false,
+        "comment": "If pickBestRoute == true then all routes are run and the route with the\n best price is chosen otherwise, the first successful route is used."
+      }
+    ]
+  },
+  {
+    "typeUrl": "/neutron.dex.MsgUpdateParams",
+    "name": "MsgUpdateParams",
+    "package": "neutron.dex",
+    "module": "dex",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "Authority is the address of the governance account."
+      },
+      {
+        "name": "params",
+        "type": "neutron.dex.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "neutron.dex.Params",
+        "comment": "NOTE: All parameters must be supplied."
+      }
+    ]
+  },
+  {
+    "typeUrl": "/neutron.dynamicfees.v1.MsgUpdateParams",
+    "name": "MsgUpdateParams",
+    "package": "neutron.dynamicfees.v1",
+    "module": "dynamicfees",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "Authority is the address of the governance account."
+      },
+      {
+        "name": "params",
+        "type": "neutron.dynamicfees.v1.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "neutron.dynamicfees.v1.Params",
+        "comment": "params defines the x/dynamicfees parameters to update.\n\n NOTE: All parameters must be supplied."
+      }
+    ],
+    "comment": "MsgUpdateParams is the MsgUpdateParams request type."
+  },
+  {
+    "typeUrl": "/neutron.feerefunder.MsgUpdateParams",
+    "name": "MsgUpdateParams",
+    "package": "neutron.feerefunder",
+    "module": "feerefunder",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "Authority is the address of the governance account."
+      },
+      {
+        "name": "params",
+        "type": "neutron.feerefunder.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "neutron.feerefunder.Params",
+        "comment": "params defines the x/feerefunder parameters to update.\n\n NOTE: All parameters must be supplied."
+      }
+    ],
+    "comment": "MsgUpdateParams is the MsgUpdateParams request type.\n\n Since: 0.47"
+  },
+  {
+    "typeUrl": "/neutron.ibcratelimit.v1beta1.MsgUpdateParams",
+    "name": "MsgUpdateParams",
+    "package": "neutron.ibcratelimit.v1beta1",
+    "module": "ibcratelimit",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "Authority is the address of the governance account."
+      },
+      {
+        "name": "params",
+        "type": "neutron.ibcratelimit.v1beta1.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "neutron.ibcratelimit.v1beta1.Params",
+        "comment": "params defines the x/tokenfactory parameters to update.\n\n NOTE: All parameters must be supplied."
+      }
+    ],
+    "comment": "MsgUpdateParams is the MsgUpdateParams request type.\n\n Since: 0.47"
+  },
+  {
+    "typeUrl": "/neutron.interchainqueries.MsgRegisterInterchainQuery",
+    "name": "MsgRegisterInterchainQuery",
+    "package": "neutron.interchainqueries",
+    "module": "interchainqueries",
+    "signers": [
+      "sender"
+    ],
+    "fields": [
+      {
+        "name": "query_type",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "The query type identifier: `kv` or `tx`."
+      },
+      {
+        "name": "keys",
+        "type": "neutron.interchainqueries.KVKey",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "neutron.interchainqueries.KVKey",
+        "comment": "The KV-storage keys for which we want to get values from remote chain. Only applicable for the\n KV Interchain Queries. Max amount of keys is limited by the module's `max_kv_query_keys_count`\n parameters."
+      },
+      {
+        "name": "transactions_filter",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "A stringified list of filters for remote transactions search. Only applicable for the TX\n Interchain Queries. Example: \"[{\\\"field\\\":\\\"tx.height\\\",\\\"op\\\":\\\"Gte\\\",\\\"value\\\":2644737}]\".\n Supported operators: \"eq\", \"lt\", \"gt\", \"lte\", \"gte\". Max amount of filter conditions is\n limited by the module's `max_transactions_filters` parameters."
+      },
+      {
+        "name": "connection_id",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "The IBC connection ID to the remote chain (the source of querying data). Is used for getting\n ConsensusState from the respective IBC client to verify query result proofs."
+      },
+      {
+        "name": "update_period",
+        "type": "uint64",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "comment": "Parameter that defines the minimal delay between consecutive query executions (i.e. the\n minimal delay between query results update)."
+      },
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 6,
+        "repeated": false,
+        "optional": false,
+        "comment": "The signer of the message."
+      }
+    ],
+    "comment": "Request type for the Msg/RegisterInterchainQuery RPC method."
+  },
+  {
+    "typeUrl": "/neutron.interchainqueries.MsgSubmitQueryResult",
+    "name": "MsgSubmitQueryResult",
+    "package": "neutron.interchainqueries",
+    "module": "interchainqueries",
+    "signers": [
+      "sender"
+    ],
+    "fields": [
+      {
+        "name": "query_id",
+        "type": "uint64",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "The ID of the Interchain Query."
+      },
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "The signer of the message."
+      },
+      {
+        "name": "client_id",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "The IBC client ID that corresponds to the IBC connection to the remote chain (where the\n query result is coming from).\n Deprecated: populating this field does not make any affect"
+      },
+      {
+        "name": "result",
+        "type": "neutron.interchainqueries.QueryResult",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "neutron.interchainqueries.QueryResult",
+        "comment": "The result of the Interchain Query execution."
+      }
+    ],
+    "comment": "Request type for the Msg/SubmitQueryResult RPC method."
+  },
+  {
+    "typeUrl": "/neutron.interchainqueries.MsgRemoveInterchainQueryRequest",
+    "name": "MsgRemoveInterchainQueryRequest",
+    "package": "neutron.interchainqueries",
+    "module": "interchainqueries",
+    "signers": [
+      "sender"
+    ],
+    "fields": [
+      {
+        "name": "query_id",
+        "type": "uint64",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "The ID of the query to remove."
+      },
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "The signer of the message."
+      }
+    ],
+    "comment": "Request type for the Msg/RemoveInterchainQuery RPC method."
+  },
+  {
+    "typeUrl": "/neutron.interchainqueries.MsgUpdateInterchainQueryRequest",
+    "name": "MsgUpdateInterchainQueryRequest",
+    "package": "neutron.interchainqueries",
+    "module": "interchainqueries",
+    "signers": [
+      "sender"
+    ],
+    "fields": [
+      {
+        "name": "query_id",
+        "type": "uint64",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "The ID of the query to update."
+      },
+      {
+        "name": "new_keys",
+        "type": "neutron.interchainqueries.KVKey",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "neutron.interchainqueries.KVKey",
+        "comment": "A new list of KV-storage keys for which to get values from the remote chain. Only applicable\n for a KV Interchain Query. Max amount of keys is limited by the module's `max_kv_query_keys_count`\n parameters."
+      },
+      {
+        "name": "new_update_period",
+        "type": "uint64",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "A new minimal delay between consecutive query executions."
+      },
+      {
+        "name": "new_transactions_filter",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "A new list of filters for remote transactions search. Only applicable for a TX Interchain\n Query. Example: \"[{\\\"field\\\":\\\"tx.height\\\",\\\"op\\\":\\\"Gte\\\",\\\"value\\\":2644737}]\".\n Supported operators: \"eq\", \"lt\", \"gt\", \"lte\", \"gte\". Max amount of filter conditions is\n limited by the module's `max_transactions_filters` parameters."
+      },
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "comment": "The signer of the message."
+      }
+    ],
+    "comment": "Request type for the Msg/UpdateInterchainQuery RPC method."
+  },
+  {
+    "typeUrl": "/neutron.interchainqueries.MsgUpdateParams",
+    "name": "MsgUpdateParams",
+    "package": "neutron.interchainqueries",
+    "module": "interchainqueries",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "The address of the authority of the module."
+      },
+      {
+        "name": "params",
+        "type": "neutron.interchainqueries.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "neutron.interchainqueries.Params",
+        "comment": "The new parameters of the module. All parameters must be supplied."
+      }
+    ],
+    "comment": "Request type for the Msg/UpdateParams RPC method."
+  },
+  {
+    "typeUrl": "/neutron.interchaintxs.v1.MsgRegisterInterchainAccount",
+    "name": "MsgRegisterInterchainAccount",
+    "package": "neutron.interchaintxs.v1",
+    "module": "interchaintxs",
+    "signers": [
+      "from_address"
+    ],
+    "fields": [
+      {
+        "name": "from_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "connection_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "interchain_account_id",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "register_fee",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 4,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      },
+      {
+        "name": "ordering",
+        "type": "ibc.core.channel.v1.Order",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.core.channel.v1.Order"
+      }
+    ],
+    "comment": "MsgRegisterInterchainAccount is used to register an account on a remote zone."
+  },
+  {
+    "typeUrl": "/neutron.interchaintxs.v1.MsgSubmitTx",
+    "name": "MsgSubmitTx",
+    "package": "neutron.interchaintxs.v1",
+    "module": "interchaintxs",
+    "signers": [
+      "from_address"
+    ],
+    "fields": [
+      {
+        "name": "from_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "interchain_account_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "interchain_account_id is supposed to be the unique identifier, e.g.,\n lido/kava. This allows contracts to have more than one interchain accounts\n on remote zone This identifier will be a part of the portID that we'll\n claim our capability for."
+      },
+      {
+        "name": "connection_id",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "msgs",
+        "type": "google.protobuf.Any",
+        "number": 4,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "google.protobuf.Any"
+      },
+      {
+        "name": "memo",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "timeout",
+        "type": "uint64",
+        "number": 6,
+        "repeated": false,
+        "optional": false,
+        "comment": "timeout in seconds after which the packet times out"
+      },
+      {
+        "name": "fee",
+        "type": "neutron.feerefunder.Fee",
+        "number": 7,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "neutron.feerefunder.Fee"
+      }
+    ],
+    "comment": "MsgSubmitTx defines the payload for Msg/SubmitTx"
+  },
+  {
+    "typeUrl": "/neutron.interchaintxs.v1.MsgUpdateParams",
+    "name": "MsgUpdateParams",
+    "package": "neutron.interchaintxs.v1",
+    "module": "interchaintxs",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "Authority is the address of the governance account."
+      },
+      {
+        "name": "params",
+        "type": "neutron.interchaintxs.v1.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "neutron.interchaintxs.v1.Params",
+        "comment": "params defines the x/interchaintxs parameters to update.\n\n NOTE: All parameters must be supplied."
+      }
+    ],
+    "comment": "MsgUpdateParams is the MsgUpdateParams request type.\n\n Since: 0.47"
+  },
+  {
+    "typeUrl": "/neutron.transfer.MsgTransfer",
+    "name": "MsgTransfer",
+    "package": "neutron.transfer",
+    "module": "transfer",
+    "signers": [
+      "sender"
+    ],
+    "fields": [
+      {
+        "name": "source_port",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "the port on which the packet will be sent"
+      },
+      {
+        "name": "source_channel",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "the channel by which the packet will be sent"
+      },
+      {
+        "name": "token",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin",
+        "comment": "the tokens to be transferred"
+      },
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "the sender address"
+      },
+      {
+        "name": "receiver",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "comment": "the recipient address on the destination chain"
+      },
+      {
+        "name": "timeout_height",
+        "type": "ibc.core.client.v1.Height",
+        "number": 6,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.core.client.v1.Height",
+        "comment": "Timeout height relative to the current block height.\n The timeout is disabled when set to 0."
+      },
+      {
+        "name": "timeout_timestamp",
+        "type": "uint64",
+        "number": 7,
+        "repeated": false,
+        "optional": false,
+        "comment": "Timeout timestamp in absolute nanoseconds since unix epoch.\n The timeout is disabled when set to 0."
+      },
+      {
+        "name": "memo",
+        "type": "string",
+        "number": 8,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "fee",
+        "type": "neutron.feerefunder.Fee",
+        "number": 9,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "neutron.feerefunder.Fee"
+      }
+    ],
+    "comment": "Transfer defines a rpc handler method for MsgTransfer."
+  },
+  {
+    "typeUrl": "/neutron.transfer.MsgUpdateParams",
+    "name": "MsgUpdateParams",
+    "package": "neutron.transfer",
+    "module": "transfer",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "signer address"
+      },
+      {
+        "name": "params",
+        "type": "ibc.applications.transfer.v1.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.applications.transfer.v1.Params",
+        "comment": "params defines the transfer parameters to update.\n\n NOTE: All parameters must be supplied."
+      }
+    ],
+    "comment": "MsgUpdateParams is the Msg/UpdateParams request type."
+  },
+  {
+    "typeUrl": "/osmosis.tokenfactory.v1beta1.MsgCreateDenom",
+    "name": "MsgCreateDenom",
+    "package": "osmosis.tokenfactory.v1beta1",
+    "module": "tokenfactory",
+    "signers": [
+      "sender"
+    ],
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "subdenom",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "subdenom can be up to 44 \"alphanumeric\" characters long."
+      }
+    ],
+    "comment": "MsgCreateDenom defines the message structure for the CreateDenom gRPC service\n method. It allows an account to create a new denom. It requires a sender\n address and a sub denomination. The (sender_address, sub_denomination) tuple\n must be unique and cannot be re-used.\n\n The resulting denom created is defined as\n <factory/{creatorAddress}/{subdenom}>. The resulting denom's admin is\n originally set to be the creator, but this can be changed later. The token\n denom does not indicate the current admin."
+  },
+  {
+    "typeUrl": "/osmosis.tokenfactory.v1beta1.MsgMint",
+    "name": "MsgMint",
+    "package": "osmosis.tokenfactory.v1beta1",
+    "module": "tokenfactory",
+    "signers": [
+      "sender"
+    ],
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      },
+      {
+        "name": "mintToAddress",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "MsgMint is the sdk.Msg type for allowing an admin account to mint\n more of a token.  For now, we only support minting to the sender account"
+  },
+  {
+    "typeUrl": "/osmosis.tokenfactory.v1beta1.MsgBurn",
+    "name": "MsgBurn",
+    "package": "osmosis.tokenfactory.v1beta1",
+    "module": "tokenfactory",
+    "signers": [
+      "sender"
+    ],
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      },
+      {
+        "name": "burnFromAddress",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "MsgBurn is the sdk.Msg type for allowing an admin account to burn\n a token.  For now, we only support burning from the sender account."
+  },
+  {
+    "typeUrl": "/osmosis.tokenfactory.v1beta1.MsgChangeAdmin",
+    "name": "MsgChangeAdmin",
+    "package": "osmosis.tokenfactory.v1beta1",
+    "module": "tokenfactory",
+    "signers": [
+      "sender"
+    ],
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "denom",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "new_admin",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "MsgChangeAdmin is the sdk.Msg type for allowing an admin account to reassign\n adminship of a denom to a new account"
+  },
+  {
+    "typeUrl": "/osmosis.tokenfactory.v1beta1.MsgSetDenomMetadata",
+    "name": "MsgSetDenomMetadata",
+    "package": "osmosis.tokenfactory.v1beta1",
+    "module": "tokenfactory",
+    "signers": [
+      "sender"
+    ],
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "metadata",
+        "type": "cosmos.bank.v1beta1.Metadata",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.bank.v1beta1.Metadata"
+      }
+    ],
+    "comment": "MsgSetDenomMetadata is the sdk.Msg type for allowing an admin account to set\n the denom's bank metadata"
+  },
+  {
+    "typeUrl": "/osmosis.tokenfactory.v1beta1.MsgSetBeforeSendHook",
+    "name": "MsgSetBeforeSendHook",
+    "package": "osmosis.tokenfactory.v1beta1",
+    "module": "tokenfactory",
+    "signers": [
+      "sender"
+    ],
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "denom",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "contract_addr",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "MsgSetBeforeSendHook is the sdk.Msg type for allowing an admin account to\n assign a CosmWasm contract to call with a BeforeSend hook"
+  },
+  {
+    "typeUrl": "/osmosis.tokenfactory.v1beta1.MsgForceTransfer",
+    "name": "MsgForceTransfer",
+    "package": "osmosis.tokenfactory.v1beta1",
+    "module": "tokenfactory",
+    "signers": [
+      "sender"
+    ],
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      },
+      {
+        "name": "transferFromAddress",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "transferToAddress",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/osmosis.tokenfactory.v1beta1.MsgUpdateParams",
+    "name": "MsgUpdateParams",
+    "package": "osmosis.tokenfactory.v1beta1",
+    "module": "tokenfactory",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "Authority is the address of the governance account."
+      },
+      {
+        "name": "params",
+        "type": "osmosis.tokenfactory.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "osmosis.tokenfactory.Params",
+        "comment": "params defines the x/tokenfactory parameters to update.\n\n NOTE: All parameters must be supplied."
+      }
+    ],
+    "comment": "MsgUpdateParams is the MsgUpdateParams request type.\n\n Since: 0.47"
+  }
+]

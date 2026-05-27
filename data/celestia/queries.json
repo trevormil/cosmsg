@@ -1,0 +1,492 @@
+[
+  {
+    "service": "celestia.blob.v1.Query",
+    "method": "Params",
+    "package": "celestia.blob.v1",
+    "module": "blob",
+    "requestType": "celestia.blob.v1.QueryParamsRequest",
+    "responseType": "celestia.blob.v1.QueryParamsResponse",
+    "requestFields": [],
+    "comment": "Params queries the parameters of the module."
+  },
+  {
+    "service": "celestia.core.v1.gas_estimation.GasEstimator",
+    "method": "EstimateGasPrice",
+    "package": "celestia.core.v1.gas_estimation",
+    "module": "core",
+    "requestType": "celestia.core.v1.gas_estimation.EstimateGasPriceRequest",
+    "responseType": "celestia.core.v1.gas_estimation.EstimateGasPriceResponse",
+    "requestFields": [
+      {
+        "name": "tx_priority",
+        "type": "celestia.core.v1.gas_estimation.TxPriority",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "celestia.core.v1.gas_estimation.TxPriority"
+      }
+    ],
+    "comment": "estimateGasPrice takes a transaction priority and estimates the gas price\n based on the gas prices of the transactions in the last five blocks. If no\n transaction is found in the last five blocks, return the network min gas\n price. It's up to the light client to set the gas price in this case to the\n minimum gas price set by that node."
+  },
+  {
+    "service": "celestia.core.v1.gas_estimation.GasEstimator",
+    "method": "EstimateGasPriceAndUsage",
+    "package": "celestia.core.v1.gas_estimation",
+    "module": "core",
+    "requestType": "celestia.core.v1.gas_estimation.EstimateGasPriceAndUsageRequest",
+    "responseType": "celestia.core.v1.gas_estimation.EstimateGasPriceAndUsageResponse",
+    "requestFields": [
+      {
+        "name": "tx_priority",
+        "type": "celestia.core.v1.gas_estimation.TxPriority",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "celestia.core.v1.gas_estimation.TxPriority"
+      },
+      {
+        "name": "tx_bytes",
+        "type": "bytes",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "EstimateGasPriceAndUsage takes a transaction priority and a transaction\n bytes and estimates the gas price and the gas used for that transaction.\n The gas price estimation is based on the gas prices of the transactions in\n the last five blocks. If no transaction is found in the last five blocks,\n return the network min gas price. It's up to the light client to set the\n gas price in this case to the minimum gas price set by that node. The gas\n used is estimated using the state machine simulation."
+  },
+  {
+    "service": "celestia.core.v1.tx.Tx",
+    "method": "TxStatus",
+    "package": "celestia.core.v1.tx",
+    "module": "core",
+    "requestType": "celestia.core.v1.tx.TxStatusRequest",
+    "responseType": "celestia.core.v1.tx.TxStatusResponse",
+    "requestFields": [
+      {
+        "name": "tx_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "this is the hex encoded transaction hash (should be 64 characters long representing 32 bytes)"
+      }
+    ],
+    "comment": "TxStatus returns the status of a transaction. There are four possible\n states:\n - Committed\n - Pending\n - Evicted\n - Unknown"
+  },
+  {
+    "service": "celestia.core.v1.tx.Tx",
+    "method": "TxStatusBatch",
+    "package": "celestia.core.v1.tx",
+    "module": "core",
+    "requestType": "celestia.core.v1.tx.TxStatusBatchRequest",
+    "responseType": "celestia.core.v1.tx.TxStatusBatchResponse",
+    "requestFields": [
+      {
+        "name": "tx_ids",
+        "type": "string",
+        "number": 1,
+        "repeated": true,
+        "optional": false,
+        "comment": "array of hex encoded tx hashes (each hash should be 64 characters long representing 32 bytes)"
+      }
+    ],
+    "comment": "TxStatusBatch for batch queries"
+  },
+  {
+    "service": "celestia.fibre.v1.Query",
+    "method": "Params",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "requestType": "celestia.fibre.v1.QueryParamsRequest",
+    "responseType": "celestia.fibre.v1.QueryParamsResponse",
+    "requestFields": [],
+    "comment": "Params queries the parameters of the fibre module."
+  },
+  {
+    "service": "celestia.fibre.v1.Query",
+    "method": "EscrowAccount",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "requestType": "celestia.fibre.v1.QueryEscrowAccountRequest",
+    "responseType": "celestia.fibre.v1.QueryEscrowAccountResponse",
+    "requestFields": [
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "EscrowAccount queries an escrow account by signer address."
+  },
+  {
+    "service": "celestia.fibre.v1.Query",
+    "method": "Withdrawals",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "requestType": "celestia.fibre.v1.QueryWithdrawalsRequest",
+    "responseType": "celestia.fibre.v1.QueryWithdrawalsResponse",
+    "requestFields": [
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageRequest",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageRequest"
+      }
+    ],
+    "comment": "Withdrawals queries all withdrawals for an escrow account by signer address."
+  },
+  {
+    "service": "celestia.fibre.v1.Query",
+    "method": "IsPaymentProcessed",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "requestType": "celestia.fibre.v1.QueryIsPaymentProcessedRequest",
+    "responseType": "celestia.fibre.v1.QueryIsPaymentProcessedResponse",
+    "requestFields": [
+      {
+        "name": "promise_hash",
+        "type": "bytes",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "IsPaymentProcessed queries whether a payment promise has been processed."
+  },
+  {
+    "service": "celestia.fibre.v1.Query",
+    "method": "ValidatePaymentPromise",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "requestType": "celestia.fibre.v1.QueryValidatePaymentPromiseRequest",
+    "responseType": "celestia.fibre.v1.QueryValidatePaymentPromiseResponse",
+    "requestFields": [
+      {
+        "name": "promise",
+        "type": "celestia.fibre.v1.PaymentPromise",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "celestia.fibre.v1.PaymentPromise"
+      }
+    ],
+    "comment": "ValidatePaymentPromise validates a payment promise for server use."
+  },
+  {
+    "service": "celestia.fibre.v1.Fibre",
+    "method": "UploadShard",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "requestType": "celestia.fibre.v1.UploadShardRequest",
+    "responseType": "celestia.fibre.v1.UploadShardResponse",
+    "requestFields": [
+      {
+        "name": "promise",
+        "type": "celestia.fibre.v1.PaymentPromise",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "celestia.fibre.v1.PaymentPromise"
+      },
+      {
+        "name": "shard",
+        "type": "celestia.fibre.v1.BlobShard",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "celestia.fibre.v1.BlobShard"
+      }
+    ],
+    "comment": "UploadShard uploads a blob shard with RLC coefficients to a validator."
+  },
+  {
+    "service": "celestia.fibre.v1.Fibre",
+    "method": "DownloadShard",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "requestType": "celestia.fibre.v1.DownloadShardRequest",
+    "responseType": "celestia.fibre.v1.DownloadShardResponse",
+    "requestFields": [
+      {
+        "name": "blob_id",
+        "type": "bytes",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "with_rlc",
+        "type": "bool",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "DownloadShard downloads a blob shard with RLC root from a validator."
+  },
+  {
+    "service": "celestia.forwarding.v1.Query",
+    "method": "DeriveForwardingAddress",
+    "package": "celestia.forwarding.v1",
+    "module": "forwarding",
+    "requestType": "celestia.forwarding.v1.QueryDeriveForwardingAddressRequest",
+    "responseType": "celestia.forwarding.v1.QueryDeriveForwardingAddressResponse",
+    "requestFields": [
+      {
+        "name": "dest_domain",
+        "type": "uint32",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "dest_domain is the destination chain domain ID."
+      },
+      {
+        "name": "dest_recipient",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "dest_recipient is the recipient on destination chain (32 bytes, hex-encoded, 0x prefix optional)."
+      },
+      {
+        "name": "token_id",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "token_id is the Hyperlane token identifier to bind this forwarding address to."
+      }
+    ],
+    "comment": "DeriveForwardingAddress derives the forwarding address for given parameters."
+  },
+  {
+    "service": "celestia.forwarding.v1.Query",
+    "method": "QuoteForwardingFee",
+    "package": "celestia.forwarding.v1",
+    "module": "forwarding",
+    "requestType": "celestia.forwarding.v1.QueryQuoteForwardingFeeRequest",
+    "responseType": "celestia.forwarding.v1.QueryQuoteForwardingFeeResponse",
+    "requestFields": [
+      {
+        "name": "dest_domain",
+        "type": "uint32",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "dest_domain is the destination chain domain ID."
+      },
+      {
+        "name": "token_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "token_id is the Hyperlane token identifier to quote fees for."
+      }
+    ],
+    "comment": "QuoteForwardingFee returns the estimated Hyperlane IGP fee for forwarding to a destination.\n Relayers should query this before submitting MsgForward to determine the required max_igp_fee."
+  },
+  {
+    "service": "celestia.minfee.v1.Query",
+    "method": "NetworkMinGasPrice",
+    "package": "celestia.minfee.v1",
+    "module": "minfee",
+    "requestType": "celestia.minfee.v1.QueryNetworkMinGasPrice",
+    "responseType": "celestia.minfee.v1.QueryNetworkMinGasPriceResponse",
+    "requestFields": [],
+    "comment": "NetworkMinGasPrice queries the network wide minimum gas price."
+  },
+  {
+    "service": "celestia.minfee.v1.Query",
+    "method": "Params",
+    "package": "celestia.minfee.v1",
+    "module": "minfee",
+    "requestType": "celestia.minfee.v1.QueryParamsRequest",
+    "responseType": "celestia.minfee.v1.QueryParamsResponse",
+    "requestFields": [],
+    "comment": "Params queries the parameters of the module."
+  },
+  {
+    "service": "celestia.mint.v1.Query",
+    "method": "InflationRate",
+    "package": "celestia.mint.v1",
+    "module": "mint",
+    "requestType": "celestia.mint.v1.QueryInflationRateRequest",
+    "responseType": "celestia.mint.v1.QueryInflationRateResponse",
+    "requestFields": [],
+    "comment": "InflationRate returns the current inflation rate."
+  },
+  {
+    "service": "celestia.mint.v1.Query",
+    "method": "AnnualProvisions",
+    "package": "celestia.mint.v1",
+    "module": "mint",
+    "requestType": "celestia.mint.v1.QueryAnnualProvisionsRequest",
+    "responseType": "celestia.mint.v1.QueryAnnualProvisionsResponse",
+    "requestFields": [],
+    "comment": "AnnualProvisions returns the current annual provisions."
+  },
+  {
+    "service": "celestia.mint.v1.Query",
+    "method": "GenesisTime",
+    "package": "celestia.mint.v1",
+    "module": "mint",
+    "requestType": "celestia.mint.v1.QueryGenesisTimeRequest",
+    "responseType": "celestia.mint.v1.QueryGenesisTimeResponse",
+    "requestFields": [],
+    "comment": "GenesisTime returns the genesis time."
+  },
+  {
+    "service": "celestia.signal.v1.Query",
+    "method": "VersionTally",
+    "package": "celestia.signal.v1",
+    "module": "signal",
+    "requestType": "celestia.signal.v1.QueryVersionTallyRequest",
+    "responseType": "celestia.signal.v1.QueryVersionTallyResponse",
+    "requestFields": [
+      {
+        "name": "version",
+        "type": "uint64",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "VersionTally enables a client to query for the tally of voting power that\n has signalled for a particular version."
+  },
+  {
+    "service": "celestia.signal.v1.Query",
+    "method": "GetUpgrade",
+    "package": "celestia.signal.v1",
+    "module": "signal",
+    "requestType": "celestia.signal.v1.QueryGetUpgradeRequest",
+    "responseType": "celestia.signal.v1.QueryGetUpgradeResponse",
+    "requestFields": [],
+    "comment": "GetUpgrade enables a client to query for upgrade information if an upgrade\n is pending. The response will be empty if no upgrade is pending."
+  },
+  {
+    "service": "celestia.signal.v1.Query",
+    "method": "GetMissingValidators",
+    "package": "celestia.signal.v1",
+    "module": "signal",
+    "requestType": "celestia.signal.v1.QueryGetMissingValidatorsRequest",
+    "responseType": "celestia.signal.v1.QueryGetMissingValidatorsResponse",
+    "requestFields": [
+      {
+        "name": "version",
+        "type": "uint64",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "GetMissingValidators enables a client to query for the validators that\n have not yet signalled for a particular version"
+  },
+  {
+    "service": "celestia.valaddr.v1.Query",
+    "method": "FibreProviderInfo",
+    "package": "celestia.valaddr.v1",
+    "module": "valaddr",
+    "requestType": "celestia.valaddr.v1.QueryFibreProviderInfoRequest",
+    "responseType": "celestia.valaddr.v1.QueryFibreProviderInfoResponse",
+    "requestFields": [
+      {
+        "name": "validator_consensus_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "validator_consensus_address is the validator consensus address (celestiavalcons...)"
+      }
+    ],
+    "comment": "FibreProviderInfo queries the fibre provider information for a specific validator"
+  },
+  {
+    "service": "celestia.valaddr.v1.Query",
+    "method": "AllFibreProviders",
+    "package": "celestia.valaddr.v1",
+    "module": "valaddr",
+    "requestType": "celestia.valaddr.v1.QueryAllFibreProvidersRequest",
+    "responseType": "celestia.valaddr.v1.QueryAllFibreProvidersResponse",
+    "requestFields": [],
+    "comment": "AllFibreProviders queries fibre provider information for all validators"
+  },
+  {
+    "service": "celestia.zkism.v1.Query",
+    "method": "Ism",
+    "package": "celestia.zkism.v1",
+    "module": "zkism",
+    "requestType": "celestia.zkism.v1.QueryIsmRequest",
+    "responseType": "celestia.zkism.v1.QueryIsmResponse",
+    "requestFields": [
+      {
+        "name": "id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "id is the hex-encoded ISM identifier."
+      }
+    ],
+    "comment": "Ism defines an rpc method for querying an ISM by ID."
+  },
+  {
+    "service": "celestia.zkism.v1.Query",
+    "method": "Isms",
+    "package": "celestia.zkism.v1",
+    "module": "zkism",
+    "requestType": "celestia.zkism.v1.QueryIsmsRequest",
+    "responseType": "celestia.zkism.v1.QueryIsmsResponse",
+    "requestFields": [
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageRequest",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageRequest",
+        "comment": "pagination defines an optional pagination for the request."
+      }
+    ],
+    "comment": "Isms defines an rpc method for querying all ISMs."
+  },
+  {
+    "service": "celestia.zkism.v1.Query",
+    "method": "Messages",
+    "package": "celestia.zkism.v1",
+    "module": "zkism",
+    "requestType": "celestia.zkism.v1.QueryMessagesRequest",
+    "responseType": "celestia.zkism.v1.QueryMessagesResponse",
+    "requestFields": [
+      {
+        "name": "id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "id is the hex-encoded ISM identifier."
+      },
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageRequest",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageRequest",
+        "comment": "pagination defines an optional pagination for the request."
+      }
+    ],
+    "comment": "Messages defines an rpc method for querying authorized Hyperlane message IDs."
+  }
+]

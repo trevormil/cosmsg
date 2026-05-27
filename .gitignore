@@ -1,0 +1,9 @@
+node_modules/
+dist/
+*.tsbuildinfo
+.cache/
+.tmp/
+*.binpb
+.DS_Store
+packages/api/src/bundle.generated.ts
+packages/web/public/dataset/

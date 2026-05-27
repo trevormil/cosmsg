@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - uses: bufbuild/buf-setup-action@v1
+      - run: bun install --frozen-lockfile
+      - name: Typecheck
+        run: |
+          bunx tsc -b
+          bunx tsc -p packages/web/tsconfig.json --noEmit
+      - name: Test
+        run: bun test
+      - name: Build web
+        run: bun run --cwd packages/web build

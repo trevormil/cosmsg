@@ -1,0 +1,443 @@
+[
+  {
+    "typeUrl": "/ethermint.evm.v1.MsgEthereumTx",
+    "name": "MsgEthereumTx",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "data",
+        "type": "google.protobuf.Any",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Any",
+        "comment": "data is inner transaction data of the Ethereum transaction"
+      },
+      {
+        "name": "size",
+        "type": "double",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "size is the encoded storage size of the transaction (DEPRECATED)"
+      },
+      {
+        "name": "hash",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "hash of the transaction in hex format"
+      },
+      {
+        "name": "from",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "from is the ethereum signer address in hex format. This address value is checked\n against the address derived from the signature (V, R, S) using the\n secp256k1 elliptic curve"
+      }
+    ],
+    "comment": "MsgEthereumTx encapsulates an Ethereum transaction as an SDK message."
+  },
+  {
+    "typeUrl": "/ethermint.evm.v1.MsgUpdateParams",
+    "name": "MsgUpdateParams",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "authority is the address of the governance account."
+      },
+      {
+        "name": "params",
+        "type": "ethermint.evm.v1.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ethermint.evm.v1.Params",
+        "comment": "params defines the x/evm parameters to update.\n NOTE: All parameters must be supplied."
+      }
+    ],
+    "comment": "MsgUpdateParams defines a Msg for updating the x/evm module parameters."
+  },
+  {
+    "typeUrl": "/ethermint.feemarket.v1.MsgUpdateParams",
+    "name": "MsgUpdateParams",
+    "package": "ethermint.feemarket.v1",
+    "module": "feemarket",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "authority is the address of the governance account."
+      },
+      {
+        "name": "params",
+        "type": "ethermint.feemarket.v1.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ethermint.feemarket.v1.Params",
+        "comment": "params defines the x/feemarket parameters to update.\n NOTE: All parameters must be supplied."
+      }
+    ],
+    "comment": "MsgUpdateParams defines a Msg for updating the x/feemarket module parameters."
+  },
+  {
+    "typeUrl": "/evmos.erc20.v1.MsgConvertERC20",
+    "name": "MsgConvertERC20",
+    "package": "evmos.erc20.v1",
+    "module": "erc20",
+    "signers": [
+      "sender"
+    ],
+    "fields": [
+      {
+        "name": "contract_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "contract_address of an ERC20 token contract, that is registered in a token pair"
+      },
+      {
+        "name": "amount",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "amount of ERC20 tokens to convert"
+      },
+      {
+        "name": "receiver",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "receiver is the bech32 address to receive native Cosmos coins"
+      },
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "sender is the hex address from the owner of the given ERC20 tokens"
+      }
+    ],
+    "comment": "MsgConvertERC20 defines a Msg to convert a ERC20 token to a native Cosmos\n coin."
+  },
+  {
+    "typeUrl": "/evmos.erc20.v1.MsgUpdateParams",
+    "name": "MsgUpdateParams",
+    "package": "evmos.erc20.v1",
+    "module": "erc20",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "authority is the address of the governance account."
+      },
+      {
+        "name": "params",
+        "type": "evmos.erc20.v1.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "evmos.erc20.v1.Params",
+        "comment": "params defines the x/evm parameters to update.\n NOTE: All parameters must be supplied."
+      }
+    ],
+    "comment": "MsgUpdateParams is the Msg/UpdateParams request type for Erc20 parameters.\n Since: cosmos-sdk 0.47"
+  },
+  {
+    "typeUrl": "/evmos.erc20.v1.MsgRegisterERC20",
+    "name": "MsgRegisterERC20",
+    "package": "evmos.erc20.v1",
+    "module": "erc20",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "authority is the address of the governance account."
+      },
+      {
+        "name": "erc20addresses",
+        "type": "string",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "comment": "erc20addresses is a slice of ERC20 token contract hex addresses"
+      }
+    ],
+    "comment": "MsgRegisterERC20 is the Msg/RegisterERC20 request type for registering\n an Erc20 contract token pair."
+  },
+  {
+    "typeUrl": "/evmos.erc20.v1.MsgToggleConversion",
+    "name": "MsgToggleConversion",
+    "package": "evmos.erc20.v1",
+    "module": "erc20",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "authority is the address of the governance account."
+      },
+      {
+        "name": "token",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "token identifier can be either the hex contract address of the ERC20 or the\n Cosmos base denomination"
+      }
+    ],
+    "comment": "MsgToggleConversion is the Msg/MsgToggleConversion request type for toggling\n an Erc20 contract conversion capability."
+  },
+  {
+    "typeUrl": "/evmos.inflation.v1.MsgUpdateParams",
+    "name": "MsgUpdateParams",
+    "package": "evmos.inflation.v1",
+    "module": "inflation",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "authority is the address of the governance account."
+      },
+      {
+        "name": "params",
+        "type": "evmos.inflation.v1.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "evmos.inflation.v1.Params",
+        "comment": "params defines the x/inflation parameters to update.\n NOTE: All parameters must be supplied."
+      }
+    ],
+    "comment": "MsgUpdateParams defines a Msg for updating the x/inflation module parameters."
+  },
+  {
+    "typeUrl": "/evmos.vesting.v2.MsgCreateClawbackVestingAccount",
+    "name": "MsgCreateClawbackVestingAccount",
+    "package": "evmos.vesting.v2",
+    "module": "vesting",
+    "signers": [
+      "vesting_address"
+    ],
+    "fields": [
+      {
+        "name": "funder_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "funder_address specifies the account that will be able to fund the vesting account"
+      },
+      {
+        "name": "vesting_address",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "vesting_address specifies the address that will receive the vesting tokens"
+      },
+      {
+        "name": "enable_gov_clawback",
+        "type": "bool",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "enable_gov_clawback specifies whether the governance module can clawback this account"
+      }
+    ],
+    "comment": "MsgCreateClawbackVestingAccount defines a message that enables creating a\n ClawbackVestingAccount."
+  },
+  {
+    "typeUrl": "/evmos.vesting.v2.MsgFundVestingAccount",
+    "name": "MsgFundVestingAccount",
+    "package": "evmos.vesting.v2",
+    "module": "vesting",
+    "signers": [
+      "funder_address"
+    ],
+    "fields": [
+      {
+        "name": "funder_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "funder_address specifies the account that funds the vesting account"
+      },
+      {
+        "name": "vesting_address",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "vesting_address specifies the account that receives the funds"
+      },
+      {
+        "name": "start_time",
+        "type": "google.protobuf.Timestamp",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Timestamp",
+        "comment": "start_time defines the time at which the vesting period begins"
+      },
+      {
+        "name": "lockup_periods",
+        "type": "cosmos.vesting.v1beta1.Period",
+        "number": 4,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.vesting.v1beta1.Period",
+        "comment": "lockup_periods defines the unlocking schedule relative to the start_time"
+      },
+      {
+        "name": "vesting_periods",
+        "type": "cosmos.vesting.v1beta1.Period",
+        "number": 5,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.vesting.v1beta1.Period",
+        "comment": "vesting_periods defines the vesting schedule relative to the start_time"
+      }
+    ],
+    "comment": "MsgFundVestingAccount defines a message that enables funding an existing clawback\n vesting account."
+  },
+  {
+    "typeUrl": "/evmos.vesting.v2.MsgClawback",
+    "name": "MsgClawback",
+    "package": "evmos.vesting.v2",
+    "module": "vesting",
+    "signers": [
+      "funder_address"
+    ],
+    "fields": [
+      {
+        "name": "funder_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "funder_address is the address which funded the account"
+      },
+      {
+        "name": "account_address",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "account_address is the address of the ClawbackVestingAccount to claw back\n from."
+      },
+      {
+        "name": "dest_address",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "dest_address specifies where the clawed-back tokens should be transferred\n to. If empty, the tokens will be transferred back to the original funder of\n the account."
+      }
+    ],
+    "comment": "MsgClawback defines a message that removes unvested tokens from a\n ClawbackVestingAccount."
+  },
+  {
+    "typeUrl": "/evmos.vesting.v2.MsgUpdateVestingFunder",
+    "name": "MsgUpdateVestingFunder",
+    "package": "evmos.vesting.v2",
+    "module": "vesting",
+    "signers": [
+      "funder_address"
+    ],
+    "fields": [
+      {
+        "name": "funder_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "funder_address is the current funder address of the ClawbackVestingAccount"
+      },
+      {
+        "name": "new_funder_address",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "new_funder_address is the new address to replace the existing funder_address"
+      },
+      {
+        "name": "vesting_address",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "vesting_address is the address of the ClawbackVestingAccount being updated"
+      }
+    ],
+    "comment": "MsgUpdateVestingFunder defines a message that updates the funder account of a\n ClawbackVestingAccount."
+  },
+  {
+    "typeUrl": "/evmos.vesting.v2.MsgConvertVestingAccount",
+    "name": "MsgConvertVestingAccount",
+    "package": "evmos.vesting.v2",
+    "module": "vesting",
+    "signers": [
+      "vesting_address"
+    ],
+    "fields": [
+      {
+        "name": "vesting_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "vesting_address is the address of the vesting account to convert"
+      }
+    ],
+    "comment": "MsgConvertVestingAccount defines a message that enables converting a vesting account to an eth account"
+  }
+]

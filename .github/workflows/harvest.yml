@@ -1,0 +1,46 @@
+name: Harvest
+
+on:
+  schedule:
+    - cron: "0 6 * * 1" # Mondays 06:00 UTC
+  workflow_dispatch:
+    inputs:
+      chains:
+        description: "Space-separated chains to harvest (blank = full allowlist)"
+        required: false
+        default: ""
+      prefer:
+        description: "Preferred source"
+        required: false
+        default: "reflection"
+
+jobs:
+  harvest:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - uses: bufbuild/buf-setup-action@v1
+      - run: bun install --frozen-lockfile
+
+      - name: Harvest
+        run: |
+          bun run packages/harvester/src/cli.ts \
+            --prefer "${{ github.event.inputs.prefer || 'reflection' }}" \
+            ${{ github.event.inputs.chains }}
+
+      - name: Commit refreshed dataset
+        run: |
+          git config user.name "cosmsg-bot"
+          git config user.email "actions@github.com"
+          if [[ -n "$(git status --porcelain data)" ]]; then
+            git add data
+            git commit -m "data: refresh catalog [skip ci]"
+            git push
+          else
+            echo "No dataset changes."
+          fi

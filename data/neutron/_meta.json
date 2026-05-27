@@ -1,0 +1,13 @@
+{
+  "chainName": "neutron",
+  "prettyName": "Neutron",
+  "chainId": "neutron-1",
+  "msgCount": 43,
+  "queryCount": 82,
+  "provenance": {
+    "source": "source",
+    "harvestedAt": "2026-05-27T16:49:11.408Z",
+    "origin": "git:https://github.com/neutron-org/neutron@06e81b9f8c08:proto",
+    "commentsFromSource": true
+  }
+}

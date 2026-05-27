@@ -1,0 +1,1378 @@
+[
+  {
+    "service": "kava.auction.v1beta1.Query",
+    "method": "Params",
+    "package": "kava.auction.v1beta1",
+    "module": "auction",
+    "requestType": "kava.auction.v1beta1.QueryParamsRequest",
+    "responseType": "kava.auction.v1beta1.QueryParamsResponse",
+    "requestFields": [],
+    "comment": "Params queries all parameters of the auction module."
+  },
+  {
+    "service": "kava.auction.v1beta1.Query",
+    "method": "Auction",
+    "package": "kava.auction.v1beta1",
+    "module": "auction",
+    "requestType": "kava.auction.v1beta1.QueryAuctionRequest",
+    "responseType": "kava.auction.v1beta1.QueryAuctionResponse",
+    "requestFields": [
+      {
+        "name": "auction_id",
+        "type": "uint64",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "Auction queries an individual Auction by auction ID"
+  },
+  {
+    "service": "kava.auction.v1beta1.Query",
+    "method": "Auctions",
+    "package": "kava.auction.v1beta1",
+    "module": "auction",
+    "requestType": "kava.auction.v1beta1.QueryAuctionsRequest",
+    "responseType": "kava.auction.v1beta1.QueryAuctionsResponse",
+    "requestFields": [
+      {
+        "name": "type",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "owner",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "denom",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "phase",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageRequest",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageRequest",
+        "comment": "pagination defines an optional pagination for the request."
+      }
+    ],
+    "comment": "Auctions queries auctions filtered by asset denom, owner address, phase, and auction type"
+  },
+  {
+    "service": "kava.auction.v1beta1.Query",
+    "method": "NextAuctionID",
+    "package": "kava.auction.v1beta1",
+    "module": "auction",
+    "requestType": "kava.auction.v1beta1.QueryNextAuctionIDRequest",
+    "responseType": "kava.auction.v1beta1.QueryNextAuctionIDResponse",
+    "requestFields": [],
+    "comment": "NextAuctionID queries the next auction ID"
+  },
+  {
+    "service": "kava.bep3.v1beta1.Query",
+    "method": "Params",
+    "package": "kava.bep3.v1beta1",
+    "module": "bep3",
+    "requestType": "kava.bep3.v1beta1.QueryParamsRequest",
+    "responseType": "kava.bep3.v1beta1.QueryParamsResponse",
+    "requestFields": [],
+    "comment": "Params queries module params"
+  },
+  {
+    "service": "kava.bep3.v1beta1.Query",
+    "method": "AssetSupply",
+    "package": "kava.bep3.v1beta1",
+    "module": "bep3",
+    "requestType": "kava.bep3.v1beta1.QueryAssetSupplyRequest",
+    "responseType": "kava.bep3.v1beta1.QueryAssetSupplyResponse",
+    "requestFields": [
+      {
+        "name": "denom",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "denom filters the asset response for the specified denom"
+      }
+    ],
+    "comment": "AssetSupply queries info about an asset's supply"
+  },
+  {
+    "service": "kava.bep3.v1beta1.Query",
+    "method": "AssetSupplies",
+    "package": "kava.bep3.v1beta1",
+    "module": "bep3",
+    "requestType": "kava.bep3.v1beta1.QueryAssetSuppliesRequest",
+    "responseType": "kava.bep3.v1beta1.QueryAssetSuppliesResponse",
+    "requestFields": [],
+    "comment": "AssetSupplies queries a list of asset supplies"
+  },
+  {
+    "service": "kava.bep3.v1beta1.Query",
+    "method": "AtomicSwap",
+    "package": "kava.bep3.v1beta1",
+    "module": "bep3",
+    "requestType": "kava.bep3.v1beta1.QueryAtomicSwapRequest",
+    "responseType": "kava.bep3.v1beta1.QueryAtomicSwapResponse",
+    "requestFields": [
+      {
+        "name": "swap_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "swap_id represents the id of the swap to query"
+      }
+    ],
+    "comment": "AtomicSwap queries info about an atomic swap"
+  },
+  {
+    "service": "kava.bep3.v1beta1.Query",
+    "method": "AtomicSwaps",
+    "package": "kava.bep3.v1beta1",
+    "module": "bep3",
+    "requestType": "kava.bep3.v1beta1.QueryAtomicSwapsRequest",
+    "responseType": "kava.bep3.v1beta1.QueryAtomicSwapsResponse",
+    "requestFields": [
+      {
+        "name": "involve",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "involve filters by address"
+      },
+      {
+        "name": "expiration",
+        "type": "uint64",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "expiration filters by expiration block height"
+      },
+      {
+        "name": "status",
+        "type": "kava.bep3.v1beta1.SwapStatus",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "kava.bep3.v1beta1.SwapStatus",
+        "comment": "status filters by swap status"
+      },
+      {
+        "name": "direction",
+        "type": "kava.bep3.v1beta1.SwapDirection",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "kava.bep3.v1beta1.SwapDirection",
+        "comment": "direction fitlers by swap direction"
+      },
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageRequest",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageRequest"
+      }
+    ],
+    "comment": "AtomicSwaps queries a list of atomic swaps"
+  },
+  {
+    "service": "kava.cdp.v1beta1.Query",
+    "method": "Params",
+    "package": "kava.cdp.v1beta1",
+    "module": "cdp",
+    "requestType": "kava.cdp.v1beta1.QueryParamsRequest",
+    "responseType": "kava.cdp.v1beta1.QueryParamsResponse",
+    "requestFields": [],
+    "comment": "Params queries all parameters of the cdp module."
+  },
+  {
+    "service": "kava.cdp.v1beta1.Query",
+    "method": "Accounts",
+    "package": "kava.cdp.v1beta1",
+    "module": "cdp",
+    "requestType": "kava.cdp.v1beta1.QueryAccountsRequest",
+    "responseType": "kava.cdp.v1beta1.QueryAccountsResponse",
+    "requestFields": [],
+    "comment": "Accounts queries the CDP module accounts."
+  },
+  {
+    "service": "kava.cdp.v1beta1.Query",
+    "method": "TotalPrincipal",
+    "package": "kava.cdp.v1beta1",
+    "module": "cdp",
+    "requestType": "kava.cdp.v1beta1.QueryTotalPrincipalRequest",
+    "responseType": "kava.cdp.v1beta1.QueryTotalPrincipalResponse",
+    "requestFields": [
+      {
+        "name": "collateral_type",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "TotalPrincipal queries the total principal of a given collateral type."
+  },
+  {
+    "service": "kava.cdp.v1beta1.Query",
+    "method": "TotalCollateral",
+    "package": "kava.cdp.v1beta1",
+    "module": "cdp",
+    "requestType": "kava.cdp.v1beta1.QueryTotalCollateralRequest",
+    "responseType": "kava.cdp.v1beta1.QueryTotalCollateralResponse",
+    "requestFields": [
+      {
+        "name": "collateral_type",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "TotalCollateral queries the total collateral of a given collateral type."
+  },
+  {
+    "service": "kava.cdp.v1beta1.Query",
+    "method": "Cdps",
+    "package": "kava.cdp.v1beta1",
+    "module": "cdp",
+    "requestType": "kava.cdp.v1beta1.QueryCdpsRequest",
+    "responseType": "kava.cdp.v1beta1.QueryCdpsResponse",
+    "requestFields": [
+      {
+        "name": "collateral_type",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "owner",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "id",
+        "type": "uint64",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "ratio",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "sdk.Dec as a string"
+      },
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageRequest",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageRequest"
+      }
+    ],
+    "comment": "Cdps queries all active CDPs."
+  },
+  {
+    "service": "kava.cdp.v1beta1.Query",
+    "method": "Cdp",
+    "package": "kava.cdp.v1beta1",
+    "module": "cdp",
+    "requestType": "kava.cdp.v1beta1.QueryCdpRequest",
+    "responseType": "kava.cdp.v1beta1.QueryCdpResponse",
+    "requestFields": [
+      {
+        "name": "collateral_type",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "owner",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "Cdp queries a CDP with the input owner address and collateral type."
+  },
+  {
+    "service": "kava.cdp.v1beta1.Query",
+    "method": "Deposits",
+    "package": "kava.cdp.v1beta1",
+    "module": "cdp",
+    "requestType": "kava.cdp.v1beta1.QueryDepositsRequest",
+    "responseType": "kava.cdp.v1beta1.QueryDepositsResponse",
+    "requestFields": [
+      {
+        "name": "collateral_type",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "owner",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "Deposits queries deposits associated with the CDP owned by an address for a collateral type."
+  },
+  {
+    "service": "kava.committee.v1beta1.Query",
+    "method": "Committees",
+    "package": "kava.committee.v1beta1",
+    "module": "committee",
+    "requestType": "kava.committee.v1beta1.QueryCommitteesRequest",
+    "responseType": "kava.committee.v1beta1.QueryCommitteesResponse",
+    "requestFields": [],
+    "comment": "Committees queries all committess of the committee module."
+  },
+  {
+    "service": "kava.committee.v1beta1.Query",
+    "method": "Committee",
+    "package": "kava.committee.v1beta1",
+    "module": "committee",
+    "requestType": "kava.committee.v1beta1.QueryCommitteeRequest",
+    "responseType": "kava.committee.v1beta1.QueryCommitteeResponse",
+    "requestFields": [
+      {
+        "name": "committee_id",
+        "type": "uint64",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "Committee queries a committee based on committee ID."
+  },
+  {
+    "service": "kava.committee.v1beta1.Query",
+    "method": "Proposals",
+    "package": "kava.committee.v1beta1",
+    "module": "committee",
+    "requestType": "kava.committee.v1beta1.QueryProposalsRequest",
+    "responseType": "kava.committee.v1beta1.QueryProposalsResponse",
+    "requestFields": [
+      {
+        "name": "committee_id",
+        "type": "uint64",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "Proposals queries proposals based on committee ID."
+  },
+  {
+    "service": "kava.committee.v1beta1.Query",
+    "method": "Proposal",
+    "package": "kava.committee.v1beta1",
+    "module": "committee",
+    "requestType": "kava.committee.v1beta1.QueryProposalRequest",
+    "responseType": "kava.committee.v1beta1.QueryProposalResponse",
+    "requestFields": [
+      {
+        "name": "proposal_id",
+        "type": "uint64",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "Deposits queries a proposal based on proposal ID."
+  },
+  {
+    "service": "kava.committee.v1beta1.Query",
+    "method": "NextProposalID",
+    "package": "kava.committee.v1beta1",
+    "module": "committee",
+    "requestType": "kava.committee.v1beta1.QueryNextProposalIDRequest",
+    "responseType": "kava.committee.v1beta1.QueryNextProposalIDResponse",
+    "requestFields": [],
+    "comment": "NextProposalID queries the next proposal ID of the committee module."
+  },
+  {
+    "service": "kava.committee.v1beta1.Query",
+    "method": "Votes",
+    "package": "kava.committee.v1beta1",
+    "module": "committee",
+    "requestType": "kava.committee.v1beta1.QueryVotesRequest",
+    "responseType": "kava.committee.v1beta1.QueryVotesResponse",
+    "requestFields": [
+      {
+        "name": "proposal_id",
+        "type": "uint64",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageRequest",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageRequest"
+      }
+    ],
+    "comment": "Votes queries all votes for a single proposal ID."
+  },
+  {
+    "service": "kava.committee.v1beta1.Query",
+    "method": "Vote",
+    "package": "kava.committee.v1beta1",
+    "module": "committee",
+    "requestType": "kava.committee.v1beta1.QueryVoteRequest",
+    "responseType": "kava.committee.v1beta1.QueryVoteResponse",
+    "requestFields": [
+      {
+        "name": "proposal_id",
+        "type": "uint64",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "voter",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "Vote queries the vote of a single voter for a single proposal ID."
+  },
+  {
+    "service": "kava.committee.v1beta1.Query",
+    "method": "Tally",
+    "package": "kava.committee.v1beta1",
+    "module": "committee",
+    "requestType": "kava.committee.v1beta1.QueryTallyRequest",
+    "responseType": "kava.committee.v1beta1.QueryTallyResponse",
+    "requestFields": [
+      {
+        "name": "proposal_id",
+        "type": "uint64",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "Tally queries the tally of a single proposal ID."
+  },
+  {
+    "service": "kava.committee.v1beta1.Query",
+    "method": "RawParams",
+    "package": "kava.committee.v1beta1",
+    "module": "committee",
+    "requestType": "kava.committee.v1beta1.QueryRawParamsRequest",
+    "responseType": "kava.committee.v1beta1.QueryRawParamsResponse",
+    "requestFields": [
+      {
+        "name": "subspace",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "key",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "RawParams queries the raw params data of any subspace and key."
+  },
+  {
+    "service": "kava.community.v1beta1.Query",
+    "method": "Params",
+    "package": "kava.community.v1beta1",
+    "module": "community",
+    "requestType": "kava.community.v1beta1.QueryParamsRequest",
+    "responseType": "kava.community.v1beta1.QueryParamsResponse",
+    "requestFields": [],
+    "comment": "Params queires the module params."
+  },
+  {
+    "service": "kava.community.v1beta1.Query",
+    "method": "Balance",
+    "package": "kava.community.v1beta1",
+    "module": "community",
+    "requestType": "kava.community.v1beta1.QueryBalanceRequest",
+    "responseType": "kava.community.v1beta1.QueryBalanceResponse",
+    "requestFields": [],
+    "comment": "Balance queries the balance of all coins of x/community module."
+  },
+  {
+    "service": "kava.community.v1beta1.Query",
+    "method": "TotalBalance",
+    "package": "kava.community.v1beta1",
+    "module": "community",
+    "requestType": "kava.community.v1beta1.QueryTotalBalanceRequest",
+    "responseType": "kava.community.v1beta1.QueryTotalBalanceResponse",
+    "requestFields": [],
+    "comment": "TotalBalance queries the balance of all coins, including x/distribution,\n x/community, and supplied balances."
+  },
+  {
+    "service": "kava.community.v1beta1.Query",
+    "method": "AnnualizedRewards",
+    "package": "kava.community.v1beta1",
+    "module": "community",
+    "requestType": "kava.community.v1beta1.QueryAnnualizedRewardsRequest",
+    "responseType": "kava.community.v1beta1.QueryAnnualizedRewardsResponse",
+    "requestFields": [],
+    "comment": "AnnualizedRewards calculates and returns the current annualized reward percentages,\n like staking rewards, for the chain."
+  },
+  {
+    "service": "kava.earn.v1beta1.Query",
+    "method": "Params",
+    "package": "kava.earn.v1beta1",
+    "module": "earn",
+    "requestType": "kava.earn.v1beta1.QueryParamsRequest",
+    "responseType": "kava.earn.v1beta1.QueryParamsResponse",
+    "requestFields": [],
+    "comment": "Params queries all parameters of the earn module."
+  },
+  {
+    "service": "kava.earn.v1beta1.Query",
+    "method": "Vaults",
+    "package": "kava.earn.v1beta1",
+    "module": "earn",
+    "requestType": "kava.earn.v1beta1.QueryVaultsRequest",
+    "responseType": "kava.earn.v1beta1.QueryVaultsResponse",
+    "requestFields": [],
+    "comment": "Vaults queries all vaults"
+  },
+  {
+    "service": "kava.earn.v1beta1.Query",
+    "method": "Vault",
+    "package": "kava.earn.v1beta1",
+    "module": "earn",
+    "requestType": "kava.earn.v1beta1.QueryVaultRequest",
+    "responseType": "kava.earn.v1beta1.QueryVaultResponse",
+    "requestFields": [
+      {
+        "name": "denom",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "vault filters vault by denom"
+      }
+    ],
+    "comment": "Vault queries a single vault based on the vault denom"
+  },
+  {
+    "service": "kava.earn.v1beta1.Query",
+    "method": "Deposits",
+    "package": "kava.earn.v1beta1",
+    "module": "earn",
+    "requestType": "kava.earn.v1beta1.QueryDepositsRequest",
+    "responseType": "kava.earn.v1beta1.QueryDepositsResponse",
+    "requestFields": [
+      {
+        "name": "depositor",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "depositor optionally filters deposits by depositor"
+      },
+      {
+        "name": "denom",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "denom optionally filters deposits by vault denom"
+      },
+      {
+        "name": "value_in_staked_tokens",
+        "type": "bool",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "respond with vault value in ukava for bkava vaults"
+      },
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageRequest",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageRequest",
+        "comment": "pagination defines an optional pagination for the request."
+      }
+    ],
+    "comment": "Deposits queries deposit details based on depositor address and vault"
+  },
+  {
+    "service": "kava.earn.v1beta1.Query",
+    "method": "TotalSupply",
+    "package": "kava.earn.v1beta1",
+    "module": "earn",
+    "requestType": "kava.earn.v1beta1.QueryTotalSupplyRequest",
+    "responseType": "kava.earn.v1beta1.QueryTotalSupplyResponse",
+    "requestFields": [],
+    "comment": "TotalSupply returns the total sum of all coins currently locked into the earn module."
+  },
+  {
+    "service": "kava.evmutil.v1beta1.Query",
+    "method": "Params",
+    "package": "kava.evmutil.v1beta1",
+    "module": "evmutil",
+    "requestType": "kava.evmutil.v1beta1.QueryParamsRequest",
+    "responseType": "kava.evmutil.v1beta1.QueryParamsResponse",
+    "requestFields": [],
+    "comment": "Params queries all parameters of the evmutil module."
+  },
+  {
+    "service": "kava.evmutil.v1beta1.Query",
+    "method": "DeployedCosmosCoinContracts",
+    "package": "kava.evmutil.v1beta1",
+    "module": "evmutil",
+    "requestType": "kava.evmutil.v1beta1.QueryDeployedCosmosCoinContractsRequest",
+    "responseType": "kava.evmutil.v1beta1.QueryDeployedCosmosCoinContractsResponse",
+    "requestFields": [
+      {
+        "name": "cosmos_denoms",
+        "type": "string",
+        "number": 1,
+        "repeated": true,
+        "optional": false,
+        "comment": "optional query param to only return specific denoms in the list\n denoms that do not have deployed contracts will be omitted from the result\n must request fewer than 100 denoms at a time."
+      },
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageRequest",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageRequest",
+        "comment": "pagination defines an optional pagination for the request."
+      }
+    ],
+    "comment": "DeployedCosmosCoinContracts queries a list cosmos coin denom and their deployed erc20 address"
+  },
+  {
+    "service": "kava.hard.v1beta1.Query",
+    "method": "Params",
+    "package": "kava.hard.v1beta1",
+    "module": "hard",
+    "requestType": "kava.hard.v1beta1.QueryParamsRequest",
+    "responseType": "kava.hard.v1beta1.QueryParamsResponse",
+    "requestFields": [],
+    "comment": "Params queries module params."
+  },
+  {
+    "service": "kava.hard.v1beta1.Query",
+    "method": "Accounts",
+    "package": "kava.hard.v1beta1",
+    "module": "hard",
+    "requestType": "kava.hard.v1beta1.QueryAccountsRequest",
+    "responseType": "kava.hard.v1beta1.QueryAccountsResponse",
+    "requestFields": [],
+    "comment": "Accounts queries module accounts."
+  },
+  {
+    "service": "kava.hard.v1beta1.Query",
+    "method": "Deposits",
+    "package": "kava.hard.v1beta1",
+    "module": "hard",
+    "requestType": "kava.hard.v1beta1.QueryDepositsRequest",
+    "responseType": "kava.hard.v1beta1.QueryDepositsResponse",
+    "requestFields": [
+      {
+        "name": "denom",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "owner",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageRequest",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageRequest"
+      }
+    ],
+    "comment": "Deposits queries hard deposits."
+  },
+  {
+    "service": "kava.hard.v1beta1.Query",
+    "method": "UnsyncedDeposits",
+    "package": "kava.hard.v1beta1",
+    "module": "hard",
+    "requestType": "kava.hard.v1beta1.QueryUnsyncedDepositsRequest",
+    "responseType": "kava.hard.v1beta1.QueryUnsyncedDepositsResponse",
+    "requestFields": [
+      {
+        "name": "denom",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "owner",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageRequest",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageRequest"
+      }
+    ],
+    "comment": "UnsyncedDeposits queries unsynced deposits."
+  },
+  {
+    "service": "kava.hard.v1beta1.Query",
+    "method": "TotalDeposited",
+    "package": "kava.hard.v1beta1",
+    "module": "hard",
+    "requestType": "kava.hard.v1beta1.QueryTotalDepositedRequest",
+    "responseType": "kava.hard.v1beta1.QueryTotalDepositedResponse",
+    "requestFields": [
+      {
+        "name": "denom",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "TotalDeposited queries total coins deposited to hard liquidity pools."
+  },
+  {
+    "service": "kava.hard.v1beta1.Query",
+    "method": "Borrows",
+    "package": "kava.hard.v1beta1",
+    "module": "hard",
+    "requestType": "kava.hard.v1beta1.QueryBorrowsRequest",
+    "responseType": "kava.hard.v1beta1.QueryBorrowsResponse",
+    "requestFields": [
+      {
+        "name": "denom",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "owner",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageRequest",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageRequest"
+      }
+    ],
+    "comment": "Borrows queries hard borrows."
+  },
+  {
+    "service": "kava.hard.v1beta1.Query",
+    "method": "UnsyncedBorrows",
+    "package": "kava.hard.v1beta1",
+    "module": "hard",
+    "requestType": "kava.hard.v1beta1.QueryUnsyncedBorrowsRequest",
+    "responseType": "kava.hard.v1beta1.QueryUnsyncedBorrowsResponse",
+    "requestFields": [
+      {
+        "name": "denom",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "owner",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageRequest",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageRequest"
+      }
+    ],
+    "comment": "UnsyncedBorrows queries unsynced borrows."
+  },
+  {
+    "service": "kava.hard.v1beta1.Query",
+    "method": "TotalBorrowed",
+    "package": "kava.hard.v1beta1",
+    "module": "hard",
+    "requestType": "kava.hard.v1beta1.QueryTotalBorrowedRequest",
+    "responseType": "kava.hard.v1beta1.QueryTotalBorrowedResponse",
+    "requestFields": [
+      {
+        "name": "denom",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "TotalBorrowed queries total coins borrowed from hard liquidity pools."
+  },
+  {
+    "service": "kava.hard.v1beta1.Query",
+    "method": "InterestRate",
+    "package": "kava.hard.v1beta1",
+    "module": "hard",
+    "requestType": "kava.hard.v1beta1.QueryInterestRateRequest",
+    "responseType": "kava.hard.v1beta1.QueryInterestRateResponse",
+    "requestFields": [
+      {
+        "name": "denom",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "InterestRate queries the hard module interest rates."
+  },
+  {
+    "service": "kava.hard.v1beta1.Query",
+    "method": "Reserves",
+    "package": "kava.hard.v1beta1",
+    "module": "hard",
+    "requestType": "kava.hard.v1beta1.QueryReservesRequest",
+    "responseType": "kava.hard.v1beta1.QueryReservesResponse",
+    "requestFields": [
+      {
+        "name": "denom",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "Reserves queries total hard reserve coins."
+  },
+  {
+    "service": "kava.hard.v1beta1.Query",
+    "method": "InterestFactors",
+    "package": "kava.hard.v1beta1",
+    "module": "hard",
+    "requestType": "kava.hard.v1beta1.QueryInterestFactorsRequest",
+    "responseType": "kava.hard.v1beta1.QueryInterestFactorsResponse",
+    "requestFields": [
+      {
+        "name": "denom",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "InterestFactors queries hard module interest factors."
+  },
+  {
+    "service": "kava.incentive.v1beta1.Query",
+    "method": "Params",
+    "package": "kava.incentive.v1beta1",
+    "module": "incentive",
+    "requestType": "kava.incentive.v1beta1.QueryParamsRequest",
+    "responseType": "kava.incentive.v1beta1.QueryParamsResponse",
+    "requestFields": [],
+    "comment": "Params queries module params."
+  },
+  {
+    "service": "kava.incentive.v1beta1.Query",
+    "method": "Rewards",
+    "package": "kava.incentive.v1beta1",
+    "module": "incentive",
+    "requestType": "kava.incentive.v1beta1.QueryRewardsRequest",
+    "responseType": "kava.incentive.v1beta1.QueryRewardsResponse",
+    "requestFields": [
+      {
+        "name": "owner",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "owner is the address of the user to query rewards for."
+      },
+      {
+        "name": "reward_type",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "reward_type is the type of reward to query rewards for, e.g. hard, earn,\n swap."
+      },
+      {
+        "name": "unsynchronized",
+        "type": "bool",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "unsynchronized is a flag to query rewards that are not simulated for reward\n synchronized for the current block."
+      }
+    ],
+    "comment": "Rewards queries reward information for a given user."
+  },
+  {
+    "service": "kava.incentive.v1beta1.Query",
+    "method": "RewardFactors",
+    "package": "kava.incentive.v1beta1",
+    "module": "incentive",
+    "requestType": "kava.incentive.v1beta1.QueryRewardFactorsRequest",
+    "responseType": "kava.incentive.v1beta1.QueryRewardFactorsResponse",
+    "requestFields": [],
+    "comment": "Rewards queries the reward factors."
+  },
+  {
+    "service": "kava.incentive.v1beta1.Query",
+    "method": "Apy",
+    "package": "kava.incentive.v1beta1",
+    "module": "incentive",
+    "requestType": "kava.incentive.v1beta1.QueryApyRequest",
+    "responseType": "kava.incentive.v1beta1.QueryApyResponse",
+    "requestFields": [],
+    "comment": "Apy queries incentive reward apy for a reward."
+  },
+  {
+    "service": "kava.issuance.v1beta1.Query",
+    "method": "Params",
+    "package": "kava.issuance.v1beta1",
+    "module": "issuance",
+    "requestType": "kava.issuance.v1beta1.QueryParamsRequest",
+    "responseType": "kava.issuance.v1beta1.QueryParamsResponse",
+    "requestFields": [],
+    "comment": "Params queries all parameters of the issuance module."
+  },
+  {
+    "service": "kava.kavadist.v1beta1.Query",
+    "method": "Params",
+    "package": "kava.kavadist.v1beta1",
+    "module": "kavadist",
+    "requestType": "kava.kavadist.v1beta1.QueryParamsRequest",
+    "responseType": "kava.kavadist.v1beta1.QueryParamsResponse",
+    "requestFields": [],
+    "comment": "Params queries the parameters of x/kavadist module."
+  },
+  {
+    "service": "kava.kavadist.v1beta1.Query",
+    "method": "Balance",
+    "package": "kava.kavadist.v1beta1",
+    "module": "kavadist",
+    "requestType": "kava.kavadist.v1beta1.QueryBalanceRequest",
+    "responseType": "kava.kavadist.v1beta1.QueryBalanceResponse",
+    "requestFields": [],
+    "comment": "Balance queries the balance of all coins of x/kavadist module."
+  },
+  {
+    "service": "kava.liquid.v1beta1.Query",
+    "method": "DelegatedBalance",
+    "package": "kava.liquid.v1beta1",
+    "module": "liquid",
+    "requestType": "kava.liquid.v1beta1.QueryDelegatedBalanceRequest",
+    "responseType": "kava.liquid.v1beta1.QueryDelegatedBalanceResponse",
+    "requestFields": [
+      {
+        "name": "delegator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "delegator is the address of the account to query"
+      }
+    ],
+    "comment": "DelegatedBalance returns an account's vesting and vested coins currently delegated to validators.\n It ignores coins in unbonding delegations."
+  },
+  {
+    "service": "kava.liquid.v1beta1.Query",
+    "method": "TotalSupply",
+    "package": "kava.liquid.v1beta1",
+    "module": "liquid",
+    "requestType": "kava.liquid.v1beta1.QueryTotalSupplyRequest",
+    "responseType": "kava.liquid.v1beta1.QueryTotalSupplyResponse",
+    "requestFields": [],
+    "comment": "TotalSupply returns the total sum of all coins currently locked into the liquid module."
+  },
+  {
+    "service": "kava.precisebank.v1.Query",
+    "method": "TotalFractionalBalances",
+    "package": "kava.precisebank.v1",
+    "module": "precisebank",
+    "requestType": "kava.precisebank.v1.QueryTotalFractionalBalancesRequest",
+    "responseType": "kava.precisebank.v1.QueryTotalFractionalBalancesResponse",
+    "requestFields": [],
+    "comment": "TotalFractionalBalances returns the total sum of all fractional balances\n managed by the precisebank module."
+  },
+  {
+    "service": "kava.precisebank.v1.Query",
+    "method": "Remainder",
+    "package": "kava.precisebank.v1",
+    "module": "precisebank",
+    "requestType": "kava.precisebank.v1.QueryRemainderRequest",
+    "responseType": "kava.precisebank.v1.QueryRemainderResponse",
+    "requestFields": [],
+    "comment": "Remainder returns the amount backed by the reserve, but not yet owned by\n any account, i.e. not in circulation."
+  },
+  {
+    "service": "kava.precisebank.v1.Query",
+    "method": "FractionalBalance",
+    "package": "kava.precisebank.v1",
+    "module": "precisebank",
+    "requestType": "kava.precisebank.v1.QueryFractionalBalanceRequest",
+    "responseType": "kava.precisebank.v1.QueryFractionalBalanceResponse",
+    "requestFields": [
+      {
+        "name": "address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "address is the account address to query  fractional balance for."
+      }
+    ],
+    "comment": "FractionalBalance returns only the fractional balance of an address. This\n does not include any integer balance."
+  },
+  {
+    "service": "kava.pricefeed.v1beta1.Query",
+    "method": "Params",
+    "package": "kava.pricefeed.v1beta1",
+    "module": "pricefeed",
+    "requestType": "kava.pricefeed.v1beta1.QueryParamsRequest",
+    "responseType": "kava.pricefeed.v1beta1.QueryParamsResponse",
+    "requestFields": [],
+    "comment": "Params queries all parameters of the pricefeed module."
+  },
+  {
+    "service": "kava.pricefeed.v1beta1.Query",
+    "method": "Price",
+    "package": "kava.pricefeed.v1beta1",
+    "module": "pricefeed",
+    "requestType": "kava.pricefeed.v1beta1.QueryPriceRequest",
+    "responseType": "kava.pricefeed.v1beta1.QueryPriceResponse",
+    "requestFields": [
+      {
+        "name": "market_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "Price queries price details based on a market"
+  },
+  {
+    "service": "kava.pricefeed.v1beta1.Query",
+    "method": "Prices",
+    "package": "kava.pricefeed.v1beta1",
+    "module": "pricefeed",
+    "requestType": "kava.pricefeed.v1beta1.QueryPricesRequest",
+    "responseType": "kava.pricefeed.v1beta1.QueryPricesResponse",
+    "requestFields": [],
+    "comment": "Prices queries all prices"
+  },
+  {
+    "service": "kava.pricefeed.v1beta1.Query",
+    "method": "RawPrices",
+    "package": "kava.pricefeed.v1beta1",
+    "module": "pricefeed",
+    "requestType": "kava.pricefeed.v1beta1.QueryRawPricesRequest",
+    "responseType": "kava.pricefeed.v1beta1.QueryRawPricesResponse",
+    "requestFields": [
+      {
+        "name": "market_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "RawPrices queries all raw prices based on a market"
+  },
+  {
+    "service": "kava.pricefeed.v1beta1.Query",
+    "method": "Oracles",
+    "package": "kava.pricefeed.v1beta1",
+    "module": "pricefeed",
+    "requestType": "kava.pricefeed.v1beta1.QueryOraclesRequest",
+    "responseType": "kava.pricefeed.v1beta1.QueryOraclesResponse",
+    "requestFields": [
+      {
+        "name": "market_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "Oracles queries all oracles based on a market"
+  },
+  {
+    "service": "kava.pricefeed.v1beta1.Query",
+    "method": "Markets",
+    "package": "kava.pricefeed.v1beta1",
+    "module": "pricefeed",
+    "requestType": "kava.pricefeed.v1beta1.QueryMarketsRequest",
+    "responseType": "kava.pricefeed.v1beta1.QueryMarketsResponse",
+    "requestFields": [],
+    "comment": "Markets queries all markets"
+  },
+  {
+    "service": "kava.savings.v1beta1.Query",
+    "method": "Params",
+    "package": "kava.savings.v1beta1",
+    "module": "savings",
+    "requestType": "kava.savings.v1beta1.QueryParamsRequest",
+    "responseType": "kava.savings.v1beta1.QueryParamsResponse",
+    "requestFields": [],
+    "comment": "Params queries all parameters of the savings module."
+  },
+  {
+    "service": "kava.savings.v1beta1.Query",
+    "method": "Deposits",
+    "package": "kava.savings.v1beta1",
+    "module": "savings",
+    "requestType": "kava.savings.v1beta1.QueryDepositsRequest",
+    "responseType": "kava.savings.v1beta1.QueryDepositsResponse",
+    "requestFields": [
+      {
+        "name": "denom",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "owner",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageRequest",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageRequest"
+      }
+    ],
+    "comment": "Deposits queries savings deposits."
+  },
+  {
+    "service": "kava.savings.v1beta1.Query",
+    "method": "TotalSupply",
+    "package": "kava.savings.v1beta1",
+    "module": "savings",
+    "requestType": "kava.savings.v1beta1.QueryTotalSupplyRequest",
+    "responseType": "kava.savings.v1beta1.QueryTotalSupplyResponse",
+    "requestFields": [],
+    "comment": "TotalSupply returns the total sum of all coins currently locked into the savings module."
+  },
+  {
+    "service": "kava.swap.v1beta1.Query",
+    "method": "Params",
+    "package": "kava.swap.v1beta1",
+    "module": "swap",
+    "requestType": "kava.swap.v1beta1.QueryParamsRequest",
+    "responseType": "kava.swap.v1beta1.QueryParamsResponse",
+    "requestFields": [],
+    "comment": "Params queries all parameters of the swap module."
+  },
+  {
+    "service": "kava.swap.v1beta1.Query",
+    "method": "Pools",
+    "package": "kava.swap.v1beta1",
+    "module": "swap",
+    "requestType": "kava.swap.v1beta1.QueryPoolsRequest",
+    "responseType": "kava.swap.v1beta1.QueryPoolsResponse",
+    "requestFields": [
+      {
+        "name": "pool_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "pool_id filters pools by id"
+      },
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageRequest",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageRequest",
+        "comment": "pagination defines an optional pagination for the request."
+      }
+    ],
+    "comment": "Pools queries pools based on pool ID"
+  },
+  {
+    "service": "kava.swap.v1beta1.Query",
+    "method": "Deposits",
+    "package": "kava.swap.v1beta1",
+    "module": "swap",
+    "requestType": "kava.swap.v1beta1.QueryDepositsRequest",
+    "responseType": "kava.swap.v1beta1.QueryDepositsResponse",
+    "requestFields": [
+      {
+        "name": "owner",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "owner optionally filters deposits by owner"
+      },
+      {
+        "name": "pool_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "pool_id optionally fitlers deposits by pool id"
+      },
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageRequest",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageRequest",
+        "comment": "pagination defines an optional pagination for the request."
+      }
+    ],
+    "comment": "Deposits queries deposit details based on owner address and pool"
+  },
+  {
+    "service": "kava.validatorvesting.v1beta1.Query",
+    "method": "CirculatingSupply",
+    "package": "kava.validatorvesting.v1beta1",
+    "module": "validatorvesting",
+    "requestType": "kava.validatorvesting.v1beta1.QueryCirculatingSupplyRequest",
+    "responseType": "kava.validatorvesting.v1beta1.QueryCirculatingSupplyResponse",
+    "requestFields": [],
+    "comment": "CirculatingSupply returns the total amount of kava tokens in circulation"
+  },
+  {
+    "service": "kava.validatorvesting.v1beta1.Query",
+    "method": "TotalSupply",
+    "package": "kava.validatorvesting.v1beta1",
+    "module": "validatorvesting",
+    "requestType": "kava.validatorvesting.v1beta1.QueryTotalSupplyRequest",
+    "responseType": "kava.validatorvesting.v1beta1.QueryTotalSupplyResponse",
+    "requestFields": [],
+    "comment": "TotalSupply returns the total amount of kava tokens"
+  },
+  {
+    "service": "kava.validatorvesting.v1beta1.Query",
+    "method": "CirculatingSupplyHARD",
+    "package": "kava.validatorvesting.v1beta1",
+    "module": "validatorvesting",
+    "requestType": "kava.validatorvesting.v1beta1.QueryCirculatingSupplyHARDRequest",
+    "responseType": "kava.validatorvesting.v1beta1.QueryCirculatingSupplyHARDResponse",
+    "requestFields": [],
+    "comment": "CirculatingSupplyHARD returns the total amount of hard tokens in circulation"
+  },
+  {
+    "service": "kava.validatorvesting.v1beta1.Query",
+    "method": "CirculatingSupplyUSDX",
+    "package": "kava.validatorvesting.v1beta1",
+    "module": "validatorvesting",
+    "requestType": "kava.validatorvesting.v1beta1.QueryCirculatingSupplyUSDXRequest",
+    "responseType": "kava.validatorvesting.v1beta1.QueryCirculatingSupplyUSDXResponse",
+    "requestFields": [],
+    "comment": "CirculatingSupplyUSDX returns the total amount of usdx tokens in circulation"
+  },
+  {
+    "service": "kava.validatorvesting.v1beta1.Query",
+    "method": "CirculatingSupplySWP",
+    "package": "kava.validatorvesting.v1beta1",
+    "module": "validatorvesting",
+    "requestType": "kava.validatorvesting.v1beta1.QueryCirculatingSupplySWPRequest",
+    "responseType": "kava.validatorvesting.v1beta1.QueryCirculatingSupplySWPResponse",
+    "requestFields": [],
+    "comment": "CirculatingSupplySWP returns the total amount of swp tokens in circulation"
+  },
+  {
+    "service": "kava.validatorvesting.v1beta1.Query",
+    "method": "TotalSupplyHARD",
+    "package": "kava.validatorvesting.v1beta1",
+    "module": "validatorvesting",
+    "requestType": "kava.validatorvesting.v1beta1.QueryTotalSupplyHARDRequest",
+    "responseType": "kava.validatorvesting.v1beta1.QueryTotalSupplyHARDResponse",
+    "requestFields": [],
+    "comment": "TotalSupplyHARD returns the total amount of hard tokens"
+  },
+  {
+    "service": "kava.validatorvesting.v1beta1.Query",
+    "method": "TotalSupplyUSDX",
+    "package": "kava.validatorvesting.v1beta1",
+    "module": "validatorvesting",
+    "requestType": "kava.validatorvesting.v1beta1.QueryTotalSupplyUSDXRequest",
+    "responseType": "kava.validatorvesting.v1beta1.QueryTotalSupplyUSDXResponse",
+    "requestFields": [],
+    "comment": "TotalSupplyUSDX returns the total amount of usdx tokens"
+  }
+]

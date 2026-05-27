@@ -1,0 +1,1593 @@
+[
+  {
+    "typeUrl": "/kava.auction.v1beta1.MsgPlaceBid",
+    "name": "MsgPlaceBid",
+    "package": "kava.auction.v1beta1",
+    "module": "auction",
+    "fields": [
+      {
+        "name": "auction_id",
+        "type": "uint64",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "bidder",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      }
+    ],
+    "comment": "MsgPlaceBid represents a message used by bidders to place bids on auctions"
+  },
+  {
+    "typeUrl": "/kava.bep3.v1beta1.MsgCreateAtomicSwap",
+    "name": "MsgCreateAtomicSwap",
+    "package": "kava.bep3.v1beta1",
+    "module": "bep3",
+    "fields": [
+      {
+        "name": "from",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "to",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "recipient_other_chain",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "sender_other_chain",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "random_number_hash",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "timestamp",
+        "type": "int64",
+        "number": 6,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 7,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      },
+      {
+        "name": "height_span",
+        "type": "uint64",
+        "number": 8,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "MsgCreateAtomicSwap defines the Msg/CreateAtomicSwap request type."
+  },
+  {
+    "typeUrl": "/kava.bep3.v1beta1.MsgClaimAtomicSwap",
+    "name": "MsgClaimAtomicSwap",
+    "package": "kava.bep3.v1beta1",
+    "module": "bep3",
+    "fields": [
+      {
+        "name": "from",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "swap_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "random_number",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "MsgClaimAtomicSwap defines the Msg/ClaimAtomicSwap request type."
+  },
+  {
+    "typeUrl": "/kava.bep3.v1beta1.MsgRefundAtomicSwap",
+    "name": "MsgRefundAtomicSwap",
+    "package": "kava.bep3.v1beta1",
+    "module": "bep3",
+    "fields": [
+      {
+        "name": "from",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "swap_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "MsgRefundAtomicSwap defines the Msg/RefundAtomicSwap request type."
+  },
+  {
+    "typeUrl": "/kava.cdp.v1beta1.MsgCreateCDP",
+    "name": "MsgCreateCDP",
+    "package": "kava.cdp.v1beta1",
+    "module": "cdp",
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "collateral",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      },
+      {
+        "name": "principal",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      },
+      {
+        "name": "collateral_type",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "MsgCreateCDP defines a message to create a new CDP."
+  },
+  {
+    "typeUrl": "/kava.cdp.v1beta1.MsgDeposit",
+    "name": "MsgDeposit",
+    "package": "kava.cdp.v1beta1",
+    "module": "cdp",
+    "fields": [
+      {
+        "name": "depositor",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "owner",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "collateral",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      },
+      {
+        "name": "collateral_type",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "MsgDeposit defines a message to deposit to a CDP."
+  },
+  {
+    "typeUrl": "/kava.cdp.v1beta1.MsgWithdraw",
+    "name": "MsgWithdraw",
+    "package": "kava.cdp.v1beta1",
+    "module": "cdp",
+    "fields": [
+      {
+        "name": "depositor",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "owner",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "collateral",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      },
+      {
+        "name": "collateral_type",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "MsgWithdraw defines a message to withdraw collateral from a CDP."
+  },
+  {
+    "typeUrl": "/kava.cdp.v1beta1.MsgDrawDebt",
+    "name": "MsgDrawDebt",
+    "package": "kava.cdp.v1beta1",
+    "module": "cdp",
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "collateral_type",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "principal",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      }
+    ],
+    "comment": "MsgDrawDebt defines a message to draw debt from a CDP."
+  },
+  {
+    "typeUrl": "/kava.cdp.v1beta1.MsgRepayDebt",
+    "name": "MsgRepayDebt",
+    "package": "kava.cdp.v1beta1",
+    "module": "cdp",
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "collateral_type",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "payment",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      }
+    ],
+    "comment": "MsgRepayDebt defines a message to repay debt from a CDP."
+  },
+  {
+    "typeUrl": "/kava.cdp.v1beta1.MsgLiquidate",
+    "name": "MsgLiquidate",
+    "package": "kava.cdp.v1beta1",
+    "module": "cdp",
+    "fields": [
+      {
+        "name": "keeper",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "borrower",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "collateral_type",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "MsgLiquidate defines a message to attempt to liquidate a CDP whos\n collateralization ratio is under its liquidation ratio."
+  },
+  {
+    "typeUrl": "/kava.committee.v1beta1.MsgSubmitProposal",
+    "name": "MsgSubmitProposal",
+    "package": "kava.committee.v1beta1",
+    "module": "committee",
+    "fields": [
+      {
+        "name": "pub_proposal",
+        "type": "google.protobuf.Any",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Any"
+      },
+      {
+        "name": "proposer",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "committee_id",
+        "type": "uint64",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "MsgSubmitProposal is used by committee members to create a new proposal that they can vote on."
+  },
+  {
+    "typeUrl": "/kava.committee.v1beta1.MsgVote",
+    "name": "MsgVote",
+    "package": "kava.committee.v1beta1",
+    "module": "committee",
+    "fields": [
+      {
+        "name": "proposal_id",
+        "type": "uint64",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "voter",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "vote_type",
+        "type": "kava.committee.v1beta1.VoteType",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "kava.committee.v1beta1.VoteType"
+      }
+    ],
+    "comment": "MsgVote is submitted by committee members to vote on proposals."
+  },
+  {
+    "typeUrl": "/kava.community.v1beta1.MsgFundCommunityPool",
+    "name": "MsgFundCommunityPool",
+    "package": "kava.community.v1beta1",
+    "module": "community",
+    "fields": [
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 1,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      },
+      {
+        "name": "depositor",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "MsgFundCommunityPool allows an account to directly fund the community module account."
+  },
+  {
+    "typeUrl": "/kava.community.v1beta1.MsgUpdateParams",
+    "name": "MsgUpdateParams",
+    "package": "kava.community.v1beta1",
+    "module": "community",
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "authority is the address that controls the module (defaults to x/gov unless overwritten)."
+      },
+      {
+        "name": "params",
+        "type": "kava.community.v1beta1.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "kava.community.v1beta1.Params",
+        "comment": "params defines the x/community parameters to update."
+      }
+    ],
+    "comment": "MsgUpdateParams allows an account to update the community module parameters."
+  },
+  {
+    "typeUrl": "/kava.earn.v1beta1.MsgDeposit",
+    "name": "MsgDeposit",
+    "package": "kava.earn.v1beta1",
+    "module": "earn",
+    "fields": [
+      {
+        "name": "depositor",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "depositor represents the address to deposit funds from"
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin",
+        "comment": "Amount represents the token to deposit. The vault corresponds to the denom\n of the amount coin."
+      },
+      {
+        "name": "strategy",
+        "type": "kava.earn.v1beta1.StrategyType",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "kava.earn.v1beta1.StrategyType",
+        "comment": "Strategy is the vault strategy to use."
+      }
+    ],
+    "comment": "MsgDeposit represents a message for depositing assedts into a vault"
+  },
+  {
+    "typeUrl": "/kava.earn.v1beta1.MsgWithdraw",
+    "name": "MsgWithdraw",
+    "package": "kava.earn.v1beta1",
+    "module": "earn",
+    "fields": [
+      {
+        "name": "from",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "from represents the address we are withdrawing for"
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin",
+        "comment": "Amount represents the token to withdraw. The vault corresponds to the denom\n of the amount coin."
+      },
+      {
+        "name": "strategy",
+        "type": "kava.earn.v1beta1.StrategyType",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "kava.earn.v1beta1.StrategyType",
+        "comment": "Strategy is the vault strategy to use."
+      }
+    ],
+    "comment": "MsgWithdraw represents a message for withdrawing liquidity from a vault"
+  },
+  {
+    "typeUrl": "/kava.evmutil.v1beta1.MsgConvertCoinToERC20",
+    "name": "MsgConvertCoinToERC20",
+    "package": "kava.evmutil.v1beta1",
+    "module": "evmutil",
+    "fields": [
+      {
+        "name": "initiator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "Kava bech32 address initiating the conversion."
+      },
+      {
+        "name": "receiver",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "EVM 0x hex address that will receive the converted Kava ERC20 tokens."
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin",
+        "comment": "Amount is the sdk.Coin amount to convert."
+      }
+    ],
+    "comment": "MsgConvertCoinToERC20 defines a conversion from sdk.Coin to Kava ERC20 for EVM-native assets."
+  },
+  {
+    "typeUrl": "/kava.evmutil.v1beta1.MsgConvertERC20ToCoin",
+    "name": "MsgConvertERC20ToCoin",
+    "package": "kava.evmutil.v1beta1",
+    "module": "evmutil",
+    "fields": [
+      {
+        "name": "initiator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "EVM 0x hex address initiating the conversion."
+      },
+      {
+        "name": "receiver",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "Kava bech32 address that will receive the converted sdk.Coin."
+      },
+      {
+        "name": "kava_erc20_address",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "EVM 0x hex address of the ERC20 contract."
+      },
+      {
+        "name": "amount",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "ERC20 token amount to convert."
+      }
+    ],
+    "comment": "MsgConvertERC20ToCoin defines a conversion from Kava ERC20 to sdk.Coin for EVM-native assets."
+  },
+  {
+    "typeUrl": "/kava.evmutil.v1beta1.MsgConvertCosmosCoinToERC20",
+    "name": "MsgConvertCosmosCoinToERC20",
+    "package": "kava.evmutil.v1beta1",
+    "module": "evmutil",
+    "fields": [
+      {
+        "name": "initiator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "Kava bech32 address initiating the conversion."
+      },
+      {
+        "name": "receiver",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "EVM hex address that will receive the ERC20 tokens."
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin",
+        "comment": "Amount is the sdk.Coin amount to convert."
+      }
+    ],
+    "comment": "MsgConvertCosmosCoinToERC20 defines a conversion from cosmos sdk.Coin to ERC20 for cosmos-native assets."
+  },
+  {
+    "typeUrl": "/kava.evmutil.v1beta1.MsgConvertCosmosCoinFromERC20",
+    "name": "MsgConvertCosmosCoinFromERC20",
+    "package": "kava.evmutil.v1beta1",
+    "module": "evmutil",
+    "fields": [
+      {
+        "name": "initiator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "EVM hex address initiating the conversion."
+      },
+      {
+        "name": "receiver",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "Kava bech32 address that will receive the cosmos coins."
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin",
+        "comment": "Amount is the amount to convert, expressed as a Cosmos coin."
+      }
+    ],
+    "comment": "MsgConvertCosmosCoinFromERC20 defines a conversion from ERC20 to cosmos coins for cosmos-native assets."
+  },
+  {
+    "typeUrl": "/kava.hard.v1beta1.MsgDeposit",
+    "name": "MsgDeposit",
+    "package": "kava.hard.v1beta1",
+    "module": "hard",
+    "fields": [
+      {
+        "name": "depositor",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      }
+    ],
+    "comment": "MsgDeposit defines the Msg/Deposit request type."
+  },
+  {
+    "typeUrl": "/kava.hard.v1beta1.MsgWithdraw",
+    "name": "MsgWithdraw",
+    "package": "kava.hard.v1beta1",
+    "module": "hard",
+    "fields": [
+      {
+        "name": "depositor",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      }
+    ],
+    "comment": "MsgWithdraw defines the Msg/Withdraw request type."
+  },
+  {
+    "typeUrl": "/kava.hard.v1beta1.MsgBorrow",
+    "name": "MsgBorrow",
+    "package": "kava.hard.v1beta1",
+    "module": "hard",
+    "fields": [
+      {
+        "name": "borrower",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      }
+    ],
+    "comment": "MsgBorrow defines the Msg/Borrow request type."
+  },
+  {
+    "typeUrl": "/kava.hard.v1beta1.MsgRepay",
+    "name": "MsgRepay",
+    "package": "kava.hard.v1beta1",
+    "module": "hard",
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "owner",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 3,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      }
+    ],
+    "comment": "MsgRepay defines the Msg/Repay request type."
+  },
+  {
+    "typeUrl": "/kava.hard.v1beta1.MsgLiquidate",
+    "name": "MsgLiquidate",
+    "package": "kava.hard.v1beta1",
+    "module": "hard",
+    "fields": [
+      {
+        "name": "keeper",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "borrower",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "MsgLiquidate defines the Msg/Liquidate request type."
+  },
+  {
+    "typeUrl": "/kava.incentive.v1beta1.MsgClaimUSDXMintingReward",
+    "name": "MsgClaimUSDXMintingReward",
+    "package": "kava.incentive.v1beta1",
+    "module": "incentive",
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "multiplier_name",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "MsgClaimUSDXMintingReward message type used to claim USDX minting rewards"
+  },
+  {
+    "typeUrl": "/kava.incentive.v1beta1.MsgClaimHardReward",
+    "name": "MsgClaimHardReward",
+    "package": "kava.incentive.v1beta1",
+    "module": "incentive",
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "denoms_to_claim",
+        "type": "kava.incentive.v1beta1.Selection",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "kava.incentive.v1beta1.Selection"
+      }
+    ],
+    "comment": "MsgClaimHardReward message type used to claim Hard liquidity provider rewards"
+  },
+  {
+    "typeUrl": "/kava.incentive.v1beta1.MsgClaimDelegatorReward",
+    "name": "MsgClaimDelegatorReward",
+    "package": "kava.incentive.v1beta1",
+    "module": "incentive",
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "denoms_to_claim",
+        "type": "kava.incentive.v1beta1.Selection",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "kava.incentive.v1beta1.Selection"
+      }
+    ],
+    "comment": "MsgClaimDelegatorReward message type used to claim delegator rewards"
+  },
+  {
+    "typeUrl": "/kava.incentive.v1beta1.MsgClaimSwapReward",
+    "name": "MsgClaimSwapReward",
+    "package": "kava.incentive.v1beta1",
+    "module": "incentive",
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "denoms_to_claim",
+        "type": "kava.incentive.v1beta1.Selection",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "kava.incentive.v1beta1.Selection"
+      }
+    ],
+    "comment": "MsgClaimSwapReward message type used to claim delegator rewards"
+  },
+  {
+    "typeUrl": "/kava.incentive.v1beta1.MsgClaimSavingsReward",
+    "name": "MsgClaimSavingsReward",
+    "package": "kava.incentive.v1beta1",
+    "module": "incentive",
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "denoms_to_claim",
+        "type": "kava.incentive.v1beta1.Selection",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "kava.incentive.v1beta1.Selection"
+      }
+    ],
+    "comment": "MsgClaimSavingsReward message type used to claim savings rewards"
+  },
+  {
+    "typeUrl": "/kava.incentive.v1beta1.MsgClaimEarnReward",
+    "name": "MsgClaimEarnReward",
+    "package": "kava.incentive.v1beta1",
+    "module": "incentive",
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "denoms_to_claim",
+        "type": "kava.incentive.v1beta1.Selection",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "kava.incentive.v1beta1.Selection"
+      }
+    ],
+    "comment": "MsgClaimEarnReward message type used to claim earn rewards"
+  },
+  {
+    "typeUrl": "/kava.issuance.v1beta1.MsgIssueTokens",
+    "name": "MsgIssueTokens",
+    "package": "kava.issuance.v1beta1",
+    "module": "issuance",
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "tokens",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      },
+      {
+        "name": "receiver",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "MsgIssueTokens represents a message used by the issuer to issue new tokens"
+  },
+  {
+    "typeUrl": "/kava.issuance.v1beta1.MsgRedeemTokens",
+    "name": "MsgRedeemTokens",
+    "package": "kava.issuance.v1beta1",
+    "module": "issuance",
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "tokens",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      }
+    ],
+    "comment": "MsgRedeemTokens represents a message used by the issuer to redeem (burn) tokens"
+  },
+  {
+    "typeUrl": "/kava.issuance.v1beta1.MsgBlockAddress",
+    "name": "MsgBlockAddress",
+    "package": "kava.issuance.v1beta1",
+    "module": "issuance",
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "denom",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "blocked_address",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "MsgBlockAddress represents a message used by the issuer to block an address from holding or transferring tokens"
+  },
+  {
+    "typeUrl": "/kava.issuance.v1beta1.MsgUnblockAddress",
+    "name": "MsgUnblockAddress",
+    "package": "kava.issuance.v1beta1",
+    "module": "issuance",
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "denom",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "blocked_address",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "MsgUnblockAddress message type used by the issuer to unblock an address from holding or transferring tokens"
+  },
+  {
+    "typeUrl": "/kava.issuance.v1beta1.MsgSetPauseStatus",
+    "name": "MsgSetPauseStatus",
+    "package": "kava.issuance.v1beta1",
+    "module": "issuance",
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "denom",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "status",
+        "type": "bool",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "MsgSetPauseStatus message type used by the issuer to pause or unpause status"
+  },
+  {
+    "typeUrl": "/kava.liquid.v1beta1.MsgMintDerivative",
+    "name": "MsgMintDerivative",
+    "package": "kava.liquid.v1beta1",
+    "module": "liquid",
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "sender is the owner of the delegation to be converted"
+      },
+      {
+        "name": "validator",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "validator is the validator of the delegation to be converted"
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin",
+        "comment": "amount is the quantity of staked assets to be converted"
+      }
+    ],
+    "comment": "MsgMintDerivative defines the Msg/MintDerivative request type."
+  },
+  {
+    "typeUrl": "/kava.liquid.v1beta1.MsgBurnDerivative",
+    "name": "MsgBurnDerivative",
+    "package": "kava.liquid.v1beta1",
+    "module": "liquid",
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "sender is the owner of the derivatives to be converted"
+      },
+      {
+        "name": "validator",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "validator is the validator of the derivatives to be converted"
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin",
+        "comment": "amount is the quantity of derivatives to be converted"
+      }
+    ],
+    "comment": "MsgBurnDerivative defines the Msg/BurnDerivative request type."
+  },
+  {
+    "typeUrl": "/kava.pricefeed.v1beta1.MsgPostPrice",
+    "name": "MsgPostPrice",
+    "package": "kava.pricefeed.v1beta1",
+    "module": "pricefeed",
+    "fields": [
+      {
+        "name": "from",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "address of client"
+      },
+      {
+        "name": "market_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "price",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "expiry",
+        "type": "google.protobuf.Timestamp",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Timestamp"
+      }
+    ],
+    "comment": "MsgPostPrice represents a method for creating a new post price"
+  },
+  {
+    "typeUrl": "/kava.router.v1beta1.MsgMintDeposit",
+    "name": "MsgMintDeposit",
+    "package": "kava.router.v1beta1",
+    "module": "router",
+    "fields": [
+      {
+        "name": "depositor",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "depositor represents the owner of the delegation to convert"
+      },
+      {
+        "name": "validator",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "validator is the validator for the depositor's delegation"
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin",
+        "comment": "amount is the delegation balance to convert"
+      }
+    ],
+    "comment": "MsgMintDeposit converts a delegation into staking derivatives and deposits it all into an earn vault."
+  },
+  {
+    "typeUrl": "/kava.router.v1beta1.MsgDelegateMintDeposit",
+    "name": "MsgDelegateMintDeposit",
+    "package": "kava.router.v1beta1",
+    "module": "router",
+    "fields": [
+      {
+        "name": "depositor",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "depositor represents the owner of the tokens to delegate"
+      },
+      {
+        "name": "validator",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "validator is the address of the validator to delegate to"
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin",
+        "comment": "amount is the tokens to delegate"
+      }
+    ],
+    "comment": "MsgDelegateMintDeposit delegates tokens to a validator, then converts them into staking derivatives,\n then deposits to an earn vault."
+  },
+  {
+    "typeUrl": "/kava.router.v1beta1.MsgWithdrawBurn",
+    "name": "MsgWithdrawBurn",
+    "package": "kava.router.v1beta1",
+    "module": "router",
+    "fields": [
+      {
+        "name": "from",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "from is the owner of the earn vault to withdraw from"
+      },
+      {
+        "name": "validator",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "validator is the address to select the derivative denom to withdraw"
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin",
+        "comment": "amount is the staked token equivalent to withdraw"
+      }
+    ],
+    "comment": "MsgWithdrawBurn removes staking derivatives from an earn vault and converts them back to a staking delegation."
+  },
+  {
+    "typeUrl": "/kava.router.v1beta1.MsgWithdrawBurnUndelegate",
+    "name": "MsgWithdrawBurnUndelegate",
+    "package": "kava.router.v1beta1",
+    "module": "router",
+    "fields": [
+      {
+        "name": "from",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "from is the owner of the earn vault to withdraw from"
+      },
+      {
+        "name": "validator",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "validator is the address to select the derivative denom to withdraw"
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin",
+        "comment": "amount is the staked token equivalent to withdraw"
+      }
+    ],
+    "comment": "MsgWithdrawBurnUndelegate removes staking derivatives from an earn vault, converts them to a staking delegation,\n then undelegates them from their validator."
+  },
+  {
+    "typeUrl": "/kava.savings.v1beta1.MsgDeposit",
+    "name": "MsgDeposit",
+    "package": "kava.savings.v1beta1",
+    "module": "savings",
+    "fields": [
+      {
+        "name": "depositor",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      }
+    ],
+    "comment": "MsgDeposit defines the Msg/Deposit request type."
+  },
+  {
+    "typeUrl": "/kava.savings.v1beta1.MsgWithdraw",
+    "name": "MsgWithdraw",
+    "package": "kava.savings.v1beta1",
+    "module": "savings",
+    "fields": [
+      {
+        "name": "depositor",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      }
+    ],
+    "comment": "MsgWithdraw defines the Msg/Withdraw request type."
+  },
+  {
+    "typeUrl": "/kava.swap.v1beta1.MsgDeposit",
+    "name": "MsgDeposit",
+    "package": "kava.swap.v1beta1",
+    "module": "swap",
+    "fields": [
+      {
+        "name": "depositor",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "depositor represents the address to deposit funds from"
+      },
+      {
+        "name": "token_a",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin",
+        "comment": "token_a represents one token of deposit pair"
+      },
+      {
+        "name": "token_b",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin",
+        "comment": "token_b represents one token of deposit pair"
+      },
+      {
+        "name": "slippage",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "slippage represents the max decimal percentage price change"
+      },
+      {
+        "name": "deadline",
+        "type": "int64",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "comment": "deadline represents the unix timestamp to complete the deposit by"
+      }
+    ],
+    "comment": "MsgDeposit represents a message for depositing liquidity into a pool"
+  },
+  {
+    "typeUrl": "/kava.swap.v1beta1.MsgWithdraw",
+    "name": "MsgWithdraw",
+    "package": "kava.swap.v1beta1",
+    "module": "swap",
+    "fields": [
+      {
+        "name": "from",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "from represents the address we are withdrawing for"
+      },
+      {
+        "name": "shares",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "shares represents the amount of shares to withdraw"
+      },
+      {
+        "name": "min_token_a",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin",
+        "comment": "min_token_a represents the minimum a token to withdraw"
+      },
+      {
+        "name": "min_token_b",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin",
+        "comment": "min_token_a represents the minimum a token to withdraw"
+      },
+      {
+        "name": "deadline",
+        "type": "int64",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "comment": "deadline represents the unix timestamp to complete the withdraw by"
+      }
+    ],
+    "comment": "MsgWithdraw represents a message for withdrawing liquidity from a pool"
+  },
+  {
+    "typeUrl": "/kava.swap.v1beta1.MsgSwapExactForTokens",
+    "name": "MsgSwapExactForTokens",
+    "package": "kava.swap.v1beta1",
+    "module": "swap",
+    "fields": [
+      {
+        "name": "requester",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "represents the address swaping the tokens"
+      },
+      {
+        "name": "exact_token_a",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin",
+        "comment": "exact_token_a represents the exact amount to swap for token_b"
+      },
+      {
+        "name": "token_b",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin",
+        "comment": "token_b represents the desired token_b to swap for"
+      },
+      {
+        "name": "slippage",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "slippage represents the maximum change in token_b allowed"
+      },
+      {
+        "name": "deadline",
+        "type": "int64",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "comment": "deadline represents the unix timestamp to complete the swap by"
+      }
+    ],
+    "comment": "MsgSwapExactForTokens represents a message for trading exact coinA for coinB"
+  },
+  {
+    "typeUrl": "/kava.swap.v1beta1.MsgSwapForExactTokens",
+    "name": "MsgSwapForExactTokens",
+    "package": "kava.swap.v1beta1",
+    "module": "swap",
+    "fields": [
+      {
+        "name": "requester",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "represents the address swaping the tokens"
+      },
+      {
+        "name": "token_a",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin",
+        "comment": "token_a represents the desired token_a to swap for"
+      },
+      {
+        "name": "exact_token_b",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin",
+        "comment": "exact_token_b represents the exact token b amount to swap for token a"
+      },
+      {
+        "name": "slippage",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "slippage represents the maximum change in token_a allowed"
+      },
+      {
+        "name": "deadline",
+        "type": "int64",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "comment": "deadline represents the unix timestamp to complete the swap by"
+      }
+    ],
+    "comment": "MsgSwapForExactTokens represents a message for trading coinA for an exact\n coinB"
+  }
+]

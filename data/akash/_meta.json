@@ -1,0 +1,13 @@
+{
+  "chainName": "akash",
+  "prettyName": "Akash",
+  "chainId": "akashnet-2",
+  "msgCount": 146,
+  "queryCount": 349,
+  "provenance": {
+    "source": "reflection",
+    "harvestedAt": "2026-05-27T16:51:06.452Z",
+    "origin": "reflection:akash.lavenderfive.com:443",
+    "commentsFromSource": false
+  }
+}

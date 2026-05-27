@@ -1,0 +1,24 @@
+{
+  "name": "cosmsg",
+  "private": true,
+  "version": "0.0.0",
+  "description": "A single place to browse every Msg and Query for every Cosmos chain. Built on the Cosmos Chain Registry.",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "bun run --cwd packages/web build",
+    "harvest": "bun run packages/harvester/src/cli.ts",
+    "api": "bun run --cwd packages/api start",
+    "mcp": "bun run --cwd packages/mcp start",
+    "web": "bun run --cwd packages/web dev",
+    "test": "bun test",
+    "typecheck": "tsc -b && tsc -p packages/web/tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.0"
+  }
+}

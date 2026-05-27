@@ -1,0 +1,2114 @@
+[
+  {
+    "service": "gaia.globalfee.v1beta1.Query",
+    "method": "Params",
+    "package": "gaia.globalfee.v1beta1",
+    "module": "globalfee",
+    "requestType": "gaia.globalfee.v1beta1.QueryParamsRequest",
+    "responseType": "gaia.globalfee.v1beta1.QueryParamsResponse",
+    "requestFields": []
+  },
+  {
+    "service": "neutron.coinfactory.v1beta1.Query",
+    "method": "Params",
+    "package": "neutron.coinfactory.v1beta1",
+    "module": "coinfactory",
+    "requestType": "neutron.coinfactory.v1beta1.QueryParamsRequest",
+    "responseType": "neutron.coinfactory.v1beta1.QueryParamsResponse",
+    "requestFields": [],
+    "comment": "Params defines a gRPC query method that returns the coinfactory module's\n parameters."
+  },
+  {
+    "service": "neutron.coinfactory.v1beta1.Query",
+    "method": "DenomAuthorityMetadata",
+    "package": "neutron.coinfactory.v1beta1",
+    "module": "coinfactory",
+    "requestType": "neutron.coinfactory.v1beta1.QueryDenomAuthorityMetadataRequest",
+    "responseType": "neutron.coinfactory.v1beta1.QueryDenomAuthorityMetadataResponse",
+    "requestFields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "subdenom",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "DenomAuthorityMetadata defines a gRPC query method for fetching\n DenomAuthorityMetadata for a particular denom."
+  },
+  {
+    "service": "neutron.coinfactory.v1beta1.Query",
+    "method": "DenomsFromCreator",
+    "package": "neutron.coinfactory.v1beta1",
+    "module": "coinfactory",
+    "requestType": "neutron.coinfactory.v1beta1.QueryDenomsFromCreatorRequest",
+    "responseType": "neutron.coinfactory.v1beta1.QueryDenomsFromCreatorResponse",
+    "requestFields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "DenomsFromCreator defines a gRPC query method for fetching all\n denominations created by a specific admin/creator."
+  },
+  {
+    "service": "neutron.coinfactory.v1beta1.Query",
+    "method": "BeforeSendHookAddress",
+    "package": "neutron.coinfactory.v1beta1",
+    "module": "coinfactory",
+    "requestType": "neutron.coinfactory.v1beta1.QueryBeforeSendHookAddressRequest",
+    "responseType": "neutron.coinfactory.v1beta1.QueryBeforeSendHookAddressResponse",
+    "requestFields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "subdenom",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "BeforeSendHookAddress defines a gRPC query method for\n getting the address registered for the before send hook."
+  },
+  {
+    "service": "neutron.coinfactory.v1beta1.Query",
+    "method": "FullDenom",
+    "package": "neutron.coinfactory.v1beta1",
+    "module": "coinfactory",
+    "requestType": "neutron.coinfactory.v1beta1.QueryFullDenomRequest",
+    "responseType": "neutron.coinfactory.v1beta1.QueryFullDenomResponse",
+    "requestFields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "subdenom",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "FullDenom defines a gRPC query method for getting full denom name\n from the creator and subdenom strings."
+  },
+  {
+    "service": "neutron.contractmanager.Query",
+    "method": "Params",
+    "package": "neutron.contractmanager",
+    "module": "contractmanager",
+    "requestType": "neutron.contractmanager.QueryParamsRequest",
+    "responseType": "neutron.contractmanager.QueryParamsResponse",
+    "requestFields": [],
+    "comment": "Parameters queries the parameters of the module."
+  },
+  {
+    "service": "neutron.contractmanager.Query",
+    "method": "AddressFailure",
+    "package": "neutron.contractmanager",
+    "module": "contractmanager",
+    "requestType": "neutron.contractmanager.QueryFailureRequest",
+    "responseType": "neutron.contractmanager.QueryFailureResponse",
+    "requestFields": [
+      {
+        "name": "address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "address of the contract which Sudo call failed."
+      },
+      {
+        "name": "failure_id",
+        "type": "uint64",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "ID of the failure for the given contract."
+      }
+    ],
+    "comment": "Queries a Failure by contract address and failure ID."
+  },
+  {
+    "service": "neutron.contractmanager.Query",
+    "method": "AddressFailures",
+    "package": "neutron.contractmanager",
+    "module": "contractmanager",
+    "requestType": "neutron.contractmanager.QueryFailuresRequest",
+    "responseType": "neutron.contractmanager.QueryFailuresResponse",
+    "requestFields": [
+      {
+        "name": "address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "address of the contract which Sudo call failed."
+      },
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageRequest",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageRequest"
+      }
+    ],
+    "comment": "Queries Failures by contract address."
+  },
+  {
+    "service": "neutron.contractmanager.Query",
+    "method": "Failures",
+    "package": "neutron.contractmanager",
+    "module": "contractmanager",
+    "requestType": "neutron.contractmanager.QueryFailuresRequest",
+    "responseType": "neutron.contractmanager.QueryFailuresResponse",
+    "requestFields": [
+      {
+        "name": "address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "address of the contract which Sudo call failed."
+      },
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageRequest",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageRequest"
+      }
+    ],
+    "comment": "Queries a list of Failures occurred on the network."
+  },
+  {
+    "service": "neutron.cron.Query",
+    "method": "Params",
+    "package": "neutron.cron",
+    "module": "cron",
+    "requestType": "neutron.cron.QueryParamsRequest",
+    "responseType": "neutron.cron.QueryParamsResponse",
+    "requestFields": [],
+    "comment": "Queries the parameters of the module."
+  },
+  {
+    "service": "neutron.cron.Query",
+    "method": "Schedule",
+    "package": "neutron.cron",
+    "module": "cron",
+    "requestType": "neutron.cron.QueryGetScheduleRequest",
+    "responseType": "neutron.cron.QueryGetScheduleResponse",
+    "requestFields": [
+      {
+        "name": "name",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "Queries a Schedule by name."
+  },
+  {
+    "service": "neutron.cron.Query",
+    "method": "Schedules",
+    "package": "neutron.cron",
+    "module": "cron",
+    "requestType": "neutron.cron.QuerySchedulesRequest",
+    "responseType": "neutron.cron.QuerySchedulesResponse",
+    "requestFields": [
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageRequest",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageRequest"
+      }
+    ],
+    "comment": "Queries a list of Schedule items."
+  },
+  {
+    "service": "neutron.dex.Query",
+    "method": "Params",
+    "package": "neutron.dex",
+    "module": "dex",
+    "requestType": "neutron.dex.QueryParamsRequest",
+    "responseType": "neutron.dex.QueryParamsResponse",
+    "requestFields": [],
+    "comment": "Parameters queries the parameters of the module."
+  },
+  {
+    "service": "neutron.dex.Query",
+    "method": "LimitOrderTrancheUser",
+    "package": "neutron.dex",
+    "module": "dex",
+    "requestType": "neutron.dex.QueryGetLimitOrderTrancheUserRequest",
+    "responseType": "neutron.dex.QueryGetLimitOrderTrancheUserResponse",
+    "requestFields": [
+      {
+        "name": "address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "tranche_key",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "calc_withdrawable_shares",
+        "type": "bool",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "Queries a LimitOrderTrancheUser by index."
+  },
+  {
+    "service": "neutron.dex.Query",
+    "method": "LimitOrderTrancheUserAll",
+    "package": "neutron.dex",
+    "module": "dex",
+    "requestType": "neutron.dex.QueryAllLimitOrderTrancheUserRequest",
+    "responseType": "neutron.dex.QueryAllLimitOrderTrancheUserResponse",
+    "requestFields": [
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageRequest",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageRequest"
+      }
+    ],
+    "comment": "Queries a list of LimitOrderTranchUser items."
+  },
+  {
+    "service": "neutron.dex.Query",
+    "method": "LimitOrderTrancheUserAllByAddress",
+    "package": "neutron.dex",
+    "module": "dex",
+    "requestType": "neutron.dex.QueryAllLimitOrderTrancheUserByAddressRequest",
+    "responseType": "neutron.dex.QueryAllLimitOrderTrancheUserByAddressResponse",
+    "requestFields": [
+      {
+        "name": "address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageRequest",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageRequest"
+      }
+    ],
+    "comment": "Queries a list of LimitOrderTrancheUser items for a given address."
+  },
+  {
+    "service": "neutron.dex.Query",
+    "method": "LimitOrderTranche",
+    "package": "neutron.dex",
+    "module": "dex",
+    "requestType": "neutron.dex.QueryGetLimitOrderTrancheRequest",
+    "responseType": "neutron.dex.QueryGetLimitOrderTrancheResponse",
+    "requestFields": [
+      {
+        "name": "pair_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "tick_index",
+        "type": "int64",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "token_in",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "tranche_key",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "Queries a LimitOrderTranche by index."
+  },
+  {
+    "service": "neutron.dex.Query",
+    "method": "LimitOrderTrancheAll",
+    "package": "neutron.dex",
+    "module": "dex",
+    "requestType": "neutron.dex.QueryAllLimitOrderTrancheRequest",
+    "responseType": "neutron.dex.QueryAllLimitOrderTrancheResponse",
+    "requestFields": [
+      {
+        "name": "pair_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "token_in",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageRequest",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageRequest"
+      }
+    ],
+    "comment": "Queries a list of LimitOrderTranche items for a given pairID / TokenIn\n combination."
+  },
+  {
+    "service": "neutron.dex.Query",
+    "method": "UserDepositsAll",
+    "package": "neutron.dex",
+    "module": "dex",
+    "requestType": "neutron.dex.QueryAllUserDepositsRequest",
+    "responseType": "neutron.dex.QueryAllUserDepositsResponse",
+    "requestFields": [
+      {
+        "name": "address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageRequest",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageRequest"
+      },
+      {
+        "name": "include_pool_data",
+        "type": "bool",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "Queries a list of UserDeposits items."
+  },
+  {
+    "service": "neutron.dex.Query",
+    "method": "TickLiquidityAll",
+    "package": "neutron.dex",
+    "module": "dex",
+    "requestType": "neutron.dex.QueryAllTickLiquidityRequest",
+    "responseType": "neutron.dex.QueryAllTickLiquidityResponse",
+    "requestFields": [
+      {
+        "name": "pair_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "token_in",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageRequest",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageRequest"
+      }
+    ],
+    "comment": "Queries a list of TickLiquidity items."
+  },
+  {
+    "service": "neutron.dex.Query",
+    "method": "InactiveLimitOrderTranche",
+    "package": "neutron.dex",
+    "module": "dex",
+    "requestType": "neutron.dex.QueryGetInactiveLimitOrderTrancheRequest",
+    "responseType": "neutron.dex.QueryGetInactiveLimitOrderTrancheResponse",
+    "requestFields": [
+      {
+        "name": "pair_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "token_in",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "tick_index",
+        "type": "int64",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "tranche_key",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "Queries a InactiveLimitOrderTranche by index."
+  },
+  {
+    "service": "neutron.dex.Query",
+    "method": "InactiveLimitOrderTrancheAll",
+    "package": "neutron.dex",
+    "module": "dex",
+    "requestType": "neutron.dex.QueryAllInactiveLimitOrderTrancheRequest",
+    "responseType": "neutron.dex.QueryAllInactiveLimitOrderTrancheResponse",
+    "requestFields": [
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageRequest",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageRequest"
+      }
+    ],
+    "comment": "Queries a list of InactiveLimitOrderTranche items."
+  },
+  {
+    "service": "neutron.dex.Query",
+    "method": "PoolReservesAll",
+    "package": "neutron.dex",
+    "module": "dex",
+    "requestType": "neutron.dex.QueryAllPoolReservesRequest",
+    "responseType": "neutron.dex.QueryAllPoolReservesResponse",
+    "requestFields": [
+      {
+        "name": "pair_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "token_in",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageRequest",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageRequest"
+      }
+    ],
+    "comment": "Queries a list of PoolReserves items."
+  },
+  {
+    "service": "neutron.dex.Query",
+    "method": "PoolReserves",
+    "package": "neutron.dex",
+    "module": "dex",
+    "requestType": "neutron.dex.QueryGetPoolReservesRequest",
+    "responseType": "neutron.dex.QueryGetPoolReservesResponse",
+    "requestFields": [
+      {
+        "name": "pair_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "token_in",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "tick_index",
+        "type": "int64",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "fee",
+        "type": "uint64",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "Queries a PoolReserve by index"
+  },
+  {
+    "service": "neutron.dex.Query",
+    "method": "EstimateMultiHopSwap",
+    "package": "neutron.dex",
+    "module": "dex",
+    "requestType": "neutron.dex.QueryEstimateMultiHopSwapRequest",
+    "responseType": "neutron.dex.QueryEstimateMultiHopSwapResponse",
+    "requestFields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "DEPRECATED: Use QuerySimulateMultiHopSwap"
+      },
+      {
+        "name": "receiver",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "routes",
+        "type": "neutron.dex.MultiHopRoute",
+        "number": 3,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "neutron.dex.MultiHopRoute"
+      },
+      {
+        "name": "amount_in",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "exit_limit_price",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "pick_best_route",
+        "type": "bool",
+        "number": 6,
+        "repeated": false,
+        "optional": false,
+        "comment": "If pickBestRoute == true then all routes are run and the route with the\n best price is chosen otherwise, the first successful route is used."
+      }
+    ],
+    "comment": "DEPRECATED Queries the simulated result of a multihop swap"
+  },
+  {
+    "service": "neutron.dex.Query",
+    "method": "EstimatePlaceLimitOrder",
+    "package": "neutron.dex",
+    "module": "dex",
+    "requestType": "neutron.dex.QueryEstimatePlaceLimitOrderRequest",
+    "responseType": "neutron.dex.QueryEstimatePlaceLimitOrderResponse",
+    "requestFields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "DEPRECATED: Use QuerySimulatePlaceLimitOrder"
+      },
+      {
+        "name": "receiver",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "token_in",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "token_out",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "tick_index_in_to_out",
+        "type": "int64",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "amount_in",
+        "type": "string",
+        "number": 6,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "order_type",
+        "type": "neutron.dex.LimitOrderType",
+        "number": 7,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "neutron.dex.LimitOrderType"
+      },
+      {
+        "name": "expiration_time",
+        "type": "google.protobuf.Timestamp",
+        "number": 8,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Timestamp",
+        "comment": "expirationTime is only valid iff orderType == GOOD_TIL_TIME."
+      },
+      {
+        "name": "maxAmount_out",
+        "type": "string",
+        "number": 9,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "DEPRECATED Queries the simulated result of a PlaceLimit order"
+  },
+  {
+    "service": "neutron.dex.Query",
+    "method": "Pool",
+    "package": "neutron.dex",
+    "module": "dex",
+    "requestType": "neutron.dex.QueryPoolRequest",
+    "responseType": "neutron.dex.QueryPoolResponse",
+    "requestFields": [
+      {
+        "name": "pair_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "tick_index",
+        "type": "int64",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "fee",
+        "type": "uint64",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "Queries a pool by pair, tick and fee"
+  },
+  {
+    "service": "neutron.dex.Query",
+    "method": "PoolByID",
+    "package": "neutron.dex",
+    "module": "dex",
+    "requestType": "neutron.dex.QueryPoolByIDRequest",
+    "responseType": "neutron.dex.QueryPoolResponse",
+    "requestFields": [
+      {
+        "name": "pool_id",
+        "type": "uint64",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "Queries a pool by ID"
+  },
+  {
+    "service": "neutron.dex.Query",
+    "method": "PoolMetadata",
+    "package": "neutron.dex",
+    "module": "dex",
+    "requestType": "neutron.dex.QueryGetPoolMetadataRequest",
+    "responseType": "neutron.dex.QueryGetPoolMetadataResponse",
+    "requestFields": [
+      {
+        "name": "id",
+        "type": "uint64",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "Queries a PoolMetadata by ID"
+  },
+  {
+    "service": "neutron.dex.Query",
+    "method": "PoolMetadataAll",
+    "package": "neutron.dex",
+    "module": "dex",
+    "requestType": "neutron.dex.QueryAllPoolMetadataRequest",
+    "responseType": "neutron.dex.QueryAllPoolMetadataResponse",
+    "requestFields": [
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageRequest",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageRequest"
+      }
+    ],
+    "comment": "Queries a list of PoolMetadata items."
+  },
+  {
+    "service": "neutron.dex.Query",
+    "method": "SimulateDeposit",
+    "package": "neutron.dex",
+    "module": "dex",
+    "requestType": "neutron.dex.QuerySimulateDepositRequest",
+    "responseType": "neutron.dex.QuerySimulateDepositResponse",
+    "requestFields": [
+      {
+        "name": "msg",
+        "type": "neutron.dex.MsgDeposit",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "neutron.dex.MsgDeposit"
+      }
+    ],
+    "comment": "Simulates MsgDeposit"
+  },
+  {
+    "service": "neutron.dex.Query",
+    "method": "SimulateWithdrawal",
+    "package": "neutron.dex",
+    "module": "dex",
+    "requestType": "neutron.dex.QuerySimulateWithdrawalRequest",
+    "responseType": "neutron.dex.QuerySimulateWithdrawalResponse",
+    "requestFields": [
+      {
+        "name": "msg",
+        "type": "neutron.dex.MsgWithdrawal",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "neutron.dex.MsgWithdrawal"
+      }
+    ],
+    "comment": "Simulates MsgWithdrawal"
+  },
+  {
+    "service": "neutron.dex.Query",
+    "method": "SimulateWithdrawalWithShares",
+    "package": "neutron.dex",
+    "module": "dex",
+    "requestType": "neutron.dex.QuerySimulateWithdrawalWithSharesRequest",
+    "responseType": "neutron.dex.QuerySimulateWithdrawalResponse",
+    "requestFields": [
+      {
+        "name": "msg",
+        "type": "neutron.dex.MsgWithdrawalWithShares",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "neutron.dex.MsgWithdrawalWithShares"
+      }
+    ],
+    "comment": "Simulates MsgWithdrawalWithShares"
+  },
+  {
+    "service": "neutron.dex.Query",
+    "method": "SimulatePlaceLimitOrder",
+    "package": "neutron.dex",
+    "module": "dex",
+    "requestType": "neutron.dex.QuerySimulatePlaceLimitOrderRequest",
+    "responseType": "neutron.dex.QuerySimulatePlaceLimitOrderResponse",
+    "requestFields": [
+      {
+        "name": "msg",
+        "type": "neutron.dex.MsgPlaceLimitOrder",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "neutron.dex.MsgPlaceLimitOrder"
+      }
+    ],
+    "comment": "Simulates MsgPlaceLimitOrder"
+  },
+  {
+    "service": "neutron.dex.Query",
+    "method": "SimulateWithdrawFilledLimitOrder",
+    "package": "neutron.dex",
+    "module": "dex",
+    "requestType": "neutron.dex.QuerySimulateWithdrawFilledLimitOrderRequest",
+    "responseType": "neutron.dex.QuerySimulateWithdrawFilledLimitOrderResponse",
+    "requestFields": [
+      {
+        "name": "msg",
+        "type": "neutron.dex.MsgWithdrawFilledLimitOrder",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "neutron.dex.MsgWithdrawFilledLimitOrder"
+      }
+    ],
+    "comment": "Simulates MsgWithdrawFilledLimitOrder"
+  },
+  {
+    "service": "neutron.dex.Query",
+    "method": "SimulateCancelLimitOrder",
+    "package": "neutron.dex",
+    "module": "dex",
+    "requestType": "neutron.dex.QuerySimulateCancelLimitOrderRequest",
+    "responseType": "neutron.dex.QuerySimulateCancelLimitOrderResponse",
+    "requestFields": [
+      {
+        "name": "msg",
+        "type": "neutron.dex.MsgCancelLimitOrder",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "neutron.dex.MsgCancelLimitOrder"
+      }
+    ],
+    "comment": "Simulates MsgCancelLimitOrder"
+  },
+  {
+    "service": "neutron.dex.Query",
+    "method": "SimulateMultiHopSwap",
+    "package": "neutron.dex",
+    "module": "dex",
+    "requestType": "neutron.dex.QuerySimulateMultiHopSwapRequest",
+    "responseType": "neutron.dex.QuerySimulateMultiHopSwapResponse",
+    "requestFields": [
+      {
+        "name": "msg",
+        "type": "neutron.dex.MsgMultiHopSwap",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "neutron.dex.MsgMultiHopSwap"
+      }
+    ],
+    "comment": "Simulates MsgMultiHopSwap"
+  },
+  {
+    "service": "neutron.dynamicfees.v1.Query",
+    "method": "Params",
+    "package": "neutron.dynamicfees.v1",
+    "module": "dynamicfees",
+    "requestType": "neutron.dynamicfees.v1.QueryParamsRequest",
+    "responseType": "neutron.dynamicfees.v1.QueryParamsResponse",
+    "requestFields": [],
+    "comment": "Parameters queries the parameters of the module."
+  },
+  {
+    "service": "neutron.feerefunder.Query",
+    "method": "Params",
+    "package": "neutron.feerefunder",
+    "module": "feerefunder",
+    "requestType": "neutron.feerefunder.QueryParamsRequest",
+    "responseType": "neutron.feerefunder.QueryParamsResponse",
+    "requestFields": [],
+    "comment": "Parameters queries the parameters of the module."
+  },
+  {
+    "service": "neutron.feerefunder.Query",
+    "method": "FeeInfo",
+    "package": "neutron.feerefunder",
+    "module": "feerefunder",
+    "requestType": "neutron.feerefunder.FeeInfoRequest",
+    "responseType": "neutron.feerefunder.FeeInfoResponse",
+    "requestFields": [
+      {
+        "name": "channel_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "port_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "sequence",
+        "type": "uint64",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "service": "neutron.ibcratelimit.v1beta1.Query",
+    "method": "Params",
+    "package": "neutron.ibcratelimit.v1beta1",
+    "module": "ibcratelimit",
+    "requestType": "neutron.ibcratelimit.v1beta1.QueryParamsRequest",
+    "responseType": "neutron.ibcratelimit.v1beta1.QueryParamsResponse",
+    "requestFields": [],
+    "comment": "Params defines a gRPC query method that returns the ibc-rate-limit module's\n parameters."
+  },
+  {
+    "service": "tendermint.abci.ABCI",
+    "method": "Echo",
+    "package": "tendermint.abci",
+    "module": "abci",
+    "requestType": "tendermint.abci.RequestEcho",
+    "responseType": "tendermint.abci.ResponseEcho",
+    "requestFields": [
+      {
+        "name": "message",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "service": "tendermint.abci.ABCI",
+    "method": "Flush",
+    "package": "tendermint.abci",
+    "module": "abci",
+    "requestType": "tendermint.abci.RequestFlush",
+    "responseType": "tendermint.abci.ResponseFlush",
+    "requestFields": []
+  },
+  {
+    "service": "tendermint.abci.ABCI",
+    "method": "Info",
+    "package": "tendermint.abci",
+    "module": "abci",
+    "requestType": "tendermint.abci.RequestInfo",
+    "responseType": "tendermint.abci.ResponseInfo",
+    "requestFields": [
+      {
+        "name": "version",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "block_version",
+        "type": "uint64",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "p2p_version",
+        "type": "uint64",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "abci_version",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "service": "tendermint.abci.ABCI",
+    "method": "CheckTx",
+    "package": "tendermint.abci",
+    "module": "abci",
+    "requestType": "tendermint.abci.RequestCheckTx",
+    "responseType": "tendermint.abci.ResponseCheckTx",
+    "requestFields": [
+      {
+        "name": "tx",
+        "type": "bytes",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "type",
+        "type": "tendermint.abci.CheckTxType",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "tendermint.abci.CheckTxType"
+      }
+    ]
+  },
+  {
+    "service": "tendermint.abci.ABCI",
+    "method": "Query",
+    "package": "tendermint.abci",
+    "module": "abci",
+    "requestType": "tendermint.abci.RequestQuery",
+    "responseType": "tendermint.abci.ResponseQuery",
+    "requestFields": [
+      {
+        "name": "data",
+        "type": "bytes",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "path",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "height",
+        "type": "int64",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "prove",
+        "type": "bool",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "service": "tendermint.abci.ABCI",
+    "method": "Commit",
+    "package": "tendermint.abci",
+    "module": "abci",
+    "requestType": "tendermint.abci.RequestCommit",
+    "responseType": "tendermint.abci.ResponseCommit",
+    "requestFields": []
+  },
+  {
+    "service": "tendermint.abci.ABCI",
+    "method": "InitChain",
+    "package": "tendermint.abci",
+    "module": "abci",
+    "requestType": "tendermint.abci.RequestInitChain",
+    "responseType": "tendermint.abci.ResponseInitChain",
+    "requestFields": [
+      {
+        "name": "time",
+        "type": "google.protobuf.Timestamp",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Timestamp"
+      },
+      {
+        "name": "chain_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "consensus_params",
+        "type": "tendermint.types.ConsensusParams",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "tendermint.types.ConsensusParams"
+      },
+      {
+        "name": "validators",
+        "type": "tendermint.abci.ValidatorUpdate",
+        "number": 4,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "tendermint.abci.ValidatorUpdate"
+      },
+      {
+        "name": "app_state_bytes",
+        "type": "bytes",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "initial_height",
+        "type": "int64",
+        "number": 6,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "service": "tendermint.abci.ABCI",
+    "method": "ListSnapshots",
+    "package": "tendermint.abci",
+    "module": "abci",
+    "requestType": "tendermint.abci.RequestListSnapshots",
+    "responseType": "tendermint.abci.ResponseListSnapshots",
+    "requestFields": []
+  },
+  {
+    "service": "tendermint.abci.ABCI",
+    "method": "OfferSnapshot",
+    "package": "tendermint.abci",
+    "module": "abci",
+    "requestType": "tendermint.abci.RequestOfferSnapshot",
+    "responseType": "tendermint.abci.ResponseOfferSnapshot",
+    "requestFields": [
+      {
+        "name": "snapshot",
+        "type": "tendermint.abci.Snapshot",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "tendermint.abci.Snapshot"
+      },
+      {
+        "name": "app_hash",
+        "type": "bytes",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "service": "tendermint.abci.ABCI",
+    "method": "LoadSnapshotChunk",
+    "package": "tendermint.abci",
+    "module": "abci",
+    "requestType": "tendermint.abci.RequestLoadSnapshotChunk",
+    "responseType": "tendermint.abci.ResponseLoadSnapshotChunk",
+    "requestFields": [
+      {
+        "name": "height",
+        "type": "uint64",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "format",
+        "type": "uint32",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "chunk",
+        "type": "uint32",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "service": "tendermint.abci.ABCI",
+    "method": "ApplySnapshotChunk",
+    "package": "tendermint.abci",
+    "module": "abci",
+    "requestType": "tendermint.abci.RequestApplySnapshotChunk",
+    "responseType": "tendermint.abci.ResponseApplySnapshotChunk",
+    "requestFields": [
+      {
+        "name": "index",
+        "type": "uint32",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "chunk",
+        "type": "bytes",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "service": "tendermint.abci.ABCI",
+    "method": "PrepareProposal",
+    "package": "tendermint.abci",
+    "module": "abci",
+    "requestType": "tendermint.abci.RequestPrepareProposal",
+    "responseType": "tendermint.abci.ResponsePrepareProposal",
+    "requestFields": [
+      {
+        "name": "max_tx_bytes",
+        "type": "int64",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "the modified transactions cannot exceed this size."
+      },
+      {
+        "name": "txs",
+        "type": "bytes",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "comment": "txs is an array of transactions that will be included in a block,\n sent to the app for possible modifications."
+      },
+      {
+        "name": "local_last_commit",
+        "type": "tendermint.abci.ExtendedCommitInfo",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "tendermint.abci.ExtendedCommitInfo"
+      },
+      {
+        "name": "misbehavior",
+        "type": "tendermint.abci.Misbehavior",
+        "number": 4,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "tendermint.abci.Misbehavior"
+      },
+      {
+        "name": "height",
+        "type": "int64",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "time",
+        "type": "google.protobuf.Timestamp",
+        "number": 6,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Timestamp"
+      },
+      {
+        "name": "next_validators_hash",
+        "type": "bytes",
+        "number": 7,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "proposer_address",
+        "type": "bytes",
+        "number": 8,
+        "repeated": false,
+        "optional": false,
+        "comment": "address of the public key of the validator proposing the block."
+      }
+    ]
+  },
+  {
+    "service": "tendermint.abci.ABCI",
+    "method": "ProcessProposal",
+    "package": "tendermint.abci",
+    "module": "abci",
+    "requestType": "tendermint.abci.RequestProcessProposal",
+    "responseType": "tendermint.abci.ResponseProcessProposal",
+    "requestFields": [
+      {
+        "name": "txs",
+        "type": "bytes",
+        "number": 1,
+        "repeated": true,
+        "optional": false
+      },
+      {
+        "name": "proposed_last_commit",
+        "type": "tendermint.abci.CommitInfo",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "tendermint.abci.CommitInfo"
+      },
+      {
+        "name": "misbehavior",
+        "type": "tendermint.abci.Misbehavior",
+        "number": 3,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "tendermint.abci.Misbehavior"
+      },
+      {
+        "name": "hash",
+        "type": "bytes",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "hash is the merkle root hash of the fields of the proposed block."
+      },
+      {
+        "name": "height",
+        "type": "int64",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "time",
+        "type": "google.protobuf.Timestamp",
+        "number": 6,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Timestamp"
+      },
+      {
+        "name": "next_validators_hash",
+        "type": "bytes",
+        "number": 7,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "proposer_address",
+        "type": "bytes",
+        "number": 8,
+        "repeated": false,
+        "optional": false,
+        "comment": "address of the public key of the original proposer of the block."
+      }
+    ]
+  },
+  {
+    "service": "tendermint.abci.ABCI",
+    "method": "ExtendVote",
+    "package": "tendermint.abci",
+    "module": "abci",
+    "requestType": "tendermint.abci.RequestExtendVote",
+    "responseType": "tendermint.abci.ResponseExtendVote",
+    "requestFields": [
+      {
+        "name": "hash",
+        "type": "bytes",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "the hash of the block that this vote may be referring to"
+      },
+      {
+        "name": "height",
+        "type": "int64",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "the height of the extended vote"
+      },
+      {
+        "name": "time",
+        "type": "google.protobuf.Timestamp",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Timestamp",
+        "comment": "info of the block that this vote may be referring to"
+      },
+      {
+        "name": "txs",
+        "type": "bytes",
+        "number": 4,
+        "repeated": true,
+        "optional": false
+      },
+      {
+        "name": "proposed_last_commit",
+        "type": "tendermint.abci.CommitInfo",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "tendermint.abci.CommitInfo"
+      },
+      {
+        "name": "misbehavior",
+        "type": "tendermint.abci.Misbehavior",
+        "number": 6,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "tendermint.abci.Misbehavior"
+      },
+      {
+        "name": "next_validators_hash",
+        "type": "bytes",
+        "number": 7,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "proposer_address",
+        "type": "bytes",
+        "number": 8,
+        "repeated": false,
+        "optional": false,
+        "comment": "address of the public key of the original proposer of the block."
+      }
+    ]
+  },
+  {
+    "service": "tendermint.abci.ABCI",
+    "method": "VerifyVoteExtension",
+    "package": "tendermint.abci",
+    "module": "abci",
+    "requestType": "tendermint.abci.RequestVerifyVoteExtension",
+    "responseType": "tendermint.abci.ResponseVerifyVoteExtension",
+    "requestFields": [
+      {
+        "name": "hash",
+        "type": "bytes",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "the hash of the block that this received vote corresponds to"
+      },
+      {
+        "name": "validator_address",
+        "type": "bytes",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "the validator that signed the vote extension"
+      },
+      {
+        "name": "height",
+        "type": "int64",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "vote_extension",
+        "type": "bytes",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "service": "tendermint.abci.ABCI",
+    "method": "FinalizeBlock",
+    "package": "tendermint.abci",
+    "module": "abci",
+    "requestType": "tendermint.abci.RequestFinalizeBlock",
+    "responseType": "tendermint.abci.ResponseFinalizeBlock",
+    "requestFields": [
+      {
+        "name": "txs",
+        "type": "bytes",
+        "number": 1,
+        "repeated": true,
+        "optional": false
+      },
+      {
+        "name": "decided_last_commit",
+        "type": "tendermint.abci.CommitInfo",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "tendermint.abci.CommitInfo"
+      },
+      {
+        "name": "misbehavior",
+        "type": "tendermint.abci.Misbehavior",
+        "number": 3,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "tendermint.abci.Misbehavior"
+      },
+      {
+        "name": "hash",
+        "type": "bytes",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "hash is the merkle root hash of the fields of the decided block."
+      },
+      {
+        "name": "height",
+        "type": "int64",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "time",
+        "type": "google.protobuf.Timestamp",
+        "number": 6,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Timestamp"
+      },
+      {
+        "name": "next_validators_hash",
+        "type": "bytes",
+        "number": 7,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "proposer_address",
+        "type": "bytes",
+        "number": 8,
+        "repeated": false,
+        "optional": false,
+        "comment": "proposer_address is the address of the public key of the original proposer of the block."
+      }
+    ]
+  },
+  {
+    "service": "neutron.interchainqueries.Query",
+    "method": "Params",
+    "package": "neutron.interchainqueries",
+    "module": "interchainqueries",
+    "requestType": "neutron.interchainqueries.QueryParamsRequest",
+    "responseType": "neutron.interchainqueries.QueryParamsResponse",
+    "requestFields": [],
+    "comment": "Fetches the current parameters of the interchainqueries module."
+  },
+  {
+    "service": "neutron.interchainqueries.Query",
+    "method": "RegisteredQueries",
+    "package": "neutron.interchainqueries",
+    "module": "interchainqueries",
+    "requestType": "neutron.interchainqueries.QueryRegisteredQueriesRequest",
+    "responseType": "neutron.interchainqueries.QueryRegisteredQueriesResponse",
+    "requestFields": [
+      {
+        "name": "owners",
+        "type": "string",
+        "number": 1,
+        "repeated": true,
+        "optional": false,
+        "comment": "A list of owners of Interchain Queries. Query response will contain only Interchain Queries\n that are owned by one of the owners in the list. If none, Interchain Queries are not filtered\n out by the owner field."
+      },
+      {
+        "name": "connection_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "IBC connection ID. Query response will contain only Interchain Queries that have the same IBC\n connection ID parameter. If none, Interchain Queries are not filtered out by the connection ID\n field."
+      },
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageRequest",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageRequest",
+        "comment": "Pagination parameters for the request. Use values from previous response in the next request\n in consecutive requests with paginated responses."
+      }
+    ],
+    "comment": "Retrieves all registered Interchain Queries in the module, with optional filtering by owner\n and/or connection ID."
+  },
+  {
+    "service": "neutron.interchainqueries.Query",
+    "method": "RegisteredQuery",
+    "package": "neutron.interchainqueries",
+    "module": "interchainqueries",
+    "requestType": "neutron.interchainqueries.QueryRegisteredQueryRequest",
+    "responseType": "neutron.interchainqueries.QueryRegisteredQueryResponse",
+    "requestFields": [
+      {
+        "name": "query_id",
+        "type": "uint64",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "ID of an Interchain Query."
+      }
+    ],
+    "comment": "Fetches details of a registered Interchain Query using its ID."
+  },
+  {
+    "service": "neutron.interchainqueries.Query",
+    "method": "QueryResult",
+    "package": "neutron.interchainqueries",
+    "module": "interchainqueries",
+    "requestType": "neutron.interchainqueries.QueryRegisteredQueryResultRequest",
+    "responseType": "neutron.interchainqueries.QueryRegisteredQueryResultResponse",
+    "requestFields": [
+      {
+        "name": "query_id",
+        "type": "uint64",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "ID of an Interchain Query."
+      }
+    ],
+    "comment": "Retrieves the most recent successfully submitted result of an Interchain Query. This is only\n applicable for KV Interchain Queries."
+  },
+  {
+    "service": "neutron.interchainqueries.Query",
+    "method": "LastRemoteHeight",
+    "package": "neutron.interchainqueries",
+    "module": "interchainqueries",
+    "requestType": "neutron.interchainqueries.QueryLastRemoteHeight",
+    "responseType": "neutron.interchainqueries.QueryLastRemoteHeightResponse",
+    "requestFields": [
+      {
+        "name": "connection_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "Connection ID of an IBC connection to a remote chain. Determines the IBC client used in query\n handling."
+      }
+    ],
+    "comment": "Retrieves the most recent height of a remote chain as known by the IBC client associated with\n a given connection ID."
+  },
+  {
+    "service": "neutron.interchaintxs.v1.Query",
+    "method": "Params",
+    "package": "neutron.interchaintxs.v1",
+    "module": "interchaintxs",
+    "requestType": "neutron.interchaintxs.v1.QueryParamsRequest",
+    "responseType": "neutron.interchaintxs.v1.QueryParamsResponse",
+    "requestFields": [],
+    "comment": "Parameters queries the parameters of the module."
+  },
+  {
+    "service": "neutron.interchaintxs.v1.Query",
+    "method": "InterchainAccountAddress",
+    "package": "neutron.interchaintxs.v1",
+    "module": "interchaintxs",
+    "requestType": "neutron.interchaintxs.v1.QueryInterchainAccountAddressRequest",
+    "responseType": "neutron.interchaintxs.v1.QueryInterchainAccountAddressResponse",
+    "requestFields": [
+      {
+        "name": "owner_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "owner_address is the owner of the interchain account on the controller\n chain"
+      },
+      {
+        "name": "interchain_account_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "interchain_account_id is an identifier of your interchain account from\n which you want to execute msgs"
+      },
+      {
+        "name": "connection_id",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "connection_id is an IBC connection identifier between Neutron and remote\n chain"
+      }
+    ]
+  },
+  {
+    "service": "neutron.state_verifier.v1.Query",
+    "method": "VerifyStateValues",
+    "package": "neutron.state_verifier.v1",
+    "module": "state_verifier",
+    "requestType": "neutron.state_verifier.v1.QueryVerifyStateValuesRequest",
+    "responseType": "neutron.state_verifier.v1.QueryVerifyStateValuesResponse",
+    "requestFields": [
+      {
+        "name": "height",
+        "type": "uint64",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "Refers to the block height to which the storage values belong."
+      },
+      {
+        "name": "storage_values",
+        "type": "neutron.interchainqueries.StorageValue",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "neutron.interchainqueries.StorageValue",
+        "comment": "A slice of neutron.interchainqueries.StorageValue which relate to the specified height and must be verified against"
+      }
+    ],
+    "comment": "Verifies the values and returns an error if values cannot be verified. The query returns `QueryVerifyStateValuesResponse` response."
+  },
+  {
+    "service": "neutron.state_verifier.v1.Query",
+    "method": "QueryConsensusState",
+    "package": "neutron.state_verifier.v1",
+    "module": "state_verifier",
+    "requestType": "neutron.state_verifier.v1.QueryConsensusStateRequest",
+    "responseType": "neutron.state_verifier.v1.QueryConsensusStateResponse",
+    "requestFields": [
+      {
+        "name": "height",
+        "type": "uint64",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "Refers to the block height for which you want to query ConsensusState"
+      }
+    ],
+    "comment": "Queries saved consensus state by the height. The query returns `QueryConsensusStateResponse` response."
+  },
+  {
+    "service": "ibc.applications.transfer.v1.Query",
+    "method": "Denoms",
+    "package": "ibc.applications.transfer.v1",
+    "module": "transfer",
+    "requestType": "ibc.applications.transfer.v1.QueryDenomsRequest",
+    "responseType": "ibc.applications.transfer.v1.QueryDenomsResponse",
+    "requestFields": [
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageRequest",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageRequest",
+        "comment": "pagination defines an optional pagination for the request."
+      }
+    ],
+    "comment": "Denoms queries all denominations"
+  },
+  {
+    "service": "ibc.applications.transfer.v1.Query",
+    "method": "Denom",
+    "package": "ibc.applications.transfer.v1",
+    "module": "transfer",
+    "requestType": "ibc.applications.transfer.v1.QueryDenomRequest",
+    "responseType": "ibc.applications.transfer.v1.QueryDenomResponse",
+    "requestFields": [
+      {
+        "name": "hash",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "hash (in hex format) or denom (full denom with ibc prefix) of the on chain denomination."
+      }
+    ],
+    "comment": "Denom queries a denomination"
+  },
+  {
+    "service": "ibc.applications.transfer.v1.Query",
+    "method": "Params",
+    "package": "ibc.applications.transfer.v1",
+    "module": "transfer",
+    "requestType": "ibc.applications.transfer.v1.QueryParamsRequest",
+    "responseType": "ibc.applications.transfer.v1.QueryParamsResponse",
+    "requestFields": [],
+    "comment": "Params queries all parameters of the ibc-transfer module."
+  },
+  {
+    "service": "ibc.applications.transfer.v1.Query",
+    "method": "DenomHash",
+    "package": "ibc.applications.transfer.v1",
+    "module": "transfer",
+    "requestType": "ibc.applications.transfer.v1.QueryDenomHashRequest",
+    "responseType": "ibc.applications.transfer.v1.QueryDenomHashResponse",
+    "requestFields": [
+      {
+        "name": "trace",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "The denomination trace ([port_id]/[channel_id])+/[denom]"
+      }
+    ],
+    "comment": "DenomHash queries a denomination hash information."
+  },
+  {
+    "service": "ibc.applications.transfer.v1.Query",
+    "method": "EscrowAddress",
+    "package": "ibc.applications.transfer.v1",
+    "module": "transfer",
+    "requestType": "ibc.applications.transfer.v1.QueryEscrowAddressRequest",
+    "responseType": "ibc.applications.transfer.v1.QueryEscrowAddressResponse",
+    "requestFields": [
+      {
+        "name": "port_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "unique port identifier"
+      },
+      {
+        "name": "channel_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "unique channel identifier"
+      }
+    ],
+    "comment": "EscrowAddress returns the escrow address for a particular port and channel id."
+  },
+  {
+    "service": "ibc.applications.transfer.v1.Query",
+    "method": "TotalEscrowForDenom",
+    "package": "ibc.applications.transfer.v1",
+    "module": "transfer",
+    "requestType": "ibc.applications.transfer.v1.QueryTotalEscrowForDenomRequest",
+    "responseType": "ibc.applications.transfer.v1.QueryTotalEscrowForDenomResponse",
+    "requestFields": [
+      {
+        "name": "denom",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "TotalEscrowForDenom returns the total amount of tokens in escrow based on the denom."
+  },
+  {
+    "service": "neutron.transfer.Query",
+    "method": "Denoms",
+    "package": "neutron.transfer",
+    "module": "transfer",
+    "requestType": "ibc.applications.transfer.v1.QueryDenomsRequest",
+    "responseType": "ibc.applications.transfer.v1.QueryDenomsRequest",
+    "requestFields": [
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageRequest",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageRequest",
+        "comment": "pagination defines an optional pagination for the request."
+      }
+    ],
+    "comment": "Denoms queries all denominations"
+  },
+  {
+    "service": "neutron.transfer.Query",
+    "method": "Denom",
+    "package": "neutron.transfer",
+    "module": "transfer",
+    "requestType": "ibc.applications.transfer.v1.QueryDenomRequest",
+    "responseType": "ibc.applications.transfer.v1.QueryDenomResponse",
+    "requestFields": [
+      {
+        "name": "hash",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "hash (in hex format) or denom (full denom with ibc prefix) of the on chain denomination."
+      }
+    ],
+    "comment": "Denom queries a denomination"
+  },
+  {
+    "service": "neutron.transfer.Query",
+    "method": "Params",
+    "package": "neutron.transfer",
+    "module": "transfer",
+    "requestType": "ibc.applications.transfer.v1.QueryParamsRequest",
+    "responseType": "ibc.applications.transfer.v1.QueryParamsResponse",
+    "requestFields": [],
+    "comment": "Params queries all parameters of the ibc-transfer module."
+  },
+  {
+    "service": "neutron.transfer.Query",
+    "method": "DenomHash",
+    "package": "neutron.transfer",
+    "module": "transfer",
+    "requestType": "ibc.applications.transfer.v1.QueryDenomHashRequest",
+    "responseType": "ibc.applications.transfer.v1.QueryDenomHashResponse",
+    "requestFields": [
+      {
+        "name": "trace",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "The denomination trace ([port_id]/[channel_id])+/[denom]"
+      }
+    ],
+    "comment": "DenomHash queries a denomination hash information."
+  },
+  {
+    "service": "osmosis.tokenfactory.v1beta1.Query",
+    "method": "Params",
+    "package": "osmosis.tokenfactory.v1beta1",
+    "module": "tokenfactory",
+    "requestType": "osmosis.tokenfactory.v1beta1.QueryParamsRequest",
+    "responseType": "osmosis.tokenfactory.v1beta1.QueryParamsResponse",
+    "requestFields": [],
+    "comment": "Params defines a gRPC query method that returns the tokenfactory module's\n parameters."
+  },
+  {
+    "service": "osmosis.tokenfactory.v1beta1.Query",
+    "method": "DenomAuthorityMetadata",
+    "package": "osmosis.tokenfactory.v1beta1",
+    "module": "tokenfactory",
+    "requestType": "osmosis.tokenfactory.v1beta1.QueryDenomAuthorityMetadataRequest",
+    "responseType": "osmosis.tokenfactory.v1beta1.QueryDenomAuthorityMetadataResponse",
+    "requestFields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "subdenom",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "DenomAuthorityMetadata defines a gRPC query method for fetching\n DenomAuthorityMetadata for a particular denom."
+  },
+  {
+    "service": "osmosis.tokenfactory.v1beta1.Query",
+    "method": "DenomsFromCreator",
+    "package": "osmosis.tokenfactory.v1beta1",
+    "module": "tokenfactory",
+    "requestType": "osmosis.tokenfactory.v1beta1.QueryDenomsFromCreatorRequest",
+    "responseType": "osmosis.tokenfactory.v1beta1.QueryDenomsFromCreatorResponse",
+    "requestFields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "DenomsFromCreator defines a gRPC query method for fetching all\n denominations created by a specific admin/creator."
+  },
+  {
+    "service": "osmosis.tokenfactory.v1beta1.Query",
+    "method": "BeforeSendHookAddress",
+    "package": "osmosis.tokenfactory.v1beta1",
+    "module": "tokenfactory",
+    "requestType": "osmosis.tokenfactory.v1beta1.QueryBeforeSendHookAddressRequest",
+    "responseType": "osmosis.tokenfactory.v1beta1.QueryBeforeSendHookAddressResponse",
+    "requestFields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "subdenom",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "BeforeSendHookAddress defines a gRPC query method for\n getting the address registered for the before send hook."
+  },
+  {
+    "service": "osmosis.tokenfactory.v1beta1.Query",
+    "method": "FullDenom",
+    "package": "osmosis.tokenfactory.v1beta1",
+    "module": "tokenfactory",
+    "requestType": "osmosis.tokenfactory.v1beta1.QueryFullDenomRequest",
+    "responseType": "osmosis.tokenfactory.v1beta1.QueryFullDenomResponse",
+    "requestFields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "subdenom",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "FullDenom defines a gRPC query method for getting full denom name\n from the creator and subdenom strings."
+  }
+]

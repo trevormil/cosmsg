@@ -1,0 +1,13 @@
+{
+  "chainName": "injective",
+  "prettyName": "Injective",
+  "chainId": "injective-1",
+  "msgCount": 293,
+  "queryCount": 583,
+  "provenance": {
+    "source": "reflection",
+    "harvestedAt": "2026-05-27T16:50:37.542Z",
+    "origin": "reflection:injective.lavenderfive.com:443",
+    "commentsFromSource": false
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "@cosmsg/harvester",
+  "version": "0.0.0",
+  "type": "module",
+  "bin": {
+    "cosmsg-harvest": "./src/cli.ts"
+  },
+  "scripts": {
+    "start": "bun run src/cli.ts",
+    "build": "tsc -b"
+  },
+  "dependencies": {
+    "@bufbuild/protobuf": "^2.2.0",
+    "@cosmsg/schema": "workspace:*",
+    "@grpc/grpc-js": "^1.12.0"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "chainName": "celestia",
+  "prettyName": "Celestia",
+  "chainId": "celestia",
+  "msgCount": 15,
+  "queryCount": 27,
+  "provenance": {
+    "source": "source",
+    "harvestedAt": "2026-05-27T16:49:42.392Z",
+    "origin": "git:https://github.com/celestiaorg/celestia-app@1a67e20b7590:proto",
+    "commentsFromSource": true
+  }
+}

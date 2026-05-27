@@ -1,0 +1,13 @@
+{
+  "chainName": "evmos",
+  "prettyName": "Evmos",
+  "chainId": "evmos_9001-2",
+  "msgCount": 13,
+  "queryCount": 29,
+  "provenance": {
+    "source": "source",
+    "harvestedAt": "2026-05-27T16:52:16.008Z",
+    "origin": "git:https://github.com/evmos/evmos@0402a01c9036:proto",
+    "commentsFromSource": true
+  }
+}

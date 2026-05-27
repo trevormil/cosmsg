@@ -1,0 +1,8053 @@
+[
+  {
+    "typeUrl": "/cosmos.auth.v1beta1.MsgUpdateParams",
+    "name": "MsgUpdateParams",
+    "package": "cosmos.auth.v1beta1",
+    "module": "auth",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "params",
+        "type": "cosmos.auth.v1beta1.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.auth.v1beta1.Params"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.authz.v1beta1.MsgGrant",
+    "name": "MsgGrant",
+    "package": "cosmos.authz.v1beta1",
+    "module": "authz",
+    "signers": [
+      "granter"
+    ],
+    "fields": [
+      {
+        "name": "granter",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "grantee",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "grant",
+        "type": "cosmos.authz.v1beta1.Grant",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.authz.v1beta1.Grant"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.authz.v1beta1.MsgExec",
+    "name": "MsgExec",
+    "package": "cosmos.authz.v1beta1",
+    "module": "authz",
+    "signers": [
+      "grantee"
+    ],
+    "fields": [
+      {
+        "name": "grantee",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "msgs",
+        "type": "google.protobuf.Any",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "google.protobuf.Any"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.authz.v1beta1.MsgRevoke",
+    "name": "MsgRevoke",
+    "package": "cosmos.authz.v1beta1",
+    "module": "authz",
+    "signers": [
+      "granter"
+    ],
+    "fields": [
+      {
+        "name": "granter",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "grantee",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "msg_type_url",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.bank.v1beta1.MsgSend",
+    "name": "MsgSend",
+    "package": "cosmos.bank.v1beta1",
+    "module": "bank",
+    "signers": [
+      "from_address"
+    ],
+    "fields": [
+      {
+        "name": "from_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "to_address",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 3,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.bank.v1beta1.MsgMultiSend",
+    "name": "MsgMultiSend",
+    "package": "cosmos.bank.v1beta1",
+    "module": "bank",
+    "signers": [
+      "inputs"
+    ],
+    "fields": [
+      {
+        "name": "inputs",
+        "type": "cosmos.bank.v1beta1.Input",
+        "number": 1,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.bank.v1beta1.Input"
+      },
+      {
+        "name": "outputs",
+        "type": "cosmos.bank.v1beta1.Output",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.bank.v1beta1.Output"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.bank.v1beta1.MsgUpdateParams",
+    "name": "MsgUpdateParams",
+    "package": "cosmos.bank.v1beta1",
+    "module": "bank",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "params",
+        "type": "cosmos.bank.v1beta1.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.bank.v1beta1.Params"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.bank.v1beta1.MsgSetSendEnabled",
+    "name": "MsgSetSendEnabled",
+    "package": "cosmos.bank.v1beta1",
+    "module": "bank",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "send_enabled",
+        "type": "cosmos.bank.v1beta1.SendEnabled",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.bank.v1beta1.SendEnabled"
+      },
+      {
+        "name": "use_default_for",
+        "type": "string",
+        "number": 3,
+        "repeated": true,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.consensus.v1.MsgUpdateParams",
+    "name": "MsgUpdateParams",
+    "package": "cosmos.consensus.v1",
+    "module": "consensus",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "block",
+        "type": "tendermint.types.BlockParams",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "tendermint.types.BlockParams"
+      },
+      {
+        "name": "evidence",
+        "type": "tendermint.types.EvidenceParams",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "tendermint.types.EvidenceParams"
+      },
+      {
+        "name": "validator",
+        "type": "tendermint.types.ValidatorParams",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "tendermint.types.ValidatorParams"
+      },
+      {
+        "name": "abci",
+        "type": "tendermint.types.ABCIParams",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "tendermint.types.ABCIParams"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.crisis.v1beta1.MsgVerifyInvariant",
+    "name": "MsgVerifyInvariant",
+    "package": "cosmos.crisis.v1beta1",
+    "module": "crisis",
+    "signers": [
+      "sender"
+    ],
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "invariant_module_name",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "invariant_route",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.crisis.v1beta1.MsgUpdateParams",
+    "name": "MsgUpdateParams",
+    "package": "cosmos.crisis.v1beta1",
+    "module": "crisis",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "constant_fee",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.distribution.v1beta1.MsgSetWithdrawAddress",
+    "name": "MsgSetWithdrawAddress",
+    "package": "cosmos.distribution.v1beta1",
+    "module": "distribution",
+    "signers": [
+      "delegator_address"
+    ],
+    "fields": [
+      {
+        "name": "delegator_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "withdraw_address",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward",
+    "name": "MsgWithdrawDelegatorReward",
+    "package": "cosmos.distribution.v1beta1",
+    "module": "distribution",
+    "signers": [
+      "delegator_address"
+    ],
+    "fields": [
+      {
+        "name": "delegator_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "validator_address",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.distribution.v1beta1.MsgWithdrawValidatorCommission",
+    "name": "MsgWithdrawValidatorCommission",
+    "package": "cosmos.distribution.v1beta1",
+    "module": "distribution",
+    "signers": [
+      "validator_address"
+    ],
+    "fields": [
+      {
+        "name": "validator_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.distribution.v1beta1.MsgFundCommunityPool",
+    "name": "MsgFundCommunityPool",
+    "package": "cosmos.distribution.v1beta1",
+    "module": "distribution",
+    "signers": [
+      "depositor"
+    ],
+    "fields": [
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 1,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      },
+      {
+        "name": "depositor",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.distribution.v1beta1.MsgUpdateParams",
+    "name": "MsgUpdateParams",
+    "package": "cosmos.distribution.v1beta1",
+    "module": "distribution",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "params",
+        "type": "cosmos.distribution.v1beta1.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.distribution.v1beta1.Params"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.distribution.v1beta1.MsgCommunityPoolSpend",
+    "name": "MsgCommunityPoolSpend",
+    "package": "cosmos.distribution.v1beta1",
+    "module": "distribution",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "recipient",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 3,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.distribution.v1beta1.MsgDepositValidatorRewardsPool",
+    "name": "MsgDepositValidatorRewardsPool",
+    "package": "cosmos.distribution.v1beta1",
+    "module": "distribution",
+    "signers": [
+      "depositor"
+    ],
+    "fields": [
+      {
+        "name": "depositor",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "validator_address",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 3,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.evidence.v1beta1.MsgSubmitEvidence",
+    "name": "MsgSubmitEvidence",
+    "package": "cosmos.evidence.v1beta1",
+    "module": "evidence",
+    "signers": [
+      "submitter"
+    ],
+    "fields": [
+      {
+        "name": "submitter",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "evidence",
+        "type": "google.protobuf.Any",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Any"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.feegrant.v1beta1.MsgGrantAllowance",
+    "name": "MsgGrantAllowance",
+    "package": "cosmos.feegrant.v1beta1",
+    "module": "feegrant",
+    "signers": [
+      "granter"
+    ],
+    "fields": [
+      {
+        "name": "granter",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "grantee",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "allowance",
+        "type": "google.protobuf.Any",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Any"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.feegrant.v1beta1.MsgRevokeAllowance",
+    "name": "MsgRevokeAllowance",
+    "package": "cosmos.feegrant.v1beta1",
+    "module": "feegrant",
+    "signers": [
+      "granter"
+    ],
+    "fields": [
+      {
+        "name": "granter",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "grantee",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.feegrant.v1beta1.MsgPruneAllowances",
+    "name": "MsgPruneAllowances",
+    "package": "cosmos.feegrant.v1beta1",
+    "module": "feegrant",
+    "signers": [
+      "pruner"
+    ],
+    "fields": [
+      {
+        "name": "pruner",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.gov.v1.MsgSubmitProposal",
+    "name": "MsgSubmitProposal",
+    "package": "cosmos.gov.v1",
+    "module": "gov",
+    "signers": [
+      "proposer"
+    ],
+    "fields": [
+      {
+        "name": "messages",
+        "type": "google.protobuf.Any",
+        "number": 1,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "google.protobuf.Any"
+      },
+      {
+        "name": "initial_deposit",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      },
+      {
+        "name": "proposer",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "metadata",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "summary",
+        "type": "string",
+        "number": 6,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "expedited",
+        "type": "bool",
+        "number": 7,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.gov.v1.MsgExecLegacyContent",
+    "name": "MsgExecLegacyContent",
+    "package": "cosmos.gov.v1",
+    "module": "gov",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "content",
+        "type": "google.protobuf.Any",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Any"
+      },
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.gov.v1.MsgVote",
+    "name": "MsgVote",
+    "package": "cosmos.gov.v1",
+    "module": "gov",
+    "signers": [
+      "voter"
+    ],
+    "fields": [
+      {
+        "name": "proposal_id",
+        "type": "uint64",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "voter",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "option",
+        "type": "cosmos.gov.v1.VoteOption",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.gov.v1.VoteOption"
+      },
+      {
+        "name": "metadata",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.gov.v1.MsgVoteWeighted",
+    "name": "MsgVoteWeighted",
+    "package": "cosmos.gov.v1",
+    "module": "gov",
+    "signers": [
+      "voter"
+    ],
+    "fields": [
+      {
+        "name": "proposal_id",
+        "type": "uint64",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "voter",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "options",
+        "type": "cosmos.gov.v1.WeightedVoteOption",
+        "number": 3,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.gov.v1.WeightedVoteOption"
+      },
+      {
+        "name": "metadata",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.gov.v1.MsgDeposit",
+    "name": "MsgDeposit",
+    "package": "cosmos.gov.v1",
+    "module": "gov",
+    "signers": [
+      "depositor"
+    ],
+    "fields": [
+      {
+        "name": "proposal_id",
+        "type": "uint64",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "depositor",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 3,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.gov.v1.MsgUpdateParams",
+    "name": "MsgUpdateParams",
+    "package": "cosmos.gov.v1",
+    "module": "gov",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "params",
+        "type": "cosmos.gov.v1.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.gov.v1.Params"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.gov.v1.MsgCancelProposal",
+    "name": "MsgCancelProposal",
+    "package": "cosmos.gov.v1",
+    "module": "gov",
+    "signers": [
+      "proposer"
+    ],
+    "fields": [
+      {
+        "name": "proposal_id",
+        "type": "uint64",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "proposer",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.gov.v1beta1.MsgSubmitProposal",
+    "name": "MsgSubmitProposal",
+    "package": "cosmos.gov.v1beta1",
+    "module": "gov",
+    "signers": [
+      "proposer"
+    ],
+    "fields": [
+      {
+        "name": "content",
+        "type": "google.protobuf.Any",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Any"
+      },
+      {
+        "name": "initial_deposit",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      },
+      {
+        "name": "proposer",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.gov.v1beta1.MsgVote",
+    "name": "MsgVote",
+    "package": "cosmos.gov.v1beta1",
+    "module": "gov",
+    "signers": [
+      "voter"
+    ],
+    "fields": [
+      {
+        "name": "proposal_id",
+        "type": "uint64",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "voter",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "option",
+        "type": "cosmos.gov.v1beta1.VoteOption",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.gov.v1beta1.VoteOption"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.gov.v1beta1.MsgVoteWeighted",
+    "name": "MsgVoteWeighted",
+    "package": "cosmos.gov.v1beta1",
+    "module": "gov",
+    "signers": [
+      "voter"
+    ],
+    "fields": [
+      {
+        "name": "proposal_id",
+        "type": "uint64",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "voter",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "options",
+        "type": "cosmos.gov.v1beta1.WeightedVoteOption",
+        "number": 3,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.gov.v1beta1.WeightedVoteOption"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.gov.v1beta1.MsgDeposit",
+    "name": "MsgDeposit",
+    "package": "cosmos.gov.v1beta1",
+    "module": "gov",
+    "signers": [
+      "depositor"
+    ],
+    "fields": [
+      {
+        "name": "proposal_id",
+        "type": "uint64",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "depositor",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 3,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.group.v1.MsgCreateGroup",
+    "name": "MsgCreateGroup",
+    "package": "cosmos.group.v1",
+    "module": "group",
+    "signers": [
+      "admin"
+    ],
+    "fields": [
+      {
+        "name": "admin",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "members",
+        "type": "cosmos.group.v1.MemberRequest",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.group.v1.MemberRequest"
+      },
+      {
+        "name": "metadata",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.group.v1.MsgUpdateGroupMembers",
+    "name": "MsgUpdateGroupMembers",
+    "package": "cosmos.group.v1",
+    "module": "group",
+    "signers": [
+      "admin"
+    ],
+    "fields": [
+      {
+        "name": "admin",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "group_id",
+        "type": "uint64",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "member_updates",
+        "type": "cosmos.group.v1.MemberRequest",
+        "number": 3,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.group.v1.MemberRequest"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.group.v1.MsgUpdateGroupAdmin",
+    "name": "MsgUpdateGroupAdmin",
+    "package": "cosmos.group.v1",
+    "module": "group",
+    "signers": [
+      "admin"
+    ],
+    "fields": [
+      {
+        "name": "admin",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "group_id",
+        "type": "uint64",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "new_admin",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.group.v1.MsgUpdateGroupMetadata",
+    "name": "MsgUpdateGroupMetadata",
+    "package": "cosmos.group.v1",
+    "module": "group",
+    "signers": [
+      "admin"
+    ],
+    "fields": [
+      {
+        "name": "admin",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "group_id",
+        "type": "uint64",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "metadata",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.group.v1.MsgCreateGroupPolicy",
+    "name": "MsgCreateGroupPolicy",
+    "package": "cosmos.group.v1",
+    "module": "group",
+    "signers": [
+      "admin"
+    ],
+    "fields": [
+      {
+        "name": "admin",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "group_id",
+        "type": "uint64",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "metadata",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "decision_policy",
+        "type": "google.protobuf.Any",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Any"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.group.v1.MsgCreateGroupWithPolicy",
+    "name": "MsgCreateGroupWithPolicy",
+    "package": "cosmos.group.v1",
+    "module": "group",
+    "signers": [
+      "admin"
+    ],
+    "fields": [
+      {
+        "name": "admin",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "members",
+        "type": "cosmos.group.v1.MemberRequest",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.group.v1.MemberRequest"
+      },
+      {
+        "name": "group_metadata",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "group_policy_metadata",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "group_policy_as_admin",
+        "type": "bool",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "decision_policy",
+        "type": "google.protobuf.Any",
+        "number": 6,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Any"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.group.v1.MsgUpdateGroupPolicyAdmin",
+    "name": "MsgUpdateGroupPolicyAdmin",
+    "package": "cosmos.group.v1",
+    "module": "group",
+    "signers": [
+      "admin"
+    ],
+    "fields": [
+      {
+        "name": "admin",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "group_policy_address",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "new_admin",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.group.v1.MsgUpdateGroupPolicyDecisionPolicy",
+    "name": "MsgUpdateGroupPolicyDecisionPolicy",
+    "package": "cosmos.group.v1",
+    "module": "group",
+    "signers": [
+      "admin"
+    ],
+    "fields": [
+      {
+        "name": "admin",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "group_policy_address",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "decision_policy",
+        "type": "google.protobuf.Any",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Any"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.group.v1.MsgUpdateGroupPolicyMetadata",
+    "name": "MsgUpdateGroupPolicyMetadata",
+    "package": "cosmos.group.v1",
+    "module": "group",
+    "signers": [
+      "admin"
+    ],
+    "fields": [
+      {
+        "name": "admin",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "group_policy_address",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "metadata",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.group.v1.MsgSubmitProposal",
+    "name": "MsgSubmitProposal",
+    "package": "cosmos.group.v1",
+    "module": "group",
+    "signers": [
+      "proposers"
+    ],
+    "fields": [
+      {
+        "name": "group_policy_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "proposers",
+        "type": "string",
+        "number": 2,
+        "repeated": true,
+        "optional": false
+      },
+      {
+        "name": "metadata",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "messages",
+        "type": "google.protobuf.Any",
+        "number": 4,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "google.protobuf.Any"
+      },
+      {
+        "name": "exec",
+        "type": "cosmos.group.v1.Exec",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.group.v1.Exec"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "number": 6,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "summary",
+        "type": "string",
+        "number": 7,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.group.v1.MsgWithdrawProposal",
+    "name": "MsgWithdrawProposal",
+    "package": "cosmos.group.v1",
+    "module": "group",
+    "signers": [
+      "address"
+    ],
+    "fields": [
+      {
+        "name": "proposal_id",
+        "type": "uint64",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "address",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.group.v1.MsgVote",
+    "name": "MsgVote",
+    "package": "cosmos.group.v1",
+    "module": "group",
+    "signers": [
+      "voter"
+    ],
+    "fields": [
+      {
+        "name": "proposal_id",
+        "type": "uint64",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "voter",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "option",
+        "type": "cosmos.group.v1.VoteOption",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.group.v1.VoteOption"
+      },
+      {
+        "name": "metadata",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "exec",
+        "type": "cosmos.group.v1.Exec",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.group.v1.Exec"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.group.v1.MsgExec",
+    "name": "MsgExec",
+    "package": "cosmos.group.v1",
+    "module": "group",
+    "signers": [
+      "executor"
+    ],
+    "fields": [
+      {
+        "name": "proposal_id",
+        "type": "uint64",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "executor",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.group.v1.MsgLeaveGroup",
+    "name": "MsgLeaveGroup",
+    "package": "cosmos.group.v1",
+    "module": "group",
+    "signers": [
+      "address"
+    ],
+    "fields": [
+      {
+        "name": "address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "group_id",
+        "type": "uint64",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.mint.v1beta1.MsgUpdateParams",
+    "name": "MsgUpdateParams",
+    "package": "cosmos.mint.v1beta1",
+    "module": "mint",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "params",
+        "type": "cosmos.mint.v1beta1.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.mint.v1beta1.Params"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.protocolpool.v1.MsgFundCommunityPool",
+    "name": "MsgFundCommunityPool",
+    "package": "cosmos.protocolpool.v1",
+    "module": "protocolpool",
+    "signers": [
+      "depositor"
+    ],
+    "fields": [
+      {
+        "name": "depositor",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.protocolpool.v1.MsgCommunityPoolSpend",
+    "name": "MsgCommunityPoolSpend",
+    "package": "cosmos.protocolpool.v1",
+    "module": "protocolpool",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "recipient",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 3,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.protocolpool.v1.MsgCreateContinuousFund",
+    "name": "MsgCreateContinuousFund",
+    "package": "cosmos.protocolpool.v1",
+    "module": "protocolpool",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "recipient",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "percentage",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "expiry",
+        "type": "google.protobuf.Timestamp",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Timestamp"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.protocolpool.v1.MsgCancelContinuousFund",
+    "name": "MsgCancelContinuousFund",
+    "package": "cosmos.protocolpool.v1",
+    "module": "protocolpool",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "recipient",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.protocolpool.v1.MsgUpdateParams",
+    "name": "MsgUpdateParams",
+    "package": "cosmos.protocolpool.v1",
+    "module": "protocolpool",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "params",
+        "type": "cosmos.protocolpool.v1.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.protocolpool.v1.Params"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.slashing.v1beta1.MsgUnjail",
+    "name": "MsgUnjail",
+    "package": "cosmos.slashing.v1beta1",
+    "module": "slashing",
+    "signers": [
+      "validator_addr"
+    ],
+    "fields": [
+      {
+        "name": "validator_addr",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.slashing.v1beta1.MsgUpdateParams",
+    "name": "MsgUpdateParams",
+    "package": "cosmos.slashing.v1beta1",
+    "module": "slashing",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "params",
+        "type": "cosmos.slashing.v1beta1.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.slashing.v1beta1.Params"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.staking.v1beta1.MsgCreateValidator",
+    "name": "MsgCreateValidator",
+    "package": "cosmos.staking.v1beta1",
+    "module": "staking",
+    "signers": [
+      "validator_address"
+    ],
+    "fields": [
+      {
+        "name": "description",
+        "type": "cosmos.staking.v1beta1.Description",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.staking.v1beta1.Description"
+      },
+      {
+        "name": "commission",
+        "type": "cosmos.staking.v1beta1.CommissionRates",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.staking.v1beta1.CommissionRates"
+      },
+      {
+        "name": "min_self_delegation",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "delegator_address",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "validator_address",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "pubkey",
+        "type": "google.protobuf.Any",
+        "number": 6,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Any"
+      },
+      {
+        "name": "value",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 7,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.staking.v1beta1.MsgEditValidator",
+    "name": "MsgEditValidator",
+    "package": "cosmos.staking.v1beta1",
+    "module": "staking",
+    "signers": [
+      "validator_address"
+    ],
+    "fields": [
+      {
+        "name": "description",
+        "type": "cosmos.staking.v1beta1.Description",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.staking.v1beta1.Description"
+      },
+      {
+        "name": "validator_address",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "commission_rate",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "min_self_delegation",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.staking.v1beta1.MsgDelegate",
+    "name": "MsgDelegate",
+    "package": "cosmos.staking.v1beta1",
+    "module": "staking",
+    "signers": [
+      "delegator_address"
+    ],
+    "fields": [
+      {
+        "name": "delegator_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "validator_address",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.staking.v1beta1.MsgBeginRedelegate",
+    "name": "MsgBeginRedelegate",
+    "package": "cosmos.staking.v1beta1",
+    "module": "staking",
+    "signers": [
+      "delegator_address"
+    ],
+    "fields": [
+      {
+        "name": "delegator_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "validator_src_address",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "validator_dst_address",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.staking.v1beta1.MsgUndelegate",
+    "name": "MsgUndelegate",
+    "package": "cosmos.staking.v1beta1",
+    "module": "staking",
+    "signers": [
+      "delegator_address"
+    ],
+    "fields": [
+      {
+        "name": "delegator_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "validator_address",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.staking.v1beta1.MsgCancelUnbondingDelegation",
+    "name": "MsgCancelUnbondingDelegation",
+    "package": "cosmos.staking.v1beta1",
+    "module": "staking",
+    "signers": [
+      "delegator_address"
+    ],
+    "fields": [
+      {
+        "name": "delegator_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "validator_address",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      },
+      {
+        "name": "creation_height",
+        "type": "int64",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.staking.v1beta1.MsgUpdateParams",
+    "name": "MsgUpdateParams",
+    "package": "cosmos.staking.v1beta1",
+    "module": "staking",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "params",
+        "type": "cosmos.staking.v1beta1.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.staking.v1beta1.Params"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.upgrade.v1beta1.MsgSoftwareUpgrade",
+    "name": "MsgSoftwareUpgrade",
+    "package": "cosmos.upgrade.v1beta1",
+    "module": "upgrade",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "plan",
+        "type": "cosmos.upgrade.v1beta1.Plan",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.upgrade.v1beta1.Plan"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.upgrade.v1beta1.MsgCancelUpgrade",
+    "name": "MsgCancelUpgrade",
+    "package": "cosmos.upgrade.v1beta1",
+    "module": "upgrade",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.vesting.v1beta1.MsgCreateVestingAccount",
+    "name": "MsgCreateVestingAccount",
+    "package": "cosmos.vesting.v1beta1",
+    "module": "vesting",
+    "signers": [
+      "from_address"
+    ],
+    "fields": [
+      {
+        "name": "from_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "to_address",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 3,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      },
+      {
+        "name": "end_time",
+        "type": "int64",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "delayed",
+        "type": "bool",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.vesting.v1beta1.MsgCreatePermanentLockedAccount",
+    "name": "MsgCreatePermanentLockedAccount",
+    "package": "cosmos.vesting.v1beta1",
+    "module": "vesting",
+    "signers": [
+      "from_address"
+    ],
+    "fields": [
+      {
+        "name": "from_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "to_address",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 3,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmos.vesting.v1beta1.MsgCreatePeriodicVestingAccount",
+    "name": "MsgCreatePeriodicVestingAccount",
+    "package": "cosmos.vesting.v1beta1",
+    "module": "vesting",
+    "signers": [
+      "from_address"
+    ],
+    "fields": [
+      {
+        "name": "from_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "to_address",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "start_time",
+        "type": "int64",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "vesting_periods",
+        "type": "cosmos.vesting.v1beta1.Period",
+        "number": 4,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.vesting.v1beta1.Period"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmwasm.wasm.v1.MsgStoreCode",
+    "name": "MsgStoreCode",
+    "package": "cosmwasm.wasm.v1",
+    "module": "wasm",
+    "signers": [
+      "sender"
+    ],
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "wasm_byte_code",
+        "type": "bytes",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "instantiate_permission",
+        "type": "cosmwasm.wasm.v1.AccessConfig",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmwasm.wasm.v1.AccessConfig"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmwasm.wasm.v1.MsgInstantiateContract",
+    "name": "MsgInstantiateContract",
+    "package": "cosmwasm.wasm.v1",
+    "module": "wasm",
+    "signers": [
+      "sender"
+    ],
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "admin",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "code_id",
+        "type": "uint64",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "msg",
+        "type": "bytes",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "funds",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 6,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmwasm.wasm.v1.MsgInstantiateContract2",
+    "name": "MsgInstantiateContract2",
+    "package": "cosmwasm.wasm.v1",
+    "module": "wasm",
+    "signers": [
+      "sender"
+    ],
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "admin",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "code_id",
+        "type": "uint64",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "msg",
+        "type": "bytes",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "funds",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 6,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      },
+      {
+        "name": "salt",
+        "type": "bytes",
+        "number": 7,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "fix_msg",
+        "type": "bool",
+        "number": 8,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmwasm.wasm.v1.MsgExecuteContract",
+    "name": "MsgExecuteContract",
+    "package": "cosmwasm.wasm.v1",
+    "module": "wasm",
+    "signers": [
+      "sender"
+    ],
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "contract",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "msg",
+        "type": "bytes",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "funds",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 5,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmwasm.wasm.v1.MsgMigrateContract",
+    "name": "MsgMigrateContract",
+    "package": "cosmwasm.wasm.v1",
+    "module": "wasm",
+    "signers": [
+      "sender"
+    ],
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "contract",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "code_id",
+        "type": "uint64",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "msg",
+        "type": "bytes",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmwasm.wasm.v1.MsgUpdateAdmin",
+    "name": "MsgUpdateAdmin",
+    "package": "cosmwasm.wasm.v1",
+    "module": "wasm",
+    "signers": [
+      "sender"
+    ],
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "new_admin",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "contract",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmwasm.wasm.v1.MsgClearAdmin",
+    "name": "MsgClearAdmin",
+    "package": "cosmwasm.wasm.v1",
+    "module": "wasm",
+    "signers": [
+      "sender"
+    ],
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "contract",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmwasm.wasm.v1.MsgUpdateInstantiateConfig",
+    "name": "MsgUpdateInstantiateConfig",
+    "package": "cosmwasm.wasm.v1",
+    "module": "wasm",
+    "signers": [
+      "sender"
+    ],
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "code_id",
+        "type": "uint64",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "new_instantiate_permission",
+        "type": "cosmwasm.wasm.v1.AccessConfig",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmwasm.wasm.v1.AccessConfig"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmwasm.wasm.v1.MsgUpdateParams",
+    "name": "MsgUpdateParams",
+    "package": "cosmwasm.wasm.v1",
+    "module": "wasm",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "params",
+        "type": "cosmwasm.wasm.v1.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmwasm.wasm.v1.Params"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmwasm.wasm.v1.MsgSudoContract",
+    "name": "MsgSudoContract",
+    "package": "cosmwasm.wasm.v1",
+    "module": "wasm",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "contract",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "msg",
+        "type": "bytes",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmwasm.wasm.v1.MsgPinCodes",
+    "name": "MsgPinCodes",
+    "package": "cosmwasm.wasm.v1",
+    "module": "wasm",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "code_ids",
+        "type": "uint64",
+        "number": 2,
+        "repeated": true,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmwasm.wasm.v1.MsgUnpinCodes",
+    "name": "MsgUnpinCodes",
+    "package": "cosmwasm.wasm.v1",
+    "module": "wasm",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "code_ids",
+        "type": "uint64",
+        "number": 2,
+        "repeated": true,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmwasm.wasm.v1.MsgStoreAndInstantiateContract",
+    "name": "MsgStoreAndInstantiateContract",
+    "package": "cosmwasm.wasm.v1",
+    "module": "wasm",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "wasm_byte_code",
+        "type": "bytes",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "instantiate_permission",
+        "type": "cosmwasm.wasm.v1.AccessConfig",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmwasm.wasm.v1.AccessConfig"
+      },
+      {
+        "name": "unpin_code",
+        "type": "bool",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "admin",
+        "type": "string",
+        "number": 6,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "number": 7,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "msg",
+        "type": "bytes",
+        "number": 8,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "funds",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 9,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      },
+      {
+        "name": "source",
+        "type": "string",
+        "number": 10,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "builder",
+        "type": "string",
+        "number": 11,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "code_hash",
+        "type": "bytes",
+        "number": 12,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmwasm.wasm.v1.MsgRemoveCodeUploadParamsAddresses",
+    "name": "MsgRemoveCodeUploadParamsAddresses",
+    "package": "cosmwasm.wasm.v1",
+    "module": "wasm",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "addresses",
+        "type": "string",
+        "number": 2,
+        "repeated": true,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmwasm.wasm.v1.MsgAddCodeUploadParamsAddresses",
+    "name": "MsgAddCodeUploadParamsAddresses",
+    "package": "cosmwasm.wasm.v1",
+    "module": "wasm",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "addresses",
+        "type": "string",
+        "number": 2,
+        "repeated": true,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmwasm.wasm.v1.MsgStoreAndMigrateContract",
+    "name": "MsgStoreAndMigrateContract",
+    "package": "cosmwasm.wasm.v1",
+    "module": "wasm",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "wasm_byte_code",
+        "type": "bytes",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "instantiate_permission",
+        "type": "cosmwasm.wasm.v1.AccessConfig",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmwasm.wasm.v1.AccessConfig"
+      },
+      {
+        "name": "contract",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "msg",
+        "type": "bytes",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/cosmwasm.wasm.v1.MsgUpdateContractLabel",
+    "name": "MsgUpdateContractLabel",
+    "package": "cosmwasm.wasm.v1",
+    "module": "wasm",
+    "signers": [
+      "sender"
+    ],
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "new_label",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "contract",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/ibc.applications.interchain_accounts.controller.v1.MsgRegisterInterchainAccount",
+    "name": "MsgRegisterInterchainAccount",
+    "package": "ibc.applications.interchain_accounts.controller.v1",
+    "module": "controller",
+    "signers": [
+      "owner"
+    ],
+    "fields": [
+      {
+        "name": "owner",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "connection_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "version",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "ordering",
+        "type": "ibc.core.channel.v1.Order",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.core.channel.v1.Order"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/ibc.applications.interchain_accounts.controller.v1.MsgSendTx",
+    "name": "MsgSendTx",
+    "package": "ibc.applications.interchain_accounts.controller.v1",
+    "module": "controller",
+    "signers": [
+      "owner"
+    ],
+    "fields": [
+      {
+        "name": "owner",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "connection_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "packet_data",
+        "type": "ibc.applications.interchain_accounts.v1.InterchainAccountPacketData",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.applications.interchain_accounts.v1.InterchainAccountPacketData"
+      },
+      {
+        "name": "relative_timeout",
+        "type": "uint64",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/ibc.applications.interchain_accounts.controller.v1.MsgUpdateParams",
+    "name": "MsgUpdateParams",
+    "package": "ibc.applications.interchain_accounts.controller.v1",
+    "module": "controller",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "params",
+        "type": "ibc.applications.interchain_accounts.controller.v1.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.applications.interchain_accounts.controller.v1.Params"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/ibc.applications.interchain_accounts.host.v1.MsgUpdateParams",
+    "name": "MsgUpdateParams",
+    "package": "ibc.applications.interchain_accounts.host.v1",
+    "module": "host",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "params",
+        "type": "ibc.applications.interchain_accounts.host.v1.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.applications.interchain_accounts.host.v1.Params"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/ibc.applications.interchain_accounts.host.v1.MsgModuleQuerySafe",
+    "name": "MsgModuleQuerySafe",
+    "package": "ibc.applications.interchain_accounts.host.v1",
+    "module": "host",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "requests",
+        "type": "ibc.applications.interchain_accounts.host.v1.QueryRequest",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "ibc.applications.interchain_accounts.host.v1.QueryRequest"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/ibc.applications.transfer.v1.MsgTransfer",
+    "name": "MsgTransfer",
+    "package": "ibc.applications.transfer.v1",
+    "module": "transfer",
+    "signers": [
+      "sender"
+    ],
+    "fields": [
+      {
+        "name": "source_port",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "source_channel",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "token",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      },
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "receiver",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "timeout_height",
+        "type": "ibc.core.client.v1.Height",
+        "number": 6,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.core.client.v1.Height"
+      },
+      {
+        "name": "timeout_timestamp",
+        "type": "uint64",
+        "number": 7,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "memo",
+        "type": "string",
+        "number": 8,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "encoding",
+        "type": "string",
+        "number": 9,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/ibc.applications.transfer.v1.MsgUpdateParams",
+    "name": "MsgUpdateParams",
+    "package": "ibc.applications.transfer.v1",
+    "module": "transfer",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "params",
+        "type": "ibc.applications.transfer.v1.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.applications.transfer.v1.Params"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/ibc.core.channel.v1.MsgChannelOpenInit",
+    "name": "MsgChannelOpenInit",
+    "package": "ibc.core.channel.v1",
+    "module": "channel",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "port_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "channel",
+        "type": "ibc.core.channel.v1.Channel",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.core.channel.v1.Channel"
+      },
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/ibc.core.channel.v1.MsgChannelOpenTry",
+    "name": "MsgChannelOpenTry",
+    "package": "ibc.core.channel.v1",
+    "module": "channel",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "port_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "previous_channel_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "channel",
+        "type": "ibc.core.channel.v1.Channel",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.core.channel.v1.Channel"
+      },
+      {
+        "name": "counterparty_version",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "proof_init",
+        "type": "bytes",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "proof_height",
+        "type": "ibc.core.client.v1.Height",
+        "number": 6,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.core.client.v1.Height"
+      },
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 7,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/ibc.core.channel.v1.MsgChannelOpenAck",
+    "name": "MsgChannelOpenAck",
+    "package": "ibc.core.channel.v1",
+    "module": "channel",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "port_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "channel_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "counterparty_channel_id",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "counterparty_version",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "proof_try",
+        "type": "bytes",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "proof_height",
+        "type": "ibc.core.client.v1.Height",
+        "number": 6,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.core.client.v1.Height"
+      },
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 7,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/ibc.core.channel.v1.MsgChannelOpenConfirm",
+    "name": "MsgChannelOpenConfirm",
+    "package": "ibc.core.channel.v1",
+    "module": "channel",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "port_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "channel_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "proof_ack",
+        "type": "bytes",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "proof_height",
+        "type": "ibc.core.client.v1.Height",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.core.client.v1.Height"
+      },
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/ibc.core.channel.v1.MsgChannelCloseInit",
+    "name": "MsgChannelCloseInit",
+    "package": "ibc.core.channel.v1",
+    "module": "channel",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "port_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "channel_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/ibc.core.channel.v1.MsgChannelCloseConfirm",
+    "name": "MsgChannelCloseConfirm",
+    "package": "ibc.core.channel.v1",
+    "module": "channel",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "port_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "channel_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "proof_init",
+        "type": "bytes",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "proof_height",
+        "type": "ibc.core.client.v1.Height",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.core.client.v1.Height"
+      },
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/ibc.core.channel.v1.MsgRecvPacket",
+    "name": "MsgRecvPacket",
+    "package": "ibc.core.channel.v1",
+    "module": "channel",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "packet",
+        "type": "ibc.core.channel.v1.Packet",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.core.channel.v1.Packet"
+      },
+      {
+        "name": "proof_commitment",
+        "type": "bytes",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "proof_height",
+        "type": "ibc.core.client.v1.Height",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.core.client.v1.Height"
+      },
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/ibc.core.channel.v1.MsgTimeout",
+    "name": "MsgTimeout",
+    "package": "ibc.core.channel.v1",
+    "module": "channel",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "packet",
+        "type": "ibc.core.channel.v1.Packet",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.core.channel.v1.Packet"
+      },
+      {
+        "name": "proof_unreceived",
+        "type": "bytes",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "proof_height",
+        "type": "ibc.core.client.v1.Height",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.core.client.v1.Height"
+      },
+      {
+        "name": "next_sequence_recv",
+        "type": "uint64",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/ibc.core.channel.v1.MsgTimeoutOnClose",
+    "name": "MsgTimeoutOnClose",
+    "package": "ibc.core.channel.v1",
+    "module": "channel",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "packet",
+        "type": "ibc.core.channel.v1.Packet",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.core.channel.v1.Packet"
+      },
+      {
+        "name": "proof_unreceived",
+        "type": "bytes",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "proof_close",
+        "type": "bytes",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "proof_height",
+        "type": "ibc.core.client.v1.Height",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.core.client.v1.Height"
+      },
+      {
+        "name": "next_sequence_recv",
+        "type": "uint64",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 6,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/ibc.core.channel.v1.MsgAcknowledgement",
+    "name": "MsgAcknowledgement",
+    "package": "ibc.core.channel.v1",
+    "module": "channel",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "packet",
+        "type": "ibc.core.channel.v1.Packet",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.core.channel.v1.Packet"
+      },
+      {
+        "name": "acknowledgement",
+        "type": "bytes",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "proof_acked",
+        "type": "bytes",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "proof_height",
+        "type": "ibc.core.client.v1.Height",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.core.client.v1.Height"
+      },
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/ibc.core.channel.v2.MsgSendPacket",
+    "name": "MsgSendPacket",
+    "package": "ibc.core.channel.v2",
+    "module": "channel",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "source_client",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "timeout_timestamp",
+        "type": "uint64",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "payloads",
+        "type": "ibc.core.channel.v2.Payload",
+        "number": 3,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "ibc.core.channel.v2.Payload"
+      },
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/ibc.core.channel.v2.MsgRecvPacket",
+    "name": "MsgRecvPacket",
+    "package": "ibc.core.channel.v2",
+    "module": "channel",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "packet",
+        "type": "ibc.core.channel.v2.Packet",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.core.channel.v2.Packet"
+      },
+      {
+        "name": "proof_commitment",
+        "type": "bytes",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "proof_height",
+        "type": "ibc.core.client.v1.Height",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.core.client.v1.Height"
+      },
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/ibc.core.channel.v2.MsgTimeout",
+    "name": "MsgTimeout",
+    "package": "ibc.core.channel.v2",
+    "module": "channel",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "packet",
+        "type": "ibc.core.channel.v2.Packet",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.core.channel.v2.Packet"
+      },
+      {
+        "name": "proof_unreceived",
+        "type": "bytes",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "proof_height",
+        "type": "ibc.core.client.v1.Height",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.core.client.v1.Height"
+      },
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/ibc.core.channel.v2.MsgAcknowledgement",
+    "name": "MsgAcknowledgement",
+    "package": "ibc.core.channel.v2",
+    "module": "channel",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "packet",
+        "type": "ibc.core.channel.v2.Packet",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.core.channel.v2.Packet"
+      },
+      {
+        "name": "acknowledgement",
+        "type": "ibc.core.channel.v2.Acknowledgement",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.core.channel.v2.Acknowledgement"
+      },
+      {
+        "name": "proof_acked",
+        "type": "bytes",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "proof_height",
+        "type": "ibc.core.client.v1.Height",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.core.client.v1.Height"
+      },
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/ibc.core.client.v1.MsgCreateClient",
+    "name": "MsgCreateClient",
+    "package": "ibc.core.client.v1",
+    "module": "client",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "client_state",
+        "type": "google.protobuf.Any",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Any"
+      },
+      {
+        "name": "consensus_state",
+        "type": "google.protobuf.Any",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Any"
+      },
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/ibc.core.client.v1.MsgUpdateClient",
+    "name": "MsgUpdateClient",
+    "package": "ibc.core.client.v1",
+    "module": "client",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "client_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "client_message",
+        "type": "google.protobuf.Any",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Any"
+      },
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/ibc.core.client.v1.MsgUpgradeClient",
+    "name": "MsgUpgradeClient",
+    "package": "ibc.core.client.v1",
+    "module": "client",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "client_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "client_state",
+        "type": "google.protobuf.Any",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Any"
+      },
+      {
+        "name": "consensus_state",
+        "type": "google.protobuf.Any",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Any"
+      },
+      {
+        "name": "proof_upgrade_client",
+        "type": "bytes",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "proof_upgrade_consensus_state",
+        "type": "bytes",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 6,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/ibc.core.client.v1.MsgSubmitMisbehaviour",
+    "name": "MsgSubmitMisbehaviour",
+    "package": "ibc.core.client.v1",
+    "module": "client",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "client_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "misbehaviour",
+        "type": "google.protobuf.Any",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Any"
+      },
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/ibc.core.client.v1.MsgRecoverClient",
+    "name": "MsgRecoverClient",
+    "package": "ibc.core.client.v1",
+    "module": "client",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "subject_client_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "substitute_client_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/ibc.core.client.v1.MsgIBCSoftwareUpgrade",
+    "name": "MsgIBCSoftwareUpgrade",
+    "package": "ibc.core.client.v1",
+    "module": "client",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "plan",
+        "type": "cosmos.upgrade.v1beta1.Plan",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.upgrade.v1beta1.Plan"
+      },
+      {
+        "name": "upgraded_client_state",
+        "type": "google.protobuf.Any",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Any"
+      },
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/ibc.core.client.v1.MsgUpdateParams",
+    "name": "MsgUpdateParams",
+    "package": "ibc.core.client.v1",
+    "module": "client",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "params",
+        "type": "ibc.core.client.v1.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.core.client.v1.Params"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/ibc.core.client.v1.MsgDeleteClientCreator",
+    "name": "MsgDeleteClientCreator",
+    "package": "ibc.core.client.v1",
+    "module": "client",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "client_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/ibc.core.client.v2.MsgRegisterCounterparty",
+    "name": "MsgRegisterCounterparty",
+    "package": "ibc.core.client.v2",
+    "module": "client",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "client_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "counterparty_merkle_prefix",
+        "type": "bytes",
+        "number": 2,
+        "repeated": true,
+        "optional": false
+      },
+      {
+        "name": "counterparty_client_id",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/ibc.core.client.v2.MsgUpdateClientConfig",
+    "name": "MsgUpdateClientConfig",
+    "package": "ibc.core.client.v2",
+    "module": "client",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "client_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "config",
+        "type": "ibc.core.client.v2.Config",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.core.client.v2.Config"
+      },
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/ibc.core.connection.v1.MsgConnectionOpenInit",
+    "name": "MsgConnectionOpenInit",
+    "package": "ibc.core.connection.v1",
+    "module": "connection",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "client_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "counterparty",
+        "type": "ibc.core.connection.v1.Counterparty",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.core.connection.v1.Counterparty"
+      },
+      {
+        "name": "version",
+        "type": "ibc.core.connection.v1.Version",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.core.connection.v1.Version"
+      },
+      {
+        "name": "delay_period",
+        "type": "uint64",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/ibc.core.connection.v1.MsgConnectionOpenTry",
+    "name": "MsgConnectionOpenTry",
+    "package": "ibc.core.connection.v1",
+    "module": "connection",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "client_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "previous_connection_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "client_state",
+        "type": "google.protobuf.Any",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Any"
+      },
+      {
+        "name": "counterparty",
+        "type": "ibc.core.connection.v1.Counterparty",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.core.connection.v1.Counterparty"
+      },
+      {
+        "name": "delay_period",
+        "type": "uint64",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "counterparty_versions",
+        "type": "ibc.core.connection.v1.Version",
+        "number": 6,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "ibc.core.connection.v1.Version"
+      },
+      {
+        "name": "proof_height",
+        "type": "ibc.core.client.v1.Height",
+        "number": 7,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.core.client.v1.Height"
+      },
+      {
+        "name": "proof_init",
+        "type": "bytes",
+        "number": 8,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "proof_client",
+        "type": "bytes",
+        "number": 9,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "proof_consensus",
+        "type": "bytes",
+        "number": 10,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "consensus_height",
+        "type": "ibc.core.client.v1.Height",
+        "number": 11,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.core.client.v1.Height"
+      },
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 12,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "host_consensus_state_proof",
+        "type": "bytes",
+        "number": 13,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/ibc.core.connection.v1.MsgConnectionOpenAck",
+    "name": "MsgConnectionOpenAck",
+    "package": "ibc.core.connection.v1",
+    "module": "connection",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "connection_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "counterparty_connection_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "version",
+        "type": "ibc.core.connection.v1.Version",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.core.connection.v1.Version"
+      },
+      {
+        "name": "client_state",
+        "type": "google.protobuf.Any",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Any"
+      },
+      {
+        "name": "proof_height",
+        "type": "ibc.core.client.v1.Height",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.core.client.v1.Height"
+      },
+      {
+        "name": "proof_try",
+        "type": "bytes",
+        "number": 6,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "proof_client",
+        "type": "bytes",
+        "number": 7,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "proof_consensus",
+        "type": "bytes",
+        "number": 8,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "consensus_height",
+        "type": "ibc.core.client.v1.Height",
+        "number": 9,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.core.client.v1.Height"
+      },
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 10,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "host_consensus_state_proof",
+        "type": "bytes",
+        "number": 11,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/ibc.core.connection.v1.MsgConnectionOpenConfirm",
+    "name": "MsgConnectionOpenConfirm",
+    "package": "ibc.core.connection.v1",
+    "module": "connection",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "connection_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "proof_ack",
+        "type": "bytes",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "proof_height",
+        "type": "ibc.core.client.v1.Height",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.core.client.v1.Height"
+      },
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/ibc.core.connection.v1.MsgUpdateParams",
+    "name": "MsgUpdateParams",
+    "package": "ibc.core.connection.v1",
+    "module": "connection",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "params",
+        "type": "ibc.core.connection.v1.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.core.connection.v1.Params"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/ibc.lightclients.wasm.v1.MsgStoreCode",
+    "name": "MsgStoreCode",
+    "package": "ibc.lightclients.wasm.v1",
+    "module": "wasm",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "wasm_byte_code",
+        "type": "bytes",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/ibc.lightclients.wasm.v1.MsgRemoveChecksum",
+    "name": "MsgRemoveChecksum",
+    "package": "ibc.lightclients.wasm.v1",
+    "module": "wasm",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "checksum",
+        "type": "bytes",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/ibc.lightclients.wasm.v1.MsgMigrateContract",
+    "name": "MsgMigrateContract",
+    "package": "ibc.lightclients.wasm.v1",
+    "module": "wasm",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "client_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "checksum",
+        "type": "bytes",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "msg",
+        "type": "bytes",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/interchain_security.ccv.consumer.v1.MsgUpdateParams",
+    "name": "MsgUpdateParams",
+    "package": "interchain_security.ccv.consumer.v1",
+    "module": "consumer",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "params",
+        "type": "interchain_security.ccv.v1.ConsumerParams",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "interchain_security.ccv.v1.ConsumerParams"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/interchain_security.ccv.provider.v1.MsgAssignConsumerKey",
+    "name": "MsgAssignConsumerKey",
+    "package": "interchain_security.ccv.provider.v1",
+    "module": "provider",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "chain_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "provider_addr",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "consumer_key",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "consumer_id",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/interchain_security.ccv.provider.v1.MsgSubmitConsumerMisbehaviour",
+    "name": "MsgSubmitConsumerMisbehaviour",
+    "package": "interchain_security.ccv.provider.v1",
+    "module": "provider",
+    "signers": [
+      "submitter"
+    ],
+    "fields": [
+      {
+        "name": "submitter",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "misbehaviour",
+        "type": "ibc.lightclients.tendermint.v1.Misbehaviour",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.lightclients.tendermint.v1.Misbehaviour"
+      },
+      {
+        "name": "consumer_id",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/interchain_security.ccv.provider.v1.MsgSubmitConsumerDoubleVoting",
+    "name": "MsgSubmitConsumerDoubleVoting",
+    "package": "interchain_security.ccv.provider.v1",
+    "module": "provider",
+    "signers": [
+      "submitter"
+    ],
+    "fields": [
+      {
+        "name": "submitter",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "duplicate_vote_evidence",
+        "type": "tendermint.types.DuplicateVoteEvidence",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "tendermint.types.DuplicateVoteEvidence"
+      },
+      {
+        "name": "infraction_block_header",
+        "type": "ibc.lightclients.tendermint.v1.Header",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ibc.lightclients.tendermint.v1.Header"
+      },
+      {
+        "name": "consumer_id",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/interchain_security.ccv.provider.v1.MsgCreateConsumer",
+    "name": "MsgCreateConsumer",
+    "package": "interchain_security.ccv.provider.v1",
+    "module": "provider",
+    "signers": [
+      "submitter"
+    ],
+    "fields": [
+      {
+        "name": "submitter",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "chain_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "metadata",
+        "type": "interchain_security.ccv.provider.v1.ConsumerMetadata",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "interchain_security.ccv.provider.v1.ConsumerMetadata"
+      },
+      {
+        "name": "initialization_parameters",
+        "type": "interchain_security.ccv.provider.v1.ConsumerInitializationParameters",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "interchain_security.ccv.provider.v1.ConsumerInitializationParameters"
+      },
+      {
+        "name": "power_shaping_parameters",
+        "type": "interchain_security.ccv.provider.v1.PowerShapingParameters",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "interchain_security.ccv.provider.v1.PowerShapingParameters"
+      },
+      {
+        "name": "allowlisted_reward_denoms",
+        "type": "interchain_security.ccv.provider.v1.AllowlistedRewardDenoms",
+        "number": 6,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "interchain_security.ccv.provider.v1.AllowlistedRewardDenoms"
+      },
+      {
+        "name": "infraction_parameters",
+        "type": "interchain_security.ccv.provider.v1.InfractionParameters",
+        "number": 7,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "interchain_security.ccv.provider.v1.InfractionParameters"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/interchain_security.ccv.provider.v1.MsgUpdateConsumer",
+    "name": "MsgUpdateConsumer",
+    "package": "interchain_security.ccv.provider.v1",
+    "module": "provider",
+    "signers": [
+      "owner"
+    ],
+    "fields": [
+      {
+        "name": "owner",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "consumer_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "new_owner_address",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "metadata",
+        "type": "interchain_security.ccv.provider.v1.ConsumerMetadata",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "interchain_security.ccv.provider.v1.ConsumerMetadata"
+      },
+      {
+        "name": "initialization_parameters",
+        "type": "interchain_security.ccv.provider.v1.ConsumerInitializationParameters",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "interchain_security.ccv.provider.v1.ConsumerInitializationParameters"
+      },
+      {
+        "name": "power_shaping_parameters",
+        "type": "interchain_security.ccv.provider.v1.PowerShapingParameters",
+        "number": 6,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "interchain_security.ccv.provider.v1.PowerShapingParameters"
+      },
+      {
+        "name": "allowlisted_reward_denoms",
+        "type": "interchain_security.ccv.provider.v1.AllowlistedRewardDenoms",
+        "number": 7,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "interchain_security.ccv.provider.v1.AllowlistedRewardDenoms"
+      },
+      {
+        "name": "new_chain_id",
+        "type": "string",
+        "number": 8,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "infraction_parameters",
+        "type": "interchain_security.ccv.provider.v1.InfractionParameters",
+        "number": 9,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "interchain_security.ccv.provider.v1.InfractionParameters"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/interchain_security.ccv.provider.v1.MsgRemoveConsumer",
+    "name": "MsgRemoveConsumer",
+    "package": "interchain_security.ccv.provider.v1",
+    "module": "provider",
+    "signers": [
+      "owner"
+    ],
+    "fields": [
+      {
+        "name": "consumer_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "owner",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/interchain_security.ccv.provider.v1.MsgUpdateParams",
+    "name": "MsgUpdateParams",
+    "package": "interchain_security.ccv.provider.v1",
+    "module": "provider",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "params",
+        "type": "interchain_security.ccv.provider.v1.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "interchain_security.ccv.provider.v1.Params"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/interchain_security.ccv.provider.v1.MsgOptIn",
+    "name": "MsgOptIn",
+    "package": "interchain_security.ccv.provider.v1",
+    "module": "provider",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "chain_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "provider_addr",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "consumer_key",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "consumer_id",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/interchain_security.ccv.provider.v1.MsgOptOut",
+    "name": "MsgOptOut",
+    "package": "interchain_security.ccv.provider.v1",
+    "module": "provider",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "chain_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "provider_addr",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "consumer_id",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/interchain_security.ccv.provider.v1.MsgSetConsumerCommissionRate",
+    "name": "MsgSetConsumerCommissionRate",
+    "package": "interchain_security.ccv.provider.v1",
+    "module": "provider",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "provider_addr",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "chain_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "rate",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "consumer_id",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/interchain_security.ccv.provider.v1.MsgChangeRewardDenoms",
+    "name": "MsgChangeRewardDenoms",
+    "package": "interchain_security.ccv.provider.v1",
+    "module": "provider",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "denoms_to_add",
+        "type": "string",
+        "number": 1,
+        "repeated": true,
+        "optional": false
+      },
+      {
+        "name": "denoms_to_remove",
+        "type": "string",
+        "number": 2,
+        "repeated": true,
+        "optional": false
+      },
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/ratelimit.v1.MsgAddRateLimit",
+    "name": "MsgAddRateLimit",
+    "package": "ratelimit.v1",
+    "module": "ratelimit",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "denom",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "channel_or_client_id",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "max_percent_send",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "max_percent_recv",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "duration_hours",
+        "type": "uint64",
+        "number": 6,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/ratelimit.v1.MsgUpdateRateLimit",
+    "name": "MsgUpdateRateLimit",
+    "package": "ratelimit.v1",
+    "module": "ratelimit",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "denom",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "channel_or_client_id",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "max_percent_send",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "max_percent_recv",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "duration_hours",
+        "type": "uint64",
+        "number": 6,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/ratelimit.v1.MsgRemoveRateLimit",
+    "name": "MsgRemoveRateLimit",
+    "package": "ratelimit.v1",
+    "module": "ratelimit",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "denom",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "channel_or_client_id",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/ratelimit.v1.MsgResetRateLimit",
+    "name": "MsgResetRateLimit",
+    "package": "ratelimit.v1",
+    "module": "ratelimit",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "denom",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "channel_or_client_id",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.airdrop.MsgClaimDaily",
+    "name": "MsgClaimDaily",
+    "package": "stride.airdrop",
+    "module": "airdrop",
+    "signers": [
+      "claimer"
+    ],
+    "fields": [
+      {
+        "name": "claimer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "airdrop_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.airdrop.MsgClaimEarly",
+    "name": "MsgClaimEarly",
+    "package": "stride.airdrop",
+    "module": "airdrop",
+    "signers": [
+      "claimer"
+    ],
+    "fields": [
+      {
+        "name": "claimer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "airdrop_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.airdrop.MsgCreateAirdrop",
+    "name": "MsgCreateAirdrop",
+    "package": "stride.airdrop",
+    "module": "airdrop",
+    "signers": [
+      "admin"
+    ],
+    "fields": [
+      {
+        "name": "admin",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "airdrop_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "reward_denom",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "distribution_start_date",
+        "type": "google.protobuf.Timestamp",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Timestamp"
+      },
+      {
+        "name": "distribution_end_date",
+        "type": "google.protobuf.Timestamp",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Timestamp"
+      },
+      {
+        "name": "clawback_date",
+        "type": "google.protobuf.Timestamp",
+        "number": 6,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Timestamp"
+      },
+      {
+        "name": "claim_type_deadline_date",
+        "type": "google.protobuf.Timestamp",
+        "number": 7,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Timestamp"
+      },
+      {
+        "name": "early_claim_penalty",
+        "type": "string",
+        "number": 8,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "distributor_address",
+        "type": "string",
+        "number": 9,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "allocator_address",
+        "type": "string",
+        "number": 10,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "linker_address",
+        "type": "string",
+        "number": 11,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.airdrop.MsgUpdateAirdrop",
+    "name": "MsgUpdateAirdrop",
+    "package": "stride.airdrop",
+    "module": "airdrop",
+    "signers": [
+      "admin"
+    ],
+    "fields": [
+      {
+        "name": "admin",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "airdrop_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "reward_denom",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "distribution_start_date",
+        "type": "google.protobuf.Timestamp",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Timestamp"
+      },
+      {
+        "name": "distribution_end_date",
+        "type": "google.protobuf.Timestamp",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Timestamp"
+      },
+      {
+        "name": "clawback_date",
+        "type": "google.protobuf.Timestamp",
+        "number": 6,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Timestamp"
+      },
+      {
+        "name": "claim_type_deadline_date",
+        "type": "google.protobuf.Timestamp",
+        "number": 7,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Timestamp"
+      },
+      {
+        "name": "early_claim_penalty",
+        "type": "string",
+        "number": 8,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "distributor_address",
+        "type": "string",
+        "number": 9,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "allocator_address",
+        "type": "string",
+        "number": 10,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "linker_address",
+        "type": "string",
+        "number": 11,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.airdrop.MsgAddAllocations",
+    "name": "MsgAddAllocations",
+    "package": "stride.airdrop",
+    "module": "airdrop",
+    "signers": [
+      "admin"
+    ],
+    "fields": [
+      {
+        "name": "admin",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "airdrop_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "allocations",
+        "type": "stride.airdrop.RawAllocation",
+        "number": 3,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "stride.airdrop.RawAllocation"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.airdrop.MsgUpdateUserAllocation",
+    "name": "MsgUpdateUserAllocation",
+    "package": "stride.airdrop",
+    "module": "airdrop",
+    "signers": [
+      "admin"
+    ],
+    "fields": [
+      {
+        "name": "admin",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "airdrop_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "user_address",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "allocations",
+        "type": "string",
+        "number": 4,
+        "repeated": true,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.airdrop.MsgLinkAddresses",
+    "name": "MsgLinkAddresses",
+    "package": "stride.airdrop",
+    "module": "airdrop",
+    "signers": [
+      "admin"
+    ],
+    "fields": [
+      {
+        "name": "admin",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "airdrop_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "stride_address",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "host_address",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.auction.MsgPlaceBid",
+    "name": "MsgPlaceBid",
+    "package": "stride.auction",
+    "module": "auction",
+    "signers": [
+      "bidder"
+    ],
+    "fields": [
+      {
+        "name": "bidder",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "auction_name",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "selling_token_amount",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "payment_token_amount",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.auction.MsgCreateAuction",
+    "name": "MsgCreateAuction",
+    "package": "stride.auction",
+    "module": "auction",
+    "signers": [
+      "admin"
+    ],
+    "fields": [
+      {
+        "name": "admin",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "auction_name",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "auction_type",
+        "type": "stride.auction.AuctionType",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "stride.auction.AuctionType"
+      },
+      {
+        "name": "selling_denom",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "payment_denom",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "enabled",
+        "type": "bool",
+        "number": 6,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "min_price_multiplier",
+        "type": "string",
+        "number": 7,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "min_bid_amount",
+        "type": "string",
+        "number": 8,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "beneficiary",
+        "type": "string",
+        "number": 9,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.auction.MsgUpdateAuction",
+    "name": "MsgUpdateAuction",
+    "package": "stride.auction",
+    "module": "auction",
+    "signers": [
+      "admin"
+    ],
+    "fields": [
+      {
+        "name": "admin",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "auction_name",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "auction_type",
+        "type": "stride.auction.AuctionType",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "stride.auction.AuctionType"
+      },
+      {
+        "name": "enabled",
+        "type": "bool",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "min_price_multiplier",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "min_bid_amount",
+        "type": "string",
+        "number": 6,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "beneficiary",
+        "type": "string",
+        "number": 7,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.claim.MsgSetAirdropAllocations",
+    "name": "MsgSetAirdropAllocations",
+    "package": "stride.claim",
+    "module": "claim",
+    "signers": [
+      "allocator"
+    ],
+    "fields": [
+      {
+        "name": "allocator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "airdrop_identifier",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "users",
+        "type": "string",
+        "number": 3,
+        "repeated": true,
+        "optional": false
+      },
+      {
+        "name": "weights",
+        "type": "string",
+        "number": 4,
+        "repeated": true,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.claim.MsgClaimFreeAmount",
+    "name": "MsgClaimFreeAmount",
+    "package": "stride.claim",
+    "module": "claim",
+    "signers": [
+      "user"
+    ],
+    "fields": [
+      {
+        "name": "user",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.claim.MsgCreateAirdrop",
+    "name": "MsgCreateAirdrop",
+    "package": "stride.claim",
+    "module": "claim",
+    "signers": [
+      "distributor"
+    ],
+    "fields": [
+      {
+        "name": "distributor",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "identifier",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "chain_id",
+        "type": "string",
+        "number": 6,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "denom",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "start_time",
+        "type": "uint64",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "duration",
+        "type": "uint64",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "autopilot_enabled",
+        "type": "bool",
+        "number": 7,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.claim.MsgDeleteAirdrop",
+    "name": "MsgDeleteAirdrop",
+    "package": "stride.claim",
+    "module": "claim",
+    "signers": [
+      "distributor"
+    ],
+    "fields": [
+      {
+        "name": "distributor",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "identifier",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.icaoracle.MsgAddOracle",
+    "name": "MsgAddOracle",
+    "package": "stride.icaoracle",
+    "module": "icaoracle",
+    "signers": [
+      "creator"
+    ],
+    "fields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "connection_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.icaoracle.MsgInstantiateOracle",
+    "name": "MsgInstantiateOracle",
+    "package": "stride.icaoracle",
+    "module": "icaoracle",
+    "signers": [
+      "creator"
+    ],
+    "fields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "oracle_chain_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "contract_code_id",
+        "type": "uint64",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "transfer_channel_on_oracle",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.icaoracle.MsgRestoreOracleICA",
+    "name": "MsgRestoreOracleICA",
+    "package": "stride.icaoracle",
+    "module": "icaoracle",
+    "signers": [
+      "creator"
+    ],
+    "fields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "oracle_chain_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.icaoracle.MsgToggleOracle",
+    "name": "MsgToggleOracle",
+    "package": "stride.icaoracle",
+    "module": "icaoracle",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "oracle_chain_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "active",
+        "type": "bool",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.icaoracle.MsgRemoveOracle",
+    "name": "MsgRemoveOracle",
+    "package": "stride.icaoracle",
+    "module": "icaoracle",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "oracle_chain_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.icqoracle.MsgRegisterTokenPriceQuery",
+    "name": "MsgRegisterTokenPriceQuery",
+    "package": "stride.icqoracle",
+    "module": "icqoracle",
+    "signers": [
+      "admin"
+    ],
+    "fields": [
+      {
+        "name": "admin",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "base_denom",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "quote_denom",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "osmosis_base_denom",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "osmosis_quote_denom",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "osmosis_pool_id",
+        "type": "uint64",
+        "number": 6,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.icqoracle.MsgRemoveTokenPriceQuery",
+    "name": "MsgRemoveTokenPriceQuery",
+    "package": "stride.icqoracle",
+    "module": "icqoracle",
+    "signers": [
+      "admin"
+    ],
+    "fields": [
+      {
+        "name": "admin",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "base_denom",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "quote_denom",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "osmosis_pool_id",
+        "type": "uint64",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.icqoracle.MsgUpdateParams",
+    "name": "MsgUpdateParams",
+    "package": "stride.icqoracle",
+    "module": "icqoracle",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "params",
+        "type": "stride.icqoracle.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "stride.icqoracle.Params"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.interchainquery.v1.MsgSubmitQueryResponse",
+    "name": "MsgSubmitQueryResponse",
+    "package": "stride.interchainquery.v1",
+    "module": "interchainquery",
+    "signers": [
+      "from_address"
+    ],
+    "fields": [
+      {
+        "name": "chain_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "query_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "result",
+        "type": "bytes",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "proof_ops",
+        "type": "tendermint.crypto.ProofOps",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "tendermint.crypto.ProofOps"
+      },
+      {
+        "name": "height",
+        "type": "int64",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "from_address",
+        "type": "string",
+        "number": 6,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.stakedym.MsgLiquidStake",
+    "name": "MsgLiquidStake",
+    "package": "stride.stakedym",
+    "module": "stakedym",
+    "signers": [
+      "staker"
+    ],
+    "fields": [
+      {
+        "name": "staker",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "native_amount",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.stakedym.MsgRedeemStake",
+    "name": "MsgRedeemStake",
+    "package": "stride.stakedym",
+    "module": "stakedym",
+    "signers": [
+      "redeemer"
+    ],
+    "fields": [
+      {
+        "name": "redeemer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "st_token_amount",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.stakedym.MsgConfirmDelegation",
+    "name": "MsgConfirmDelegation",
+    "package": "stride.stakedym",
+    "module": "stakedym",
+    "signers": [
+      "operator"
+    ],
+    "fields": [
+      {
+        "name": "operator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "record_id",
+        "type": "uint64",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "tx_hash",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.stakedym.MsgConfirmUndelegation",
+    "name": "MsgConfirmUndelegation",
+    "package": "stride.stakedym",
+    "module": "stakedym",
+    "signers": [
+      "operator"
+    ],
+    "fields": [
+      {
+        "name": "operator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "record_id",
+        "type": "uint64",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "tx_hash",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.stakedym.MsgConfirmUnbondedTokenSweep",
+    "name": "MsgConfirmUnbondedTokenSweep",
+    "package": "stride.stakedym",
+    "module": "stakedym",
+    "signers": [
+      "operator"
+    ],
+    "fields": [
+      {
+        "name": "operator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "record_id",
+        "type": "uint64",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "tx_hash",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.stakedym.MsgAdjustDelegatedBalance",
+    "name": "MsgAdjustDelegatedBalance",
+    "package": "stride.stakedym",
+    "module": "stakedym",
+    "signers": [
+      "operator"
+    ],
+    "fields": [
+      {
+        "name": "operator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "delegation_offset",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "validator_address",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.stakedym.MsgUpdateInnerRedemptionRateBounds",
+    "name": "MsgUpdateInnerRedemptionRateBounds",
+    "package": "stride.stakedym",
+    "module": "stakedym",
+    "signers": [
+      "creator"
+    ],
+    "fields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "min_inner_redemption_rate",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "max_inner_redemption_rate",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.stakedym.MsgResumeHostZone",
+    "name": "MsgResumeHostZone",
+    "package": "stride.stakedym",
+    "module": "stakedym",
+    "signers": [
+      "creator"
+    ],
+    "fields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.stakedym.MsgRefreshRedemptionRate",
+    "name": "MsgRefreshRedemptionRate",
+    "package": "stride.stakedym",
+    "module": "stakedym",
+    "signers": [
+      "creator"
+    ],
+    "fields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.stakedym.MsgOverwriteDelegationRecord",
+    "name": "MsgOverwriteDelegationRecord",
+    "package": "stride.stakedym",
+    "module": "stakedym",
+    "signers": [
+      "creator"
+    ],
+    "fields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "delegation_record",
+        "type": "stride.stakedym.DelegationRecord",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "stride.stakedym.DelegationRecord"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.stakedym.MsgOverwriteUnbondingRecord",
+    "name": "MsgOverwriteUnbondingRecord",
+    "package": "stride.stakedym",
+    "module": "stakedym",
+    "signers": [
+      "creator"
+    ],
+    "fields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "unbonding_record",
+        "type": "stride.stakedym.UnbondingRecord",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "stride.stakedym.UnbondingRecord"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.stakedym.MsgOverwriteRedemptionRecord",
+    "name": "MsgOverwriteRedemptionRecord",
+    "package": "stride.stakedym",
+    "module": "stakedym",
+    "signers": [
+      "creator"
+    ],
+    "fields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "redemption_record",
+        "type": "stride.stakedym.RedemptionRecord",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "stride.stakedym.RedemptionRecord"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.stakedym.MsgSetOperatorAddress",
+    "name": "MsgSetOperatorAddress",
+    "package": "stride.stakedym",
+    "module": "stakedym",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "operator",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.stakeibc.MsgLiquidStake",
+    "name": "MsgLiquidStake",
+    "package": "stride.stakeibc",
+    "module": "stakeibc",
+    "signers": [
+      "creator"
+    ],
+    "fields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "amount",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "host_denom",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.stakeibc.MsgLSMLiquidStake",
+    "name": "MsgLSMLiquidStake",
+    "package": "stride.stakeibc",
+    "module": "stakeibc",
+    "signers": [
+      "creator"
+    ],
+    "fields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "amount",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "lsm_token_ibc_denom",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.stakeibc.MsgRedeemStake",
+    "name": "MsgRedeemStake",
+    "package": "stride.stakeibc",
+    "module": "stakeibc",
+    "signers": [
+      "creator"
+    ],
+    "fields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "amount",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "host_zone",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "receiver",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.stakeibc.MsgRegisterHostZone",
+    "name": "MsgRegisterHostZone",
+    "package": "stride.stakeibc",
+    "module": "stakeibc",
+    "signers": [
+      "creator"
+    ],
+    "fields": [
+      {
+        "name": "connection_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "bech32prefix",
+        "type": "string",
+        "number": 12,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "host_denom",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "ibc_denom",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 6,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "transfer_channel_id",
+        "type": "string",
+        "number": 10,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "unbonding_period",
+        "type": "uint64",
+        "number": 11,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "min_redemption_rate",
+        "type": "string",
+        "number": 13,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "max_redemption_rate",
+        "type": "string",
+        "number": 14,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "lsm_liquid_stake_enabled",
+        "type": "bool",
+        "number": 15,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "community_pool_treasury_address",
+        "type": "string",
+        "number": 16,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "max_messages_per_ica_tx",
+        "type": "uint64",
+        "number": 17,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.stakeibc.MsgClaimUndelegatedTokens",
+    "name": "MsgClaimUndelegatedTokens",
+    "package": "stride.stakeibc",
+    "module": "stakeibc",
+    "signers": [
+      "creator"
+    ],
+    "fields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "host_zone_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "epoch",
+        "type": "uint64",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "receiver",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.stakeibc.MsgRebalanceValidators",
+    "name": "MsgRebalanceValidators",
+    "package": "stride.stakeibc",
+    "module": "stakeibc",
+    "signers": [
+      "creator"
+    ],
+    "fields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "host_zone",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "num_rebalance",
+        "type": "uint64",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.stakeibc.MsgAddValidators",
+    "name": "MsgAddValidators",
+    "package": "stride.stakeibc",
+    "module": "stakeibc",
+    "signers": [
+      "creator"
+    ],
+    "fields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "host_zone",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "validators",
+        "type": "stride.stakeibc.Validator",
+        "number": 3,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "stride.stakeibc.Validator"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.stakeibc.MsgChangeValidatorWeights",
+    "name": "MsgChangeValidatorWeights",
+    "package": "stride.stakeibc",
+    "module": "stakeibc",
+    "signers": [
+      "creator"
+    ],
+    "fields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "host_zone",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "validator_weights",
+        "type": "stride.stakeibc.ValidatorWeight",
+        "number": 3,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "stride.stakeibc.ValidatorWeight"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.stakeibc.MsgDeleteValidator",
+    "name": "MsgDeleteValidator",
+    "package": "stride.stakeibc",
+    "module": "stakeibc",
+    "signers": [
+      "creator"
+    ],
+    "fields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "host_zone",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "val_addr",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.stakeibc.MsgRestoreInterchainAccount",
+    "name": "MsgRestoreInterchainAccount",
+    "package": "stride.stakeibc",
+    "module": "stakeibc",
+    "signers": [
+      "creator"
+    ],
+    "fields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "chain_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "connection_id",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "account_owner",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.stakeibc.MsgCloseDelegationChannel",
+    "name": "MsgCloseDelegationChannel",
+    "package": "stride.stakeibc",
+    "module": "stakeibc",
+    "signers": [
+      "creator"
+    ],
+    "fields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "chain_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.stakeibc.MsgUpdateValidatorSharesExchRate",
+    "name": "MsgUpdateValidatorSharesExchRate",
+    "package": "stride.stakeibc",
+    "module": "stakeibc",
+    "signers": [
+      "creator"
+    ],
+    "fields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "chain_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "valoper",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.stakeibc.MsgCalibrateDelegation",
+    "name": "MsgCalibrateDelegation",
+    "package": "stride.stakeibc",
+    "module": "stakeibc",
+    "signers": [
+      "creator"
+    ],
+    "fields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "chain_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "valoper",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.stakeibc.MsgClearBalance",
+    "name": "MsgClearBalance",
+    "package": "stride.stakeibc",
+    "module": "stakeibc",
+    "signers": [
+      "creator"
+    ],
+    "fields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "chain_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "amount",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "channel",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.stakeibc.MsgUpdateInnerRedemptionRateBounds",
+    "name": "MsgUpdateInnerRedemptionRateBounds",
+    "package": "stride.stakeibc",
+    "module": "stakeibc",
+    "signers": [
+      "creator"
+    ],
+    "fields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "chain_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "min_inner_redemption_rate",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "max_inner_redemption_rate",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.stakeibc.MsgResumeHostZone",
+    "name": "MsgResumeHostZone",
+    "package": "stride.stakeibc",
+    "module": "stakeibc",
+    "signers": [
+      "creator"
+    ],
+    "fields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "chain_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.stakeibc.MsgCreateTradeRoute",
+    "name": "MsgCreateTradeRoute",
+    "package": "stride.stakeibc",
+    "module": "stakeibc",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "host_chain_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "stride_to_reward_connection_id",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "stride_to_trade_connection_id",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "host_to_reward_transfer_channel_id",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "reward_to_trade_transfer_channel_id",
+        "type": "string",
+        "number": 6,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "trade_to_host_transfer_channel_id",
+        "type": "string",
+        "number": 7,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "reward_denom_on_host",
+        "type": "string",
+        "number": 8,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "reward_denom_on_reward",
+        "type": "string",
+        "number": 9,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "reward_denom_on_trade",
+        "type": "string",
+        "number": 10,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "host_denom_on_trade",
+        "type": "string",
+        "number": 11,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "host_denom_on_host",
+        "type": "string",
+        "number": 12,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "pool_id",
+        "type": "uint64",
+        "number": 13,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "max_allowed_swap_loss_rate",
+        "type": "string",
+        "number": 14,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "min_swap_amount",
+        "type": "string",
+        "number": 15,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "max_swap_amount",
+        "type": "string",
+        "number": 16,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "min_transfer_amount",
+        "type": "string",
+        "number": 17,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.stakeibc.MsgDeleteTradeRoute",
+    "name": "MsgDeleteTradeRoute",
+    "package": "stride.stakeibc",
+    "module": "stakeibc",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "reward_denom",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "host_denom",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.stakeibc.MsgUpdateTradeRoute",
+    "name": "MsgUpdateTradeRoute",
+    "package": "stride.stakeibc",
+    "module": "stakeibc",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "reward_denom",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "host_denom",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "pool_id",
+        "type": "uint64",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "max_allowed_swap_loss_rate",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "min_swap_amount",
+        "type": "string",
+        "number": 6,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "max_swap_amount",
+        "type": "string",
+        "number": 7,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "min_transfer_amount",
+        "type": "string",
+        "number": 17,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.stakeibc.MsgSetCommunityPoolRebate",
+    "name": "MsgSetCommunityPoolRebate",
+    "package": "stride.stakeibc",
+    "module": "stakeibc",
+    "signers": [
+      "creator"
+    ],
+    "fields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "chain_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "rebate_rate",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "liquid_staked_st_token_amount",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.stakeibc.MsgToggleTradeController",
+    "name": "MsgToggleTradeController",
+    "package": "stride.stakeibc",
+    "module": "stakeibc",
+    "signers": [
+      "creator"
+    ],
+    "fields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "chain_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "permission_change",
+        "type": "stride.stakeibc.AuthzPermissionChange",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "stride.stakeibc.AuthzPermissionChange"
+      },
+      {
+        "name": "address",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "legacy",
+        "type": "bool",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.stakeibc.MsgUpdateHostZoneParams",
+    "name": "MsgUpdateHostZoneParams",
+    "package": "stride.stakeibc",
+    "module": "stakeibc",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "chain_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "max_messages_per_ica_tx",
+        "type": "uint64",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.stakeibc.MsgDeprecateHostZone",
+    "name": "MsgDeprecateHostZone",
+    "package": "stride.stakeibc",
+    "module": "stakeibc",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "chain_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.staketia.MsgLiquidStake",
+    "name": "MsgLiquidStake",
+    "package": "stride.staketia",
+    "module": "staketia",
+    "signers": [
+      "staker"
+    ],
+    "fields": [
+      {
+        "name": "staker",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "native_amount",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.staketia.MsgRedeemStake",
+    "name": "MsgRedeemStake",
+    "package": "stride.staketia",
+    "module": "staketia",
+    "signers": [
+      "redeemer"
+    ],
+    "fields": [
+      {
+        "name": "redeemer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "st_token_amount",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "receiver",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.staketia.MsgConfirmDelegation",
+    "name": "MsgConfirmDelegation",
+    "package": "stride.staketia",
+    "module": "staketia",
+    "signers": [
+      "operator"
+    ],
+    "fields": [
+      {
+        "name": "operator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "record_id",
+        "type": "uint64",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "tx_hash",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.staketia.MsgConfirmUndelegation",
+    "name": "MsgConfirmUndelegation",
+    "package": "stride.staketia",
+    "module": "staketia",
+    "signers": [
+      "operator"
+    ],
+    "fields": [
+      {
+        "name": "operator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "record_id",
+        "type": "uint64",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "tx_hash",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.staketia.MsgConfirmUnbondedTokenSweep",
+    "name": "MsgConfirmUnbondedTokenSweep",
+    "package": "stride.staketia",
+    "module": "staketia",
+    "signers": [
+      "operator"
+    ],
+    "fields": [
+      {
+        "name": "operator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "record_id",
+        "type": "uint64",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "tx_hash",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.staketia.MsgAdjustDelegatedBalance",
+    "name": "MsgAdjustDelegatedBalance",
+    "package": "stride.staketia",
+    "module": "staketia",
+    "signers": [
+      "operator"
+    ],
+    "fields": [
+      {
+        "name": "operator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "delegation_offset",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "validator_address",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.staketia.MsgUpdateInnerRedemptionRateBounds",
+    "name": "MsgUpdateInnerRedemptionRateBounds",
+    "package": "stride.staketia",
+    "module": "staketia",
+    "signers": [
+      "creator"
+    ],
+    "fields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "min_inner_redemption_rate",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "max_inner_redemption_rate",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.staketia.MsgResumeHostZone",
+    "name": "MsgResumeHostZone",
+    "package": "stride.staketia",
+    "module": "staketia",
+    "signers": [
+      "creator"
+    ],
+    "fields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.staketia.MsgRefreshRedemptionRate",
+    "name": "MsgRefreshRedemptionRate",
+    "package": "stride.staketia",
+    "module": "staketia",
+    "signers": [
+      "creator"
+    ],
+    "fields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.staketia.MsgOverwriteDelegationRecord",
+    "name": "MsgOverwriteDelegationRecord",
+    "package": "stride.staketia",
+    "module": "staketia",
+    "signers": [
+      "creator"
+    ],
+    "fields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "delegation_record",
+        "type": "stride.staketia.DelegationRecord",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "stride.staketia.DelegationRecord"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.staketia.MsgOverwriteUnbondingRecord",
+    "name": "MsgOverwriteUnbondingRecord",
+    "package": "stride.staketia",
+    "module": "staketia",
+    "signers": [
+      "creator"
+    ],
+    "fields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "unbonding_record",
+        "type": "stride.staketia.UnbondingRecord",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "stride.staketia.UnbondingRecord"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.staketia.MsgOverwriteRedemptionRecord",
+    "name": "MsgOverwriteRedemptionRecord",
+    "package": "stride.staketia",
+    "module": "staketia",
+    "signers": [
+      "creator"
+    ],
+    "fields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "redemption_record",
+        "type": "stride.staketia.RedemptionRecord",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "stride.staketia.RedemptionRecord"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.staketia.MsgSetOperatorAddress",
+    "name": "MsgSetOperatorAddress",
+    "package": "stride.staketia",
+    "module": "staketia",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "operator",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.strdburner.MsgBurn",
+    "name": "MsgBurn",
+    "package": "stride.strdburner",
+    "module": "strdburner",
+    "signers": [
+      "burner"
+    ],
+    "fields": [
+      {
+        "name": "burner",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "amount",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/stride.strdburner.MsgLink",
+    "name": "MsgLink",
+    "package": "stride.strdburner",
+    "module": "strdburner",
+    "signers": [
+      "stride_address"
+    ],
+    "fields": [
+      {
+        "name": "stride_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "linked_address",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/testpb.MsgCreateDog",
+    "name": "MsgCreateDog",
+    "package": "testpb",
+    "module": "testpb",
+    "signers": [
+      "owner"
+    ],
+    "fields": [
+      {
+        "name": "dog",
+        "type": "testpb.Dog",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "testpb.Dog"
+      },
+      {
+        "name": "owner",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/vesting.v1.MsgCreateClawbackVestingAccount",
+    "name": "MsgCreateClawbackVestingAccount",
+    "package": "vesting.v1",
+    "module": "vesting",
+    "signers": [
+      "vesting_address"
+    ],
+    "fields": [
+      {
+        "name": "funder_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "vesting_address",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "enable_gov_clawback",
+        "type": "bool",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/vesting.v1.MsgFundVestingAccount",
+    "name": "MsgFundVestingAccount",
+    "package": "vesting.v1",
+    "module": "vesting",
+    "signers": [
+      "funder_address"
+    ],
+    "fields": [
+      {
+        "name": "funder_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "vesting_address",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "start_time",
+        "type": "google.protobuf.Timestamp",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Timestamp"
+      },
+      {
+        "name": "lockup_periods",
+        "type": "cosmos.vesting.v1beta1.Period",
+        "number": 4,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.vesting.v1beta1.Period"
+      },
+      {
+        "name": "vesting_periods",
+        "type": "cosmos.vesting.v1beta1.Period",
+        "number": 5,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.vesting.v1beta1.Period"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/vesting.v1.MsgClawback",
+    "name": "MsgClawback",
+    "package": "vesting.v1",
+    "module": "vesting",
+    "signers": [
+      "funder_address"
+    ],
+    "fields": [
+      {
+        "name": "funder_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "account_address",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "dest_address",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/vesting.v1.MsgUpdateVestingFunder",
+    "name": "MsgUpdateVestingFunder",
+    "package": "vesting.v1",
+    "module": "vesting",
+    "signers": [
+      "funder_address"
+    ],
+    "fields": [
+      {
+        "name": "funder_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "new_funder_address",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "vesting_address",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/vesting.v1.MsgConvertVestingAccount",
+    "name": "MsgConvertVestingAccount",
+    "package": "vesting.v1",
+    "module": "vesting",
+    "fields": [
+      {
+        "name": "vesting_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  }
+]

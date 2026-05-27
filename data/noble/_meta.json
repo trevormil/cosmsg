@@ -1,0 +1,13 @@
+{
+  "chainName": "noble",
+  "prettyName": "Noble",
+  "chainId": "noble-1",
+  "msgCount": 267,
+  "queryCount": 452,
+  "provenance": {
+    "source": "reflection",
+    "harvestedAt": "2026-05-27T16:52:20.244Z",
+    "origin": "reflection:noble-grpc.polkachu.com:21590",
+    "commentsFromSource": false
+  }
+}

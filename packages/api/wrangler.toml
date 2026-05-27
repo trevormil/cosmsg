@@ -1,0 +1,6 @@
+name = "cosmsg-api"
+main = "src/worker.ts"
+compatibility_date = "2024-11-01"
+
+# Deploy with: bun run deploy  (runs gen-bundle then wrangler deploy)
+# The dataset is bundled into src/bundle.generated.ts at build time.

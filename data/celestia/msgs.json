@@ -1,0 +1,547 @@
+[
+  {
+    "typeUrl": "/celestia.blob.v1.MsgPayForBlobs",
+    "name": "MsgPayForBlobs",
+    "package": "celestia.blob.v1",
+    "module": "blob",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "signer is the bech32 encoded signer address. See\n https://en.bitcoin.it/wiki/Bech32."
+      },
+      {
+        "name": "namespaces",
+        "type": "bytes",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "comment": "namespaces is a list of namespaces that the blobs are associated with. A\n namespace is a byte slice of length 29 where the first byte is the\n namespaceVersion and the subsequent 28 bytes are the namespaceId."
+      },
+      {
+        "name": "blob_sizes",
+        "type": "uint32",
+        "number": 3,
+        "repeated": true,
+        "optional": false,
+        "comment": "blob_sizes is a list of blob sizes (one per blob). Each size is in bytes."
+      },
+      {
+        "name": "share_commitments",
+        "type": "bytes",
+        "number": 4,
+        "repeated": true,
+        "optional": false,
+        "comment": "share_commitments is a list of share commitments (one per blob)."
+      },
+      {
+        "name": "share_versions",
+        "type": "uint32",
+        "number": 8,
+        "repeated": true,
+        "optional": false,
+        "comment": "share_versions are the versions of the share format that the blobs\n associated with this message should use when included in a block. The\n share_versions specified must match the share_versions used to generate the\n share_commitment in this message."
+      }
+    ],
+    "comment": "MsgPayForBlobs pays for the inclusion of a blob in the block."
+  },
+  {
+    "typeUrl": "/celestia.blob.v1.MsgUpdateBlobParams",
+    "name": "MsgUpdateBlobParams",
+    "package": "celestia.blob.v1",
+    "module": "blob",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "authority is the address of the governance account."
+      },
+      {
+        "name": "params",
+        "type": "celestia.blob.v1.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "celestia.blob.v1.Params",
+        "comment": "params defines the blob parameters to update.\n\n NOTE: All parameters must be supplied."
+      }
+    ],
+    "comment": "MsgUpdateBlobParams defines the sdk.Msg type to update the client parameters."
+  },
+  {
+    "typeUrl": "/celestia.fibre.v1.MsgDepositToEscrow",
+    "name": "MsgDepositToEscrow",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "signer is the bech32 encoded signer address"
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin",
+        "comment": "amount is the amount to deposit"
+      }
+    ],
+    "comment": "MsgDepositToEscrow deposits funds to the signer's escrow account."
+  },
+  {
+    "typeUrl": "/celestia.fibre.v1.MsgRequestWithdrawal",
+    "name": "MsgRequestWithdrawal",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "signer is the bech32 encoded signer address"
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin",
+        "comment": "amount is the amount to withdraw"
+      }
+    ],
+    "comment": "MsgRequestWithdrawal requests withdrawal from the signer's escrow account."
+  },
+  {
+    "typeUrl": "/celestia.fibre.v1.MsgPayForFibre",
+    "name": "MsgPayForFibre",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "signer is the bech32 encoded address submitting this message"
+      },
+      {
+        "name": "payment_promise",
+        "type": "celestia.fibre.v1.PaymentPromise",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "celestia.fibre.v1.PaymentPromise",
+        "comment": "payment_promise is the original payment promise"
+      },
+      {
+        "name": "validator_signatures",
+        "type": "bytes",
+        "number": 3,
+        "repeated": true,
+        "optional": false,
+        "comment": "validator_signatures contains signatures from validators"
+      }
+    ],
+    "comment": "MsgPayForFibre contains the original payment promise with validator signatures."
+  },
+  {
+    "typeUrl": "/celestia.fibre.v1.MsgPaymentPromiseTimeout",
+    "name": "MsgPaymentPromiseTimeout",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "signer is the bech32 encoded address submitting this message (can be anyone)"
+      },
+      {
+        "name": "payment_promise",
+        "type": "celestia.fibre.v1.PaymentPromise",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "celestia.fibre.v1.PaymentPromise",
+        "comment": "payment_promise is the original payment promise"
+      }
+    ],
+    "comment": "MsgPaymentPromiseTimeout processes a payment promise after the timeout period."
+  },
+  {
+    "typeUrl": "/celestia.fibre.v1.MsgUpdateFibreParams",
+    "name": "MsgUpdateFibreParams",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "authority is the address of the governance account."
+      },
+      {
+        "name": "params",
+        "type": "celestia.fibre.v1.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "celestia.fibre.v1.Params",
+        "comment": "params defines the fibre parameters to update.\n\n NOTE: All parameters must be supplied."
+      }
+    ],
+    "comment": "MsgUpdateFibreParams defines the sdk.Msg type to update the fibre parameters."
+  },
+  {
+    "typeUrl": "/celestia.forwarding.v1.MsgForward",
+    "name": "MsgForward",
+    "package": "celestia.forwarding.v1",
+    "module": "forwarding",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "signer is the address paying for gas and IGP fees (typically a relayer)."
+      },
+      {
+        "name": "forward_addr",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "forward_addr is the derived forwarding address (bech32)."
+      },
+      {
+        "name": "dest_domain",
+        "type": "uint32",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "dest_domain is the destination chain domain ID."
+      },
+      {
+        "name": "dest_recipient",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "dest_recipient is the recipient on destination chain (32 bytes, hex-encoded, 0x prefix optional)."
+      },
+      {
+        "name": "token_id",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "comment": "token_id is the Hyperlane token identifier this forwarding request is bound to."
+      },
+      {
+        "name": "max_igp_fee",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 6,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin",
+        "comment": "max_igp_fee is the maximum Hyperlane IGP fee the relayer will pay for this forwarding.\n The actual fee charged is the lesser of max_igp_fee and the quoted fee.\n Required: relayer must provide sufficient fee for the transfer."
+      }
+    ],
+    "comment": "MsgForward is a permissionless message to trigger token forwarding.\n Anyone can submit this message to forward tokens at the derived address.\n The signer (relayer) pays both Celestia gas and Hyperlane IGP fees."
+  },
+  {
+    "typeUrl": "/celestia.minfee.v1.MsgUpdateMinfeeParams",
+    "name": "MsgUpdateMinfeeParams",
+    "package": "celestia.minfee.v1",
+    "module": "minfee",
+    "signers": [
+      "authority"
+    ],
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "authority is the address of the governance account."
+      },
+      {
+        "name": "params",
+        "type": "celestia.minfee.v1.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "celestia.minfee.v1.Params",
+        "comment": "params defines the minfee parameters to update.\n\n NOTE: All parameters must be supplied."
+      }
+    ],
+    "comment": "MsgUpdateMinfeeParams defines a message for updating the minimum fee parameters."
+  },
+  {
+    "typeUrl": "/celestia.signal.v1.MsgSignalVersion",
+    "name": "MsgSignalVersion",
+    "package": "celestia.signal.v1",
+    "module": "signal",
+    "signers": [
+      "validator_address"
+    ],
+    "fields": [
+      {
+        "name": "validator_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "version",
+        "type": "uint64",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "MsgSignalVersion signals for an upgrade."
+  },
+  {
+    "typeUrl": "/celestia.signal.v1.MsgTryUpgrade",
+    "name": "MsgTryUpgrade",
+    "package": "celestia.signal.v1",
+    "module": "signal",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "MsgTryUpgrade tries to upgrade the chain."
+  },
+  {
+    "typeUrl": "/celestia.valaddr.v1.MsgSetFibreProviderInfo",
+    "name": "MsgSetFibreProviderInfo",
+    "package": "celestia.valaddr.v1",
+    "module": "valaddr",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "signer is the validator's operator address (celestiavaloper...)"
+      },
+      {
+        "name": "host",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "host is the network address for the fibre service provider"
+      }
+    ],
+    "comment": "MsgSetFibreProviderInfo allows a validator to set or update their fibre provider information."
+  },
+  {
+    "typeUrl": "/celestia.zkism.v1.MsgCreateInterchainSecurityModule",
+    "name": "MsgCreateInterchainSecurityModule",
+    "package": "celestia.zkism.v1",
+    "module": "zkism",
+    "signers": [
+      "creator"
+    ],
+    "fields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "creator is the message sender."
+      },
+      {
+        "name": "state",
+        "type": "bytes",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "initial trusted state"
+      },
+      {
+        "name": "merkle_tree_address",
+        "type": "bytes",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "merkle tree address in byte32 format"
+      },
+      {
+        "name": "groth16_vkey",
+        "type": "bytes",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "the sp1 groth16 verifier key"
+      },
+      {
+        "name": "state_transition_vkey",
+        "type": "bytes",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "comment": "hash-based commitment to the verifier key used for state transition"
+      },
+      {
+        "name": "state_membership_vkey",
+        "type": "bytes",
+        "number": 6,
+        "repeated": false,
+        "optional": false,
+        "comment": "hash-based commitment to the verifier key used for state membership"
+      }
+    ],
+    "comment": "MsgCreateInterchainSecurityModule is the request type for CreateInterchainSecurityModule."
+  },
+  {
+    "typeUrl": "/celestia.zkism.v1.MsgUpdateInterchainSecurityModule",
+    "name": "MsgUpdateInterchainSecurityModule",
+    "package": "celestia.zkism.v1",
+    "module": "zkism",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "ism identifier"
+      },
+      {
+        "name": "proof",
+        "type": "bytes",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "proof is the ZK proof bytes (groth16)."
+      },
+      {
+        "name": "public_values",
+        "type": "bytes",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "the public values used for proof verification."
+      },
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "the tx signer address"
+      }
+    ],
+    "comment": "MsgUpdateInterchainSecurityModule is the request type for UpdateInterchainSecurityModule."
+  },
+  {
+    "typeUrl": "/celestia.zkism.v1.MsgSubmitMessages",
+    "name": "MsgSubmitMessages",
+    "package": "celestia.zkism.v1",
+    "module": "zkism",
+    "signers": [
+      "signer"
+    ],
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "ism identifier"
+      },
+      {
+        "name": "proof",
+        "type": "bytes",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "proof is the ZK proof bytes (groth16)."
+      },
+      {
+        "name": "public_values",
+        "type": "bytes",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "the public values used for proof verification."
+      },
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "the tx signer address"
+      }
+    ],
+    "comment": "MsgSubmitMessages is the request type for SubmitMessages."
+  }
+]

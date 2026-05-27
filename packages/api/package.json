@@ -1,0 +1,19 @@
+{
+  "name": "@cosmsg/api",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "bun run src/server.ts",
+    "gen": "bun run scripts/gen-bundle.ts",
+    "build": "tsc -b",
+    "deploy": "bun run gen && wrangler deploy"
+  },
+  "dependencies": {
+    "@cosmsg/core": "workspace:*",
+    "@cosmsg/schema": "workspace:*",
+    "hono": "^4.6.0"
+  },
+  "devDependencies": {
+    "wrangler": "^3.80.0"
+  }
+}

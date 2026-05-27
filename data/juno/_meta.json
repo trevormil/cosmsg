@@ -1,0 +1,13 @@
+{
+  "chainName": "juno",
+  "prettyName": "Juno",
+  "chainId": "juno-1",
+  "msgCount": 154,
+  "queryCount": 346,
+  "provenance": {
+    "source": "reflection",
+    "harvestedAt": "2026-05-27T16:49:04.765Z",
+    "origin": "reflection:juno-grpc.polkachu.com:12690",
+    "commentsFromSource": false
+  }
+}
