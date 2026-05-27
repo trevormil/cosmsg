@@ -477,20 +477,10 @@ function ChainView({
     setFocusType(null);
   }, [catalog.chainName]);
 
-  // Open the first namespace when switching chain/tab.
+  // Start collapsed on every chain/tab change — show namespace headers only.
   useEffect(() => {
-    const items =
-      tab === "msgs"
-        ? catalog.msgs
-        : tab === "queries"
-          ? catalog.queries
-          : catalog.types;
-    const pkgs = items.map((i) =>
-      "package" in i ? (i as { package: string }).package : "",
-    );
-    const first = sortNamespaces([...new Set(pkgs.map(namespaceOf))])[0];
-    setExpanded(first ? new Set([first]) : new Set());
-  }, [catalog.chainName, tab, catalog.msgs, catalog.queries, catalog.types]);
+    setExpanded(new Set());
+  }, [catalog.chainName, tab]);
 
   const goto = (fullName: string) => {
     setTab("types");
