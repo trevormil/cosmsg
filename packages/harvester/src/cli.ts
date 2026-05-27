@@ -4,7 +4,7 @@
  * (src/harvest-one.ts), then assemble data/index.json from each chain's _meta.json.
  * Isolation keeps a single crashing/hanging gRPC endpoint from killing the whole run.
  */
-import { readFile, writeFile } from "node:fs/promises";
+import { readFile, readdir, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { DatasetIndex, IndexEntry } from "@cosmsg/schema";
@@ -61,7 +61,7 @@ async function main(): Promise<void> {
   console.log(`Harvesting ${names.length} chain(s), prefer=${prefer} -> ${DATA_DIR}`);
 
   const other: Prefer = prefer === "reflection" ? "source" : "reflection";
-  const succeeded: string[] = [];
+  let succeeded = 0;
   let failures = 0;
   for (const name of names) {
     process.stdout.write(`- ${name} ... `);
@@ -73,7 +73,7 @@ async function main(): Promise<void> {
       if (retry.ok) ({ ok, note } = retry);
     }
     if (ok) {
-      succeeded.push(name);
+      succeeded++;
       console.log(`ok (${note})`);
     } else {
       failures++;
@@ -81,15 +81,20 @@ async function main(): Promise<void> {
     }
   }
 
+  // Rebuild the index from every chain present on disk (not just this run's chains), so a
+  // subset harvest refreshes those chains without dropping the rest from index.json.
   const entries: IndexEntry[] = [];
-  for (const name of succeeded) {
+  const dirs = await readdir(DATA_DIR, { withFileTypes: true });
+  for (const d of dirs) {
+    if (!d.isDirectory()) continue;
     try {
-      const raw = await readFile(join(DATA_DIR, name, "_meta.json"), "utf8");
+      const raw = await readFile(join(DATA_DIR, d.name, "_meta.json"), "utf8");
       entries.push(IndexEntry.parse(JSON.parse(raw)));
     } catch {
-      /* skip chains whose meta couldn't be read */
+      /* skip dirs without a readable _meta.json */
     }
   }
+  entries.sort((a, b) => a.chainName.localeCompare(b.chainName));
 
   const dataset = DatasetIndex.parse({
     generatedAt: new Date().toISOString(),
@@ -97,7 +102,9 @@ async function main(): Promise<void> {
   });
   await writeFile(join(DATA_DIR, "index.json"), JSON.stringify(dataset, null, 2));
 
-  console.log(`\nDone. ${entries.length} succeeded, ${failures} failed. Index written.`);
+  console.log(
+    `\nDone. ${succeeded} succeeded, ${failures} failed this run. Index has ${entries.length} chains.`,
+  );
   if (entries.length === 0) process.exit(1);
 }
 

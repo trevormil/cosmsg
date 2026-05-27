@@ -6,4 +6,4 @@ dist/
 *.binpb
 .DS_Store
 packages/api/src/bundle.generated.ts
-packages/web/public/dataset/
+packages/web/public/dataset.json

@@ -2,11 +2,12 @@
   "chainName": "kava",
   "prettyName": "Kava",
   "chainId": "kava_2222-10",
+  "logoUrl": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kava/images/kava.svg",
   "msgCount": 49,
   "queryCount": 78,
   "provenance": {
     "source": "source",
-    "harvestedAt": "2026-05-27T16:51:11.353Z",
+    "harvestedAt": "2026-05-27T17:18:40.381Z",
     "origin": "git:https://github.com/kava-Labs/kava/@917cc322eae2:proto",
     "commentsFromSource": true
   }

@@ -65,6 +65,7 @@ export async function harvestChain(
     chainName: chain.chainName,
     prettyName: chain.prettyName,
     chainId: chain.chainId,
+    logoUrl: chain.logoUrl,
     sdkVersion: chain.sdkVersion,
     provenance: {
       source: raw.source,

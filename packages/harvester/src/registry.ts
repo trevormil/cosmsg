@@ -10,10 +10,17 @@ export interface ResolvedChain {
   grpcEndpoints: string[];
   /** Source repo for the build-from-source fallback. */
   gitRepo?: string;
+  /** Chain logo URL (svg preferred). */
+  logoUrl?: string;
 }
 
 interface ApiEntry {
   address?: string;
+}
+
+interface ImageEntry {
+  svg?: string;
+  png?: string;
 }
 
 interface ChainJson {
@@ -25,6 +32,8 @@ interface ChainJson {
     recommended_version?: string;
   };
   apis?: { grpc?: ApiEntry[] };
+  logo_URIs?: ImageEntry;
+  images?: ImageEntry[];
 }
 
 /** Fetch and normalize a chain's entry from the Cosmos Chain Registry. */
@@ -39,6 +48,9 @@ export async function resolveChain(chainName: string): Promise<ResolvedChain> {
     .map((e) => e.address)
     .filter((a): a is string => typeof a === "string" && a.length > 0);
 
+  const img = json.logo_URIs ?? json.images?.[0];
+  const logoUrl = img?.svg ?? img?.png;
+
   return {
     chainName,
     prettyName: json.pretty_name,
@@ -47,5 +59,6 @@ export async function resolveChain(chainName: string): Promise<ResolvedChain> {
       json.codebase?.cosmos_sdk_version ?? json.codebase?.recommended_version,
     grpcEndpoints,
     gitRepo: json.codebase?.git_repo,
+    logoUrl,
   };
 }

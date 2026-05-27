@@ -2,11 +2,12 @@
   "chainName": "stride",
   "prettyName": "Stride",
   "chainId": "stride-1",
+  "logoUrl": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/strd.svg",
   "msgCount": 219,
   "queryCount": 419,
   "provenance": {
     "source": "reflection",
-    "harvestedAt": "2026-05-27T16:52:48.677Z",
+    "harvestedAt": "2026-05-27T17:20:19.557Z",
     "origin": "reflection:stride-grpc.polkachu.com:12290",
     "commentsFromSource": false
   }

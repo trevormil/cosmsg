@@ -2,11 +2,12 @@
   "chainName": "injective",
   "prettyName": "Injective",
   "chainId": "injective-1",
+  "logoUrl": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.svg",
   "msgCount": 293,
   "queryCount": 583,
   "provenance": {
     "source": "reflection",
-    "harvestedAt": "2026-05-27T16:50:37.542Z",
+    "harvestedAt": "2026-05-27T17:18:07.517Z",
     "origin": "reflection:injective.lavenderfive.com:443",
     "commentsFromSource": false
   }

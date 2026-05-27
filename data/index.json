@@ -1,68 +1,73 @@
 {
-  "generatedAt": "2026-05-27T16:52:48.698Z",
+  "generatedAt": "2026-05-27T17:20:20.915Z",
   "chains": [
     {
-      "chainName": "cosmoshub",
-      "prettyName": "Cosmos Hub",
-      "chainId": "cosmoshub-4",
-      "msgCount": 156,
-      "queryCount": 366,
+      "chainName": "akash",
+      "prettyName": "Akash",
+      "chainId": "akashnet-2",
+      "logoUrl": "https://raw.githubusercontent.com/cosmos/chain-registry/master/akash/images/akt.svg",
+      "msgCount": 146,
+      "queryCount": 349,
       "provenance": {
         "source": "reflection",
-        "harvestedAt": "2026-05-27T16:48:59.249Z",
-        "origin": "reflection:grpc.cosmoshub-main.ccvalidators.com:443",
+        "harvestedAt": "2026-05-27T17:18:36.402Z",
+        "origin": "reflection:akash.lavenderfive.com:443",
         "commentsFromSource": false
       }
     },
     {
-      "chainName": "osmosis",
-      "prettyName": "Osmosis",
-      "chainId": "osmosis-1",
-      "msgCount": 196,
-      "queryCount": 516,
+      "chainName": "bitbadges",
+      "prettyName": "BitBadges",
+      "chainId": "bitbadges-1",
+      "logoUrl": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bitbadges/images/bitbadgeslogo.png",
+      "msgCount": 197,
+      "queryCount": 393,
       "provenance": {
         "source": "reflection",
-        "harvestedAt": "2026-05-27T16:49:01.093Z",
-        "origin": "reflection:osmosis.lavenderfive.com:443",
+        "harvestedAt": "2026-05-27T17:20:20.896Z",
+        "origin": "reflection:grpc.bitbadges.io:443",
         "commentsFromSource": false
-      }
-    },
-    {
-      "chainName": "juno",
-      "prettyName": "Juno",
-      "chainId": "juno-1",
-      "msgCount": 154,
-      "queryCount": 346,
-      "provenance": {
-        "source": "reflection",
-        "harvestedAt": "2026-05-27T16:49:04.765Z",
-        "origin": "reflection:juno-grpc.polkachu.com:12690",
-        "commentsFromSource": false
-      }
-    },
-    {
-      "chainName": "neutron",
-      "prettyName": "Neutron",
-      "chainId": "neutron-1",
-      "msgCount": 43,
-      "queryCount": 82,
-      "provenance": {
-        "source": "source",
-        "harvestedAt": "2026-05-27T16:49:11.408Z",
-        "origin": "git:https://github.com/neutron-org/neutron@06e81b9f8c08:proto",
-        "commentsFromSource": true
       }
     },
     {
       "chainName": "celestia",
       "prettyName": "Celestia",
       "chainId": "celestia",
+      "logoUrl": "https://raw.githubusercontent.com/cosmos/chain-registry/master/celestia/images/celestia.svg",
       "msgCount": 15,
       "queryCount": 27,
       "provenance": {
         "source": "source",
-        "harvestedAt": "2026-05-27T16:49:42.392Z",
+        "harvestedAt": "2026-05-27T17:17:12.261Z",
         "origin": "git:https://github.com/celestiaorg/celestia-app@1a67e20b7590:proto",
+        "commentsFromSource": true
+      }
+    },
+    {
+      "chainName": "cosmoshub",
+      "prettyName": "Cosmos Hub",
+      "chainId": "cosmoshub-4",
+      "logoUrl": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.svg",
+      "msgCount": 156,
+      "queryCount": 366,
+      "provenance": {
+        "source": "reflection",
+        "harvestedAt": "2026-05-27T17:16:26.167Z",
+        "origin": "reflection:grpc.cosmoshub-main.ccvalidators.com:443",
+        "commentsFromSource": false
+      }
+    },
+    {
+      "chainName": "evmos",
+      "prettyName": "Evmos",
+      "chainId": "evmos_9001-2",
+      "logoUrl": "https://raw.githubusercontent.com/cosmos/chain-registry/master/evmos/images/evmos.svg",
+      "msgCount": 13,
+      "queryCount": 29,
+      "provenance": {
+        "source": "source",
+        "harvestedAt": "2026-05-27T17:19:46.272Z",
+        "origin": "git:https://github.com/evmos/evmos@0402a01c9036:proto",
         "commentsFromSource": true
       }
     },
@@ -70,38 +75,27 @@
       "chainName": "injective",
       "prettyName": "Injective",
       "chainId": "injective-1",
+      "logoUrl": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.svg",
       "msgCount": 293,
       "queryCount": 583,
       "provenance": {
         "source": "reflection",
-        "harvestedAt": "2026-05-27T16:50:37.542Z",
+        "harvestedAt": "2026-05-27T17:18:07.517Z",
         "origin": "reflection:injective.lavenderfive.com:443",
         "commentsFromSource": false
       }
     },
     {
-      "chainName": "stargaze",
-      "prettyName": "Stargaze",
-      "chainId": "stargaze-1",
-      "msgCount": 153,
-      "queryCount": 283,
+      "chainName": "juno",
+      "prettyName": "Juno",
+      "chainId": "juno-1",
+      "logoUrl": "https://raw.githubusercontent.com/cosmos/chain-registry/master/juno/images/juno.svg",
+      "msgCount": 154,
+      "queryCount": 346,
       "provenance": {
         "source": "reflection",
-        "harvestedAt": "2026-05-27T16:51:04.559Z",
-        "origin": "reflection:stargaze-grpc.polkachu.com:13790",
-        "commentsFromSource": false
-      }
-    },
-    {
-      "chainName": "akash",
-      "prettyName": "Akash",
-      "chainId": "akashnet-2",
-      "msgCount": 146,
-      "queryCount": 349,
-      "provenance": {
-        "source": "reflection",
-        "harvestedAt": "2026-05-27T16:51:06.452Z",
-        "origin": "reflection:akash.lavenderfive.com:443",
+        "harvestedAt": "2026-05-27T17:16:35.173Z",
+        "origin": "reflection:juno-grpc.polkachu.com:12690",
         "commentsFromSource": false
       }
     },
@@ -109,25 +103,27 @@
       "chainName": "kava",
       "prettyName": "Kava",
       "chainId": "kava_2222-10",
+      "logoUrl": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kava/images/kava.svg",
       "msgCount": 49,
       "queryCount": 78,
       "provenance": {
         "source": "source",
-        "harvestedAt": "2026-05-27T16:51:11.353Z",
+        "harvestedAt": "2026-05-27T17:18:40.381Z",
         "origin": "git:https://github.com/kava-Labs/kava/@917cc322eae2:proto",
         "commentsFromSource": true
       }
     },
     {
-      "chainName": "evmos",
-      "prettyName": "Evmos",
-      "chainId": "evmos_9001-2",
-      "msgCount": 13,
-      "queryCount": 29,
+      "chainName": "neutron",
+      "prettyName": "Neutron",
+      "chainId": "neutron-1",
+      "logoUrl": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/neutron-raw.svg",
+      "msgCount": 43,
+      "queryCount": 82,
       "provenance": {
         "source": "source",
-        "harvestedAt": "2026-05-27T16:52:16.008Z",
-        "origin": "git:https://github.com/evmos/evmos@0402a01c9036:proto",
+        "harvestedAt": "2026-05-27T17:16:41.626Z",
+        "origin": "git:https://github.com/neutron-org/neutron@06e81b9f8c08:proto",
         "commentsFromSource": true
       }
     },
@@ -135,12 +131,41 @@
       "chainName": "noble",
       "prettyName": "Noble",
       "chainId": "noble-1",
+      "logoUrl": "https://raw.githubusercontent.com/cosmos/chain-registry/master/noble/images/stake.svg",
       "msgCount": 267,
       "queryCount": 452,
       "provenance": {
         "source": "reflection",
-        "harvestedAt": "2026-05-27T16:52:20.244Z",
+        "harvestedAt": "2026-05-27T17:19:50.495Z",
         "origin": "reflection:noble-grpc.polkachu.com:21590",
+        "commentsFromSource": false
+      }
+    },
+    {
+      "chainName": "osmosis",
+      "prettyName": "Osmosis",
+      "chainId": "osmosis-1",
+      "logoUrl": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.svg",
+      "msgCount": 196,
+      "queryCount": 516,
+      "provenance": {
+        "source": "reflection",
+        "harvestedAt": "2026-05-27T17:16:31.449Z",
+        "origin": "reflection:osmosis.lavenderfive.com:443",
+        "commentsFromSource": false
+      }
+    },
+    {
+      "chainName": "stargaze",
+      "prettyName": "Stargaze",
+      "chainId": "stargaze-1",
+      "logoUrl": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/stars.svg",
+      "msgCount": 153,
+      "queryCount": 283,
+      "provenance": {
+        "source": "reflection",
+        "harvestedAt": "2026-05-27T17:18:34.580Z",
+        "origin": "reflection:stargaze-grpc.polkachu.com:13790",
         "commentsFromSource": false
       }
     },
@@ -148,11 +173,12 @@
       "chainName": "stride",
       "prettyName": "Stride",
       "chainId": "stride-1",
+      "logoUrl": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/strd.svg",
       "msgCount": 219,
       "queryCount": 419,
       "provenance": {
         "source": "reflection",
-        "harvestedAt": "2026-05-27T16:52:48.677Z",
+        "harvestedAt": "2026-05-27T17:20:19.557Z",
         "origin": "reflection:stride-grpc.polkachu.com:12290",
         "commentsFromSource": false
       }

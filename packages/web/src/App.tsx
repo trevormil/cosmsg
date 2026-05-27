@@ -2,6 +2,7 @@ import type {
   ChainCatalog,
   DatasetIndex,
   FieldDef,
+  IndexEntry,
   MsgDef,
   QueryDef,
 } from "@cosmsg/schema";
@@ -11,6 +12,35 @@ import { useEffect, useMemo, useState } from "react";
 interface Dataset {
   index: DatasetIndex;
   catalogs: Record<string, ChainCatalog>;
+}
+
+function ChainLogo({
+  entry,
+  size = 22,
+}: {
+  entry?: IndexEntry;
+  size?: number;
+}) {
+  const [failed, setFailed] = useState(false);
+  const label = entry?.prettyName ?? entry?.chainName ?? "?";
+  const style = { width: size, height: size, fontSize: size * 0.5 };
+  if (entry?.logoUrl && !failed) {
+    return (
+      <img
+        className="logo-img"
+        style={style}
+        src={entry.logoUrl}
+        alt=""
+        loading="lazy"
+        onError={() => setFailed(true)}
+      />
+    );
+  }
+  return (
+    <span className="logo-fallback" style={style}>
+      {label.charAt(0).toUpperCase()}
+    </span>
+  );
 }
 
 export function App() {
@@ -42,6 +72,22 @@ export function App() {
     () => (query.trim() ? search(records, query, 100) : []),
     [records, query],
   );
+
+  const metaByChain = useMemo(() => {
+    const m = new Map<string, IndexEntry>();
+    for (const e of dataset?.index.chains ?? []) m.set(e.chainName, e);
+    return m;
+  }, [dataset]);
+
+  const totals = useMemo(() => {
+    let msgs = 0;
+    let queries = 0;
+    for (const e of dataset?.index.chains ?? []) {
+      msgs += e.msgCount;
+      queries += e.queryCount;
+    }
+    return { msgs, queries };
+  }, [dataset]);
 
   if (error) return <div className="status error">{error}</div>;
   if (!dataset) return <div className="status">Loading catalog…</div>;
@@ -86,20 +132,28 @@ export function App() {
       <div className="body">
         <aside className="sidebar">
           <div className="sidebar-head">
-            {dataset.index.chains.length} chains
+            <span>{dataset.index.chains.length} chains</span>
+            <span className="sidebar-totals">
+              {totals.msgs.toLocaleString()} msgs ·{" "}
+              {totals.queries.toLocaleString()} queries
+            </span>
           </div>
           {dataset.index.chains.map((c) => (
             <button
               key={c.chainName}
-              className={`chain-btn ${c.chainName === chain && !query ? "active" : ""}`}
+              className={`chain-btn ${c.chainName === chain && !query && !showDocs ? "active" : ""}`}
               onClick={() => {
                 setChain(c.chainName);
                 setQuery("");
+                setShowDocs(false);
               }}
             >
-              <span className="chain-name">{c.prettyName ?? c.chainName}</span>
-              <span className="chain-counts">
-                {c.msgCount}m · {c.queryCount}q
+              <ChainLogo entry={c} />
+              <span className="chain-text">
+                <span className="chain-name">{c.prettyName ?? c.chainName}</span>
+                <span className="chain-counts">
+                  {c.msgCount} msgs · {c.queryCount} queries
+                </span>
               </span>
             </button>
           ))}
@@ -111,6 +165,7 @@ export function App() {
           ) : query.trim() ? (
             <SearchView
               results={results}
+              metaByChain={metaByChain}
               onPick={(r) => {
                 setChain(r.chainName);
                 setTab(r.kind === "msg" ? "msgs" : "queries");
@@ -118,7 +173,12 @@ export function App() {
               }}
             />
           ) : catalog ? (
-            <ChainView catalog={catalog} tab={tab} setTab={setTab} />
+            <ChainView
+              catalog={catalog}
+              entry={metaByChain.get(catalog.chainName)}
+              tab={tab}
+              setTab={setTab}
+            />
           ) : null}
         </main>
       </div>
@@ -211,9 +271,11 @@ FieldDef { name, type, number, repeated, optional, typeRef?, comment? }`}
 
 function SearchView({
   results,
+  metaByChain,
   onPick,
 }: {
   results: { record: SearchRecord }[];
+  metaByChain: Map<string, IndexEntry>;
   onPick: (r: SearchRecord) => void;
 }) {
   if (results.length === 0)
@@ -221,27 +283,35 @@ function SearchView({
   return (
     <div className="search-results">
       <div className="results-head">{results.length} results</div>
-      {results.map(({ record }) => (
-        <button
-          key={`${record.chainName}:${record.kind}:${record.id}`}
-          className="result-row"
-          onClick={() => onPick(record)}
-        >
-          <span className={`badge ${record.kind}`}>{record.kind}</span>
-          <span className="result-id">{record.id}</span>
-          <span className="result-chain">{record.chainName}</span>
-        </button>
-      ))}
+      {results.map(({ record }) => {
+        const entry = metaByChain.get(record.chainName);
+        return (
+          <button
+            key={`${record.chainName}:${record.kind}:${record.id}`}
+            className="result-row"
+            onClick={() => onPick(record)}
+          >
+            <span className={`badge ${record.kind}`}>{record.kind}</span>
+            <span className="result-id">{record.id}</span>
+            <span className="result-chain">
+              <ChainLogo entry={entry} size={16} />
+              {entry?.prettyName ?? record.chainName}
+            </span>
+          </button>
+        );
+      })}
     </div>
   );
 }
 
 function ChainView({
   catalog,
+  entry,
   tab,
   setTab,
 }: {
   catalog: ChainCatalog;
+  entry?: IndexEntry;
   tab: "msgs" | "queries";
   setTab: (t: "msgs" | "queries") => void;
 }) {
@@ -259,13 +329,16 @@ function ChainView({
   return (
     <>
       <div className="chain-header">
-        <h1>{catalog.prettyName ?? catalog.chainName}</h1>
-        <div className="chain-meta">
-          {catalog.chainId && <span>{catalog.chainId}</span>}
-          <span className="prov">
-            via {catalog.provenance.source}
-            {catalog.provenance.commentsFromSource ? " · with docs" : ""}
-          </span>
+        <ChainLogo entry={entry} size={40} />
+        <div>
+          <h1>{catalog.prettyName ?? catalog.chainName}</h1>
+          <div className="chain-meta">
+            {catalog.chainId && <span>{catalog.chainId}</span>}
+            <span className="prov">
+              via {catalog.provenance.source}
+              {catalog.provenance.commentsFromSource ? " · with docs" : ""}
+            </span>
+          </div>
         </div>
       </div>
 

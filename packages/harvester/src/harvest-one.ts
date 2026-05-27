@@ -50,6 +50,7 @@ async function main(): Promise<void> {
     chainName: catalog.chainName,
     prettyName: catalog.prettyName,
     chainId: catalog.chainId,
+    logoUrl: catalog.logoUrl,
     msgCount: catalog.msgs.length,
     queryCount: catalog.queries.length,
     provenance: catalog.provenance,

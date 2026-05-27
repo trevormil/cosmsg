@@ -1,0 +1,14 @@
+{
+  "chainName": "bitbadges",
+  "prettyName": "BitBadges",
+  "chainId": "bitbadges-1",
+  "logoUrl": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bitbadges/images/bitbadgeslogo.png",
+  "msgCount": 197,
+  "queryCount": 393,
+  "provenance": {
+    "source": "reflection",
+    "harvestedAt": "2026-05-27T17:20:20.896Z",
+    "origin": "reflection:grpc.bitbadges.io:443",
+    "commentsFromSource": false
+  }
+}

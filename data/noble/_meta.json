@@ -2,11 +2,12 @@
   "chainName": "noble",
   "prettyName": "Noble",
   "chainId": "noble-1",
+  "logoUrl": "https://raw.githubusercontent.com/cosmos/chain-registry/master/noble/images/stake.svg",
   "msgCount": 267,
   "queryCount": 452,
   "provenance": {
     "source": "reflection",
-    "harvestedAt": "2026-05-27T16:52:20.244Z",
+    "harvestedAt": "2026-05-27T17:19:50.495Z",
     "origin": "reflection:noble-grpc.polkachu.com:21590",
     "commentsFromSource": false
   }

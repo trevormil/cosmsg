@@ -24,4 +24,5 @@ export const ALLOWLIST: ChainSpec[] = [
   { chainName: "evmos" },
   { chainName: "noble" },
   { chainName: "stride" },
+  { chainName: "bitbadges" },
 ];

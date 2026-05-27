@@ -74,6 +74,7 @@ export const ChainCatalog = z.object({
   chainName: z.string(),
   prettyName: z.string().optional(),
   chainId: z.string().optional(),
+  logoUrl: z.string().optional(),
   sdkVersion: z.string().optional(),
   provenance: HarvestProvenance,
   msgs: z.array(MsgDef),
@@ -86,6 +87,8 @@ export const IndexEntry = z.object({
   chainName: z.string(),
   prettyName: z.string().optional(),
   chainId: z.string().optional(),
+  /** Chain logo URL from the Cosmos Chain Registry (svg preferred). */
+  logoUrl: z.string().optional(),
   msgCount: z.number().int(),
   queryCount: z.number().int(),
   provenance: HarvestProvenance,

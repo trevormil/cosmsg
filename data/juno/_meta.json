@@ -2,11 +2,12 @@
   "chainName": "juno",
   "prettyName": "Juno",
   "chainId": "juno-1",
+  "logoUrl": "https://raw.githubusercontent.com/cosmos/chain-registry/master/juno/images/juno.svg",
   "msgCount": 154,
   "queryCount": 346,
   "provenance": {
     "source": "reflection",
-    "harvestedAt": "2026-05-27T16:49:04.765Z",
+    "harvestedAt": "2026-05-27T17:16:35.173Z",
     "origin": "reflection:juno-grpc.polkachu.com:12690",
     "commentsFromSource": false
   }
