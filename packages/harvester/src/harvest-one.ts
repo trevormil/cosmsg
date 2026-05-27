@@ -46,6 +46,10 @@ async function main(): Promise<void> {
     join(dir, "queries.json"),
     JSON.stringify(catalog.queries, null, 2),
   );
+  await writeFile(
+    join(dir, "types.json"),
+    JSON.stringify(catalog.types, null, 2),
+  );
   const meta: IndexEntry = {
     chainName: catalog.chainName,
     prettyName: catalog.prettyName,
@@ -53,12 +57,13 @@ async function main(): Promise<void> {
     logoUrl: catalog.logoUrl,
     msgCount: catalog.msgs.length,
     queryCount: catalog.queries.length,
+    typeCount: catalog.types.length,
     provenance: catalog.provenance,
   };
   await writeFile(join(dir, "_meta.json"), JSON.stringify(meta, null, 2));
 
   console.log(
-    `${catalog.msgs.length} msgs, ${catalog.queries.length} queries, via ${catalog.provenance.source}`,
+    `${catalog.msgs.length} msgs, ${catalog.queries.length} queries, ${catalog.types.length} types, via ${catalog.provenance.source}`,
   );
 }
 

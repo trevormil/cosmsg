@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-27T17:20:20.915Z",
+  "generatedAt": "2026-05-27T17:35:11.956Z",
   "chains": [
     {
       "chainName": "akash",
@@ -8,9 +8,10 @@
       "logoUrl": "https://raw.githubusercontent.com/cosmos/chain-registry/master/akash/images/akt.svg",
       "msgCount": 146,
       "queryCount": 349,
+      "typeCount": 2602,
       "provenance": {
         "source": "reflection",
-        "harvestedAt": "2026-05-27T17:18:36.402Z",
+        "harvestedAt": "2026-05-27T17:33:13.270Z",
         "origin": "reflection:akash.lavenderfive.com:443",
         "commentsFromSource": false
       }
@@ -22,9 +23,10 @@
       "logoUrl": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bitbadges/images/bitbadgeslogo.png",
       "msgCount": 197,
       "queryCount": 393,
+      "typeCount": 2880,
       "provenance": {
         "source": "reflection",
-        "harvestedAt": "2026-05-27T17:20:20.896Z",
+        "harvestedAt": "2026-05-27T17:35:11.909Z",
         "origin": "reflection:grpc.bitbadges.io:443",
         "commentsFromSource": false
       }
@@ -36,9 +38,10 @@
       "logoUrl": "https://raw.githubusercontent.com/cosmos/chain-registry/master/celestia/images/celestia.svg",
       "msgCount": 15,
       "queryCount": 27,
+      "typeCount": 137,
       "provenance": {
         "source": "source",
-        "harvestedAt": "2026-05-27T17:17:12.261Z",
+        "harvestedAt": "2026-05-27T17:31:47.132Z",
         "origin": "git:https://github.com/celestiaorg/celestia-app@1a67e20b7590:proto",
         "commentsFromSource": true
       }
@@ -50,9 +53,10 @@
       "logoUrl": "https://raw.githubusercontent.com/cosmos/chain-registry/master/cosmoshub/images/atom.svg",
       "msgCount": 156,
       "queryCount": 366,
+      "typeCount": 2548,
       "provenance": {
         "source": "reflection",
-        "harvestedAt": "2026-05-27T17:16:26.167Z",
+        "harvestedAt": "2026-05-27T17:31:05.580Z",
         "origin": "reflection:grpc.cosmoshub-main.ccvalidators.com:443",
         "commentsFromSource": false
       }
@@ -64,9 +68,10 @@
       "logoUrl": "https://raw.githubusercontent.com/cosmos/chain-registry/master/evmos/images/evmos.svg",
       "msgCount": 13,
       "queryCount": 29,
+      "typeCount": 163,
       "provenance": {
         "source": "source",
-        "harvestedAt": "2026-05-27T17:19:46.272Z",
+        "harvestedAt": "2026-05-27T17:34:37.498Z",
         "origin": "git:https://github.com/evmos/evmos@0402a01c9036:proto",
         "commentsFromSource": true
       }
@@ -78,9 +83,10 @@
       "logoUrl": "https://raw.githubusercontent.com/cosmos/chain-registry/master/injective/images/inj.svg",
       "msgCount": 293,
       "queryCount": 583,
+      "typeCount": 3818,
       "provenance": {
         "source": "reflection",
-        "harvestedAt": "2026-05-27T17:18:07.517Z",
+        "harvestedAt": "2026-05-27T17:32:44.237Z",
         "origin": "reflection:injective.lavenderfive.com:443",
         "commentsFromSource": false
       }
@@ -92,9 +98,10 @@
       "logoUrl": "https://raw.githubusercontent.com/cosmos/chain-registry/master/juno/images/juno.svg",
       "msgCount": 154,
       "queryCount": 346,
+      "typeCount": 2423,
       "provenance": {
         "source": "reflection",
-        "harvestedAt": "2026-05-27T17:16:35.173Z",
+        "harvestedAt": "2026-05-27T17:31:11.159Z",
         "origin": "reflection:juno-grpc.polkachu.com:12690",
         "commentsFromSource": false
       }
@@ -106,9 +113,10 @@
       "logoUrl": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kava/images/kava.svg",
       "msgCount": 49,
       "queryCount": 78,
+      "typeCount": 408,
       "provenance": {
         "source": "source",
-        "harvestedAt": "2026-05-27T17:18:40.381Z",
+        "harvestedAt": "2026-05-27T17:33:29.282Z",
         "origin": "git:https://github.com/kava-Labs/kava/@917cc322eae2:proto",
         "commentsFromSource": true
       }
@@ -120,9 +128,10 @@
       "logoUrl": "https://raw.githubusercontent.com/cosmos/chain-registry/master/neutron/images/neutron-raw.svg",
       "msgCount": 43,
       "queryCount": 82,
+      "typeCount": 414,
       "provenance": {
         "source": "source",
-        "harvestedAt": "2026-05-27T17:16:41.626Z",
+        "harvestedAt": "2026-05-27T17:31:17.996Z",
         "origin": "git:https://github.com/neutron-org/neutron@06e81b9f8c08:proto",
         "commentsFromSource": true
       }
@@ -134,9 +143,10 @@
       "logoUrl": "https://raw.githubusercontent.com/cosmos/chain-registry/master/noble/images/stake.svg",
       "msgCount": 267,
       "queryCount": 452,
+      "typeCount": 3074,
       "provenance": {
         "source": "reflection",
-        "harvestedAt": "2026-05-27T17:19:50.495Z",
+        "harvestedAt": "2026-05-27T17:34:41.887Z",
         "origin": "reflection:noble-grpc.polkachu.com:21590",
         "commentsFromSource": false
       }
@@ -148,9 +158,10 @@
       "logoUrl": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.svg",
       "msgCount": 196,
       "queryCount": 516,
+      "typeCount": 3066,
       "provenance": {
         "source": "reflection",
-        "harvestedAt": "2026-05-27T17:16:31.449Z",
+        "harvestedAt": "2026-05-27T17:31:07.439Z",
         "origin": "reflection:osmosis.lavenderfive.com:443",
         "commentsFromSource": false
       }
@@ -162,9 +173,10 @@
       "logoUrl": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/stars.svg",
       "msgCount": 153,
       "queryCount": 283,
+      "typeCount": 1600,
       "provenance": {
         "source": "reflection",
-        "harvestedAt": "2026-05-27T17:18:34.580Z",
+        "harvestedAt": "2026-05-27T17:33:11.516Z",
         "origin": "reflection:stargaze-grpc.polkachu.com:13790",
         "commentsFromSource": false
       }
@@ -176,9 +188,10 @@
       "logoUrl": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stride/images/strd.svg",
       "msgCount": 219,
       "queryCount": 419,
+      "typeCount": 2867,
       "provenance": {
         "source": "reflection",
-        "harvestedAt": "2026-05-27T17:20:19.557Z",
+        "harvestedAt": "2026-05-27T17:35:10.624Z",
         "origin": "reflection:stride-grpc.polkachu.com:12290",
         "commentsFromSource": false
       }

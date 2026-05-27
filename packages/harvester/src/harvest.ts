@@ -59,7 +59,9 @@ export async function harvestChain(
     );
   }
 
-  const { msgs, queries, hasComments } = parseFileDescriptorSet(raw.bytes);
+  const { msgs, queries, types, hasComments } = parseFileDescriptorSet(
+    raw.bytes,
+  );
 
   return ChainCatalog.parse({
     chainName: chain.chainName,
@@ -75,5 +77,6 @@ export async function harvestChain(
     },
     msgs,
     queries,
+    types,
   });
 }

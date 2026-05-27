@@ -4,7 +4,7 @@ import {
   type DescriptorProto,
   type FileDescriptorProto,
 } from "@bufbuild/protobuf/wkt";
-import type { FieldDef, MsgDef, QueryDef } from "@cosmsg/schema";
+import type { FieldDef, MsgDef, QueryDef, TypeDef } from "@cosmsg/schema";
 import {
   buildCommentMap,
   fieldTypeName,
@@ -27,9 +27,14 @@ interface MessageEntry {
 export interface ParsedCatalog {
   msgs: MsgDef[];
   queries: QueryDef[];
+  /** Every proto message type (so referenced types like CollectionApproval are browsable). */
+  types: TypeDef[];
   /** Whether any leading comments were recovered (true only with source-info). */
   hasComments: boolean;
 }
+
+/** Packages we don't surface as standalone types (well-known / annotation-only). */
+const SKIP_TYPE_PACKAGES = ["google.protobuf", "google.api", "gogoproto"];
 
 /** Parse a serialized FileDescriptorSet into a normalized Msg/Query catalog. */
 export function parseFileDescriptorSet(bytes: Uint8Array): ParsedCatalog {
@@ -102,7 +107,28 @@ export function parseFileDescriptorSet(bytes: Uint8Array): ParsedCatalog {
     });
   }
 
-  return { msgs, queries, hasComments };
+  // Emit every message type (excluding synthetic map-entries and well-known/annotation packages),
+  // so fields referencing types like badges.CollectionApproval are browsable.
+  const types: TypeDef[] = [];
+  for (const [fullName, entry] of messages) {
+    if (entry.desc.options?.mapEntry) continue;
+    const pkg = entry.file.package;
+    if (SKIP_TYPE_PACKAGES.some((p) => pkg === p || pkg.startsWith(`${p}.`)))
+      continue;
+    const comment = commentFor(commentMaps, entry.file, entry.path);
+    if (comment) hasComments = true;
+    types.push({
+      fullName,
+      name: fullName.split(".").pop() ?? fullName,
+      package: pkg,
+      module: moduleFromPackage(pkg),
+      fields: extractFields(entry, messages, commentMaps),
+      comment: comment || undefined,
+    });
+  }
+  types.sort((a, b) => a.fullName.localeCompare(b.fullName));
+
+  return { msgs, queries, types, hasComments };
 }
 
 function indexMessage(

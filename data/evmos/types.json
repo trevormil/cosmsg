@@ -1,0 +1,4738 @@
+[
+  {
+    "fullName": "cosmos_proto.InterfaceDescriptor",
+    "name": "InterfaceDescriptor",
+    "package": "cosmos_proto",
+    "module": "cosmos_proto",
+    "fields": [
+      {
+        "name": "name",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "name is the name of the interface. It should be a short-name (without\n a period) such that the fully qualified name of the interface will be\n package.name, ex. for the package a.b and interface named C, the\n fully-qualified name will be a.b.C."
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "description is a human-readable description of the interface and its\n purpose."
+      }
+    ],
+    "comment": "InterfaceDescriptor describes an interface type to be used with\n accepts_interface and implements_interface and declared by declare_interface."
+  },
+  {
+    "fullName": "cosmos_proto.ScalarDescriptor",
+    "name": "ScalarDescriptor",
+    "package": "cosmos_proto",
+    "module": "cosmos_proto",
+    "fields": [
+      {
+        "name": "name",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "name is the name of the scalar. It should be a short-name (without\n a period) such that the fully qualified name of the scalar will be\n package.name, ex. for the package a.b and scalar named C, the\n fully-qualified name will be a.b.C."
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "description is a human-readable description of the scalar and its\n encoding format. For instance a big integer or decimal scalar should\n specify precisely the expected encoding format."
+      },
+      {
+        "name": "field_type",
+        "type": "cosmos_proto.ScalarType",
+        "number": 3,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos_proto.ScalarType",
+        "comment": "field_type is the type of field with which this scalar can be used.\n Scalars can be used with one and only one type of field so that\n encoding standards and simple and clear. Currently only string and\n bytes fields are supported for scalars."
+      }
+    ],
+    "comment": "ScalarDescriptor describes an scalar type to be used with\n the scalar field option and declared by declare_scalar.\n Scalars extend simple protobuf built-in types with additional\n syntax and semantics, for instance to represent big integers.\n Scalars should ideally define an encoding such that there is only one\n valid syntactical representation for a given semantic meaning,\n i.e. the encoding should be deterministic."
+  },
+  {
+    "fullName": "cosmos.auth.v1beta1.BaseAccount",
+    "name": "BaseAccount",
+    "package": "cosmos.auth.v1beta1",
+    "module": "auth",
+    "fields": [
+      {
+        "name": "address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "pub_key",
+        "type": "google.protobuf.Any",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Any"
+      },
+      {
+        "name": "account_number",
+        "type": "uint64",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "sequence",
+        "type": "uint64",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "BaseAccount defines a base account type. It contains all the necessary fields\n for basic account functionality. Any custom account type should extend this\n type for additional functionality (e.g. vesting)."
+  },
+  {
+    "fullName": "cosmos.auth.v1beta1.ModuleAccount",
+    "name": "ModuleAccount",
+    "package": "cosmos.auth.v1beta1",
+    "module": "auth",
+    "fields": [
+      {
+        "name": "base_account",
+        "type": "cosmos.auth.v1beta1.BaseAccount",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.auth.v1beta1.BaseAccount"
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "permissions",
+        "type": "string",
+        "number": 3,
+        "repeated": true,
+        "optional": false
+      }
+    ],
+    "comment": "ModuleAccount defines an account for modules that holds coins on a pool."
+  },
+  {
+    "fullName": "cosmos.auth.v1beta1.Params",
+    "name": "Params",
+    "package": "cosmos.auth.v1beta1",
+    "module": "auth",
+    "fields": [
+      {
+        "name": "max_memo_characters",
+        "type": "uint64",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "tx_sig_limit",
+        "type": "uint64",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "tx_size_cost_per_byte",
+        "type": "uint64",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "sig_verify_cost_ed25519",
+        "type": "uint64",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "sig_verify_cost_secp256k1",
+        "type": "uint64",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "Params defines the parameters for the auth module."
+  },
+  {
+    "fullName": "cosmos.bank.v1beta1.DenomUnit",
+    "name": "DenomUnit",
+    "package": "cosmos.bank.v1beta1",
+    "module": "bank",
+    "fields": [
+      {
+        "name": "denom",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "denom represents the string name of the given denom unit (e.g uatom)."
+      },
+      {
+        "name": "exponent",
+        "type": "uint32",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "exponent represents power of 10 exponent that one must\n raise the base_denom to in order to equal the given DenomUnit's denom\n 1 denom = 10^exponent base_denom\n (e.g. with a base_denom of uatom, one can create a DenomUnit of 'atom' with\n exponent = 6, thus: 1 atom = 10^6 uatom)."
+      },
+      {
+        "name": "aliases",
+        "type": "string",
+        "number": 3,
+        "repeated": true,
+        "optional": false,
+        "comment": "aliases is a list of string aliases for the given denom"
+      }
+    ],
+    "comment": "DenomUnit represents a struct that describes a given\n denomination unit of the basic token."
+  },
+  {
+    "fullName": "cosmos.bank.v1beta1.Input",
+    "name": "Input",
+    "package": "cosmos.bank.v1beta1",
+    "module": "bank",
+    "fields": [
+      {
+        "name": "address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "coins",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      }
+    ],
+    "comment": "Input models transaction input."
+  },
+  {
+    "fullName": "cosmos.bank.v1beta1.Metadata",
+    "name": "Metadata",
+    "package": "cosmos.bank.v1beta1",
+    "module": "bank",
+    "fields": [
+      {
+        "name": "description",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "denom_units",
+        "type": "cosmos.bank.v1beta1.DenomUnit",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.bank.v1beta1.DenomUnit",
+        "comment": "denom_units represents the list of DenomUnit's for a given coin"
+      },
+      {
+        "name": "base",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "base represents the base denom (should be the DenomUnit with exponent = 0)."
+      },
+      {
+        "name": "display",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "display indicates the suggested denom that should be\n displayed in clients."
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "comment": "name defines the name of the token (eg: Cosmos Atom)\n\n Since: cosmos-sdk 0.43"
+      },
+      {
+        "name": "symbol",
+        "type": "string",
+        "number": 6,
+        "repeated": false,
+        "optional": false,
+        "comment": "symbol is the token symbol usually shown on exchanges (eg: ATOM). This can\n be the same as the display.\n\n Since: cosmos-sdk 0.43"
+      },
+      {
+        "name": "uri",
+        "type": "string",
+        "number": 7,
+        "repeated": false,
+        "optional": false,
+        "comment": "URI to a document (on or off-chain) that contains additional information. Optional.\n\n Since: cosmos-sdk 0.46"
+      },
+      {
+        "name": "uri_hash",
+        "type": "string",
+        "number": 8,
+        "repeated": false,
+        "optional": false,
+        "comment": "URIHash is a sha256 hash of a document pointed by URI. It's used to verify that\n the document didn't change. Optional.\n\n Since: cosmos-sdk 0.46"
+      }
+    ],
+    "comment": "Metadata represents a struct that describes\n a basic token."
+  },
+  {
+    "fullName": "cosmos.bank.v1beta1.Output",
+    "name": "Output",
+    "package": "cosmos.bank.v1beta1",
+    "module": "bank",
+    "fields": [
+      {
+        "name": "address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "coins",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      }
+    ],
+    "comment": "Output models transaction outputs."
+  },
+  {
+    "fullName": "cosmos.bank.v1beta1.Params",
+    "name": "Params",
+    "package": "cosmos.bank.v1beta1",
+    "module": "bank",
+    "fields": [
+      {
+        "name": "send_enabled",
+        "type": "cosmos.bank.v1beta1.SendEnabled",
+        "number": 1,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.bank.v1beta1.SendEnabled",
+        "comment": "Deprecated: Use of SendEnabled in params is deprecated.\n For genesis, use the newly added send_enabled field in the genesis object.\n Storage, lookup, and manipulation of this information is now in the keeper.\n\n As of cosmos-sdk 0.47, this only exists for backwards compatibility of genesis files."
+      },
+      {
+        "name": "default_send_enabled",
+        "type": "bool",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "Params defines the parameters for the bank module."
+  },
+  {
+    "fullName": "cosmos.bank.v1beta1.SendEnabled",
+    "name": "SendEnabled",
+    "package": "cosmos.bank.v1beta1",
+    "module": "bank",
+    "fields": [
+      {
+        "name": "denom",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "enabled",
+        "type": "bool",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "SendEnabled maps coin denom to a send_enabled status (whether a denom is\n sendable)."
+  },
+  {
+    "fullName": "cosmos.bank.v1beta1.Supply",
+    "name": "Supply",
+    "package": "cosmos.bank.v1beta1",
+    "module": "bank",
+    "fields": [
+      {
+        "name": "total",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 1,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      }
+    ],
+    "comment": "Supply represents a struct that passively keeps track of the total supply\n amounts in the network.\n This message is deprecated now that supply is indexed by denom."
+  },
+  {
+    "fullName": "cosmos.base.query.v1beta1.PageRequest",
+    "name": "PageRequest",
+    "package": "cosmos.base.query.v1beta1",
+    "module": "query",
+    "fields": [
+      {
+        "name": "key",
+        "type": "bytes",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "key is a value returned in PageResponse.next_key to begin\n querying the next page most efficiently. Only one of offset or key\n should be set."
+      },
+      {
+        "name": "offset",
+        "type": "uint64",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "offset is a numeric offset that can be used when key is unavailable.\n It is less efficient than using key. Only one of offset or key should\n be set."
+      },
+      {
+        "name": "limit",
+        "type": "uint64",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "limit is the total number of results to be returned in the result page.\n If left empty it will default to a value to be set by each app."
+      },
+      {
+        "name": "count_total",
+        "type": "bool",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "count_total is set to true  to indicate that the result set should include\n a count of the total number of items available for pagination in UIs.\n count_total is only respected when offset is used. It is ignored when key\n is set."
+      },
+      {
+        "name": "reverse",
+        "type": "bool",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "comment": "reverse is set to true if results are to be returned in the descending order.\n\n Since: cosmos-sdk 0.43"
+      }
+    ],
+    "comment": "PageRequest is to be embedded in gRPC request messages for efficient\n pagination. Ex:\n\n  message SomeRequest {\n          Foo some_parameter = 1;\n          PageRequest pagination = 2;\n  }"
+  },
+  {
+    "fullName": "cosmos.base.query.v1beta1.PageResponse",
+    "name": "PageResponse",
+    "package": "cosmos.base.query.v1beta1",
+    "module": "query",
+    "fields": [
+      {
+        "name": "next_key",
+        "type": "bytes",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "next_key is the key to be passed to PageRequest.key to\n query the next page most efficiently. It will be empty if\n there are no more results."
+      },
+      {
+        "name": "total",
+        "type": "uint64",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "total is total number of results available if PageRequest.count_total\n was set, its value is undefined otherwise"
+      }
+    ],
+    "comment": "PageResponse is to be embedded in gRPC response messages where the\n corresponding request message has used PageRequest.\n\n  message SomeResponse {\n          repeated Bar results = 1;\n          PageResponse page = 2;\n  }"
+  },
+  {
+    "fullName": "cosmos.base.v1beta1.Coin",
+    "name": "Coin",
+    "package": "cosmos.base.v1beta1",
+    "module": "base",
+    "fields": [
+      {
+        "name": "denom",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "amount",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "Coin defines a token with a denomination and an amount.\n\n NOTE: The amount field is an Int which implements the custom method\n signatures required by gogoproto."
+  },
+  {
+    "fullName": "cosmos.base.v1beta1.DecCoin",
+    "name": "DecCoin",
+    "package": "cosmos.base.v1beta1",
+    "module": "base",
+    "fields": [
+      {
+        "name": "denom",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "amount",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "DecCoin defines a token with a denomination and a decimal amount.\n\n NOTE: The amount field is an Dec which implements the custom method\n signatures required by gogoproto."
+  },
+  {
+    "fullName": "cosmos.base.v1beta1.DecProto",
+    "name": "DecProto",
+    "package": "cosmos.base.v1beta1",
+    "module": "base",
+    "fields": [
+      {
+        "name": "dec",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "DecProto defines a Protobuf wrapper around a Dec object."
+  },
+  {
+    "fullName": "cosmos.base.v1beta1.IntProto",
+    "name": "IntProto",
+    "package": "cosmos.base.v1beta1",
+    "module": "base",
+    "fields": [
+      {
+        "name": "int",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "IntProto defines a Protobuf wrapper around an Int object."
+  },
+  {
+    "fullName": "cosmos.vesting.v1beta1.BaseVestingAccount",
+    "name": "BaseVestingAccount",
+    "package": "cosmos.vesting.v1beta1",
+    "module": "vesting",
+    "fields": [
+      {
+        "name": "base_account",
+        "type": "cosmos.auth.v1beta1.BaseAccount",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.auth.v1beta1.BaseAccount"
+      },
+      {
+        "name": "original_vesting",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      },
+      {
+        "name": "delegated_free",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 3,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      },
+      {
+        "name": "delegated_vesting",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 4,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      },
+      {
+        "name": "end_time",
+        "type": "int64",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "BaseVestingAccount implements the VestingAccount interface. It contains all\n the necessary fields needed for any vesting account implementation."
+  },
+  {
+    "fullName": "cosmos.vesting.v1beta1.ContinuousVestingAccount",
+    "name": "ContinuousVestingAccount",
+    "package": "cosmos.vesting.v1beta1",
+    "module": "vesting",
+    "fields": [
+      {
+        "name": "base_vesting_account",
+        "type": "cosmos.vesting.v1beta1.BaseVestingAccount",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.vesting.v1beta1.BaseVestingAccount"
+      },
+      {
+        "name": "start_time",
+        "type": "int64",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "ContinuousVestingAccount implements the VestingAccount interface. It\n continuously vests by unlocking coins linearly with respect to time."
+  },
+  {
+    "fullName": "cosmos.vesting.v1beta1.DelayedVestingAccount",
+    "name": "DelayedVestingAccount",
+    "package": "cosmos.vesting.v1beta1",
+    "module": "vesting",
+    "fields": [
+      {
+        "name": "base_vesting_account",
+        "type": "cosmos.vesting.v1beta1.BaseVestingAccount",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.vesting.v1beta1.BaseVestingAccount"
+      }
+    ],
+    "comment": "DelayedVestingAccount implements the VestingAccount interface. It vests all\n coins after a specific time, but non prior. In other words, it keeps them\n locked until a specified time."
+  },
+  {
+    "fullName": "cosmos.vesting.v1beta1.Period",
+    "name": "Period",
+    "package": "cosmos.vesting.v1beta1",
+    "module": "vesting",
+    "fields": [
+      {
+        "name": "length",
+        "type": "int64",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      }
+    ],
+    "comment": "Period defines a length of time and amount of coins that will vest."
+  },
+  {
+    "fullName": "cosmos.vesting.v1beta1.PeriodicVestingAccount",
+    "name": "PeriodicVestingAccount",
+    "package": "cosmos.vesting.v1beta1",
+    "module": "vesting",
+    "fields": [
+      {
+        "name": "base_vesting_account",
+        "type": "cosmos.vesting.v1beta1.BaseVestingAccount",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.vesting.v1beta1.BaseVestingAccount"
+      },
+      {
+        "name": "start_time",
+        "type": "int64",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "vesting_periods",
+        "type": "cosmos.vesting.v1beta1.Period",
+        "number": 3,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.vesting.v1beta1.Period"
+      }
+    ],
+    "comment": "PeriodicVestingAccount implements the VestingAccount interface. It\n periodically vests by unlocking coins during each specified period."
+  },
+  {
+    "fullName": "cosmos.vesting.v1beta1.PermanentLockedAccount",
+    "name": "PermanentLockedAccount",
+    "package": "cosmos.vesting.v1beta1",
+    "module": "vesting",
+    "fields": [
+      {
+        "name": "base_vesting_account",
+        "type": "cosmos.vesting.v1beta1.BaseVestingAccount",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.vesting.v1beta1.BaseVestingAccount"
+      }
+    ],
+    "comment": "PermanentLockedAccount implements the VestingAccount interface. It does\n not ever release coins, locking them indefinitely. Coins in this account can\n still be used for delegating and for governance votes even while locked.\n\n Since: cosmos-sdk 0.43"
+  },
+  {
+    "fullName": "ethermint.crypto.v1.ethsecp256k1.PrivKey",
+    "name": "PrivKey",
+    "package": "ethermint.crypto.v1.ethsecp256k1",
+    "module": "crypto",
+    "fields": [
+      {
+        "name": "key",
+        "type": "bytes",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "key is the private key in byte form"
+      }
+    ],
+    "comment": "PrivKey defines a type alias for an ecdsa.PrivateKey that implements\n Tendermint's PrivateKey interface."
+  },
+  {
+    "fullName": "ethermint.crypto.v1.ethsecp256k1.PubKey",
+    "name": "PubKey",
+    "package": "ethermint.crypto.v1.ethsecp256k1",
+    "module": "crypto",
+    "fields": [
+      {
+        "name": "key",
+        "type": "bytes",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "key is the public key in byte form"
+      }
+    ],
+    "comment": "PubKey defines a type alias for an ecdsa.PublicKey that implements\n Tendermint's PubKey interface. It represents the 33-byte compressed public\n key format."
+  },
+  {
+    "fullName": "ethermint.evm.v1.AccessControl",
+    "name": "AccessControl",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "create",
+        "type": "ethermint.evm.v1.AccessControlType",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ethermint.evm.v1.AccessControlType",
+        "comment": "create defines the permission policy for creating contracts"
+      },
+      {
+        "name": "call",
+        "type": "ethermint.evm.v1.AccessControlType",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ethermint.evm.v1.AccessControlType",
+        "comment": "call defines the permission policy for calling contracts"
+      }
+    ],
+    "comment": "AccessControl defines the permission policy of the EVM\n for creating and calling contracts"
+  },
+  {
+    "fullName": "ethermint.evm.v1.AccessControlType",
+    "name": "AccessControlType",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "access_type",
+        "type": "ethermint.evm.v1.AccessType",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ethermint.evm.v1.AccessType",
+        "comment": "access_type defines which type of permission is required for the operation"
+      },
+      {
+        "name": "access_control_list",
+        "type": "string",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "comment": "access_control_list defines defines different things depending on the AccessType:\n - ACCESS_TYPE_PERMISSIONLESS: list of addresses that are blocked from performing the operation\n - ACCESS_TYPE_RESTRICTED: ignored\n - ACCESS_TYPE_PERMISSIONED: list of addresses that are allowed to perform the operation"
+      }
+    ],
+    "comment": "AccessControlType defines the permission type for policies"
+  },
+  {
+    "fullName": "ethermint.evm.v1.AccessListTx",
+    "name": "AccessListTx",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "chain_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "chain_id of the destination EVM chain"
+      },
+      {
+        "name": "nonce",
+        "type": "uint64",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "nonce corresponds to the account nonce (transaction sequence)."
+      },
+      {
+        "name": "gas_price",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "gas_price defines the value for each gas unit"
+      },
+      {
+        "name": "gas",
+        "type": "uint64",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "gas defines the gas limit defined for the transaction."
+      },
+      {
+        "name": "to",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "comment": "to is the recipient address in hex format"
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "number": 6,
+        "repeated": false,
+        "optional": false,
+        "comment": "value defines the unsigned integer value of the transaction amount."
+      },
+      {
+        "name": "data",
+        "type": "bytes",
+        "number": 7,
+        "repeated": false,
+        "optional": false,
+        "comment": "data is the data payload bytes of the transaction."
+      },
+      {
+        "name": "accesses",
+        "type": "ethermint.evm.v1.AccessTuple",
+        "number": 8,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "ethermint.evm.v1.AccessTuple",
+        "comment": "accesses is an array of access tuples"
+      },
+      {
+        "name": "v",
+        "type": "bytes",
+        "number": 9,
+        "repeated": false,
+        "optional": false,
+        "comment": "v defines the signature value"
+      },
+      {
+        "name": "r",
+        "type": "bytes",
+        "number": 10,
+        "repeated": false,
+        "optional": false,
+        "comment": "r defines the signature value"
+      },
+      {
+        "name": "s",
+        "type": "bytes",
+        "number": 11,
+        "repeated": false,
+        "optional": false,
+        "comment": "s define the signature value"
+      }
+    ],
+    "comment": "AccessListTx is the data of EIP-2930 access list transactions."
+  },
+  {
+    "fullName": "ethermint.evm.v1.AccessTuple",
+    "name": "AccessTuple",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "address is a hex formatted ethereum address"
+      },
+      {
+        "name": "storage_keys",
+        "type": "string",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "comment": "storage_keys are hex formatted hashes of the storage keys"
+      }
+    ],
+    "comment": "AccessTuple is the element type of an access list."
+  },
+  {
+    "fullName": "ethermint.evm.v1.ChainConfig",
+    "name": "ChainConfig",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "homestead_block",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "homestead_block switch (nil no fork, 0 = already homestead)"
+      },
+      {
+        "name": "dao_fork_block",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "dao_fork_block corresponds to TheDAO hard-fork switch block (nil no fork)"
+      },
+      {
+        "name": "dao_fork_support",
+        "type": "bool",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "dao_fork_support defines whether the nodes supports or opposes the DAO hard-fork"
+      },
+      {
+        "name": "eip150_block",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "eip150_block: EIP150 implements the Gas price changes\n (https://github.com/ethereum/EIPs/issues/150) EIP150 HF block (nil no fork)"
+      },
+      {
+        "name": "eip150_hash",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "comment": "eip150_hash: EIP150 HF hash (needed for header only clients as only gas pricing changed)"
+      },
+      {
+        "name": "eip155_block",
+        "type": "string",
+        "number": 6,
+        "repeated": false,
+        "optional": false,
+        "comment": "eip155_block: EIP155Block HF block"
+      },
+      {
+        "name": "eip158_block",
+        "type": "string",
+        "number": 7,
+        "repeated": false,
+        "optional": false,
+        "comment": "eip158_block: EIP158 HF block"
+      },
+      {
+        "name": "byzantium_block",
+        "type": "string",
+        "number": 8,
+        "repeated": false,
+        "optional": false,
+        "comment": "byzantium_block: Byzantium switch block (nil no fork, 0 = already on byzantium)"
+      },
+      {
+        "name": "constantinople_block",
+        "type": "string",
+        "number": 9,
+        "repeated": false,
+        "optional": false,
+        "comment": "constantinople_block: Constantinople switch block (nil no fork, 0 = already activated)"
+      },
+      {
+        "name": "petersburg_block",
+        "type": "string",
+        "number": 10,
+        "repeated": false,
+        "optional": false,
+        "comment": "petersburg_block: Petersburg switch block (nil same as Constantinople)"
+      },
+      {
+        "name": "istanbul_block",
+        "type": "string",
+        "number": 11,
+        "repeated": false,
+        "optional": false,
+        "comment": "istanbul_block: Istanbul switch block (nil no fork, 0 = already on istanbul)"
+      },
+      {
+        "name": "muir_glacier_block",
+        "type": "string",
+        "number": 12,
+        "repeated": false,
+        "optional": false,
+        "comment": "muir_glacier_block: Eip-2384 (bomb delay) switch block (nil no fork, 0 = already activated)"
+      },
+      {
+        "name": "berlin_block",
+        "type": "string",
+        "number": 13,
+        "repeated": false,
+        "optional": false,
+        "comment": "berlin_block: Berlin switch block (nil = no fork, 0 = already on berlin)"
+      },
+      {
+        "name": "london_block",
+        "type": "string",
+        "number": 17,
+        "repeated": false,
+        "optional": false,
+        "comment": "london_block: London switch block (nil = no fork, 0 = already on london)"
+      },
+      {
+        "name": "arrow_glacier_block",
+        "type": "string",
+        "number": 18,
+        "repeated": false,
+        "optional": false,
+        "comment": "arrow_glacier_block: Eip-4345 (bomb delay) switch block (nil = no fork, 0 = already activated)"
+      },
+      {
+        "name": "gray_glacier_block",
+        "type": "string",
+        "number": 20,
+        "repeated": false,
+        "optional": false,
+        "comment": "gray_glacier_block: EIP-5133 (bomb delay) switch block (nil = no fork, 0 = already activated)"
+      },
+      {
+        "name": "merge_netsplit_block",
+        "type": "string",
+        "number": 21,
+        "repeated": false,
+        "optional": false,
+        "comment": "merge_netsplit_block: Virtual fork after The Merge to use as a network splitter"
+      },
+      {
+        "name": "shanghai_block",
+        "type": "string",
+        "number": 22,
+        "repeated": false,
+        "optional": false,
+        "comment": "shanghai_block switch block (nil = no fork, 0 = already on shanghai)"
+      },
+      {
+        "name": "cancun_block",
+        "type": "string",
+        "number": 23,
+        "repeated": false,
+        "optional": false,
+        "comment": "cancun_block switch block (nil = no fork, 0 = already on cancun)"
+      },
+      {
+        "name": "chain_id",
+        "type": "uint64",
+        "number": 24,
+        "repeated": false,
+        "optional": false,
+        "comment": "chain_id is the id of the chain (EIP-155)"
+      },
+      {
+        "name": "denom",
+        "type": "string",
+        "number": 25,
+        "repeated": false,
+        "optional": false,
+        "comment": "denom is the denomination used on the EVM"
+      },
+      {
+        "name": "decimals",
+        "type": "uint64",
+        "number": 26,
+        "repeated": false,
+        "optional": false,
+        "comment": "decimals is the real decimal precision of the denomination used on the EVM"
+      }
+    ],
+    "comment": "ChainConfig defines the Ethereum ChainConfig parameters using *sdk.Int values\n instead of *big.Int."
+  },
+  {
+    "fullName": "ethermint.evm.v1.DynamicFeeTx",
+    "name": "DynamicFeeTx",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "chain_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "chain_id of the destination EVM chain"
+      },
+      {
+        "name": "nonce",
+        "type": "uint64",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "nonce corresponds to the account nonce (transaction sequence)."
+      },
+      {
+        "name": "gas_tip_cap",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "gas_tip_cap defines the max value for the gas tip"
+      },
+      {
+        "name": "gas_fee_cap",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "gas_fee_cap defines the max value for the gas fee"
+      },
+      {
+        "name": "gas",
+        "type": "uint64",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "comment": "gas defines the gas limit defined for the transaction."
+      },
+      {
+        "name": "to",
+        "type": "string",
+        "number": 6,
+        "repeated": false,
+        "optional": false,
+        "comment": "to is the hex formatted address of the recipient"
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "number": 7,
+        "repeated": false,
+        "optional": false,
+        "comment": "value defines the transaction amount."
+      },
+      {
+        "name": "data",
+        "type": "bytes",
+        "number": 8,
+        "repeated": false,
+        "optional": false,
+        "comment": "data is the data payload bytes of the transaction."
+      },
+      {
+        "name": "accesses",
+        "type": "ethermint.evm.v1.AccessTuple",
+        "number": 9,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "ethermint.evm.v1.AccessTuple",
+        "comment": "accesses is an array of access tuples"
+      },
+      {
+        "name": "v",
+        "type": "bytes",
+        "number": 10,
+        "repeated": false,
+        "optional": false,
+        "comment": "v defines the signature value"
+      },
+      {
+        "name": "r",
+        "type": "bytes",
+        "number": 11,
+        "repeated": false,
+        "optional": false,
+        "comment": "r defines the signature value"
+      },
+      {
+        "name": "s",
+        "type": "bytes",
+        "number": 12,
+        "repeated": false,
+        "optional": false,
+        "comment": "s define the signature value"
+      }
+    ],
+    "comment": "DynamicFeeTx is the data of EIP-1559 dynamic fee transactions."
+  },
+  {
+    "fullName": "ethermint.evm.v1.EstimateGasResponse",
+    "name": "EstimateGasResponse",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "gas",
+        "type": "uint64",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "gas returns the estimated gas"
+      },
+      {
+        "name": "ret",
+        "type": "bytes",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "ret is the returned data from evm function (result or data supplied with revert\n opcode)"
+      },
+      {
+        "name": "vm_error",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "vm_error is the error returned by vm execution"
+      }
+    ],
+    "comment": "EstimateGasResponse defines EstimateGas response"
+  },
+  {
+    "fullName": "ethermint.evm.v1.EthCallRequest",
+    "name": "EthCallRequest",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "args",
+        "type": "bytes",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "args uses the same json format as the json rpc api."
+      },
+      {
+        "name": "gas_cap",
+        "type": "uint64",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "gas_cap defines the default gas cap to be used"
+      },
+      {
+        "name": "proposer_address",
+        "type": "bytes",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "proposer_address of the requested block in hex format"
+      },
+      {
+        "name": "chain_id",
+        "type": "int64",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "chain_id is the eip155 chain id parsed from the requested block header"
+      }
+    ],
+    "comment": "EthCallRequest defines EthCall request"
+  },
+  {
+    "fullName": "ethermint.evm.v1.EventBlockBloom",
+    "name": "EventBlockBloom",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "bloom",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "bloom is the bloom filter of the block"
+      }
+    ],
+    "comment": "EventBlockBloom defines an Ethereum block bloom filter event"
+  },
+  {
+    "fullName": "ethermint.evm.v1.EventEthereumTx",
+    "name": "EventEthereumTx",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "amount",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "amount"
+      },
+      {
+        "name": "eth_hash",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "eth_hash is the Ethereum hash of the transaction"
+      },
+      {
+        "name": "index",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "index of the transaction in the block"
+      },
+      {
+        "name": "gas_used",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "gas_used is the amount of gas used by the transaction"
+      },
+      {
+        "name": "hash",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "comment": "hash is the Tendermint hash of the transaction"
+      },
+      {
+        "name": "recipient",
+        "type": "string",
+        "number": 6,
+        "repeated": false,
+        "optional": false,
+        "comment": "recipient of the transaction"
+      },
+      {
+        "name": "eth_tx_failed",
+        "type": "string",
+        "number": 7,
+        "repeated": false,
+        "optional": false,
+        "comment": "eth_tx_failed contains a VM error should it occur"
+      }
+    ],
+    "comment": "EventEthereumTx defines the event for an Ethereum transaction"
+  },
+  {
+    "fullName": "ethermint.evm.v1.EventMessage",
+    "name": "EventMessage",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "module",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "module which emits the event"
+      },
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "sender of the message"
+      },
+      {
+        "name": "tx_type",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "tx_type is the type of the message"
+      }
+    ],
+    "comment": "EventMessage"
+  },
+  {
+    "fullName": "ethermint.evm.v1.EventTxLog",
+    "name": "EventTxLog",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "tx_logs",
+        "type": "string",
+        "number": 1,
+        "repeated": true,
+        "optional": false,
+        "comment": "tx_logs is an array of transaction logs"
+      }
+    ],
+    "comment": "EventTxLog defines the event for an Ethereum transaction log"
+  },
+  {
+    "fullName": "ethermint.evm.v1.ExtensionOptionsEthereumTx",
+    "name": "ExtensionOptionsEthereumTx",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [],
+    "comment": "ExtensionOptionsEthereumTx is an extension option for ethereum transactions"
+  },
+  {
+    "fullName": "ethermint.evm.v1.GenesisAccount",
+    "name": "GenesisAccount",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "address defines an ethereum hex formated address of an account"
+      },
+      {
+        "name": "code",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "code defines the hex bytes of the account code."
+      },
+      {
+        "name": "storage",
+        "type": "ethermint.evm.v1.State",
+        "number": 3,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "ethermint.evm.v1.State",
+        "comment": "storage defines the set of state key values for the account."
+      }
+    ],
+    "comment": "GenesisAccount defines an account to be initialized in the genesis state.\n Its main difference between with Geth's GenesisAccount is that it uses a\n custom storage type and that it doesn't contain the private key field."
+  },
+  {
+    "fullName": "ethermint.evm.v1.GenesisState",
+    "name": "GenesisState",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "accounts",
+        "type": "ethermint.evm.v1.GenesisAccount",
+        "number": 1,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "ethermint.evm.v1.GenesisAccount",
+        "comment": "accounts is an array containing the ethereum genesis accounts."
+      },
+      {
+        "name": "params",
+        "type": "ethermint.evm.v1.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ethermint.evm.v1.Params",
+        "comment": "params defines all the parameters of the module."
+      }
+    ],
+    "comment": "GenesisState defines the evm module's genesis state."
+  },
+  {
+    "fullName": "ethermint.evm.v1.LegacyTx",
+    "name": "LegacyTx",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "nonce",
+        "type": "uint64",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "nonce corresponds to the account nonce (transaction sequence)."
+      },
+      {
+        "name": "gas_price",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "gas_price defines the value for each gas unit"
+      },
+      {
+        "name": "gas",
+        "type": "uint64",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "gas defines the gas limit defined for the transaction."
+      },
+      {
+        "name": "to",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "to is the hex formatted address of the recipient"
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "comment": "value defines the unsigned integer value of the transaction amount."
+      },
+      {
+        "name": "data",
+        "type": "bytes",
+        "number": 6,
+        "repeated": false,
+        "optional": false,
+        "comment": "data is the data payload bytes of the transaction."
+      },
+      {
+        "name": "v",
+        "type": "bytes",
+        "number": 7,
+        "repeated": false,
+        "optional": false,
+        "comment": "v defines the signature value"
+      },
+      {
+        "name": "r",
+        "type": "bytes",
+        "number": 8,
+        "repeated": false,
+        "optional": false,
+        "comment": "r defines the signature value"
+      },
+      {
+        "name": "s",
+        "type": "bytes",
+        "number": 9,
+        "repeated": false,
+        "optional": false,
+        "comment": "s define the signature value"
+      }
+    ],
+    "comment": "LegacyTx is the transaction data of regular Ethereum transactions.\n NOTE: All non-protected transactions (i.e non EIP155 signed) will fail if the\n AllowUnprotectedTxs parameter is disabled."
+  },
+  {
+    "fullName": "ethermint.evm.v1.Log",
+    "name": "Log",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "address of the contract that generated the event"
+      },
+      {
+        "name": "topics",
+        "type": "string",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "comment": "topics is a list of topics provided by the contract."
+      },
+      {
+        "name": "data",
+        "type": "bytes",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "data which is supplied by the contract, usually ABI-encoded"
+      },
+      {
+        "name": "block_number",
+        "type": "uint64",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "block_number of the block in which the transaction was included"
+      },
+      {
+        "name": "tx_hash",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "comment": "tx_hash is the transaction hash"
+      },
+      {
+        "name": "tx_index",
+        "type": "uint64",
+        "number": 6,
+        "repeated": false,
+        "optional": false,
+        "comment": "tx_index of the transaction in the block"
+      },
+      {
+        "name": "block_hash",
+        "type": "string",
+        "number": 7,
+        "repeated": false,
+        "optional": false,
+        "comment": "block_hash of the block in which the transaction was included"
+      },
+      {
+        "name": "index",
+        "type": "uint64",
+        "number": 8,
+        "repeated": false,
+        "optional": false,
+        "comment": "index of the log in the block"
+      },
+      {
+        "name": "removed",
+        "type": "bool",
+        "number": 9,
+        "repeated": false,
+        "optional": false,
+        "comment": "removed is true if this log was reverted due to a chain\n reorganisation. You must pay attention to this field if you receive logs\n through a filter query."
+      }
+    ],
+    "comment": "Log represents an protobuf compatible Ethereum Log that defines a contract\n log event. These events are generated by the LOG opcode and stored/indexed by\n the node.\n\n NOTE: address, topics and data are consensus fields. The rest of the fields\n are derived, i.e. filled in by the nodes, but not secured by consensus."
+  },
+  {
+    "fullName": "ethermint.evm.v1.MsgEthereumTx",
+    "name": "MsgEthereumTx",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "data",
+        "type": "google.protobuf.Any",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Any",
+        "comment": "data is inner transaction data of the Ethereum transaction"
+      },
+      {
+        "name": "size",
+        "type": "double",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "size is the encoded storage size of the transaction (DEPRECATED)"
+      },
+      {
+        "name": "hash",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "hash of the transaction in hex format"
+      },
+      {
+        "name": "from",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "from is the ethereum signer address in hex format. This address value is checked\n against the address derived from the signature (V, R, S) using the\n secp256k1 elliptic curve"
+      }
+    ],
+    "comment": "MsgEthereumTx encapsulates an Ethereum transaction as an SDK message."
+  },
+  {
+    "fullName": "ethermint.evm.v1.MsgEthereumTxResponse",
+    "name": "MsgEthereumTxResponse",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "hash",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "hash of the ethereum transaction in hex format. This hash differs from the\n Tendermint sha256 hash of the transaction bytes. See\n https://github.com/tendermint/tendermint/issues/6539 for reference"
+      },
+      {
+        "name": "logs",
+        "type": "ethermint.evm.v1.Log",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "ethermint.evm.v1.Log",
+        "comment": "logs contains the transaction hash and the proto-compatible ethereum\n logs."
+      },
+      {
+        "name": "ret",
+        "type": "bytes",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "ret is the returned data from evm function (result or data supplied with revert\n opcode)"
+      },
+      {
+        "name": "vm_error",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "vm_error is the error returned by vm execution"
+      },
+      {
+        "name": "gas_used",
+        "type": "uint64",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "comment": "gas_used specifies how much gas was consumed by the transaction"
+      }
+    ],
+    "comment": "MsgEthereumTxResponse defines the Msg/EthereumTx response type."
+  },
+  {
+    "fullName": "ethermint.evm.v1.MsgUpdateParams",
+    "name": "MsgUpdateParams",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "authority is the address of the governance account."
+      },
+      {
+        "name": "params",
+        "type": "ethermint.evm.v1.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ethermint.evm.v1.Params",
+        "comment": "params defines the x/evm parameters to update.\n NOTE: All parameters must be supplied."
+      }
+    ],
+    "comment": "MsgUpdateParams defines a Msg for updating the x/evm module parameters."
+  },
+  {
+    "fullName": "ethermint.evm.v1.MsgUpdateParamsResponse",
+    "name": "MsgUpdateParamsResponse",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [],
+    "comment": "MsgUpdateParamsResponse defines the response structure for executing a\n MsgUpdateParams message."
+  },
+  {
+    "fullName": "ethermint.evm.v1.Params",
+    "name": "Params",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "extra_eips",
+        "type": "string",
+        "number": 4,
+        "repeated": true,
+        "optional": false,
+        "comment": "extra_eips defines the additional EIPs for the vm.Config"
+      },
+      {
+        "name": "allow_unprotected_txs",
+        "type": "bool",
+        "number": 6,
+        "repeated": false,
+        "optional": false,
+        "comment": "allow_unprotected_txs defines if replay-protected (i.e non EIP155\n signed) transactions can be executed on the state machine."
+      },
+      {
+        "name": "evm_channels",
+        "type": "string",
+        "number": 8,
+        "repeated": true,
+        "optional": false,
+        "comment": "evm_channels is the list of channel identifiers from EVM compatible chains"
+      },
+      {
+        "name": "access_control",
+        "type": "ethermint.evm.v1.AccessControl",
+        "number": 9,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ethermint.evm.v1.AccessControl",
+        "comment": "access_control defines the permission policy of the EVM"
+      },
+      {
+        "name": "active_static_precompiles",
+        "type": "string",
+        "number": 10,
+        "repeated": true,
+        "optional": false,
+        "comment": "active_static_precompiles defines the slice of hex addresses of the precompiled\n contracts that are active"
+      }
+    ],
+    "comment": "Params defines the EVM module parameters"
+  },
+  {
+    "fullName": "ethermint.evm.v1.QueryAccountRequest",
+    "name": "QueryAccountRequest",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "address is the ethereum hex address to query the account for."
+      }
+    ],
+    "comment": "QueryAccountRequest is the request type for the Query/Account RPC method."
+  },
+  {
+    "fullName": "ethermint.evm.v1.QueryAccountResponse",
+    "name": "QueryAccountResponse",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "balance",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "balance is the balance of the EVM denomination."
+      },
+      {
+        "name": "code_hash",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "code_hash is the hex-formatted code bytes from the EOA."
+      },
+      {
+        "name": "nonce",
+        "type": "uint64",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "nonce is the account's sequence number."
+      }
+    ],
+    "comment": "QueryAccountResponse is the response type for the Query/Account RPC method."
+  },
+  {
+    "fullName": "ethermint.evm.v1.QueryBalanceRequest",
+    "name": "QueryBalanceRequest",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "address is the ethereum hex address to query the balance for."
+      }
+    ],
+    "comment": "QueryBalanceRequest is the request type for the Query/Balance RPC method."
+  },
+  {
+    "fullName": "ethermint.evm.v1.QueryBalanceResponse",
+    "name": "QueryBalanceResponse",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "balance",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "balance is the balance of the EVM denomination."
+      }
+    ],
+    "comment": "QueryBalanceResponse is the response type for the Query/Balance RPC method."
+  },
+  {
+    "fullName": "ethermint.evm.v1.QueryBaseFeeRequest",
+    "name": "QueryBaseFeeRequest",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [],
+    "comment": "QueryBaseFeeRequest defines the request type for querying the EIP1559 base\n fee."
+  },
+  {
+    "fullName": "ethermint.evm.v1.QueryBaseFeeResponse",
+    "name": "QueryBaseFeeResponse",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "base_fee",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "base_fee is the EIP1559 base fee"
+      }
+    ],
+    "comment": "QueryBaseFeeResponse returns the EIP1559 base fee."
+  },
+  {
+    "fullName": "ethermint.evm.v1.QueryCodeRequest",
+    "name": "QueryCodeRequest",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "address is the ethereum hex address to query the code for."
+      }
+    ],
+    "comment": "QueryCodeRequest is the request type for the Query/Code RPC method."
+  },
+  {
+    "fullName": "ethermint.evm.v1.QueryCodeResponse",
+    "name": "QueryCodeResponse",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "code",
+        "type": "bytes",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "code represents the code bytes from an ethereum address."
+      }
+    ],
+    "comment": "QueryCodeResponse is the response type for the Query/Code RPC\n method."
+  },
+  {
+    "fullName": "ethermint.evm.v1.QueryConfigRequest",
+    "name": "QueryConfigRequest",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [],
+    "comment": "QueryConfigRequest defines the request type for querying the Config"
+  },
+  {
+    "fullName": "ethermint.evm.v1.QueryConfigResponse",
+    "name": "QueryConfigResponse",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "config",
+        "type": "ethermint.evm.v1.ChainConfig",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ethermint.evm.v1.ChainConfig",
+        "comment": "config is the evm configuration"
+      }
+    ],
+    "comment": "QueryConfigResponse returns the EVM Config."
+  },
+  {
+    "fullName": "ethermint.evm.v1.QueryCosmosAccountRequest",
+    "name": "QueryCosmosAccountRequest",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "address is the ethereum hex address to query the account for."
+      }
+    ],
+    "comment": "QueryCosmosAccountRequest is the request type for the Query/CosmosAccount RPC\n method."
+  },
+  {
+    "fullName": "ethermint.evm.v1.QueryCosmosAccountResponse",
+    "name": "QueryCosmosAccountResponse",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "cosmos_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "cosmos_address is the cosmos address of the account."
+      },
+      {
+        "name": "sequence",
+        "type": "uint64",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "sequence is the account's sequence number."
+      },
+      {
+        "name": "account_number",
+        "type": "uint64",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "account_number is the account number"
+      }
+    ],
+    "comment": "QueryCosmosAccountResponse is the response type for the Query/CosmosAccount\n RPC method."
+  },
+  {
+    "fullName": "ethermint.evm.v1.QueryGlobalMinGasPriceRequest",
+    "name": "QueryGlobalMinGasPriceRequest",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [],
+    "comment": "QueryGlobalMinGasPriceRequest defines the request type for querying the GlobalMinGasPrice"
+  },
+  {
+    "fullName": "ethermint.evm.v1.QueryGlobalMinGasPriceResponse",
+    "name": "QueryGlobalMinGasPriceResponse",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "min_gas_price",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "min_gas_price is the feemarket's min_gas_price"
+      }
+    ],
+    "comment": "QueryGlobalMinGasPriceResponse returns the GlobalMinGasPrice."
+  },
+  {
+    "fullName": "ethermint.evm.v1.QueryParamsRequest",
+    "name": "QueryParamsRequest",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [],
+    "comment": "QueryParamsRequest defines the request type for querying x/evm parameters."
+  },
+  {
+    "fullName": "ethermint.evm.v1.QueryParamsResponse",
+    "name": "QueryParamsResponse",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "params",
+        "type": "ethermint.evm.v1.Params",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ethermint.evm.v1.Params",
+        "comment": "params define the evm module parameters."
+      }
+    ],
+    "comment": "QueryParamsResponse defines the response type for querying x/evm parameters."
+  },
+  {
+    "fullName": "ethermint.evm.v1.QueryStorageRequest",
+    "name": "QueryStorageRequest",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "address is the ethereum hex address to query the storage state for."
+      },
+      {
+        "name": "key",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "key defines the key of the storage state"
+      }
+    ],
+    "comment": "QueryStorageRequest is the request type for the Query/Storage RPC method."
+  },
+  {
+    "fullName": "ethermint.evm.v1.QueryStorageResponse",
+    "name": "QueryStorageResponse",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "value",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "value defines the storage state value hash associated with the given key."
+      }
+    ],
+    "comment": "QueryStorageResponse is the response type for the Query/Storage RPC\n method."
+  },
+  {
+    "fullName": "ethermint.evm.v1.QueryTraceBlockRequest",
+    "name": "QueryTraceBlockRequest",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "txs",
+        "type": "ethermint.evm.v1.MsgEthereumTx",
+        "number": 1,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "ethermint.evm.v1.MsgEthereumTx",
+        "comment": "txs is an array of messages in the block"
+      },
+      {
+        "name": "trace_config",
+        "type": "ethermint.evm.v1.TraceConfig",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ethermint.evm.v1.TraceConfig",
+        "comment": "trace_config holds extra parameters to trace functions."
+      },
+      {
+        "name": "block_number",
+        "type": "int64",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "comment": "block_number of the traced block"
+      },
+      {
+        "name": "block_hash",
+        "type": "string",
+        "number": 6,
+        "repeated": false,
+        "optional": false,
+        "comment": "block_hash (hex) of the traced block"
+      },
+      {
+        "name": "block_time",
+        "type": "google.protobuf.Timestamp",
+        "number": 7,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Timestamp",
+        "comment": "block_time of the traced block"
+      },
+      {
+        "name": "proposer_address",
+        "type": "bytes",
+        "number": 8,
+        "repeated": false,
+        "optional": false,
+        "comment": "proposer_address is the address of the requested block"
+      },
+      {
+        "name": "chain_id",
+        "type": "int64",
+        "number": 9,
+        "repeated": false,
+        "optional": false,
+        "comment": "chain_id is the eip155 chain id parsed from the requested block header"
+      },
+      {
+        "name": "block_max_gas",
+        "type": "int64",
+        "number": 10,
+        "repeated": false,
+        "optional": false,
+        "comment": "block_max_gas of the traced block"
+      }
+    ],
+    "comment": "QueryTraceBlockRequest defines TraceTx request"
+  },
+  {
+    "fullName": "ethermint.evm.v1.QueryTraceBlockResponse",
+    "name": "QueryTraceBlockResponse",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "data",
+        "type": "bytes",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "data is the response serialized in bytes"
+      }
+    ],
+    "comment": "QueryTraceBlockResponse defines TraceBlock response"
+  },
+  {
+    "fullName": "ethermint.evm.v1.QueryTraceTxRequest",
+    "name": "QueryTraceTxRequest",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "msg",
+        "type": "ethermint.evm.v1.MsgEthereumTx",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ethermint.evm.v1.MsgEthereumTx",
+        "comment": "msg is the MsgEthereumTx for the requested transaction"
+      },
+      {
+        "name": "trace_config",
+        "type": "ethermint.evm.v1.TraceConfig",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ethermint.evm.v1.TraceConfig",
+        "comment": "trace_config holds extra parameters to trace functions."
+      },
+      {
+        "name": "predecessors",
+        "type": "ethermint.evm.v1.MsgEthereumTx",
+        "number": 4,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "ethermint.evm.v1.MsgEthereumTx",
+        "comment": "predecessors is an array of transactions included in the same block\n need to be replayed first to get correct context for tracing."
+      },
+      {
+        "name": "block_number",
+        "type": "int64",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "comment": "block_number of requested transaction"
+      },
+      {
+        "name": "block_hash",
+        "type": "string",
+        "number": 6,
+        "repeated": false,
+        "optional": false,
+        "comment": "block_hash of requested transaction"
+      },
+      {
+        "name": "block_time",
+        "type": "google.protobuf.Timestamp",
+        "number": 7,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Timestamp",
+        "comment": "block_time of requested transaction"
+      },
+      {
+        "name": "proposer_address",
+        "type": "bytes",
+        "number": 8,
+        "repeated": false,
+        "optional": false,
+        "comment": "proposer_address is the proposer of the requested block"
+      },
+      {
+        "name": "chain_id",
+        "type": "int64",
+        "number": 9,
+        "repeated": false,
+        "optional": false,
+        "comment": "chain_id is the eip155 chain id parsed from the requested block header"
+      },
+      {
+        "name": "block_max_gas",
+        "type": "int64",
+        "number": 10,
+        "repeated": false,
+        "optional": false,
+        "comment": "block_max_gas of the block of the requested transaction"
+      }
+    ],
+    "comment": "QueryTraceTxRequest defines TraceTx request"
+  },
+  {
+    "fullName": "ethermint.evm.v1.QueryTraceTxResponse",
+    "name": "QueryTraceTxResponse",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "data",
+        "type": "bytes",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "data is the response serialized in bytes"
+      }
+    ],
+    "comment": "QueryTraceTxResponse defines TraceTx response"
+  },
+  {
+    "fullName": "ethermint.evm.v1.QueryTxLogsRequest",
+    "name": "QueryTxLogsRequest",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "hash",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "hash is the ethereum transaction hex hash to query the logs for."
+      },
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageRequest",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageRequest",
+        "comment": "pagination defines an optional pagination for the request."
+      }
+    ],
+    "comment": "QueryTxLogsRequest is the request type for the Query/TxLogs RPC method."
+  },
+  {
+    "fullName": "ethermint.evm.v1.QueryTxLogsResponse",
+    "name": "QueryTxLogsResponse",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "logs",
+        "type": "ethermint.evm.v1.Log",
+        "number": 1,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "ethermint.evm.v1.Log",
+        "comment": "logs represents the ethereum logs generated from the given transaction."
+      },
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageResponse",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageResponse",
+        "comment": "pagination defines the pagination in the response."
+      }
+    ],
+    "comment": "QueryTxLogsResponse is the response type for the Query/TxLogs RPC method."
+  },
+  {
+    "fullName": "ethermint.evm.v1.QueryValidatorAccountRequest",
+    "name": "QueryValidatorAccountRequest",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "cons_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "cons_address is the validator cons address to query the account for."
+      }
+    ],
+    "comment": "QueryValidatorAccountRequest is the request type for the\n Query/ValidatorAccount RPC method."
+  },
+  {
+    "fullName": "ethermint.evm.v1.QueryValidatorAccountResponse",
+    "name": "QueryValidatorAccountResponse",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "account_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "account_address is the cosmos address of the account in bech32 format."
+      },
+      {
+        "name": "sequence",
+        "type": "uint64",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "sequence is the account's sequence number."
+      },
+      {
+        "name": "account_number",
+        "type": "uint64",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "account_number is the account number"
+      }
+    ],
+    "comment": "QueryValidatorAccountResponse is the response type for the\n Query/ValidatorAccount RPC method."
+  },
+  {
+    "fullName": "ethermint.evm.v1.State",
+    "name": "State",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "key",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "key is the stored key"
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "value is the stored value for the given key"
+      }
+    ],
+    "comment": "State represents a single Storage key value pair item."
+  },
+  {
+    "fullName": "ethermint.evm.v1.TraceConfig",
+    "name": "TraceConfig",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "tracer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "tracer is a custom javascript tracer"
+      },
+      {
+        "name": "timeout",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "timeout overrides the default timeout of 5 seconds for JavaScript-based tracing\n calls"
+      },
+      {
+        "name": "reexec",
+        "type": "uint64",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "reexec defines the number of blocks the tracer is willing to go back"
+      },
+      {
+        "name": "disable_stack",
+        "type": "bool",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "comment": "disable_stack switches stack capture"
+      },
+      {
+        "name": "disable_storage",
+        "type": "bool",
+        "number": 6,
+        "repeated": false,
+        "optional": false,
+        "comment": "disable_storage switches storage capture"
+      },
+      {
+        "name": "debug",
+        "type": "bool",
+        "number": 8,
+        "repeated": false,
+        "optional": false,
+        "comment": "debug can be used to print output during capture end"
+      },
+      {
+        "name": "limit",
+        "type": "int32",
+        "number": 9,
+        "repeated": false,
+        "optional": false,
+        "comment": "limit defines the maximum length of output, but zero means unlimited"
+      },
+      {
+        "name": "overrides",
+        "type": "ethermint.evm.v1.ChainConfig",
+        "number": 10,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ethermint.evm.v1.ChainConfig",
+        "comment": "overrides can be used to execute a trace using future fork rules"
+      },
+      {
+        "name": "enable_memory",
+        "type": "bool",
+        "number": 11,
+        "repeated": false,
+        "optional": false,
+        "comment": "enable_memory switches memory capture"
+      },
+      {
+        "name": "enable_return_data",
+        "type": "bool",
+        "number": 12,
+        "repeated": false,
+        "optional": false,
+        "comment": "enable_return_data switches the capture of return data"
+      },
+      {
+        "name": "tracer_json_config",
+        "type": "string",
+        "number": 13,
+        "repeated": false,
+        "optional": false,
+        "comment": "tracer_json_config configures the tracer using a JSON string"
+      }
+    ],
+    "comment": "TraceConfig holds extra parameters to trace functions."
+  },
+  {
+    "fullName": "ethermint.evm.v1.TransactionLogs",
+    "name": "TransactionLogs",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "hash",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "hash of the transaction"
+      },
+      {
+        "name": "logs",
+        "type": "ethermint.evm.v1.Log",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "ethermint.evm.v1.Log",
+        "comment": "logs is an array of Logs for the given transaction hash"
+      }
+    ],
+    "comment": "TransactionLogs define the logs generated from a transaction execution\n with a given hash. It it used for import/export data as transactions are not\n persisted on blockchain state after an upgrade."
+  },
+  {
+    "fullName": "ethermint.evm.v1.TxResult",
+    "name": "TxResult",
+    "package": "ethermint.evm.v1",
+    "module": "evm",
+    "fields": [
+      {
+        "name": "contract_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "contract_address contains the ethereum address of the created contract (if\n any). If the state transition is an evm.Call, the contract address will be\n empty."
+      },
+      {
+        "name": "bloom",
+        "type": "bytes",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "bloom represents the bloom filter bytes"
+      },
+      {
+        "name": "tx_logs",
+        "type": "ethermint.evm.v1.TransactionLogs",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ethermint.evm.v1.TransactionLogs",
+        "comment": "tx_logs contains the transaction hash and the proto-compatible ethereum\n logs."
+      },
+      {
+        "name": "ret",
+        "type": "bytes",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "ret defines the bytes from the execution."
+      },
+      {
+        "name": "reverted",
+        "type": "bool",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "comment": "reverted flag is set to true when the call has been reverted"
+      },
+      {
+        "name": "gas_used",
+        "type": "uint64",
+        "number": 6,
+        "repeated": false,
+        "optional": false,
+        "comment": "gas_used notes the amount of gas consumed while execution"
+      }
+    ],
+    "comment": "TxResult stores results of Tx execution."
+  },
+  {
+    "fullName": "ethermint.feemarket.v1.EventBlockGas",
+    "name": "EventBlockGas",
+    "package": "ethermint.feemarket.v1",
+    "module": "feemarket",
+    "fields": [
+      {
+        "name": "height",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "height of the block"
+      },
+      {
+        "name": "amount",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "amount of gas wanted by the block"
+      }
+    ],
+    "comment": "EventBlockGas defines an Ethereum block gas event"
+  },
+  {
+    "fullName": "ethermint.feemarket.v1.EventFeeMarket",
+    "name": "EventFeeMarket",
+    "package": "ethermint.feemarket.v1",
+    "module": "feemarket",
+    "fields": [
+      {
+        "name": "base_fee",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "base_fee for EIP-1559 blocks"
+      }
+    ],
+    "comment": "EventFeeMarket is the event type for the feemarket module"
+  },
+  {
+    "fullName": "ethermint.feemarket.v1.GenesisState",
+    "name": "GenesisState",
+    "package": "ethermint.feemarket.v1",
+    "module": "feemarket",
+    "fields": [
+      {
+        "name": "params",
+        "type": "ethermint.feemarket.v1.Params",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ethermint.feemarket.v1.Params",
+        "comment": "params defines all the parameters of the feemarket module."
+      },
+      {
+        "name": "block_gas",
+        "type": "uint64",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "block_gas is the amount of gas wanted on the last block before the upgrade.\n Zero by default."
+      }
+    ],
+    "comment": "GenesisState defines the feemarket module's genesis state."
+  },
+  {
+    "fullName": "ethermint.feemarket.v1.MsgUpdateParams",
+    "name": "MsgUpdateParams",
+    "package": "ethermint.feemarket.v1",
+    "module": "feemarket",
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "authority is the address of the governance account."
+      },
+      {
+        "name": "params",
+        "type": "ethermint.feemarket.v1.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ethermint.feemarket.v1.Params",
+        "comment": "params defines the x/feemarket parameters to update.\n NOTE: All parameters must be supplied."
+      }
+    ],
+    "comment": "MsgUpdateParams defines a Msg for updating the x/feemarket module parameters."
+  },
+  {
+    "fullName": "ethermint.feemarket.v1.MsgUpdateParamsResponse",
+    "name": "MsgUpdateParamsResponse",
+    "package": "ethermint.feemarket.v1",
+    "module": "feemarket",
+    "fields": [],
+    "comment": "MsgUpdateParamsResponse defines the response structure for executing a\n MsgUpdateParams message."
+  },
+  {
+    "fullName": "ethermint.feemarket.v1.Params",
+    "name": "Params",
+    "package": "ethermint.feemarket.v1",
+    "module": "feemarket",
+    "fields": [
+      {
+        "name": "no_base_fee",
+        "type": "bool",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "no_base_fee forces the EIP-1559 base fee to 0 (needed for 0 price calls)"
+      },
+      {
+        "name": "base_fee_change_denominator",
+        "type": "uint32",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "base_fee_change_denominator bounds the amount the base fee can change\n between blocks."
+      },
+      {
+        "name": "elasticity_multiplier",
+        "type": "uint32",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "elasticity_multiplier bounds the maximum gas limit an EIP-1559 block may\n have."
+      },
+      {
+        "name": "enable_height",
+        "type": "int64",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "comment": "enable_height defines at which block height the base fee calculation is enabled."
+      },
+      {
+        "name": "base_fee",
+        "type": "string",
+        "number": 6,
+        "repeated": false,
+        "optional": false,
+        "comment": "base_fee for EIP-1559 blocks."
+      },
+      {
+        "name": "min_gas_price",
+        "type": "string",
+        "number": 7,
+        "repeated": false,
+        "optional": false,
+        "comment": "min_gas_price defines the minimum gas price value for cosmos and eth transactions"
+      },
+      {
+        "name": "min_gas_multiplier",
+        "type": "string",
+        "number": 8,
+        "repeated": false,
+        "optional": false,
+        "comment": "min_gas_multiplier bounds the minimum gas used to be charged\n to senders based on gas limit"
+      }
+    ],
+    "comment": "Params defines the feemarket module parameters"
+  },
+  {
+    "fullName": "ethermint.feemarket.v1.QueryBaseFeeRequest",
+    "name": "QueryBaseFeeRequest",
+    "package": "ethermint.feemarket.v1",
+    "module": "feemarket",
+    "fields": [],
+    "comment": "QueryBaseFeeRequest defines the request type for querying the EIP1559 base\n fee."
+  },
+  {
+    "fullName": "ethermint.feemarket.v1.QueryBaseFeeResponse",
+    "name": "QueryBaseFeeResponse",
+    "package": "ethermint.feemarket.v1",
+    "module": "feemarket",
+    "fields": [
+      {
+        "name": "base_fee",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "base_fee is the EIP1559 base fee"
+      }
+    ],
+    "comment": "QueryBaseFeeResponse returns the EIP1559 base fee."
+  },
+  {
+    "fullName": "ethermint.feemarket.v1.QueryBlockGasRequest",
+    "name": "QueryBlockGasRequest",
+    "package": "ethermint.feemarket.v1",
+    "module": "feemarket",
+    "fields": [],
+    "comment": "QueryBlockGasRequest defines the request type for querying the EIP1559 base\n fee."
+  },
+  {
+    "fullName": "ethermint.feemarket.v1.QueryBlockGasResponse",
+    "name": "QueryBlockGasResponse",
+    "package": "ethermint.feemarket.v1",
+    "module": "feemarket",
+    "fields": [
+      {
+        "name": "gas",
+        "type": "int64",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "gas is the returned block gas"
+      }
+    ],
+    "comment": "QueryBlockGasResponse returns block gas used for a given height."
+  },
+  {
+    "fullName": "ethermint.feemarket.v1.QueryParamsRequest",
+    "name": "QueryParamsRequest",
+    "package": "ethermint.feemarket.v1",
+    "module": "feemarket",
+    "fields": [],
+    "comment": "QueryParamsRequest defines the request type for querying x/evm parameters."
+  },
+  {
+    "fullName": "ethermint.feemarket.v1.QueryParamsResponse",
+    "name": "QueryParamsResponse",
+    "package": "ethermint.feemarket.v1",
+    "module": "feemarket",
+    "fields": [
+      {
+        "name": "params",
+        "type": "ethermint.feemarket.v1.Params",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "ethermint.feemarket.v1.Params",
+        "comment": "params define the evm module parameters."
+      }
+    ],
+    "comment": "QueryParamsResponse defines the response type for querying x/evm parameters."
+  },
+  {
+    "fullName": "ethermint.types.v1.ExtensionOptionDynamicFeeTx",
+    "name": "ExtensionOptionDynamicFeeTx",
+    "package": "ethermint.types.v1",
+    "module": "types",
+    "fields": [
+      {
+        "name": "max_priority_price",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "max_priority_price is the same as `max_priority_fee_per_gas` in eip-1559 spec"
+      }
+    ],
+    "comment": "ExtensionOptionDynamicFeeTx is an extension option that specifies the maxPrioPrice for cosmos tx"
+  },
+  {
+    "fullName": "ethermint.types.v1.ExtensionOptionsWeb3Tx",
+    "name": "ExtensionOptionsWeb3Tx",
+    "package": "ethermint.types.v1",
+    "module": "types",
+    "fields": [
+      {
+        "name": "typed_data_chain_id",
+        "type": "uint64",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "typed_data_chain_id is used only in EIP712 Domain and should match\n Ethereum network ID in a Web3 provider (e.g. Metamask)."
+      },
+      {
+        "name": "fee_payer",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "fee_payer is an account address for the fee payer. It will be validated\n during EIP712 signature checking."
+      },
+      {
+        "name": "fee_payer_sig",
+        "type": "bytes",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "fee_payer_sig is a signature data from the fee paying account,\n allows to perform fee delegation when using EIP712 Domain."
+      }
+    ],
+    "comment": "ExtensionOptionsWeb3Tx is an extension option that specifies the typed chain id,\n the fee payer as well as its signature data."
+  },
+  {
+    "fullName": "ethermint.types.v1.TxResult",
+    "name": "TxResult",
+    "package": "ethermint.types.v1",
+    "module": "types",
+    "fields": [
+      {
+        "name": "height",
+        "type": "int64",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "height of the blockchain"
+      },
+      {
+        "name": "tx_index",
+        "type": "uint32",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "tx_index of the cosmos transaction"
+      },
+      {
+        "name": "msg_index",
+        "type": "uint32",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "msg_index in a batch transaction"
+      },
+      {
+        "name": "eth_tx_index",
+        "type": "int32",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "eth_tx_index is the index in the list of valid eth tx in the block,\n aka. the transaction list returned by eth_getBlock api."
+      },
+      {
+        "name": "failed",
+        "type": "bool",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "comment": "failed is true if the eth transaction did not go succeed"
+      },
+      {
+        "name": "gas_used",
+        "type": "uint64",
+        "number": 6,
+        "repeated": false,
+        "optional": false,
+        "comment": "gas_used by the transaction. If it exceeds the block gas limit,\n it's set to gas limit, which is what's actually deducted by ante handler."
+      },
+      {
+        "name": "cumulative_gas_used",
+        "type": "uint64",
+        "number": 7,
+        "repeated": false,
+        "optional": false,
+        "comment": "cumulative_gas_used specifies the cumulated amount of gas used for all\n processed messages within the current batch transaction."
+      }
+    ],
+    "comment": "TxResult is the value stored in eth tx indexer"
+  },
+  {
+    "fullName": "evmos.epochs.v1.EpochInfo",
+    "name": "EpochInfo",
+    "package": "evmos.epochs.v1",
+    "module": "epochs",
+    "fields": [
+      {
+        "name": "identifier",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "identifier of the epoch"
+      },
+      {
+        "name": "start_time",
+        "type": "google.protobuf.Timestamp",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Timestamp",
+        "comment": "start_time of the epoch"
+      },
+      {
+        "name": "duration",
+        "type": "google.protobuf.Duration",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Duration",
+        "comment": "duration of the epoch"
+      },
+      {
+        "name": "current_epoch",
+        "type": "int64",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "current_epoch is the integer identifier of the epoch"
+      },
+      {
+        "name": "current_epoch_start_time",
+        "type": "google.protobuf.Timestamp",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Timestamp",
+        "comment": "current_epoch_start_time defines the timestamp of the start of the epoch"
+      },
+      {
+        "name": "epoch_counting_started",
+        "type": "bool",
+        "number": 6,
+        "repeated": false,
+        "optional": false,
+        "comment": "epoch_counting_started reflects if the counting for the epoch has started"
+      },
+      {
+        "name": "current_epoch_start_height",
+        "type": "int64",
+        "number": 7,
+        "repeated": false,
+        "optional": false,
+        "comment": "current_epoch_start_height of the epoch"
+      }
+    ],
+    "comment": "EpochInfo defines the message interface containing the relevant informations about\n an epoch."
+  },
+  {
+    "fullName": "evmos.epochs.v1.GenesisState",
+    "name": "GenesisState",
+    "package": "evmos.epochs.v1",
+    "module": "epochs",
+    "fields": [
+      {
+        "name": "epochs",
+        "type": "evmos.epochs.v1.EpochInfo",
+        "number": 1,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "evmos.epochs.v1.EpochInfo",
+        "comment": "epochs is a slice of EpochInfo that defines the epochs in the genesis state"
+      }
+    ],
+    "comment": "GenesisState defines the epochs module's genesis state."
+  },
+  {
+    "fullName": "evmos.epochs.v1.QueryCurrentEpochRequest",
+    "name": "QueryCurrentEpochRequest",
+    "package": "evmos.epochs.v1",
+    "module": "epochs",
+    "fields": [
+      {
+        "name": "identifier",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "identifier of the current epoch"
+      }
+    ],
+    "comment": "QueryCurrentEpochRequest is the request type for the Query/EpochInfos RPC\n method."
+  },
+  {
+    "fullName": "evmos.epochs.v1.QueryCurrentEpochResponse",
+    "name": "QueryCurrentEpochResponse",
+    "package": "evmos.epochs.v1",
+    "module": "epochs",
+    "fields": [
+      {
+        "name": "current_epoch",
+        "type": "int64",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "current_epoch is the number of the current epoch"
+      }
+    ],
+    "comment": "QueryCurrentEpochResponse is the response type for the Query/EpochInfos RPC\n method."
+  },
+  {
+    "fullName": "evmos.epochs.v1.QueryEpochsInfoRequest",
+    "name": "QueryEpochsInfoRequest",
+    "package": "evmos.epochs.v1",
+    "module": "epochs",
+    "fields": [
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageRequest",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageRequest",
+        "comment": "pagination defines an optional pagination for the request."
+      }
+    ],
+    "comment": "QueryEpochsInfoRequest is the request type for the Query/EpochInfos RPC\n method."
+  },
+  {
+    "fullName": "evmos.epochs.v1.QueryEpochsInfoResponse",
+    "name": "QueryEpochsInfoResponse",
+    "package": "evmos.epochs.v1",
+    "module": "epochs",
+    "fields": [
+      {
+        "name": "epochs",
+        "type": "evmos.epochs.v1.EpochInfo",
+        "number": 1,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "evmos.epochs.v1.EpochInfo",
+        "comment": "epochs is a slice of all EpochInfos"
+      },
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageResponse",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageResponse",
+        "comment": "pagination defines an optional pagination for the request."
+      }
+    ],
+    "comment": "QueryEpochsInfoResponse is the response type for the Query/EpochInfos RPC\n method."
+  },
+  {
+    "fullName": "evmos.erc20.v1.EventConvertCoin",
+    "name": "EventConvertCoin",
+    "package": "evmos.erc20.v1",
+    "module": "erc20",
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "sender is the sender's address."
+      },
+      {
+        "name": "receiver",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "receiver is the receiver's address."
+      },
+      {
+        "name": "amount",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "amount is the amount of coins to be converted."
+      },
+      {
+        "name": "denom",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "denom is the coin's denomination."
+      },
+      {
+        "name": "erc20_address",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "comment": "erc20_address is the ERC20 contract address."
+      }
+    ],
+    "comment": "EventConvertCoin is an event emitted when a coin is converted."
+  },
+  {
+    "fullName": "evmos.erc20.v1.EventConvertERC20",
+    "name": "EventConvertERC20",
+    "package": "evmos.erc20.v1",
+    "module": "erc20",
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "sender is the sender's address."
+      },
+      {
+        "name": "receiver",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "receiver is the receiver's address."
+      },
+      {
+        "name": "amount",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "amount is the amount of coins to be converted."
+      },
+      {
+        "name": "denom",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "denom is the coin's denomination."
+      },
+      {
+        "name": "contract_address",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "comment": "contract_address of an ERC20 token contract, that is registered in a token pair"
+      }
+    ],
+    "comment": "EventConvertERC20 is an event emitted when an ERC20 is converted."
+  },
+  {
+    "fullName": "evmos.erc20.v1.EventRegisterPair",
+    "name": "EventRegisterPair",
+    "package": "evmos.erc20.v1",
+    "module": "erc20",
+    "fields": [
+      {
+        "name": "denom",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "denom is the coin's denomination."
+      },
+      {
+        "name": "erc20_address",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "erc20_address is the ERC20 contract address."
+      }
+    ],
+    "comment": "EventRegisterPair is an event emitted when a coin is registered."
+  },
+  {
+    "fullName": "evmos.erc20.v1.EventToggleTokenConversion",
+    "name": "EventToggleTokenConversion",
+    "package": "evmos.erc20.v1",
+    "module": "erc20",
+    "fields": [
+      {
+        "name": "denom",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "denom is the coin's denomination."
+      },
+      {
+        "name": "erc20_address",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "erc20_address is the ERC20 contract address."
+      }
+    ],
+    "comment": "EventToggleTokenConversion is an event emitted when a coin's token conversion is toggled."
+  },
+  {
+    "fullName": "evmos.erc20.v1.GenesisState",
+    "name": "GenesisState",
+    "package": "evmos.erc20.v1",
+    "module": "erc20",
+    "fields": [
+      {
+        "name": "params",
+        "type": "evmos.erc20.v1.Params",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "evmos.erc20.v1.Params",
+        "comment": "params are the erc20 module parameters at genesis"
+      },
+      {
+        "name": "token_pairs",
+        "type": "evmos.erc20.v1.TokenPair",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "evmos.erc20.v1.TokenPair",
+        "comment": "token_pairs is a slice of the registered token pairs at genesis"
+      }
+    ],
+    "comment": "GenesisState defines the module's genesis state."
+  },
+  {
+    "fullName": "evmos.erc20.v1.MsgConvertCoin",
+    "name": "MsgConvertCoin",
+    "package": "evmos.erc20.v1",
+    "module": "erc20",
+    "fields": [
+      {
+        "name": "coin",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin",
+        "comment": "coin is a Cosmos coin whose denomination is registered in a token pair. The coin\n amount defines the amount of coins to convert."
+      },
+      {
+        "name": "receiver",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "receiver is the hex address to receive ERC20 token"
+      },
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "sender is the cosmos bech32 address from the owner of the given Cosmos coins"
+      }
+    ],
+    "comment": "MsgConvertCoin defines a Msg to convert a native Cosmos coin to a ERC20 token"
+  },
+  {
+    "fullName": "evmos.erc20.v1.MsgConvertCoinResponse",
+    "name": "MsgConvertCoinResponse",
+    "package": "evmos.erc20.v1",
+    "module": "erc20",
+    "fields": [],
+    "comment": "MsgConvertCoinResponse returns no fields"
+  },
+  {
+    "fullName": "evmos.erc20.v1.MsgConvertERC20",
+    "name": "MsgConvertERC20",
+    "package": "evmos.erc20.v1",
+    "module": "erc20",
+    "fields": [
+      {
+        "name": "contract_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "contract_address of an ERC20 token contract, that is registered in a token pair"
+      },
+      {
+        "name": "amount",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "amount of ERC20 tokens to convert"
+      },
+      {
+        "name": "receiver",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "receiver is the bech32 address to receive native Cosmos coins"
+      },
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "sender is the hex address from the owner of the given ERC20 tokens"
+      }
+    ],
+    "comment": "MsgConvertERC20 defines a Msg to convert a ERC20 token to a native Cosmos\n coin."
+  },
+  {
+    "fullName": "evmos.erc20.v1.MsgConvertERC20Response",
+    "name": "MsgConvertERC20Response",
+    "package": "evmos.erc20.v1",
+    "module": "erc20",
+    "fields": [],
+    "comment": "MsgConvertERC20Response returns no fields"
+  },
+  {
+    "fullName": "evmos.erc20.v1.MsgRegisterERC20",
+    "name": "MsgRegisterERC20",
+    "package": "evmos.erc20.v1",
+    "module": "erc20",
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "authority is the address of the governance account."
+      },
+      {
+        "name": "erc20addresses",
+        "type": "string",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "comment": "erc20addresses is a slice of ERC20 token contract hex addresses"
+      }
+    ],
+    "comment": "MsgRegisterERC20 is the Msg/RegisterERC20 request type for registering\n an Erc20 contract token pair."
+  },
+  {
+    "fullName": "evmos.erc20.v1.MsgRegisterERC20Response",
+    "name": "MsgRegisterERC20Response",
+    "package": "evmos.erc20.v1",
+    "module": "erc20",
+    "fields": [],
+    "comment": "MsgRegisterERC20Response defines the response structure for executing a\n MsgRegisterERC20 message."
+  },
+  {
+    "fullName": "evmos.erc20.v1.MsgToggleConversion",
+    "name": "MsgToggleConversion",
+    "package": "evmos.erc20.v1",
+    "module": "erc20",
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "authority is the address of the governance account."
+      },
+      {
+        "name": "token",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "token identifier can be either the hex contract address of the ERC20 or the\n Cosmos base denomination"
+      }
+    ],
+    "comment": "MsgToggleConversion is the Msg/MsgToggleConversion request type for toggling\n an Erc20 contract conversion capability."
+  },
+  {
+    "fullName": "evmos.erc20.v1.MsgToggleConversionResponse",
+    "name": "MsgToggleConversionResponse",
+    "package": "evmos.erc20.v1",
+    "module": "erc20",
+    "fields": [],
+    "comment": "MsgToggleConversionResponse defines the response structure for executing a\n ToggleConversion message."
+  },
+  {
+    "fullName": "evmos.erc20.v1.MsgUpdateParams",
+    "name": "MsgUpdateParams",
+    "package": "evmos.erc20.v1",
+    "module": "erc20",
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "authority is the address of the governance account."
+      },
+      {
+        "name": "params",
+        "type": "evmos.erc20.v1.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "evmos.erc20.v1.Params",
+        "comment": "params defines the x/evm parameters to update.\n NOTE: All parameters must be supplied."
+      }
+    ],
+    "comment": "MsgUpdateParams is the Msg/UpdateParams request type for Erc20 parameters.\n Since: cosmos-sdk 0.47"
+  },
+  {
+    "fullName": "evmos.erc20.v1.MsgUpdateParamsResponse",
+    "name": "MsgUpdateParamsResponse",
+    "package": "evmos.erc20.v1",
+    "module": "erc20",
+    "fields": [],
+    "comment": "MsgUpdateParamsResponse defines the response structure for executing a\n MsgUpdateParams message.\n Since: cosmos-sdk 0.47"
+  },
+  {
+    "fullName": "evmos.erc20.v1.Params",
+    "name": "Params",
+    "package": "evmos.erc20.v1",
+    "module": "erc20",
+    "fields": [
+      {
+        "name": "enable_erc20",
+        "type": "bool",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "enable_erc20 is the parameter to enable the conversion of Cosmos coins <--> ERC20 tokens."
+      },
+      {
+        "name": "native_precompiles",
+        "type": "string",
+        "number": 3,
+        "repeated": true,
+        "optional": false,
+        "comment": "native_precompiles defines the slice of hex addresses of the\n active precompiles that are used to interact with native staking coins as ERC20s"
+      },
+      {
+        "name": "dynamic_precompiles",
+        "type": "string",
+        "number": 4,
+        "repeated": true,
+        "optional": false,
+        "comment": "dynamic_precompiles defines the slice of hex addresses of the\n active precompiles that are used to interact with Bank coins as ERC20s"
+      }
+    ],
+    "comment": "Params defines the erc20 module params"
+  },
+  {
+    "fullName": "evmos.erc20.v1.ProposalMetadata",
+    "name": "ProposalMetadata",
+    "package": "evmos.erc20.v1",
+    "module": "erc20",
+    "fields": [
+      {
+        "name": "metadata",
+        "type": "cosmos.bank.v1beta1.Metadata",
+        "number": 1,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.bank.v1beta1.Metadata",
+        "comment": "metadata slice of the native Cosmos coins"
+      }
+    ],
+    "comment": "Deprecated: ProposalMetadata is used to parse a slice of denom metadata and generate\n the RegisterCoinProposal content. We're keeping it to remove the existing proposals from\n store. After that, remove this message."
+  },
+  {
+    "fullName": "evmos.erc20.v1.QueryParamsRequest",
+    "name": "QueryParamsRequest",
+    "package": "evmos.erc20.v1",
+    "module": "erc20",
+    "fields": [],
+    "comment": "QueryParamsRequest is the request type for the Query/Params RPC method."
+  },
+  {
+    "fullName": "evmos.erc20.v1.QueryParamsResponse",
+    "name": "QueryParamsResponse",
+    "package": "evmos.erc20.v1",
+    "module": "erc20",
+    "fields": [
+      {
+        "name": "params",
+        "type": "evmos.erc20.v1.Params",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "evmos.erc20.v1.Params",
+        "comment": "params are the erc20 module parameters"
+      }
+    ],
+    "comment": "QueryParamsResponse is the response type for the Query/Params RPC\n method."
+  },
+  {
+    "fullName": "evmos.erc20.v1.QueryTokenPairRequest",
+    "name": "QueryTokenPairRequest",
+    "package": "evmos.erc20.v1",
+    "module": "erc20",
+    "fields": [
+      {
+        "name": "token",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "token identifier can be either the hex contract address of the ERC20 or the\n Cosmos base denomination"
+      }
+    ],
+    "comment": "QueryTokenPairRequest is the request type for the Query/TokenPair RPC method."
+  },
+  {
+    "fullName": "evmos.erc20.v1.QueryTokenPairResponse",
+    "name": "QueryTokenPairResponse",
+    "package": "evmos.erc20.v1",
+    "module": "erc20",
+    "fields": [
+      {
+        "name": "token_pair",
+        "type": "evmos.erc20.v1.TokenPair",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "evmos.erc20.v1.TokenPair",
+        "comment": "token_pairs returns the info about a registered token pair for the erc20 module"
+      }
+    ],
+    "comment": "QueryTokenPairResponse is the response type for the Query/TokenPair RPC\n method."
+  },
+  {
+    "fullName": "evmos.erc20.v1.QueryTokenPairsRequest",
+    "name": "QueryTokenPairsRequest",
+    "package": "evmos.erc20.v1",
+    "module": "erc20",
+    "fields": [
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageRequest",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageRequest",
+        "comment": "pagination defines an optional pagination for the request."
+      }
+    ],
+    "comment": "QueryTokenPairsRequest is the request type for the Query/TokenPairs RPC\n method."
+  },
+  {
+    "fullName": "evmos.erc20.v1.QueryTokenPairsResponse",
+    "name": "QueryTokenPairsResponse",
+    "package": "evmos.erc20.v1",
+    "module": "erc20",
+    "fields": [
+      {
+        "name": "token_pairs",
+        "type": "evmos.erc20.v1.TokenPair",
+        "number": 1,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "evmos.erc20.v1.TokenPair",
+        "comment": "token_pairs is a slice of registered token pairs for the erc20 module"
+      },
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageResponse",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageResponse",
+        "comment": "pagination defines the pagination in the response."
+      }
+    ],
+    "comment": "QueryTokenPairsResponse is the response type for the Query/TokenPairs RPC\n method."
+  },
+  {
+    "fullName": "evmos.erc20.v1.RegisterCoinProposal",
+    "name": "RegisterCoinProposal",
+    "package": "evmos.erc20.v1",
+    "module": "erc20",
+    "fields": [
+      {
+        "name": "title",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "title of the proposal"
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "description of the proposal"
+      },
+      {
+        "name": "metadata",
+        "type": "cosmos.bank.v1beta1.Metadata",
+        "number": 3,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.bank.v1beta1.Metadata",
+        "comment": "metadata slice of the native Cosmos coins"
+      }
+    ],
+    "comment": "Deprecated: RegisterCoinProposal is a gov Content type to register a token pair for a\n native Cosmos coin. We're keeping it to remove the existing proposals from\n store. After that, remove this message.\n NOTE: Keep this message for backwards compatibility on proposals query"
+  },
+  {
+    "fullName": "evmos.erc20.v1.RegisterERC20Proposal",
+    "name": "RegisterERC20Proposal",
+    "package": "evmos.erc20.v1",
+    "module": "erc20",
+    "fields": [
+      {
+        "name": "title",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "title of the proposal"
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "description of the proposal"
+      },
+      {
+        "name": "erc20addresses",
+        "type": "string",
+        "number": 3,
+        "repeated": true,
+        "optional": false,
+        "comment": "erc20addresses is a slice of  ERC20 token contract addresses"
+      }
+    ],
+    "comment": "Deprecated: RegisterERC20Proposal is a gov Content type to register a token pair for an\n ERC20 token.\n NOTE: Keep this message for backwards compatibility on proposals query"
+  },
+  {
+    "fullName": "evmos.erc20.v1.ToggleTokenConversionProposal",
+    "name": "ToggleTokenConversionProposal",
+    "package": "evmos.erc20.v1",
+    "module": "erc20",
+    "fields": [
+      {
+        "name": "title",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "title of the proposal"
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "description of the proposal"
+      },
+      {
+        "name": "token",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "token identifier can be either the hex contract address of the ERC20 or the\n Cosmos base denomination"
+      }
+    ],
+    "comment": "Deprecated: ToggleTokenConversionProposal is a gov Content type to toggle the conversion\n of a token pair.\n NOTE: Keep this message for backwards compatibility on proposals query"
+  },
+  {
+    "fullName": "evmos.erc20.v1.TokenPair",
+    "name": "TokenPair",
+    "package": "evmos.erc20.v1",
+    "module": "erc20",
+    "fields": [
+      {
+        "name": "erc20_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "erc20_address is the hex address of ERC20 contract token"
+      },
+      {
+        "name": "denom",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "denom defines the cosmos base denomination to be mapped to"
+      },
+      {
+        "name": "enabled",
+        "type": "bool",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "enabled defines the token mapping enable status"
+      },
+      {
+        "name": "contract_owner",
+        "type": "evmos.erc20.v1.Owner",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "evmos.erc20.v1.Owner",
+        "comment": "contract_owner is the an ENUM specifying the type of ERC20 owner (0 invalid, 1 ModuleAccount, 2 external address)"
+      }
+    ],
+    "comment": "TokenPair defines an instance that records a pairing consisting of a native\n Cosmos Coin and an ERC20 token address."
+  },
+  {
+    "fullName": "evmos.inflation.v1.ExponentialCalculation",
+    "name": "ExponentialCalculation",
+    "package": "evmos.inflation.v1",
+    "module": "inflation",
+    "fields": [
+      {
+        "name": "a",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "a defines the initial value"
+      },
+      {
+        "name": "r",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "r defines the reduction factor"
+      },
+      {
+        "name": "c",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "c defines the parameter for long term inflation"
+      },
+      {
+        "name": "bonding_target",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "bonding_target"
+      },
+      {
+        "name": "max_variance",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "comment": "max_variance"
+      }
+    ],
+    "comment": "ExponentialCalculation holds factors to calculate exponential inflation on\n each period. Calculation reference:\n periodProvision = exponentialDecay       *  bondingIncentive\n f(x)            = (a * (1 - r) ^ x + c)  *  (1 + max_variance - bondedRatio *\n (max_variance / bonding_target))"
+  },
+  {
+    "fullName": "evmos.inflation.v1.GenesisState",
+    "name": "GenesisState",
+    "package": "evmos.inflation.v1",
+    "module": "inflation",
+    "fields": [
+      {
+        "name": "params",
+        "type": "evmos.inflation.v1.Params",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "evmos.inflation.v1.Params",
+        "comment": "params defines all the parameters of the module."
+      },
+      {
+        "name": "period",
+        "type": "uint64",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "period is the amount of past periods, based on the epochs per period param"
+      },
+      {
+        "name": "epoch_identifier",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "epoch_identifier for inflation"
+      },
+      {
+        "name": "epochs_per_period",
+        "type": "int64",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "epochs_per_period is the number of epochs after which inflation is recalculated"
+      },
+      {
+        "name": "skipped_epochs",
+        "type": "uint64",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "comment": "skipped_epochs is the number of epochs that have passed while inflation is disabled"
+      }
+    ],
+    "comment": "GenesisState defines the inflation module's genesis state."
+  },
+  {
+    "fullName": "evmos.inflation.v1.InflationDistribution",
+    "name": "InflationDistribution",
+    "package": "evmos.inflation.v1",
+    "module": "inflation",
+    "fields": [
+      {
+        "name": "staking_rewards",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "staking_rewards defines the proportion of the minted minted_denom that is\n to be allocated as staking rewards"
+      },
+      {
+        "name": "usage_incentives",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "Deprecated: usage_incentives defines the proportion of the minted minted_denom that is\n to be allocated to the incentives module address"
+      },
+      {
+        "name": "community_pool",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "community_pool defines the proportion of the minted minted_denom that is to\n be allocated to the community pool"
+      }
+    ],
+    "comment": "InflationDistribution defines the distribution in which inflation is\n allocated through minting on each epoch (staking, incentives, community). It\n excludes the team vesting distribution, as this is minted once at genesis.\n The initial InflationDistribution can be calculated from the Evmos Token\n Model like this:\n mintDistribution1 = distribution1 / (1 - teamVestingDistribution)\n 0.5333333         = 40%           / (1 - 25%)"
+  },
+  {
+    "fullName": "evmos.inflation.v1.MsgUpdateParams",
+    "name": "MsgUpdateParams",
+    "package": "evmos.inflation.v1",
+    "module": "inflation",
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "authority is the address of the governance account."
+      },
+      {
+        "name": "params",
+        "type": "evmos.inflation.v1.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "evmos.inflation.v1.Params",
+        "comment": "params defines the x/inflation parameters to update.\n NOTE: All parameters must be supplied."
+      }
+    ],
+    "comment": "MsgUpdateParams defines a Msg for updating the x/inflation module parameters."
+  },
+  {
+    "fullName": "evmos.inflation.v1.MsgUpdateParamsResponse",
+    "name": "MsgUpdateParamsResponse",
+    "package": "evmos.inflation.v1",
+    "module": "inflation",
+    "fields": [],
+    "comment": "MsgUpdateParamsResponse defines the response structure for executing a\n MsgUpdateParams message."
+  },
+  {
+    "fullName": "evmos.inflation.v1.Params",
+    "name": "Params",
+    "package": "evmos.inflation.v1",
+    "module": "inflation",
+    "fields": [
+      {
+        "name": "mint_denom",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "mint_denom specifies the type of coin to mint"
+      },
+      {
+        "name": "exponential_calculation",
+        "type": "evmos.inflation.v1.ExponentialCalculation",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "evmos.inflation.v1.ExponentialCalculation",
+        "comment": "exponential_calculation takes in the variables to calculate exponential inflation"
+      },
+      {
+        "name": "inflation_distribution",
+        "type": "evmos.inflation.v1.InflationDistribution",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "evmos.inflation.v1.InflationDistribution",
+        "comment": "inflation_distribution of the minted denom"
+      },
+      {
+        "name": "enable_inflation",
+        "type": "bool",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "enable_inflation is the parameter that enables inflation and halts increasing the skipped_epochs"
+      }
+    ],
+    "comment": "Params holds parameters for the inflation module."
+  },
+  {
+    "fullName": "evmos.inflation.v1.QueryCirculatingSupplyRequest",
+    "name": "QueryCirculatingSupplyRequest",
+    "package": "evmos.inflation.v1",
+    "module": "inflation",
+    "fields": [],
+    "comment": "QueryCirculatingSupplyRequest is the request type for the\n Query/CirculatingSupply RPC method."
+  },
+  {
+    "fullName": "evmos.inflation.v1.QueryCirculatingSupplyResponse",
+    "name": "QueryCirculatingSupplyResponse",
+    "package": "evmos.inflation.v1",
+    "module": "inflation",
+    "fields": [
+      {
+        "name": "circulating_supply",
+        "type": "cosmos.base.v1beta1.DecCoin",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.DecCoin",
+        "comment": "circulating_supply is the total amount of coins in circulation"
+      }
+    ],
+    "comment": "QueryCirculatingSupplyResponse is the response type for the\n Query/CirculatingSupply RPC method."
+  },
+  {
+    "fullName": "evmos.inflation.v1.QueryEpochMintProvisionRequest",
+    "name": "QueryEpochMintProvisionRequest",
+    "package": "evmos.inflation.v1",
+    "module": "inflation",
+    "fields": [],
+    "comment": "QueryEpochMintProvisionRequest is the request type for the\n Query/EpochMintProvision RPC method."
+  },
+  {
+    "fullName": "evmos.inflation.v1.QueryEpochMintProvisionResponse",
+    "name": "QueryEpochMintProvisionResponse",
+    "package": "evmos.inflation.v1",
+    "module": "inflation",
+    "fields": [
+      {
+        "name": "epoch_mint_provision",
+        "type": "cosmos.base.v1beta1.DecCoin",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.DecCoin",
+        "comment": "epoch_mint_provision is the current minting per epoch provision value."
+      }
+    ],
+    "comment": "QueryEpochMintProvisionResponse is the response type for the\n Query/EpochMintProvision RPC method."
+  },
+  {
+    "fullName": "evmos.inflation.v1.QueryInflationRateRequest",
+    "name": "QueryInflationRateRequest",
+    "package": "evmos.inflation.v1",
+    "module": "inflation",
+    "fields": [],
+    "comment": "QueryInflationRateRequest is the request type for the Query/InflationRate RPC\n method."
+  },
+  {
+    "fullName": "evmos.inflation.v1.QueryInflationRateResponse",
+    "name": "QueryInflationRateResponse",
+    "package": "evmos.inflation.v1",
+    "module": "inflation",
+    "fields": [
+      {
+        "name": "inflation_rate",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "inflation_rate by which the total supply increases within one period"
+      }
+    ],
+    "comment": "QueryInflationRateResponse is the response type for the Query/InflationRate\n RPC method."
+  },
+  {
+    "fullName": "evmos.inflation.v1.QueryParamsRequest",
+    "name": "QueryParamsRequest",
+    "package": "evmos.inflation.v1",
+    "module": "inflation",
+    "fields": [],
+    "comment": "QueryParamsRequest is the request type for the Query/Params RPC method."
+  },
+  {
+    "fullName": "evmos.inflation.v1.QueryParamsResponse",
+    "name": "QueryParamsResponse",
+    "package": "evmos.inflation.v1",
+    "module": "inflation",
+    "fields": [
+      {
+        "name": "params",
+        "type": "evmos.inflation.v1.Params",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "evmos.inflation.v1.Params",
+        "comment": "params defines the parameters of the module."
+      }
+    ],
+    "comment": "QueryParamsResponse is the response type for the Query/Params RPC method."
+  },
+  {
+    "fullName": "evmos.inflation.v1.QueryPeriodRequest",
+    "name": "QueryPeriodRequest",
+    "package": "evmos.inflation.v1",
+    "module": "inflation",
+    "fields": [],
+    "comment": "QueryPeriodRequest is the request type for the Query/Period RPC method."
+  },
+  {
+    "fullName": "evmos.inflation.v1.QueryPeriodResponse",
+    "name": "QueryPeriodResponse",
+    "package": "evmos.inflation.v1",
+    "module": "inflation",
+    "fields": [
+      {
+        "name": "period",
+        "type": "uint64",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "period is the current minting per epoch provision value."
+      }
+    ],
+    "comment": "QueryPeriodResponse is the response type for the Query/Period RPC method."
+  },
+  {
+    "fullName": "evmos.inflation.v1.QuerySkippedEpochsRequest",
+    "name": "QuerySkippedEpochsRequest",
+    "package": "evmos.inflation.v1",
+    "module": "inflation",
+    "fields": [],
+    "comment": "QuerySkippedEpochsRequest is the request type for the Query/SkippedEpochs RPC\n method."
+  },
+  {
+    "fullName": "evmos.inflation.v1.QuerySkippedEpochsResponse",
+    "name": "QuerySkippedEpochsResponse",
+    "package": "evmos.inflation.v1",
+    "module": "inflation",
+    "fields": [
+      {
+        "name": "skipped_epochs",
+        "type": "uint64",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "skipped_epochs is the number of epochs that the inflation module has been disabled."
+      }
+    ],
+    "comment": "QuerySkippedEpochsResponse is the response type for the Query/SkippedEpochs\n RPC method."
+  },
+  {
+    "fullName": "evmos.vesting.v1.ClawbackVestingAccount",
+    "name": "ClawbackVestingAccount",
+    "package": "evmos.vesting.v1",
+    "module": "vesting",
+    "fields": [
+      {
+        "name": "base_vesting_account",
+        "type": "cosmos.vesting.v1beta1.BaseVestingAccount",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.vesting.v1beta1.BaseVestingAccount",
+        "comment": "base_vesting_account implements the VestingAccount interface. It contains\n all the necessary fields needed for any vesting account implementation"
+      },
+      {
+        "name": "funder_address",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "funder_address specifies the account which can perform clawback"
+      },
+      {
+        "name": "start_time",
+        "type": "google.protobuf.Timestamp",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Timestamp",
+        "comment": "start_time defines the time at which the vesting period begins"
+      },
+      {
+        "name": "lockup_periods",
+        "type": "cosmos.vesting.v1beta1.Period",
+        "number": 4,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.vesting.v1beta1.Period",
+        "comment": "lockup_periods defines the unlocking schedule relative to the start_time"
+      },
+      {
+        "name": "vesting_periods",
+        "type": "cosmos.vesting.v1beta1.Period",
+        "number": 5,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.vesting.v1beta1.Period",
+        "comment": "vesting_periods defines the vesting schedule relative to the start_time"
+      }
+    ],
+    "comment": "ClawbackVestingAccount implements the VestingAccount interface. It provides\n an account that can hold contributions subject to \"lockup\" (like a\n PeriodicVestingAccount), or vesting which is subject to clawback\n of unvested tokens, or a combination (tokens vest, but are still locked)."
+  },
+  {
+    "fullName": "evmos.vesting.v2.ClawbackProposal",
+    "name": "ClawbackProposal",
+    "package": "evmos.vesting.v2",
+    "module": "vesting",
+    "fields": [
+      {
+        "name": "title",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "title of the proposal"
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "description of the proposal"
+      },
+      {
+        "name": "address",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "address is the vesting account address\n to clawback the funds from"
+      },
+      {
+        "name": "destination_address",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "destination_address is the address that will receive\n the clawbacked funds from the given vesting account. When\n empty, proposal will return the coins to the vesting\n account funder."
+      }
+    ],
+    "comment": "ClawbackProposal is a gov Content type to clawback funds\n from a vesting account that has this functionality enabled."
+  },
+  {
+    "fullName": "evmos.vesting.v2.ClawbackVestingAccount",
+    "name": "ClawbackVestingAccount",
+    "package": "evmos.vesting.v2",
+    "module": "vesting",
+    "fields": [
+      {
+        "name": "base_vesting_account",
+        "type": "cosmos.vesting.v1beta1.BaseVestingAccount",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.vesting.v1beta1.BaseVestingAccount",
+        "comment": "base_vesting_account implements the VestingAccount interface. It contains\n all the necessary fields needed for any vesting account implementation"
+      },
+      {
+        "name": "funder_address",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "funder_address specifies the account which can perform clawback"
+      },
+      {
+        "name": "start_time",
+        "type": "google.protobuf.Timestamp",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Timestamp",
+        "comment": "start_time defines the time at which the vesting period begins"
+      },
+      {
+        "name": "lockup_periods",
+        "type": "cosmos.vesting.v1beta1.Period",
+        "number": 4,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.vesting.v1beta1.Period",
+        "comment": "lockup_periods defines the unlocking schedule relative to the start_time"
+      },
+      {
+        "name": "vesting_periods",
+        "type": "cosmos.vesting.v1beta1.Period",
+        "number": 5,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.vesting.v1beta1.Period",
+        "comment": "vesting_periods defines the vesting schedule relative to the start_time"
+      }
+    ],
+    "comment": "ClawbackVestingAccount implements the VestingAccount interface. It provides\n an account that can hold contributions subject to \"lockup\" (like a\n PeriodicVestingAccount), or vesting which is subject to clawback\n of unvested tokens, or a combination (tokens vest, but are still locked)."
+  },
+  {
+    "fullName": "evmos.vesting.v2.EventClawback",
+    "name": "EventClawback",
+    "package": "evmos.vesting.v2",
+    "module": "vesting",
+    "fields": [
+      {
+        "name": "funder",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "funder is the address of the funder"
+      },
+      {
+        "name": "account",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "account is the address of the account"
+      },
+      {
+        "name": "destination",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "destination is the address of the destination"
+      }
+    ],
+    "comment": "EventClawback defines the event type for clawback"
+  },
+  {
+    "fullName": "evmos.vesting.v2.EventCreateClawbackVestingAccount",
+    "name": "EventCreateClawbackVestingAccount",
+    "package": "evmos.vesting.v2",
+    "module": "vesting",
+    "fields": [
+      {
+        "name": "funder",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "funder is the address of the funder"
+      },
+      {
+        "name": "vesting_account",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "vesting_account is the address of the created vesting account"
+      }
+    ],
+    "comment": "EventCreateClawbackVestingAccount defines the event type\n for creating a clawback vesting account"
+  },
+  {
+    "fullName": "evmos.vesting.v2.EventFundVestingAccount",
+    "name": "EventFundVestingAccount",
+    "package": "evmos.vesting.v2",
+    "module": "vesting",
+    "fields": [
+      {
+        "name": "funder",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "funder is the address of the funder"
+      },
+      {
+        "name": "coins",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "coins to be vested"
+      },
+      {
+        "name": "start_time",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "start_time is the time when the coins start to vest"
+      },
+      {
+        "name": "vesting_account",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "comment": "vesting_account is the address of the recipient"
+      }
+    ],
+    "comment": "EventFundVestingAccount defines the event type for funding a vesting account"
+  },
+  {
+    "fullName": "evmos.vesting.v2.EventUpdateVestingFunder",
+    "name": "EventUpdateVestingFunder",
+    "package": "evmos.vesting.v2",
+    "module": "vesting",
+    "fields": [
+      {
+        "name": "funder",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "funder is the address of the funder"
+      },
+      {
+        "name": "account",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "account is the address of the account"
+      },
+      {
+        "name": "new_funder",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "new_funder is the address of the new funder"
+      }
+    ],
+    "comment": "EventUpdateVestingFunder defines the event type for updating the vesting funder"
+  },
+  {
+    "fullName": "evmos.vesting.v2.MsgClawback",
+    "name": "MsgClawback",
+    "package": "evmos.vesting.v2",
+    "module": "vesting",
+    "fields": [
+      {
+        "name": "funder_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "funder_address is the address which funded the account"
+      },
+      {
+        "name": "account_address",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "account_address is the address of the ClawbackVestingAccount to claw back\n from."
+      },
+      {
+        "name": "dest_address",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "dest_address specifies where the clawed-back tokens should be transferred\n to. If empty, the tokens will be transferred back to the original funder of\n the account."
+      }
+    ],
+    "comment": "MsgClawback defines a message that removes unvested tokens from a\n ClawbackVestingAccount."
+  },
+  {
+    "fullName": "evmos.vesting.v2.MsgClawbackResponse",
+    "name": "MsgClawbackResponse",
+    "package": "evmos.vesting.v2",
+    "module": "vesting",
+    "fields": [
+      {
+        "name": "coins",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 1,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin",
+        "comment": "coins is the slice of clawed back coins"
+      }
+    ],
+    "comment": "MsgClawbackResponse defines the MsgClawback response type."
+  },
+  {
+    "fullName": "evmos.vesting.v2.MsgConvertVestingAccount",
+    "name": "MsgConvertVestingAccount",
+    "package": "evmos.vesting.v2",
+    "module": "vesting",
+    "fields": [
+      {
+        "name": "vesting_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "vesting_address is the address of the vesting account to convert"
+      }
+    ],
+    "comment": "MsgConvertVestingAccount defines a message that enables converting a vesting account to an eth account"
+  },
+  {
+    "fullName": "evmos.vesting.v2.MsgConvertVestingAccountResponse",
+    "name": "MsgConvertVestingAccountResponse",
+    "package": "evmos.vesting.v2",
+    "module": "vesting",
+    "fields": [],
+    "comment": "MsgConvertVestingAccountResponse defines the MsgConvertVestingAccount response type."
+  },
+  {
+    "fullName": "evmos.vesting.v2.MsgCreateClawbackVestingAccount",
+    "name": "MsgCreateClawbackVestingAccount",
+    "package": "evmos.vesting.v2",
+    "module": "vesting",
+    "fields": [
+      {
+        "name": "funder_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "funder_address specifies the account that will be able to fund the vesting account"
+      },
+      {
+        "name": "vesting_address",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "vesting_address specifies the address that will receive the vesting tokens"
+      },
+      {
+        "name": "enable_gov_clawback",
+        "type": "bool",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "enable_gov_clawback specifies whether the governance module can clawback this account"
+      }
+    ],
+    "comment": "MsgCreateClawbackVestingAccount defines a message that enables creating a\n ClawbackVestingAccount."
+  },
+  {
+    "fullName": "evmos.vesting.v2.MsgCreateClawbackVestingAccountResponse",
+    "name": "MsgCreateClawbackVestingAccountResponse",
+    "package": "evmos.vesting.v2",
+    "module": "vesting",
+    "fields": [],
+    "comment": "MsgCreateClawbackVestingAccountResponse defines the\n MsgCreateClawbackVestingAccount response type."
+  },
+  {
+    "fullName": "evmos.vesting.v2.MsgFundVestingAccount",
+    "name": "MsgFundVestingAccount",
+    "package": "evmos.vesting.v2",
+    "module": "vesting",
+    "fields": [
+      {
+        "name": "funder_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "funder_address specifies the account that funds the vesting account"
+      },
+      {
+        "name": "vesting_address",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "vesting_address specifies the account that receives the funds"
+      },
+      {
+        "name": "start_time",
+        "type": "google.protobuf.Timestamp",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Timestamp",
+        "comment": "start_time defines the time at which the vesting period begins"
+      },
+      {
+        "name": "lockup_periods",
+        "type": "cosmos.vesting.v1beta1.Period",
+        "number": 4,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.vesting.v1beta1.Period",
+        "comment": "lockup_periods defines the unlocking schedule relative to the start_time"
+      },
+      {
+        "name": "vesting_periods",
+        "type": "cosmos.vesting.v1beta1.Period",
+        "number": 5,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.vesting.v1beta1.Period",
+        "comment": "vesting_periods defines the vesting schedule relative to the start_time"
+      }
+    ],
+    "comment": "MsgFundVestingAccount defines a message that enables funding an existing clawback\n vesting account."
+  },
+  {
+    "fullName": "evmos.vesting.v2.MsgFundVestingAccountResponse",
+    "name": "MsgFundVestingAccountResponse",
+    "package": "evmos.vesting.v2",
+    "module": "vesting",
+    "fields": [],
+    "comment": "MsgFundVestingAccountResponse defines the\n MsgFundVestingAccount response type."
+  },
+  {
+    "fullName": "evmos.vesting.v2.MsgUpdateVestingFunder",
+    "name": "MsgUpdateVestingFunder",
+    "package": "evmos.vesting.v2",
+    "module": "vesting",
+    "fields": [
+      {
+        "name": "funder_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "funder_address is the current funder address of the ClawbackVestingAccount"
+      },
+      {
+        "name": "new_funder_address",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "new_funder_address is the new address to replace the existing funder_address"
+      },
+      {
+        "name": "vesting_address",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "vesting_address is the address of the ClawbackVestingAccount being updated"
+      }
+    ],
+    "comment": "MsgUpdateVestingFunder defines a message that updates the funder account of a\n ClawbackVestingAccount."
+  },
+  {
+    "fullName": "evmos.vesting.v2.MsgUpdateVestingFunderResponse",
+    "name": "MsgUpdateVestingFunderResponse",
+    "package": "evmos.vesting.v2",
+    "module": "vesting",
+    "fields": [],
+    "comment": "MsgUpdateVestingFunderResponse defines the MsgUpdateVestingFunder response\n type."
+  },
+  {
+    "fullName": "evmos.vesting.v2.QueryBalancesRequest",
+    "name": "QueryBalancesRequest",
+    "package": "evmos.vesting.v2",
+    "module": "vesting",
+    "fields": [
+      {
+        "name": "address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "address of the clawback vesting account"
+      }
+    ],
+    "comment": "QueryBalancesRequest is the request type for the Query/Balances RPC method."
+  },
+  {
+    "fullName": "evmos.vesting.v2.QueryBalancesResponse",
+    "name": "QueryBalancesResponse",
+    "package": "evmos.vesting.v2",
+    "module": "vesting",
+    "fields": [
+      {
+        "name": "locked",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 1,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin",
+        "comment": "locked defines the current amount of locked tokens"
+      },
+      {
+        "name": "unvested",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin",
+        "comment": "unvested defines the current amount of unvested tokens"
+      },
+      {
+        "name": "vested",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 3,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin",
+        "comment": "vested defines the current amount of vested tokens"
+      }
+    ],
+    "comment": "QueryBalancesResponse is the response type for the Query/Balances RPC\n method."
+  }
+]

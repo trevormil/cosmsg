@@ -1,6 +1,6 @@
-import type { ChainCatalog, MsgDef, QueryDef } from "@cosmsg/schema";
+import type { ChainCatalog, MsgDef, QueryDef, TypeDef } from "@cosmsg/schema";
 
-export type SearchKind = "msg" | "query";
+export type SearchKind = "msg" | "query" | "type";
 
 /** A flattened, searchable record for one Msg or Query. */
 export interface SearchRecord {
@@ -27,8 +27,27 @@ export function buildSearchRecords(
   for (const [chainName, cat] of Object.entries(catalogs)) {
     for (const m of cat.msgs) records.push(msgRecord(chainName, m));
     for (const q of cat.queries) records.push(queryRecord(chainName, q));
+    for (const t of cat.types) records.push(typeRecord(chainName, t));
   }
   return records;
+}
+
+function typeRecord(chainName: string, t: TypeDef): SearchRecord {
+  const parts = [
+    t.fullName,
+    t.name,
+    t.module ?? "",
+    t.comment ?? "",
+    ...t.fields.map((f) => f.name),
+  ];
+  return {
+    chainName,
+    kind: "type",
+    id: t.fullName,
+    name: t.name,
+    module: t.module,
+    haystack: parts.join(" ").toLowerCase(),
+  };
 }
 
 function msgRecord(chainName: string, m: MsgDef): SearchRecord {

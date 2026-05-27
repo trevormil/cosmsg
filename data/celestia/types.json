@@ -1,0 +1,3350 @@
+[
+  {
+    "fullName": "celestia.blob.v1.EventPayForBlobs",
+    "name": "EventPayForBlobs",
+    "package": "celestia.blob.v1",
+    "module": "blob",
+    "fields": [
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "blob_sizes",
+        "type": "uint32",
+        "number": 2,
+        "repeated": true,
+        "optional": false
+      },
+      {
+        "name": "namespaces",
+        "type": "bytes",
+        "number": 3,
+        "repeated": true,
+        "optional": false,
+        "comment": "namespaces is a list of namespaces that the blobs in blob_sizes belong to.\n A namespace has length of 29 bytes where the first byte is the\n namespaceVersion and the subsequent 28 bytes are the namespaceID."
+      }
+    ],
+    "comment": "EventPayForBlobs defines an event that is emitted after a pay for blob has\n been processed."
+  },
+  {
+    "fullName": "celestia.blob.v1.EventUpdateBlobParams",
+    "name": "EventUpdateBlobParams",
+    "package": "celestia.blob.v1",
+    "module": "blob",
+    "fields": [
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "params",
+        "type": "celestia.blob.v1.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "celestia.blob.v1.Params"
+      }
+    ],
+    "comment": "EventUpdateBlobParams defines an event that is emitted when blob parameters are\n updated. It is triggered after a successful execution of a parameter update proposal."
+  },
+  {
+    "fullName": "celestia.blob.v1.GenesisState",
+    "name": "GenesisState",
+    "package": "celestia.blob.v1",
+    "module": "blob",
+    "fields": [
+      {
+        "name": "params",
+        "type": "celestia.blob.v1.Params",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "celestia.blob.v1.Params"
+      }
+    ],
+    "comment": "GenesisState defines the capability module's genesis state."
+  },
+  {
+    "fullName": "celestia.blob.v1.MsgPayForBlobs",
+    "name": "MsgPayForBlobs",
+    "package": "celestia.blob.v1",
+    "module": "blob",
+    "fields": [
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "signer is the bech32 encoded signer address. See\n https://en.bitcoin.it/wiki/Bech32."
+      },
+      {
+        "name": "namespaces",
+        "type": "bytes",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "comment": "namespaces is a list of namespaces that the blobs are associated with. A\n namespace is a byte slice of length 29 where the first byte is the\n namespaceVersion and the subsequent 28 bytes are the namespaceId."
+      },
+      {
+        "name": "blob_sizes",
+        "type": "uint32",
+        "number": 3,
+        "repeated": true,
+        "optional": false,
+        "comment": "blob_sizes is a list of blob sizes (one per blob). Each size is in bytes."
+      },
+      {
+        "name": "share_commitments",
+        "type": "bytes",
+        "number": 4,
+        "repeated": true,
+        "optional": false,
+        "comment": "share_commitments is a list of share commitments (one per blob)."
+      },
+      {
+        "name": "share_versions",
+        "type": "uint32",
+        "number": 8,
+        "repeated": true,
+        "optional": false,
+        "comment": "share_versions are the versions of the share format that the blobs\n associated with this message should use when included in a block. The\n share_versions specified must match the share_versions used to generate the\n share_commitment in this message."
+      }
+    ],
+    "comment": "MsgPayForBlobs pays for the inclusion of a blob in the block."
+  },
+  {
+    "fullName": "celestia.blob.v1.MsgPayForBlobsResponse",
+    "name": "MsgPayForBlobsResponse",
+    "package": "celestia.blob.v1",
+    "module": "blob",
+    "fields": [],
+    "comment": "MsgPayForBlobsResponse describes the response returned after the submission\n of a PayForBlobs"
+  },
+  {
+    "fullName": "celestia.blob.v1.MsgUpdateBlobParams",
+    "name": "MsgUpdateBlobParams",
+    "package": "celestia.blob.v1",
+    "module": "blob",
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "authority is the address of the governance account."
+      },
+      {
+        "name": "params",
+        "type": "celestia.blob.v1.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "celestia.blob.v1.Params",
+        "comment": "params defines the blob parameters to update.\n\n NOTE: All parameters must be supplied."
+      }
+    ],
+    "comment": "MsgUpdateBlobParams defines the sdk.Msg type to update the client parameters."
+  },
+  {
+    "fullName": "celestia.blob.v1.MsgUpdateBlobParamsResponse",
+    "name": "MsgUpdateBlobParamsResponse",
+    "package": "celestia.blob.v1",
+    "module": "blob",
+    "fields": [],
+    "comment": "MsgUpdateBlobParamsResponse defines the MsgUpdateBlobParams response type."
+  },
+  {
+    "fullName": "celestia.blob.v1.Params",
+    "name": "Params",
+    "package": "celestia.blob.v1",
+    "module": "blob",
+    "fields": [
+      {
+        "name": "gas_per_blob_byte",
+        "type": "uint32",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "gov_max_square_size",
+        "type": "uint64",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "Params defines the parameters for the module."
+  },
+  {
+    "fullName": "celestia.blob.v1.QueryParamsRequest",
+    "name": "QueryParamsRequest",
+    "package": "celestia.blob.v1",
+    "module": "blob",
+    "fields": [],
+    "comment": "QueryParamsRequest is the request type for the Query/Params RPC method."
+  },
+  {
+    "fullName": "celestia.blob.v1.QueryParamsResponse",
+    "name": "QueryParamsResponse",
+    "package": "celestia.blob.v1",
+    "module": "blob",
+    "fields": [
+      {
+        "name": "params",
+        "type": "celestia.blob.v1.Params",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "celestia.blob.v1.Params"
+      }
+    ],
+    "comment": "QueryParamsResponse is the response type for the Query/Params RPC method."
+  },
+  {
+    "fullName": "celestia.core.v1.da.DataAvailabilityHeader",
+    "name": "DataAvailabilityHeader",
+    "package": "celestia.core.v1.da",
+    "module": "core",
+    "fields": [
+      {
+        "name": "row_roots",
+        "type": "bytes",
+        "number": 1,
+        "repeated": true,
+        "optional": false,
+        "comment": "RowRoot_j = root((M_{j,1} || M_{j,2} || ... || M_{j,2k} ))"
+      },
+      {
+        "name": "column_roots",
+        "type": "bytes",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "comment": "ColumnRoot_j = root((M_{1,j} || M_{2,j} || ... || M_{2k,j} ))"
+      }
+    ],
+    "comment": "DataAvailabilityHeader contains the row and column roots of the erasure\n coded version of the data in Block.Data.\n Therefore the original Block.Data is arranged in a\n k × k matrix, which is then \"extended\" to a\n 2k × 2k matrix applying multiple times Reed-Solomon encoding.\n For details see Section 5.2: https://arxiv.org/abs/1809.09044\n or the Celestia specification:\n https://github.com/celestiaorg/celestia-specs/blob/master/src/specs/data_structures.md#availabledataheader\n Note that currently we list row and column roots in separate fields\n (different from the spec)."
+  },
+  {
+    "fullName": "celestia.core.v1.gas_estimation.EstimateGasPriceAndUsageRequest",
+    "name": "EstimateGasPriceAndUsageRequest",
+    "package": "celestia.core.v1.gas_estimation",
+    "module": "core",
+    "fields": [
+      {
+        "name": "tx_priority",
+        "type": "celestia.core.v1.gas_estimation.TxPriority",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "celestia.core.v1.gas_estimation.TxPriority"
+      },
+      {
+        "name": "tx_bytes",
+        "type": "bytes",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "EstimateGasPriceAndUsageRequest the request to estimate the gas price of the\n network and also the gas used for the provided transaction."
+  },
+  {
+    "fullName": "celestia.core.v1.gas_estimation.EstimateGasPriceAndUsageResponse",
+    "name": "EstimateGasPriceAndUsageResponse",
+    "package": "celestia.core.v1.gas_estimation",
+    "module": "core",
+    "fields": [
+      {
+        "name": "estimated_gas_price",
+        "type": "double",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "estimated_gas_used",
+        "type": "uint64",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "EstimateGasPriceAndUsageResponse the response of the gas price and used\n estimation."
+  },
+  {
+    "fullName": "celestia.core.v1.gas_estimation.EstimateGasPriceRequest",
+    "name": "EstimateGasPriceRequest",
+    "package": "celestia.core.v1.gas_estimation",
+    "module": "core",
+    "fields": [
+      {
+        "name": "tx_priority",
+        "type": "celestia.core.v1.gas_estimation.TxPriority",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "celestia.core.v1.gas_estimation.TxPriority"
+      }
+    ],
+    "comment": "EstimateGasPriceRequest the request to estimate the gas price of the network.\n Takes a priority enum to define the priority level."
+  },
+  {
+    "fullName": "celestia.core.v1.gas_estimation.EstimateGasPriceResponse",
+    "name": "EstimateGasPriceResponse",
+    "package": "celestia.core.v1.gas_estimation",
+    "module": "core",
+    "fields": [
+      {
+        "name": "estimated_gas_price",
+        "type": "double",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "EstimateGasPriceResponse the response of the gas price estimation."
+  },
+  {
+    "fullName": "celestia.core.v1.proof.NMTProof",
+    "name": "NMTProof",
+    "package": "celestia.core.v1.proof",
+    "module": "core",
+    "fields": [
+      {
+        "name": "start",
+        "type": "int32",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "Start index of this proof."
+      },
+      {
+        "name": "end",
+        "type": "int32",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "End index of this proof."
+      },
+      {
+        "name": "nodes",
+        "type": "bytes",
+        "number": 3,
+        "repeated": true,
+        "optional": false,
+        "comment": "Nodes that together with the corresponding leaf values can be used to\n recompute the root and verify this proof. Nodes should consist of the max\n and min namespaces along with the actual hash, resulting in each being 48\n bytes each"
+      },
+      {
+        "name": "leaf_hash",
+        "type": "bytes",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "leafHash are nil if the namespace is present in the NMT. In case the\n namespace to be proved is in the min/max range of the tree but absent, this\n will contain the leaf hash necessary to verify the proof of absence. Leaf\n hashes should consist of the namespace along with the actual hash,\n resulting 40 bytes total."
+      }
+    ],
+    "comment": "NMTProof is a proof of a namespace.ID in an NMT.\n In case this proof proves the absence of a namespace.ID\n in a tree it also contains the leaf hashes of the range\n where that namespace would be."
+  },
+  {
+    "fullName": "celestia.core.v1.proof.Proof",
+    "name": "Proof",
+    "package": "celestia.core.v1.proof",
+    "module": "core",
+    "fields": [
+      {
+        "name": "total",
+        "type": "int64",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "index",
+        "type": "int64",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "leaf_hash",
+        "type": "bytes",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "aunts",
+        "type": "bytes",
+        "number": 4,
+        "repeated": true,
+        "optional": false
+      }
+    ],
+    "comment": "Proof is taken from the merkle package"
+  },
+  {
+    "fullName": "celestia.core.v1.proof.RowProof",
+    "name": "RowProof",
+    "package": "celestia.core.v1.proof",
+    "module": "core",
+    "fields": [
+      {
+        "name": "row_roots",
+        "type": "bytes",
+        "number": 1,
+        "repeated": true,
+        "optional": false
+      },
+      {
+        "name": "proofs",
+        "type": "celestia.core.v1.proof.Proof",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "celestia.core.v1.proof.Proof"
+      },
+      {
+        "name": "root",
+        "type": "bytes",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "start_row",
+        "type": "uint32",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "end_row",
+        "type": "uint32",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "RowProof is a Merkle proof that a set of rows exist in a Merkle tree with a\n given data root."
+  },
+  {
+    "fullName": "celestia.core.v1.proof.ShareProof",
+    "name": "ShareProof",
+    "package": "celestia.core.v1.proof",
+    "module": "core",
+    "fields": [
+      {
+        "name": "data",
+        "type": "bytes",
+        "number": 1,
+        "repeated": true,
+        "optional": false
+      },
+      {
+        "name": "share_proofs",
+        "type": "celestia.core.v1.proof.NMTProof",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "celestia.core.v1.proof.NMTProof"
+      },
+      {
+        "name": "namespace_id",
+        "type": "bytes",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "row_proof",
+        "type": "celestia.core.v1.proof.RowProof",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "celestia.core.v1.proof.RowProof"
+      },
+      {
+        "name": "namespace_version",
+        "type": "uint32",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "ShareProof is an NMT proof that a set of shares exist in a set of rows and a\n Merkle proof that those rows exist in a Merkle tree with a given data root."
+  },
+  {
+    "fullName": "celestia.core.v1.tx.TxStatusBatchRequest",
+    "name": "TxStatusBatchRequest",
+    "package": "celestia.core.v1.tx",
+    "module": "core",
+    "fields": [
+      {
+        "name": "tx_ids",
+        "type": "string",
+        "number": 1,
+        "repeated": true,
+        "optional": false,
+        "comment": "array of hex encoded tx hashes (each hash should be 64 characters long representing 32 bytes)"
+      }
+    ],
+    "comment": "TxStatusBatchRequest is the request type for the batch TxStatus gRPC method."
+  },
+  {
+    "fullName": "celestia.core.v1.tx.TxStatusBatchResponse",
+    "name": "TxStatusBatchResponse",
+    "package": "celestia.core.v1.tx",
+    "module": "core",
+    "fields": [
+      {
+        "name": "statuses",
+        "type": "celestia.core.v1.tx.TxStatusResult",
+        "number": 1,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "celestia.core.v1.tx.TxStatusResult"
+      }
+    ],
+    "comment": "TxStatusBatchResponse is a response type for batched TxStatus query. It contains an array of transaction status\n results."
+  },
+  {
+    "fullName": "celestia.core.v1.tx.TxStatusRequest",
+    "name": "TxStatusRequest",
+    "package": "celestia.core.v1.tx",
+    "module": "core",
+    "fields": [
+      {
+        "name": "tx_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "this is the hex encoded transaction hash (should be 64 characters long representing 32 bytes)"
+      }
+    ],
+    "comment": "TxStatusRequest is the request type for the TxStatus gRPC method."
+  },
+  {
+    "fullName": "celestia.core.v1.tx.TxStatusResponse",
+    "name": "TxStatusResponse",
+    "package": "celestia.core.v1.tx",
+    "module": "core",
+    "fields": [
+      {
+        "name": "height",
+        "type": "int64",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "index",
+        "type": "uint32",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "execution_code",
+        "type": "uint32",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "execution_code is returned when the transaction has been committed\n and returns whether it was successful or errored. A non zero\n execution code indicated an error."
+      },
+      {
+        "name": "error",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "error log for failed transactions."
+      },
+      {
+        "name": "status",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "comment": "status is the status of the transaction."
+      },
+      {
+        "name": "codespace",
+        "type": "string",
+        "number": 6,
+        "repeated": false,
+        "optional": false,
+        "comment": "the error namespace/module."
+      },
+      {
+        "name": "gas_wanted",
+        "type": "int64",
+        "number": 7,
+        "repeated": false,
+        "optional": false,
+        "comment": "requested gas limit."
+      },
+      {
+        "name": "gas_used",
+        "type": "int64",
+        "number": 8,
+        "repeated": false,
+        "optional": false,
+        "comment": "actual gas consumed."
+      },
+      {
+        "name": "signers",
+        "type": "string",
+        "number": 9,
+        "repeated": true,
+        "optional": false,
+        "comment": "signers of the transaction."
+      }
+    ],
+    "comment": "TxStatusResponse is the response type for the TxStatus gRPC method."
+  },
+  {
+    "fullName": "celestia.core.v1.tx.TxStatusResult",
+    "name": "TxStatusResult",
+    "package": "celestia.core.v1.tx",
+    "module": "core",
+    "fields": [
+      {
+        "name": "tx_hash",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "status",
+        "type": "celestia.core.v1.tx.TxStatusResponse",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "celestia.core.v1.tx.TxStatusResponse"
+      }
+    ],
+    "comment": "TxStatusResult represents a single transaction status result in a batch response."
+  },
+  {
+    "fullName": "celestia.fibre.v1.BlobRow",
+    "name": "BlobRow",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "fields": [
+      {
+        "name": "index",
+        "type": "uint32",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "data",
+        "type": "bytes",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "proof",
+        "type": "bytes",
+        "number": 3,
+        "repeated": true,
+        "optional": false
+      }
+    ],
+    "comment": "BlobRow represents a row of data in a Fibre blob."
+  },
+  {
+    "fullName": "celestia.fibre.v1.BlobShard",
+    "name": "BlobShard",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "fields": [
+      {
+        "name": "rows",
+        "type": "celestia.fibre.v1.BlobRow",
+        "number": 1,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "celestia.fibre.v1.BlobRow"
+      },
+      {
+        "name": "coefficients",
+        "type": "bytes",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "root",
+        "type": "bytes",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "BlobShard represents a subset of rows of a Fibre blob.\n Contains row data along with RLC proof data:\n - coefficients: flattened RLC coefficients (K × 16 bytes), stored during upload\n - root: RLC Merkle root (32 bytes), computed during upload verification"
+  },
+  {
+    "fullName": "celestia.fibre.v1.DownloadShardRequest",
+    "name": "DownloadShardRequest",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "fields": [
+      {
+        "name": "blob_id",
+        "type": "bytes",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "with_rlc",
+        "type": "bool",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "DownloadShardRequest is the request message for the DownloadShard RPC method."
+  },
+  {
+    "fullName": "celestia.fibre.v1.DownloadShardResponse",
+    "name": "DownloadShardResponse",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "fields": [
+      {
+        "name": "shard",
+        "type": "celestia.fibre.v1.BlobShard",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "celestia.fibre.v1.BlobShard"
+      }
+    ],
+    "comment": "DownloadShardResponse is the response message for the DownloadShard RPC method."
+  },
+  {
+    "fullName": "celestia.fibre.v1.EscrowAccount",
+    "name": "EscrowAccount",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "fields": [
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "signer is the address that controls this escrow account"
+      },
+      {
+        "name": "balance",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin",
+        "comment": "balance is the total amount currently held in escrow"
+      },
+      {
+        "name": "available_balance",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin",
+        "comment": "available_balance is the amount available for new payments. This is usually\n the same as balance except if a user has requested a withdrawal in the past\n 24 hours in which case available_balance = balance - pending withdrawal\n amount."
+      }
+    ],
+    "comment": "EscrowAccount helps guarantee payment for a signed PaymentPromise by ensuring\n that a user does not remove funds directly after validators sign over and\n provide service for a blob."
+  },
+  {
+    "fullName": "celestia.fibre.v1.EventDepositToEscrow",
+    "name": "EventDepositToEscrow",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "fields": [
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      }
+    ],
+    "comment": "EventDepositToEscrow is emitted when a deposit is made to an escrow account."
+  },
+  {
+    "fullName": "celestia.fibre.v1.EventPayForFibre",
+    "name": "EventPayForFibre",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "fields": [
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "namespace",
+        "type": "bytes",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "commitment",
+        "type": "bytes",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "validator_count",
+        "type": "uint32",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "EventPayForFibre is emitted when a payment for fibre is processed."
+  },
+  {
+    "fullName": "celestia.fibre.v1.EventPaymentPromiseTimeout",
+    "name": "EventPaymentPromiseTimeout",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "fields": [
+      {
+        "name": "processor",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "escrow_signer",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "payment_promise_hash",
+        "type": "bytes",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "EventPaymentPromiseTimeout is emitted when a PaymentPromise timeout is processed."
+  },
+  {
+    "fullName": "celestia.fibre.v1.EventProcessedPaymentPruned",
+    "name": "EventProcessedPaymentPruned",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "fields": [
+      {
+        "name": "payment_promise_hash",
+        "type": "bytes",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "processed_at",
+        "type": "google.protobuf.Timestamp",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Timestamp"
+      }
+    ],
+    "comment": "EventProcessedPaymentPruned is emitted when a processed payment is pruned\n from the state machine due to being outside the retention window."
+  },
+  {
+    "fullName": "celestia.fibre.v1.EventUpdateFibreParams",
+    "name": "EventUpdateFibreParams",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "fields": [
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "params",
+        "type": "celestia.fibre.v1.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "celestia.fibre.v1.Params"
+      }
+    ],
+    "comment": "EventUpdateFibreParams is emitted when fibre parameters are updated."
+  },
+  {
+    "fullName": "celestia.fibre.v1.EventWithdrawFromEscrowExecuted",
+    "name": "EventWithdrawFromEscrowExecuted",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "fields": [
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      }
+    ],
+    "comment": "EventWithdrawFromEscrowExecuted is emitted when a withdrawal is processed."
+  },
+  {
+    "fullName": "celestia.fibre.v1.EventWithdrawFromEscrowRequest",
+    "name": "EventWithdrawFromEscrowRequest",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "fields": [
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin"
+      },
+      {
+        "name": "requested_at",
+        "type": "google.protobuf.Timestamp",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Timestamp"
+      },
+      {
+        "name": "available_at",
+        "type": "google.protobuf.Timestamp",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Timestamp"
+      }
+    ],
+    "comment": "EventWithdrawFromEscrowRequest is emitted when a withdrawal is requested from an escrow account."
+  },
+  {
+    "fullName": "celestia.fibre.v1.GenesisState",
+    "name": "GenesisState",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "fields": [
+      {
+        "name": "params",
+        "type": "celestia.fibre.v1.Params",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "celestia.fibre.v1.Params"
+      },
+      {
+        "name": "escrow_accounts",
+        "type": "celestia.fibre.v1.EscrowAccount",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "celestia.fibre.v1.EscrowAccount"
+      },
+      {
+        "name": "withdrawals",
+        "type": "celestia.fibre.v1.Withdrawal",
+        "number": 3,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "celestia.fibre.v1.Withdrawal"
+      },
+      {
+        "name": "processed_payments",
+        "type": "celestia.fibre.v1.ProcessedPayment",
+        "number": 4,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "celestia.fibre.v1.ProcessedPayment"
+      }
+    ],
+    "comment": "GenesisState defines the fibre module's genesis state."
+  },
+  {
+    "fullName": "celestia.fibre.v1.MsgDepositToEscrow",
+    "name": "MsgDepositToEscrow",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "fields": [
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "signer is the bech32 encoded signer address"
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin",
+        "comment": "amount is the amount to deposit"
+      }
+    ],
+    "comment": "MsgDepositToEscrow deposits funds to the signer's escrow account."
+  },
+  {
+    "fullName": "celestia.fibre.v1.MsgDepositToEscrowResponse",
+    "name": "MsgDepositToEscrowResponse",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "fields": [],
+    "comment": "MsgDepositToEscrowResponse describes the response returned after depositing to escrow."
+  },
+  {
+    "fullName": "celestia.fibre.v1.MsgPayForFibre",
+    "name": "MsgPayForFibre",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "fields": [
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "signer is the bech32 encoded address submitting this message"
+      },
+      {
+        "name": "payment_promise",
+        "type": "celestia.fibre.v1.PaymentPromise",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "celestia.fibre.v1.PaymentPromise",
+        "comment": "payment_promise is the original payment promise"
+      },
+      {
+        "name": "validator_signatures",
+        "type": "bytes",
+        "number": 3,
+        "repeated": true,
+        "optional": false,
+        "comment": "validator_signatures contains signatures from validators"
+      }
+    ],
+    "comment": "MsgPayForFibre contains the original payment promise with validator signatures."
+  },
+  {
+    "fullName": "celestia.fibre.v1.MsgPayForFibreResponse",
+    "name": "MsgPayForFibreResponse",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "fields": [],
+    "comment": "MsgPayForFibreResponse describes the response returned after paying for fibre."
+  },
+  {
+    "fullName": "celestia.fibre.v1.MsgPaymentPromiseTimeout",
+    "name": "MsgPaymentPromiseTimeout",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "fields": [
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "signer is the bech32 encoded address submitting this message (can be anyone)"
+      },
+      {
+        "name": "payment_promise",
+        "type": "celestia.fibre.v1.PaymentPromise",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "celestia.fibre.v1.PaymentPromise",
+        "comment": "payment_promise is the original payment promise"
+      }
+    ],
+    "comment": "MsgPaymentPromiseTimeout processes a payment promise after the timeout period."
+  },
+  {
+    "fullName": "celestia.fibre.v1.MsgPaymentPromiseTimeoutResponse",
+    "name": "MsgPaymentPromiseTimeoutResponse",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "fields": [],
+    "comment": "MsgPaymentPromiseTimeoutResponse describes the response returned after\n processing a payment promise timeout."
+  },
+  {
+    "fullName": "celestia.fibre.v1.MsgRequestWithdrawal",
+    "name": "MsgRequestWithdrawal",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "fields": [
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "signer is the bech32 encoded signer address"
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin",
+        "comment": "amount is the amount to withdraw"
+      }
+    ],
+    "comment": "MsgRequestWithdrawal requests withdrawal from the signer's escrow account."
+  },
+  {
+    "fullName": "celestia.fibre.v1.MsgRequestWithdrawalResponse",
+    "name": "MsgRequestWithdrawalResponse",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "fields": [],
+    "comment": "MsgRequestWithdrawalResponse describes the response returned after requesting withdrawal."
+  },
+  {
+    "fullName": "celestia.fibre.v1.MsgUpdateFibreParams",
+    "name": "MsgUpdateFibreParams",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "authority is the address of the governance account."
+      },
+      {
+        "name": "params",
+        "type": "celestia.fibre.v1.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "celestia.fibre.v1.Params",
+        "comment": "params defines the fibre parameters to update.\n\n NOTE: All parameters must be supplied."
+      }
+    ],
+    "comment": "MsgUpdateFibreParams defines the sdk.Msg type to update the fibre parameters."
+  },
+  {
+    "fullName": "celestia.fibre.v1.MsgUpdateFibreParamsResponse",
+    "name": "MsgUpdateFibreParamsResponse",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "fields": [],
+    "comment": "MsgUpdateFibreParamsResponse defines the MsgUpdateFibreParams response type."
+  },
+  {
+    "fullName": "celestia.fibre.v1.Params",
+    "name": "Params",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "fields": [
+      {
+        "name": "gas_per_blob_byte",
+        "type": "uint32",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "withdrawal_delay",
+        "type": "google.protobuf.Duration",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Duration"
+      },
+      {
+        "name": "payment_promise_timeout",
+        "type": "google.protobuf.Duration",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Duration"
+      },
+      {
+        "name": "payment_promise_retention_window",
+        "type": "google.protobuf.Duration",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Duration"
+      },
+      {
+        "name": "payment_promise_height_window",
+        "type": "uint64",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "Params defines the parameters for the fibre module."
+  },
+  {
+    "fullName": "celestia.fibre.v1.PaymentPromise",
+    "name": "PaymentPromise",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "fields": [
+      {
+        "name": "chain_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "chain_id is the chain ID that this payment promise is valid for.\n Example: arabica-11, mocha-4, or celestia."
+      },
+      {
+        "name": "height",
+        "type": "int64",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "height is the height that is used to determine the validator set that is used"
+      },
+      {
+        "name": "namespace",
+        "type": "bytes",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "namespace is the namespace the blob is associated with."
+      },
+      {
+        "name": "blob_size",
+        "type": "uint32",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "blob_size is the size of the blob in bytes"
+      },
+      {
+        "name": "blob_version",
+        "type": "uint32",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "comment": "blob_version is the version of the blob format"
+      },
+      {
+        "name": "commitment",
+        "type": "bytes",
+        "number": 6,
+        "repeated": false,
+        "optional": false,
+        "comment": "commitment is the hash of the row root and the Random Linear Combination (RLC) root"
+      },
+      {
+        "name": "creation_timestamp",
+        "type": "google.protobuf.Timestamp",
+        "number": 7,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Timestamp",
+        "comment": "creation_timestamp is the timestamp when this promise was created. This\n is critical for determining which validators sign the commitment and\n determining when service stops for this blob."
+      },
+      {
+        "name": "signer_public_key",
+        "type": "cosmos.crypto.secp256k1.PubKey",
+        "number": 8,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.crypto.secp256k1.PubKey",
+        "comment": "signer_public_key is the public key of the owner of the escrow account to charge"
+      },
+      {
+        "name": "signature",
+        "type": "bytes",
+        "number": 9,
+        "repeated": false,
+        "optional": false,
+        "comment": "signature is the signer (escrow account owner) signature over the sign bytes"
+      }
+    ],
+    "comment": "PaymentPromise is a promise to pay for a fibre blob. It contains the\n commitment and payment details for the fibre blob."
+  },
+  {
+    "fullName": "celestia.fibre.v1.ProcessedPayment",
+    "name": "ProcessedPayment",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "fields": [
+      {
+        "name": "payment_promise_hash",
+        "type": "bytes",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "processed_at",
+        "type": "google.protobuf.Timestamp",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Timestamp"
+      }
+    ],
+    "comment": "ProcessedPayment represents a PaymentPromise that has been processed and\n stored in genesis state. ProcessedPayment intentionally omits many fields\n from the original PaymentPromise to avoid bloating the state. This exists for\n replay protection."
+  },
+  {
+    "fullName": "celestia.fibre.v1.QueryEscrowAccountRequest",
+    "name": "QueryEscrowAccountRequest",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "fields": [
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "QueryEscrowAccountRequest is the request type for the Query/EscrowAccount RPC method."
+  },
+  {
+    "fullName": "celestia.fibre.v1.QueryEscrowAccountResponse",
+    "name": "QueryEscrowAccountResponse",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "fields": [
+      {
+        "name": "escrow_account",
+        "type": "celestia.fibre.v1.EscrowAccount",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "celestia.fibre.v1.EscrowAccount"
+      },
+      {
+        "name": "found",
+        "type": "bool",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "QueryEscrowAccountResponse is the response type for the Query/EscrowAccount RPC method."
+  },
+  {
+    "fullName": "celestia.fibre.v1.QueryIsPaymentProcessedRequest",
+    "name": "QueryIsPaymentProcessedRequest",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "fields": [
+      {
+        "name": "promise_hash",
+        "type": "bytes",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "QueryIsPaymentProcessedRequest is the request type for the Query/IsPaymentProcessed RPC method."
+  },
+  {
+    "fullName": "celestia.fibre.v1.QueryIsPaymentProcessedResponse",
+    "name": "QueryIsPaymentProcessedResponse",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "fields": [
+      {
+        "name": "processed_at",
+        "type": "google.protobuf.Timestamp",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Timestamp"
+      },
+      {
+        "name": "found",
+        "type": "bool",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "QueryIsPaymentProcessedResponse is the response type for the Query/IsPaymentProcessed RPC method."
+  },
+  {
+    "fullName": "celestia.fibre.v1.QueryParamsRequest",
+    "name": "QueryParamsRequest",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "fields": [],
+    "comment": "QueryParamsRequest is the request type for the Query/Params RPC method."
+  },
+  {
+    "fullName": "celestia.fibre.v1.QueryParamsResponse",
+    "name": "QueryParamsResponse",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "fields": [
+      {
+        "name": "params",
+        "type": "celestia.fibre.v1.Params",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "celestia.fibre.v1.Params"
+      }
+    ],
+    "comment": "QueryParamsResponse is the response type for the Query/Params RPC method."
+  },
+  {
+    "fullName": "celestia.fibre.v1.QueryValidatePaymentPromiseRequest",
+    "name": "QueryValidatePaymentPromiseRequest",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "fields": [
+      {
+        "name": "promise",
+        "type": "celestia.fibre.v1.PaymentPromise",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "celestia.fibre.v1.PaymentPromise"
+      }
+    ],
+    "comment": "QueryValidatePaymentPromiseRequest is the request type for the Query/ValidatePaymentPromise RPC method."
+  },
+  {
+    "fullName": "celestia.fibre.v1.QueryValidatePaymentPromiseResponse",
+    "name": "QueryValidatePaymentPromiseResponse",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "fields": [
+      {
+        "name": "is_valid",
+        "type": "bool",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "expiration_time",
+        "type": "google.protobuf.Timestamp",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Timestamp"
+      }
+    ],
+    "comment": "QueryValidatePaymentPromiseResponse is the response type for the Query/ValidatePaymentPromise RPC method."
+  },
+  {
+    "fullName": "celestia.fibre.v1.QueryWithdrawalsRequest",
+    "name": "QueryWithdrawalsRequest",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "fields": [
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageRequest",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageRequest"
+      }
+    ],
+    "comment": "QueryWithdrawalsRequest is the request type for the Query/Withdrawals RPC method."
+  },
+  {
+    "fullName": "celestia.fibre.v1.QueryWithdrawalsResponse",
+    "name": "QueryWithdrawalsResponse",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "fields": [
+      {
+        "name": "withdrawals",
+        "type": "celestia.fibre.v1.Withdrawal",
+        "number": 1,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "celestia.fibre.v1.Withdrawal"
+      },
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageResponse",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageResponse"
+      }
+    ],
+    "comment": "QueryWithdrawalsResponse is the response type for the Query/Withdrawals RPC method."
+  },
+  {
+    "fullName": "celestia.fibre.v1.UploadShardRequest",
+    "name": "UploadShardRequest",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "fields": [
+      {
+        "name": "promise",
+        "type": "celestia.fibre.v1.PaymentPromise",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "celestia.fibre.v1.PaymentPromise"
+      },
+      {
+        "name": "shard",
+        "type": "celestia.fibre.v1.BlobShard",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "celestia.fibre.v1.BlobShard"
+      }
+    ],
+    "comment": "UploadShardRequest is the request message for the UploadShard RPC method."
+  },
+  {
+    "fullName": "celestia.fibre.v1.UploadShardResponse",
+    "name": "UploadShardResponse",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "fields": [
+      {
+        "name": "validator_signature",
+        "type": "bytes",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "UploadShardResponse is the response message for the UploadShard RPC method."
+  },
+  {
+    "fullName": "celestia.fibre.v1.Withdrawal",
+    "name": "Withdrawal",
+    "package": "celestia.fibre.v1",
+    "module": "fibre",
+    "fields": [
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "signer is the address that owns the escrow account this withdrawal is for"
+      },
+      {
+        "name": "amount",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin",
+        "comment": "amount is the amount to be withdrawn"
+      },
+      {
+        "name": "requested_timestamp",
+        "type": "google.protobuf.Timestamp",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Timestamp",
+        "comment": "requested_timestamp is the timestamp when withdrawal was requested"
+      },
+      {
+        "name": "available_timestamp",
+        "type": "google.protobuf.Timestamp",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Timestamp",
+        "comment": "available_timestamp is the timestamp when withdrawal becomes available for processing\n This is calculated as requested_timestamp + withdrawal_delay at creation time"
+      }
+    ],
+    "comment": "Withdrawal tracks requests to withdraw funds from an escrow account. It is\n needed to implement a delay mechanism between when a withdrawal is requested\n and when it is executed. By default the withdrawal delay is 24 hours."
+  },
+  {
+    "fullName": "celestia.forwarding.v1.EventTokenForwarded",
+    "name": "EventTokenForwarded",
+    "package": "celestia.forwarding.v1",
+    "module": "forwarding",
+    "fields": [
+      {
+        "name": "forward_addr",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "forward_addr is the forwarding address."
+      },
+      {
+        "name": "token_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "token_id is the Hyperlane token identifier."
+      },
+      {
+        "name": "denom",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "denom is the token denomination."
+      },
+      {
+        "name": "amount",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "amount is the amount forwarded."
+      },
+      {
+        "name": "message_id",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "comment": "message_id is the Hyperlane message ID."
+      }
+    ],
+    "comment": "EventTokenForwarded is emitted when a token is forwarded."
+  },
+  {
+    "fullName": "celestia.forwarding.v1.GenesisState",
+    "name": "GenesisState",
+    "package": "celestia.forwarding.v1",
+    "module": "forwarding",
+    "fields": [],
+    "comment": "GenesisState defines the forwarding module's genesis state.\n The module is stateless - funds are tracked by the bank module at derived addresses."
+  },
+  {
+    "fullName": "celestia.forwarding.v1.MsgForward",
+    "name": "MsgForward",
+    "package": "celestia.forwarding.v1",
+    "module": "forwarding",
+    "fields": [
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "signer is the address paying for gas and IGP fees (typically a relayer)."
+      },
+      {
+        "name": "forward_addr",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "forward_addr is the derived forwarding address (bech32)."
+      },
+      {
+        "name": "dest_domain",
+        "type": "uint32",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "dest_domain is the destination chain domain ID."
+      },
+      {
+        "name": "dest_recipient",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "dest_recipient is the recipient on destination chain (32 bytes, hex-encoded, 0x prefix optional)."
+      },
+      {
+        "name": "token_id",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "comment": "token_id is the Hyperlane token identifier this forwarding request is bound to."
+      },
+      {
+        "name": "max_igp_fee",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 6,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin",
+        "comment": "max_igp_fee is the maximum Hyperlane IGP fee the relayer will pay for this forwarding.\n The actual fee charged is the lesser of max_igp_fee and the quoted fee.\n Required: relayer must provide sufficient fee for the transfer."
+      }
+    ],
+    "comment": "MsgForward is a permissionless message to trigger token forwarding.\n Anyone can submit this message to forward tokens at the derived address.\n The signer (relayer) pays both Celestia gas and Hyperlane IGP fees."
+  },
+  {
+    "fullName": "celestia.forwarding.v1.MsgForwardResponse",
+    "name": "MsgForwardResponse",
+    "package": "celestia.forwarding.v1",
+    "module": "forwarding",
+    "fields": [
+      {
+        "name": "denom",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "denom is the token denomination."
+      },
+      {
+        "name": "amount",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "amount is the amount forwarded."
+      },
+      {
+        "name": "message_id",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "message_id is the Hyperlane message ID."
+      }
+    ],
+    "comment": "MsgForwardResponse is the response for MsgForward."
+  },
+  {
+    "fullName": "celestia.forwarding.v1.QueryDeriveForwardingAddressRequest",
+    "name": "QueryDeriveForwardingAddressRequest",
+    "package": "celestia.forwarding.v1",
+    "module": "forwarding",
+    "fields": [
+      {
+        "name": "dest_domain",
+        "type": "uint32",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "dest_domain is the destination chain domain ID."
+      },
+      {
+        "name": "dest_recipient",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "dest_recipient is the recipient on destination chain (32 bytes, hex-encoded, 0x prefix optional)."
+      },
+      {
+        "name": "token_id",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "token_id is the Hyperlane token identifier to bind this forwarding address to."
+      }
+    ],
+    "comment": "QueryDeriveForwardingAddressRequest is the request for DeriveForwardingAddress."
+  },
+  {
+    "fullName": "celestia.forwarding.v1.QueryDeriveForwardingAddressResponse",
+    "name": "QueryDeriveForwardingAddressResponse",
+    "package": "celestia.forwarding.v1",
+    "module": "forwarding",
+    "fields": [
+      {
+        "name": "address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "address is the derived forwarding address (bech32)."
+      }
+    ],
+    "comment": "QueryDeriveForwardingAddressResponse is the response for DeriveForwardingAddress."
+  },
+  {
+    "fullName": "celestia.forwarding.v1.QueryQuoteForwardingFeeRequest",
+    "name": "QueryQuoteForwardingFeeRequest",
+    "package": "celestia.forwarding.v1",
+    "module": "forwarding",
+    "fields": [
+      {
+        "name": "dest_domain",
+        "type": "uint32",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "dest_domain is the destination chain domain ID."
+      },
+      {
+        "name": "token_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "token_id is the Hyperlane token identifier to quote fees for."
+      }
+    ],
+    "comment": "QueryQuoteForwardingFeeRequest is the request for QuoteForwardingFee."
+  },
+  {
+    "fullName": "celestia.forwarding.v1.QueryQuoteForwardingFeeResponse",
+    "name": "QueryQuoteForwardingFeeResponse",
+    "package": "celestia.forwarding.v1",
+    "module": "forwarding",
+    "fields": [
+      {
+        "name": "fee",
+        "type": "cosmos.base.v1beta1.Coin",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.v1beta1.Coin",
+        "comment": "fee is the estimated Hyperlane IGP fee required for forwarding.\n Relayers should set max_igp_fee >= this value (with some buffer for price changes)."
+      }
+    ],
+    "comment": "QueryQuoteForwardingFeeResponse is the response for QuoteForwardingFee."
+  },
+  {
+    "fullName": "celestia.minfee.v1.EventUpdateMinfeeParams",
+    "name": "EventUpdateMinfeeParams",
+    "package": "celestia.minfee.v1",
+    "module": "minfee",
+    "fields": [
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "params",
+        "type": "celestia.minfee.v1.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "celestia.minfee.v1.Params"
+      }
+    ],
+    "comment": "EventUpdateMinfeeParams defines an event that is emitted when minfee parameters are\n updated. It is triggered after a successful execution of a parameter update proposal."
+  },
+  {
+    "fullName": "celestia.minfee.v1.GenesisState",
+    "name": "GenesisState",
+    "package": "celestia.minfee.v1",
+    "module": "minfee",
+    "fields": [
+      {
+        "name": "network_min_gas_price",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "params",
+        "type": "celestia.minfee.v1.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "celestia.minfee.v1.Params"
+      }
+    ],
+    "comment": "GenesisState defines the minfee module's genesis state."
+  },
+  {
+    "fullName": "celestia.minfee.v1.MsgUpdateMinfeeParams",
+    "name": "MsgUpdateMinfeeParams",
+    "package": "celestia.minfee.v1",
+    "module": "minfee",
+    "fields": [
+      {
+        "name": "authority",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "authority is the address of the governance account."
+      },
+      {
+        "name": "params",
+        "type": "celestia.minfee.v1.Params",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "celestia.minfee.v1.Params",
+        "comment": "params defines the minfee parameters to update.\n\n NOTE: All parameters must be supplied."
+      }
+    ],
+    "comment": "MsgUpdateMinfeeParams defines a message for updating the minimum fee parameters."
+  },
+  {
+    "fullName": "celestia.minfee.v1.MsgUpdateMinfeeParamsResponse",
+    "name": "MsgUpdateMinfeeParamsResponse",
+    "package": "celestia.minfee.v1",
+    "module": "minfee",
+    "fields": [],
+    "comment": "MsgUpdateMinfeeParamsResponse is the UpdateMinfeeParams response."
+  },
+  {
+    "fullName": "celestia.minfee.v1.Params",
+    "name": "Params",
+    "package": "celestia.minfee.v1",
+    "module": "minfee",
+    "fields": [
+      {
+        "name": "network_min_gas_price",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "Params defines the parameters for the module."
+  },
+  {
+    "fullName": "celestia.minfee.v1.QueryNetworkMinGasPrice",
+    "name": "QueryNetworkMinGasPrice",
+    "package": "celestia.minfee.v1",
+    "module": "minfee",
+    "fields": [],
+    "comment": "QueryNetworkMinGasPrice is the request type for the Query/NetworkMinGasPrice\n RPC method."
+  },
+  {
+    "fullName": "celestia.minfee.v1.QueryNetworkMinGasPriceResponse",
+    "name": "QueryNetworkMinGasPriceResponse",
+    "package": "celestia.minfee.v1",
+    "module": "minfee",
+    "fields": [
+      {
+        "name": "network_min_gas_price",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "QueryNetworkMinGasPriceResponse is the response type for\n Query/NetworkMinGasPrice RPC method."
+  },
+  {
+    "fullName": "celestia.minfee.v1.QueryParamsRequest",
+    "name": "QueryParamsRequest",
+    "package": "celestia.minfee.v1",
+    "module": "minfee",
+    "fields": [],
+    "comment": "QueryParamsRequest is the request type for the Query/Params RPC method."
+  },
+  {
+    "fullName": "celestia.minfee.v1.QueryParamsResponse",
+    "name": "QueryParamsResponse",
+    "package": "celestia.minfee.v1",
+    "module": "minfee",
+    "fields": [
+      {
+        "name": "params",
+        "type": "celestia.minfee.v1.Params",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "celestia.minfee.v1.Params"
+      }
+    ],
+    "comment": "QueryParamsResponse is the response type for the Query/Params RPC method."
+  },
+  {
+    "fullName": "celestia.mint.v1.GenesisState",
+    "name": "GenesisState",
+    "package": "celestia.mint.v1",
+    "module": "mint",
+    "fields": [
+      {
+        "name": "bond_denom",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "BondDenom is the denomination of the token that should be minted."
+      }
+    ],
+    "comment": "GenesisState defines the mint module's genesis state."
+  },
+  {
+    "fullName": "celestia.mint.v1.GenesisTime",
+    "name": "GenesisTime",
+    "package": "celestia.mint.v1",
+    "module": "mint",
+    "fields": [
+      {
+        "name": "genesis_time",
+        "type": "google.protobuf.Timestamp",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Timestamp",
+        "comment": "GenesisTime is the timestamp of the genesis block."
+      }
+    ],
+    "comment": "GenesisTime contains the timestamp of the genesis block."
+  },
+  {
+    "fullName": "celestia.mint.v1.Minter",
+    "name": "Minter",
+    "package": "celestia.mint.v1",
+    "module": "mint",
+    "fields": [
+      {
+        "name": "inflation_rate",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "InflationRate is the rate at which new tokens should be minted for the\n current year. For example if InflationRate=0.1, then 10% of the total\n supply will be minted over the course of the year."
+      },
+      {
+        "name": "annual_provisions",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "AnnualProvisions is the total number of tokens to be minted in the current\n year due to inflation."
+      },
+      {
+        "name": "previous_block_time",
+        "type": "google.protobuf.Timestamp",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Timestamp",
+        "comment": "PreviousBlockTime is the timestamp of the previous block."
+      },
+      {
+        "name": "bond_denom",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "comment": "BondDenom is the denomination of the token that should be minted."
+      }
+    ],
+    "comment": "Minter represents the mint state."
+  },
+  {
+    "fullName": "celestia.mint.v1.QueryAnnualProvisionsRequest",
+    "name": "QueryAnnualProvisionsRequest",
+    "package": "celestia.mint.v1",
+    "module": "mint",
+    "fields": [],
+    "comment": "QueryAnnualProvisionsRequest is the request type for the\n Query/AnnualProvisions RPC method."
+  },
+  {
+    "fullName": "celestia.mint.v1.QueryAnnualProvisionsResponse",
+    "name": "QueryAnnualProvisionsResponse",
+    "package": "celestia.mint.v1",
+    "module": "mint",
+    "fields": [
+      {
+        "name": "annual_provisions",
+        "type": "bytes",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "AnnualProvisions is the current annual provisions."
+      }
+    ],
+    "comment": "QueryAnnualProvisionsResponse is the response type for the\n Query/AnnualProvisions RPC method."
+  },
+  {
+    "fullName": "celestia.mint.v1.QueryGenesisTimeRequest",
+    "name": "QueryGenesisTimeRequest",
+    "package": "celestia.mint.v1",
+    "module": "mint",
+    "fields": [],
+    "comment": "QueryGenesisTimeRequest is the request type for the Query/GenesisTime RPC\n method."
+  },
+  {
+    "fullName": "celestia.mint.v1.QueryGenesisTimeResponse",
+    "name": "QueryGenesisTimeResponse",
+    "package": "celestia.mint.v1",
+    "module": "mint",
+    "fields": [
+      {
+        "name": "genesis_time",
+        "type": "google.protobuf.Timestamp",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Timestamp",
+        "comment": "GenesisTime is the timestamp associated with the first block."
+      }
+    ],
+    "comment": "QueryGenesisTimeResponse is the response type for the Query/GenesisTime RPC\n method."
+  },
+  {
+    "fullName": "celestia.mint.v1.QueryInflationRateRequest",
+    "name": "QueryInflationRateRequest",
+    "package": "celestia.mint.v1",
+    "module": "mint",
+    "fields": [],
+    "comment": "QueryInflationRateRequest is the request type for the Query/InflationRate RPC\n method."
+  },
+  {
+    "fullName": "celestia.mint.v1.QueryInflationRateResponse",
+    "name": "QueryInflationRateResponse",
+    "package": "celestia.mint.v1",
+    "module": "mint",
+    "fields": [
+      {
+        "name": "inflation_rate",
+        "type": "bytes",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "InflationRate is the current inflation rate."
+      }
+    ],
+    "comment": "QueryInflationRateResponse is the response type for the Query/InflationRate\n RPC method."
+  },
+  {
+    "fullName": "celestia.signal.v1.MsgSignalVersion",
+    "name": "MsgSignalVersion",
+    "package": "celestia.signal.v1",
+    "module": "signal",
+    "fields": [
+      {
+        "name": "validator_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "version",
+        "type": "uint64",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "MsgSignalVersion signals for an upgrade."
+  },
+  {
+    "fullName": "celestia.signal.v1.MsgSignalVersionResponse",
+    "name": "MsgSignalVersionResponse",
+    "package": "celestia.signal.v1",
+    "module": "signal",
+    "fields": [],
+    "comment": "MsgSignalVersionResponse is the response type for the SignalVersion method."
+  },
+  {
+    "fullName": "celestia.signal.v1.MsgTryUpgrade",
+    "name": "MsgTryUpgrade",
+    "package": "celestia.signal.v1",
+    "module": "signal",
+    "fields": [
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "MsgTryUpgrade tries to upgrade the chain."
+  },
+  {
+    "fullName": "celestia.signal.v1.MsgTryUpgradeResponse",
+    "name": "MsgTryUpgradeResponse",
+    "package": "celestia.signal.v1",
+    "module": "signal",
+    "fields": [],
+    "comment": "MsgTryUpgradeResponse is the response type for the TryUpgrade method."
+  },
+  {
+    "fullName": "celestia.signal.v1.QueryGetMissingValidatorsRequest",
+    "name": "QueryGetMissingValidatorsRequest",
+    "package": "celestia.signal.v1",
+    "module": "signal",
+    "fields": [
+      {
+        "name": "version",
+        "type": "uint64",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "QueryGetMissingValidatorsRequest is the request type for the MissingValidators query."
+  },
+  {
+    "fullName": "celestia.signal.v1.QueryGetMissingValidatorsResponse",
+    "name": "QueryGetMissingValidatorsResponse",
+    "package": "celestia.signal.v1",
+    "module": "signal",
+    "fields": [
+      {
+        "name": "missing_validators",
+        "type": "string",
+        "number": 1,
+        "repeated": true,
+        "optional": false,
+        "comment": "MissingValidators is a string of validator monikers"
+      }
+    ],
+    "comment": "QueryGetMissingValidatorsResponse is the response type for the MissingValidators query."
+  },
+  {
+    "fullName": "celestia.signal.v1.QueryGetUpgradeRequest",
+    "name": "QueryGetUpgradeRequest",
+    "package": "celestia.signal.v1",
+    "module": "signal",
+    "fields": [],
+    "comment": "QueryGetUpgradeRequest is the request type for the GetUpgrade query."
+  },
+  {
+    "fullName": "celestia.signal.v1.QueryGetUpgradeResponse",
+    "name": "QueryGetUpgradeResponse",
+    "package": "celestia.signal.v1",
+    "module": "signal",
+    "fields": [
+      {
+        "name": "upgrade",
+        "type": "celestia.signal.v1.Upgrade",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "celestia.signal.v1.Upgrade"
+      }
+    ],
+    "comment": "QueryGetUpgradeResponse is the response type for the GetUpgrade query."
+  },
+  {
+    "fullName": "celestia.signal.v1.QueryVersionTallyRequest",
+    "name": "QueryVersionTallyRequest",
+    "package": "celestia.signal.v1",
+    "module": "signal",
+    "fields": [
+      {
+        "name": "version",
+        "type": "uint64",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "QueryVersionTallyRequest is the request type for the VersionTally query."
+  },
+  {
+    "fullName": "celestia.signal.v1.QueryVersionTallyResponse",
+    "name": "QueryVersionTallyResponse",
+    "package": "celestia.signal.v1",
+    "module": "signal",
+    "fields": [
+      {
+        "name": "voting_power",
+        "type": "uint64",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "threshold_power",
+        "type": "uint64",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "total_voting_power",
+        "type": "uint64",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "QueryVersionTallyResponse is the response type for the VersionTally query."
+  },
+  {
+    "fullName": "celestia.signal.v1.Upgrade",
+    "name": "Upgrade",
+    "package": "celestia.signal.v1",
+    "module": "signal",
+    "fields": [
+      {
+        "name": "app_version",
+        "type": "uint64",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "AppVersion is the app version that has received a quorum of validators to\n signal for it."
+      },
+      {
+        "name": "upgrade_height",
+        "type": "int64",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "UpgradeHeight is the height at which the network should upgrade to the\n AppVersion."
+      }
+    ],
+    "comment": "Upgrade is a type that represents a network upgrade."
+  },
+  {
+    "fullName": "celestia.valaddr.v1.EventSetFibreProviderInfo",
+    "name": "EventSetFibreProviderInfo",
+    "package": "celestia.valaddr.v1",
+    "module": "valaddr",
+    "fields": [
+      {
+        "name": "validator_consensus_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "validator_consensus_address is the validator consensus address (celestiavalcons...)"
+      },
+      {
+        "name": "host",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "host is the network address for the fibre service provider"
+      }
+    ],
+    "comment": "EventSetFibreProviderInfo is emitted when a validator sets or updates their fibre provider information."
+  },
+  {
+    "fullName": "celestia.valaddr.v1.FibreProvider",
+    "name": "FibreProvider",
+    "package": "celestia.valaddr.v1",
+    "module": "valaddr",
+    "fields": [
+      {
+        "name": "validator_consensus_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "validator_consensus_address is the validator consensus address (celestiavalcons...)"
+      },
+      {
+        "name": "info",
+        "type": "celestia.valaddr.v1.FibreProviderInfo",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "celestia.valaddr.v1.FibreProviderInfo",
+        "comment": "info contains the fibre provider information"
+      }
+    ],
+    "comment": "FibreProvider represents a validator and their fibre provider information."
+  },
+  {
+    "fullName": "celestia.valaddr.v1.FibreProviderInfo",
+    "name": "FibreProviderInfo",
+    "package": "celestia.valaddr.v1",
+    "module": "valaddr",
+    "fields": [
+      {
+        "name": "host",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "host is the network address for the fibre service provider"
+      }
+    ],
+    "comment": "FibreProviderInfo contains the service details for a fibre provider."
+  },
+  {
+    "fullName": "celestia.valaddr.v1.GenesisState",
+    "name": "GenesisState",
+    "package": "celestia.valaddr.v1",
+    "module": "valaddr",
+    "fields": [],
+    "comment": "GenesisState defines the valaddr module's genesis state."
+  },
+  {
+    "fullName": "celestia.valaddr.v1.MsgSetFibreProviderInfo",
+    "name": "MsgSetFibreProviderInfo",
+    "package": "celestia.valaddr.v1",
+    "module": "valaddr",
+    "fields": [
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "signer is the validator's operator address (celestiavaloper...)"
+      },
+      {
+        "name": "host",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "host is the network address for the fibre service provider"
+      }
+    ],
+    "comment": "MsgSetFibreProviderInfo allows a validator to set or update their fibre provider information."
+  },
+  {
+    "fullName": "celestia.valaddr.v1.MsgSetFibreProviderInfoResponse",
+    "name": "MsgSetFibreProviderInfoResponse",
+    "package": "celestia.valaddr.v1",
+    "module": "valaddr",
+    "fields": [],
+    "comment": "MsgSetFibreProviderInfoResponse describes the response returned after setting fibre provider info."
+  },
+  {
+    "fullName": "celestia.valaddr.v1.QueryAllFibreProvidersRequest",
+    "name": "QueryAllFibreProvidersRequest",
+    "package": "celestia.valaddr.v1",
+    "module": "valaddr",
+    "fields": [],
+    "comment": "QueryAllFibreProvidersRequest is the request type for the Query/AllFibreProviders RPC method."
+  },
+  {
+    "fullName": "celestia.valaddr.v1.QueryAllFibreProvidersResponse",
+    "name": "QueryAllFibreProvidersResponse",
+    "package": "celestia.valaddr.v1",
+    "module": "valaddr",
+    "fields": [
+      {
+        "name": "providers",
+        "type": "celestia.valaddr.v1.FibreProvider",
+        "number": 1,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "celestia.valaddr.v1.FibreProvider",
+        "comment": "providers contains all fibre providers with a host defined"
+      }
+    ],
+    "comment": "QueryAllFibreProvidersResponse is the response type for the Query/AllFibreProviders RPC method."
+  },
+  {
+    "fullName": "celestia.valaddr.v1.QueryFibreProviderInfoRequest",
+    "name": "QueryFibreProviderInfoRequest",
+    "package": "celestia.valaddr.v1",
+    "module": "valaddr",
+    "fields": [
+      {
+        "name": "validator_consensus_address",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "validator_consensus_address is the validator consensus address (celestiavalcons...)"
+      }
+    ],
+    "comment": "QueryFibreProviderInfoRequest is the request type for the Query/FibreProviderInfo RPC method."
+  },
+  {
+    "fullName": "celestia.valaddr.v1.QueryFibreProviderInfoResponse",
+    "name": "QueryFibreProviderInfoResponse",
+    "package": "celestia.valaddr.v1",
+    "module": "valaddr",
+    "fields": [
+      {
+        "name": "info",
+        "type": "celestia.valaddr.v1.FibreProviderInfo",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "celestia.valaddr.v1.FibreProviderInfo",
+        "comment": "info contains the fibre provider information"
+      },
+      {
+        "name": "found",
+        "type": "bool",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "found indicates if the validator has registered info"
+      }
+    ],
+    "comment": "QueryFibreProviderInfoResponse is the response type for the Query/FibreProviderInfo RPC method."
+  },
+  {
+    "fullName": "celestia.zkism.v1.EventCreateInterchainSecurityModule",
+    "name": "EventCreateInterchainSecurityModule",
+    "package": "celestia.zkism.v1",
+    "module": "zkism",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "unique hyperlane identifier"
+      },
+      {
+        "name": "owner",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "the owner or creator of the ism"
+      },
+      {
+        "name": "state",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "latest state"
+      },
+      {
+        "name": "merkle_tree_address",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "merkle tree address in bytes32 format"
+      },
+      {
+        "name": "groth16_vkey",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "comment": "the sp1 groth16 verifier key (hex-encoded)"
+      },
+      {
+        "name": "state_transition_vkey",
+        "type": "string",
+        "number": 6,
+        "repeated": false,
+        "optional": false,
+        "comment": "hash-based commitment to the verifier key used for state transition (hex-encoded)"
+      },
+      {
+        "name": "state_membership_vkey",
+        "type": "string",
+        "number": 7,
+        "repeated": false,
+        "optional": false,
+        "comment": "hash-based commitment to the verifier key used for state membership (hex-encoded)"
+      }
+    ],
+    "comment": "EventCreateInterchainSecurityModule defines the event type emitted when creating a new InterchainSecurityModule."
+  },
+  {
+    "fullName": "celestia.zkism.v1.EventSubmitMessages",
+    "name": "EventSubmitMessages",
+    "package": "celestia.zkism.v1",
+    "module": "zkism",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "unique hyperlane identifier"
+      },
+      {
+        "name": "state_root",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "state commitment root used to verify messages (hex-encoded)"
+      },
+      {
+        "name": "messages",
+        "type": "string",
+        "number": 3,
+        "repeated": true,
+        "optional": false,
+        "comment": "list of authorized messages ids"
+      }
+    ],
+    "comment": "EventSubmitMessages defines the event type emitted after successful message submission."
+  },
+  {
+    "fullName": "celestia.zkism.v1.EventUpdateInterchainSecurityModule",
+    "name": "EventUpdateInterchainSecurityModule",
+    "package": "celestia.zkism.v1",
+    "module": "zkism",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "unique hyperlane identifier"
+      },
+      {
+        "name": "state",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "new state"
+      }
+    ],
+    "comment": "EventUpdateInterchainSecurityModule defines the event type emitted when updating a InterchainSecurityModule."
+  },
+  {
+    "fullName": "celestia.zkism.v1.GenesisMessages",
+    "name": "GenesisMessages",
+    "package": "celestia.zkism.v1",
+    "module": "zkism",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "ism identifier"
+      },
+      {
+        "name": "messages",
+        "type": "string",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "comment": "list of authorized message ids"
+      }
+    ],
+    "comment": "GenesisMessages contains the authorized Hyperlane message IDs for a zk execution ism."
+  },
+  {
+    "fullName": "celestia.zkism.v1.GenesisProofSubmission",
+    "name": "GenesisProofSubmission",
+    "package": "celestia.zkism.v1",
+    "module": "zkism",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "ism identifier"
+      },
+      {
+        "name": "submitted",
+        "type": "bool",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "whether a message proof has been submitted for the current state root"
+      }
+    ],
+    "comment": "GenesisProofSubmission contains the proof submission state for a zk execution ism."
+  },
+  {
+    "fullName": "celestia.zkism.v1.GenesisState",
+    "name": "GenesisState",
+    "package": "celestia.zkism.v1",
+    "module": "zkism",
+    "fields": [
+      {
+        "name": "isms",
+        "type": "celestia.zkism.v1.InterchainSecurityModule",
+        "number": 1,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "celestia.zkism.v1.InterchainSecurityModule",
+        "comment": "list of zk execution isms."
+      },
+      {
+        "name": "messages",
+        "type": "celestia.zkism.v1.GenesisMessages",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "celestia.zkism.v1.GenesisMessages",
+        "comment": "messages authorized for each zk execution ism."
+      },
+      {
+        "name": "submissions",
+        "type": "celestia.zkism.v1.GenesisProofSubmission",
+        "number": 3,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "celestia.zkism.v1.GenesisProofSubmission",
+        "comment": "tracks whether a message proof has been submitted for the current state root."
+      }
+    ],
+    "comment": "GenesisState defines the zkism module's genesis state."
+  },
+  {
+    "fullName": "celestia.zkism.v1.InterchainSecurityModule",
+    "name": "InterchainSecurityModule",
+    "package": "celestia.zkism.v1",
+    "module": "zkism",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "unique hyperlane identifier"
+      },
+      {
+        "name": "owner",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "the owner or creator of the ism"
+      },
+      {
+        "name": "state",
+        "type": "bytes",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "current state"
+      },
+      {
+        "name": "merkle_tree_address",
+        "type": "bytes",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "merkle tree address in bytes32 format"
+      },
+      {
+        "name": "groth16_vkey",
+        "type": "bytes",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "comment": "the sp1 groth16 verifier key"
+      },
+      {
+        "name": "state_transition_vkey",
+        "type": "bytes",
+        "number": 6,
+        "repeated": false,
+        "optional": false,
+        "comment": "hash-based commitment to the verifier key used for state transition"
+      },
+      {
+        "name": "state_membership_vkey",
+        "type": "bytes",
+        "number": 7,
+        "repeated": false,
+        "optional": false,
+        "comment": "hash-based commitment to the verifier key used for state membership"
+      }
+    ],
+    "comment": "InterchainSecurityModule defines the Hyperlane interchain security module (ISM)."
+  },
+  {
+    "fullName": "celestia.zkism.v1.MsgCreateInterchainSecurityModule",
+    "name": "MsgCreateInterchainSecurityModule",
+    "package": "celestia.zkism.v1",
+    "module": "zkism",
+    "fields": [
+      {
+        "name": "creator",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "creator is the message sender."
+      },
+      {
+        "name": "state",
+        "type": "bytes",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "initial trusted state"
+      },
+      {
+        "name": "merkle_tree_address",
+        "type": "bytes",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "merkle tree address in byte32 format"
+      },
+      {
+        "name": "groth16_vkey",
+        "type": "bytes",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "the sp1 groth16 verifier key"
+      },
+      {
+        "name": "state_transition_vkey",
+        "type": "bytes",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "comment": "hash-based commitment to the verifier key used for state transition"
+      },
+      {
+        "name": "state_membership_vkey",
+        "type": "bytes",
+        "number": 6,
+        "repeated": false,
+        "optional": false,
+        "comment": "hash-based commitment to the verifier key used for state membership"
+      }
+    ],
+    "comment": "MsgCreateInterchainSecurityModule is the request type for CreateInterchainSecurityModule."
+  },
+  {
+    "fullName": "celestia.zkism.v1.MsgCreateInterchainSecurityModuleResponse",
+    "name": "MsgCreateInterchainSecurityModuleResponse",
+    "package": "celestia.zkism.v1",
+    "module": "zkism",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "MsgCreateInterchainSecurityModuleResponse is the response type for CreateInterchainSecurityModule."
+  },
+  {
+    "fullName": "celestia.zkism.v1.MsgSubmitMessages",
+    "name": "MsgSubmitMessages",
+    "package": "celestia.zkism.v1",
+    "module": "zkism",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "ism identifier"
+      },
+      {
+        "name": "proof",
+        "type": "bytes",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "proof is the ZK proof bytes (groth16)."
+      },
+      {
+        "name": "public_values",
+        "type": "bytes",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "the public values used for proof verification."
+      },
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "the tx signer address"
+      }
+    ],
+    "comment": "MsgSubmitMessages is the request type for SubmitMessages."
+  },
+  {
+    "fullName": "celestia.zkism.v1.MsgSubmitMessagesResponse",
+    "name": "MsgSubmitMessagesResponse",
+    "package": "celestia.zkism.v1",
+    "module": "zkism",
+    "fields": [
+      {
+        "name": "state_root",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "state commitment root used to verify messages (hex-encoded)"
+      },
+      {
+        "name": "messages",
+        "type": "string",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "comment": "list of authorized messages ids"
+      }
+    ],
+    "comment": "MsgSubmitMessagesResponse is the response type for SubmitMessages."
+  },
+  {
+    "fullName": "celestia.zkism.v1.MsgUpdateInterchainSecurityModule",
+    "name": "MsgUpdateInterchainSecurityModule",
+    "package": "celestia.zkism.v1",
+    "module": "zkism",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "ism identifier"
+      },
+      {
+        "name": "proof",
+        "type": "bytes",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "proof is the ZK proof bytes (groth16)."
+      },
+      {
+        "name": "public_values",
+        "type": "bytes",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "the public values used for proof verification."
+      },
+      {
+        "name": "signer",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "the tx signer address"
+      }
+    ],
+    "comment": "MsgUpdateInterchainSecurityModule is the request type for UpdateInterchainSecurityModule."
+  },
+  {
+    "fullName": "celestia.zkism.v1.MsgUpdateInterchainSecurityModuleResponse",
+    "name": "MsgUpdateInterchainSecurityModuleResponse",
+    "package": "celestia.zkism.v1",
+    "module": "zkism",
+    "fields": [
+      {
+        "name": "state",
+        "type": "bytes",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "new ism state"
+      }
+    ],
+    "comment": "MsgUpdateInterchainSecurityModuleResponse is the response type for UpdateInterchainSecurityModule."
+  },
+  {
+    "fullName": "celestia.zkism.v1.QueryIsmRequest",
+    "name": "QueryIsmRequest",
+    "package": "celestia.zkism.v1",
+    "module": "zkism",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "id is the hex-encoded ISM identifier."
+      }
+    ],
+    "comment": "QueryIsmRequest is the request type for the Ism rpc method."
+  },
+  {
+    "fullName": "celestia.zkism.v1.QueryIsmResponse",
+    "name": "QueryIsmResponse",
+    "package": "celestia.zkism.v1",
+    "module": "zkism",
+    "fields": [
+      {
+        "name": "ism",
+        "type": "celestia.zkism.v1.InterchainSecurityModule",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "celestia.zkism.v1.InterchainSecurityModule",
+        "comment": "the ism associated with the provided identifier."
+      }
+    ],
+    "comment": "QueryIsmResponse is the response type for the Ism rpc method."
+  },
+  {
+    "fullName": "celestia.zkism.v1.QueryIsmsRequest",
+    "name": "QueryIsmsRequest",
+    "package": "celestia.zkism.v1",
+    "module": "zkism",
+    "fields": [
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageRequest",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageRequest",
+        "comment": "pagination defines an optional pagination for the request."
+      }
+    ],
+    "comment": "QueryIsmsRequest is the request type for the Isms rpc method."
+  },
+  {
+    "fullName": "celestia.zkism.v1.QueryIsmsResponse",
+    "name": "QueryIsmsResponse",
+    "package": "celestia.zkism.v1",
+    "module": "zkism",
+    "fields": [
+      {
+        "name": "isms",
+        "type": "celestia.zkism.v1.InterchainSecurityModule",
+        "number": 1,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "celestia.zkism.v1.InterchainSecurityModule",
+        "comment": "isms is a list of zk execution isms."
+      },
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageResponse",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageResponse",
+        "comment": "pagination defines the pagination in the response."
+      }
+    ],
+    "comment": "QueryIsmsResponse is the response type for the Isms rpc method."
+  },
+  {
+    "fullName": "celestia.zkism.v1.QueryMessagesRequest",
+    "name": "QueryMessagesRequest",
+    "package": "celestia.zkism.v1",
+    "module": "zkism",
+    "fields": [
+      {
+        "name": "id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "id is the hex-encoded ISM identifier."
+      },
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageRequest",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageRequest",
+        "comment": "pagination defines an optional pagination for the request."
+      }
+    ],
+    "comment": "QueryMessagesRequest is the request type for the Messages rpc method."
+  },
+  {
+    "fullName": "celestia.zkism.v1.QueryMessagesResponse",
+    "name": "QueryMessagesResponse",
+    "package": "celestia.zkism.v1",
+    "module": "zkism",
+    "fields": [
+      {
+        "name": "messages",
+        "type": "string",
+        "number": 1,
+        "repeated": true,
+        "optional": false,
+        "comment": "messages is a list of authorized Hyperlane message IDs."
+      },
+      {
+        "name": "pagination",
+        "type": "cosmos.base.query.v1beta1.PageResponse",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "cosmos.base.query.v1beta1.PageResponse",
+        "comment": "pagination defines the pagination in the response."
+      }
+    ],
+    "comment": "QueryMessagesResponse is the response type for the Messages rpc method."
+  },
+  {
+    "fullName": "cosmos_proto.InterfaceDescriptor",
+    "name": "InterfaceDescriptor",
+    "package": "cosmos_proto",
+    "module": "cosmos_proto",
+    "fields": [
+      {
+        "name": "name",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "name is the name of the interface. It should be a short-name (without\n a period) such that the fully qualified name of the interface will be\n package.name, ex. for the package a.b and interface named C, the\n fully-qualified name will be a.b.C."
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "description is a human-readable description of the interface and its\n purpose."
+      }
+    ],
+    "comment": "InterfaceDescriptor describes an interface type to be used with\n accepts_interface and implements_interface and declared by declare_interface."
+  },
+  {
+    "fullName": "cosmos_proto.ScalarDescriptor",
+    "name": "ScalarDescriptor",
+    "package": "cosmos_proto",
+    "module": "cosmos_proto",
+    "fields": [
+      {
+        "name": "name",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "name is the name of the scalar. It should be a short-name (without\n a period) such that the fully qualified name of the scalar will be\n package.name, ex. for the package a.b and scalar named C, the\n fully-qualified name will be a.b.C."
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "description is a human-readable description of the scalar and its\n encoding format. For instance a big integer or decimal scalar should\n specify precisely the expected encoding format."
+      },
+      {
+        "name": "field_type",
+        "type": "cosmos_proto.ScalarType",
+        "number": 3,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "cosmos_proto.ScalarType",
+        "comment": "field_type is the type of field with which this scalar can be used.\n Scalars can be used with one and only one type of field so that\n encoding standards and simple and clear. Currently only string and\n bytes fields are supported for scalars."
+      }
+    ],
+    "comment": "ScalarDescriptor describes an scalar type to be used with\n the scalar field option and declared by declare_scalar.\n Scalars extend simple protobuf built-in types with additional\n syntax and semantics, for instance to represent big integers.\n Scalars should ideally define an encoding such that there is only one\n valid syntactical representation for a given semantic meaning,\n i.e. the encoding should be deterministic."
+  },
+  {
+    "fullName": "cosmos.base.query.v1beta1.PageRequest",
+    "name": "PageRequest",
+    "package": "cosmos.base.query.v1beta1",
+    "module": "query",
+    "fields": [
+      {
+        "name": "key",
+        "type": "bytes",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "key is a value returned in PageResponse.next_key to begin\n querying the next page most efficiently. Only one of offset or key\n should be set."
+      },
+      {
+        "name": "offset",
+        "type": "uint64",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "offset is a numeric offset that can be used when key is unavailable.\n It is less efficient than using key. Only one of offset or key should\n be set."
+      },
+      {
+        "name": "limit",
+        "type": "uint64",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "comment": "limit is the total number of results to be returned in the result page.\n If left empty it will default to a value to be set by each app."
+      },
+      {
+        "name": "count_total",
+        "type": "bool",
+        "number": 4,
+        "repeated": false,
+        "optional": false,
+        "comment": "count_total is set to true  to indicate that the result set should include\n a count of the total number of items available for pagination in UIs.\n count_total is only respected when offset is used. It is ignored when key\n is set."
+      },
+      {
+        "name": "reverse",
+        "type": "bool",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "comment": "reverse is set to true if results are to be returned in the descending order.\n\n Since: cosmos-sdk 0.43"
+      }
+    ],
+    "comment": "PageRequest is to be embedded in gRPC request messages for efficient\n pagination. Ex:\n\n  message SomeRequest {\n          Foo some_parameter = 1;\n          PageRequest pagination = 2;\n  }"
+  },
+  {
+    "fullName": "cosmos.base.query.v1beta1.PageResponse",
+    "name": "PageResponse",
+    "package": "cosmos.base.query.v1beta1",
+    "module": "query",
+    "fields": [
+      {
+        "name": "next_key",
+        "type": "bytes",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "comment": "next_key is the key to be passed to PageRequest.key to\n query the next page most efficiently. It will be empty if\n there are no more results."
+      },
+      {
+        "name": "total",
+        "type": "uint64",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "comment": "total is total number of results available if PageRequest.count_total\n was set, its value is undefined otherwise"
+      }
+    ],
+    "comment": "PageResponse is to be embedded in gRPC response messages where the\n corresponding request message has used PageRequest.\n\n  message SomeResponse {\n          repeated Bar results = 1;\n          PageResponse page = 2;\n  }"
+  },
+  {
+    "fullName": "cosmos.base.v1beta1.Coin",
+    "name": "Coin",
+    "package": "cosmos.base.v1beta1",
+    "module": "base",
+    "fields": [
+      {
+        "name": "denom",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "amount",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "Coin defines a token with a denomination and an amount.\n\n NOTE: The amount field is an Int which implements the custom method\n signatures required by gogoproto."
+  },
+  {
+    "fullName": "cosmos.base.v1beta1.DecCoin",
+    "name": "DecCoin",
+    "package": "cosmos.base.v1beta1",
+    "module": "base",
+    "fields": [
+      {
+        "name": "denom",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "amount",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "DecCoin defines a token with a denomination and a decimal amount.\n\n NOTE: The amount field is an Dec which implements the custom method\n signatures required by gogoproto."
+  },
+  {
+    "fullName": "cosmos.crypto.secp256k1.PrivKey",
+    "name": "PrivKey",
+    "package": "cosmos.crypto.secp256k1",
+    "module": "secp256k1",
+    "fields": [
+      {
+        "name": "key",
+        "type": "bytes",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "PrivKey defines a secp256k1 private key."
+  },
+  {
+    "fullName": "cosmos.crypto.secp256k1.PubKey",
+    "name": "PubKey",
+    "package": "cosmos.crypto.secp256k1",
+    "module": "secp256k1",
+    "fields": [
+      {
+        "name": "key",
+        "type": "bytes",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ],
+    "comment": "PubKey defines a secp256k1 public key\n Key is the compressed form of the pubkey. The first byte depends is a 0x02 byte\n if the y-coordinate is the lexicographically largest of the two associated with\n the x-coordinate. Otherwise the first byte is a 0x03.\n This prefix is followed with the x-coordinate."
+  }
+]

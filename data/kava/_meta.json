@@ -5,9 +5,10 @@
   "logoUrl": "https://raw.githubusercontent.com/cosmos/chain-registry/master/kava/images/kava.svg",
   "msgCount": 49,
   "queryCount": 78,
+  "typeCount": 408,
   "provenance": {
     "source": "source",
-    "harvestedAt": "2026-05-27T17:18:40.381Z",
+    "harvestedAt": "2026-05-27T17:33:29.282Z",
     "origin": "git:https://github.com/kava-Labs/kava/@917cc322eae2:proto",
     "commentsFromSource": true
   }

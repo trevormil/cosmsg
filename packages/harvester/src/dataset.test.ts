@@ -2,7 +2,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "bun:test";
-import { DatasetIndex, MsgDef, QueryDef } from "@cosmsg/schema";
+import { DatasetIndex, MsgDef, QueryDef, TypeDef } from "@cosmsg/schema";
 
 const DATA_DIR = join(
   dirname(fileURLToPath(import.meta.url)),
@@ -35,6 +35,12 @@ maybe("committed dataset", () => {
       for (const q of queries) QueryDef.parse(q);
       expect(msgs.length).toBe(entry.msgCount);
       expect(queries.length).toBe(entry.queryCount);
+
+      const types = JSON.parse(
+        readFileSync(join(DATA_DIR, entry.chainName, "types.json"), "utf8"),
+      );
+      for (const t of types) TypeDef.parse(t);
+      expect(types.length).toBe(entry.typeCount);
     }
   });
 

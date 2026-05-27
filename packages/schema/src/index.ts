@@ -55,6 +55,19 @@ export const QueryDef = z.object({
 });
 export type QueryDef = z.infer<typeof QueryDef>;
 
+/** Any proto message type (including ones only referenced as nested fields, e.g. CollectionApproval). */
+export const TypeDef = z.object({
+  /** Fully-qualified type name, e.g. "badges.CollectionApproval". */
+  fullName: z.string(),
+  /** Short name, e.g. "CollectionApproval". */
+  name: z.string(),
+  package: z.string(),
+  module: z.string().optional(),
+  fields: z.array(FieldDef),
+  comment: z.string().optional(),
+});
+export type TypeDef = z.infer<typeof TypeDef>;
+
 export const HarvestSource = z.enum(["reflection", "source"]);
 export type HarvestSource = z.infer<typeof HarvestSource>;
 
@@ -79,6 +92,7 @@ export const ChainCatalog = z.object({
   provenance: HarvestProvenance,
   msgs: z.array(MsgDef),
   queries: z.array(QueryDef),
+  types: z.array(TypeDef).default([]),
 });
 export type ChainCatalog = z.infer<typeof ChainCatalog>;
 
@@ -91,6 +105,7 @@ export const IndexEntry = z.object({
   logoUrl: z.string().optional(),
   msgCount: z.number().int(),
   queryCount: z.number().int(),
+  typeCount: z.number().int().default(0),
   provenance: HarvestProvenance,
 });
 export type IndexEntry = z.infer<typeof IndexEntry>;

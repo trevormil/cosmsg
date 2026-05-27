@@ -5,9 +5,10 @@
   "logoUrl": "https://raw.githubusercontent.com/cosmos/chain-registry/master/bitbadges/images/bitbadgeslogo.png",
   "msgCount": 197,
   "queryCount": 393,
+  "typeCount": 2880,
   "provenance": {
     "source": "reflection",
-    "harvestedAt": "2026-05-27T17:20:20.896Z",
+    "harvestedAt": "2026-05-27T17:35:11.909Z",
     "origin": "reflection:grpc.bitbadges.io:443",
     "commentsFromSource": false
   }

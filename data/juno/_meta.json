@@ -5,9 +5,10 @@
   "logoUrl": "https://raw.githubusercontent.com/cosmos/chain-registry/master/juno/images/juno.svg",
   "msgCount": 154,
   "queryCount": 346,
+  "typeCount": 2423,
   "provenance": {
     "source": "reflection",
-    "harvestedAt": "2026-05-27T17:16:35.173Z",
+    "harvestedAt": "2026-05-27T17:31:11.159Z",
     "origin": "reflection:juno-grpc.polkachu.com:12690",
     "commentsFromSource": false
   }

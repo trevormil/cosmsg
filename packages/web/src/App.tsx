@@ -5,14 +5,34 @@ import type {
   IndexEntry,
   MsgDef,
   QueryDef,
+  TypeDef,
 } from "@cosmsg/schema";
 import { buildSearchRecords, search, type SearchRecord } from "@cosmsg/core/search";
-import { useEffect, useMemo, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import bitbadgesLogo from "./assets/bitbadges.png";
+
+/** Lets any FieldTable turn a field's type into a link that jumps to that type's definition. */
+const TypeNav = createContext<{
+  types: Set<string>;
+  goto: (fullName: string) => void;
+}>({ types: new Set(), goto: () => {} });
 
 interface Dataset {
   index: DatasetIndex;
   catalogs: Record<string, ChainCatalog>;
+}
+
+type Tab = "msgs" | "queries" | "types";
+
+function kindToTab(kind: SearchRecord["kind"]): Tab {
+  return kind === "msg" ? "msgs" : kind === "query" ? "queries" : "types";
 }
 
 /** Local logo overrides that take precedence over the Chain Registry image. */
@@ -54,7 +74,7 @@ export function App() {
   const [dataset, setDataset] = useState<Dataset | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [chain, setChain] = useState<string | null>(null);
-  const [tab, setTab] = useState<"msgs" | "queries">("msgs");
+  const [tab, setTab] = useState<Tab>("msgs");
   const [query, setQuery] = useState("");
   const [showDocs, setShowDocs] = useState(false);
 
@@ -175,7 +195,7 @@ export function App() {
               metaByChain={metaByChain}
               onPick={(r) => {
                 setChain(r.chainName);
-                setTab(r.kind === "msg" ? "msgs" : "queries");
+                setTab(kindToTab(r.kind));
                 setQuery("");
               }}
             />
@@ -419,45 +439,84 @@ function ChainView({
 }: {
   catalog: ChainCatalog;
   entry?: IndexEntry;
-  tab: "msgs" | "queries";
-  setTab: (t: "msgs" | "queries") => void;
+  tab: Tab;
+  setTab: (t: Tab) => void;
 }) {
   const [filter, setFilter] = useState("");
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
+  const [focusType, setFocusType] = useState<string | null>(null);
 
   const f = filter.toLowerCase();
-  const msgs = catalog.msgs.filter(
-    (m) => !f || m.typeUrl.toLowerCase().includes(f),
-  );
-  const queries = catalog.queries.filter(
-    (q) => !f || `${q.service}.${q.method}`.toLowerCase().includes(f),
+  const typeSet = useMemo(
+    () => new Set(catalog.types.map((t) => t.fullName)),
+    [catalog],
   );
 
-  const groups =
-    tab === "msgs"
-      ? groupByNamespace(msgs, (m) => m.package)
-      : groupByNamespace(queries, (q) => q.package);
+  const groups = useMemo(() => {
+    if (tab === "msgs")
+      return groupByNamespace(
+        catalog.msgs.filter((m) => !f || m.typeUrl.toLowerCase().includes(f)),
+        (m) => m.package,
+      );
+    if (tab === "queries")
+      return groupByNamespace(
+        catalog.queries.filter(
+          (q) => !f || `${q.service}.${q.method}`.toLowerCase().includes(f),
+        ),
+        (q) => q.package,
+      );
+    return groupByNamespace(
+      catalog.types.filter((t) => !f || t.fullName.toLowerCase().includes(f)),
+      (t) => t.package,
+    );
+  }, [tab, f, catalog]);
 
-  // Reset filter and open the first namespace when switching chain/tab.
+  // Clear filter / focus when the chain changes.
   useEffect(() => {
     setFilter("");
-    const items = tab === "msgs" ? catalog.msgs : catalog.queries;
-    const first = sortNamespaces([
-      ...new Set(items.map((i) => namespaceOf(i.package))),
-    ])[0];
-    setExpanded(first ? new Set([first]) : new Set());
-  }, [catalog.chainName, tab, catalog.msgs, catalog.queries]);
+    setFocusType(null);
+  }, [catalog.chainName]);
 
+  // Open the first namespace when switching chain/tab.
+  useEffect(() => {
+    const items =
+      tab === "msgs"
+        ? catalog.msgs
+        : tab === "queries"
+          ? catalog.queries
+          : catalog.types;
+    const pkgs = items.map((i) =>
+      "package" in i ? (i as { package: string }).package : "",
+    );
+    const first = sortNamespaces([...new Set(pkgs.map(namespaceOf))])[0];
+    setExpanded(first ? new Set([first]) : new Set());
+  }, [catalog.chainName, tab, catalog.msgs, catalog.queries, catalog.types]);
+
+  const goto = (fullName: string) => {
+    setTab("types");
+    setFilter("");
+    setFocusType(fullName);
+  };
+
+  const focusNs = focusType ? namespaceOf(focusType) : null;
   const toggle = (ns: string) =>
     setExpanded((prev) => {
       const next = new Set(prev);
       next.has(ns) ? next.delete(ns) : next.add(ns);
       return next;
     });
-  const isOpen = (ns: string) => (f ? true : expanded.has(ns));
+  const isOpen = (ns: string) =>
+    f ? true : expanded.has(ns) || ns === focusNs;
+
+  const tabs: Tab[] = ["msgs", "queries", "types"];
+  const counts = {
+    msgs: catalog.msgs.length,
+    queries: catalog.queries.length,
+    types: catalog.types.length,
+  };
 
   return (
-    <>
+    <TypeNav.Provider value={{ types: typeSet, goto }}>
       <div className="chain-header">
         <ChainLogo entry={entry} size={40} />
         <div>
@@ -473,18 +532,16 @@ function ChainView({
       </div>
 
       <div className="tabs">
-        <button
-          className={tab === "msgs" ? "active" : ""}
-          onClick={() => setTab("msgs")}
-        >
-          Msgs <span className="count">{catalog.msgs.length}</span>
-        </button>
-        <button
-          className={tab === "queries" ? "active" : ""}
-          onClick={() => setTab("queries")}
-        >
-          Queries <span className="count">{catalog.queries.length}</span>
-        </button>
+        {tabs.map((t) => (
+          <button
+            key={t}
+            className={tab === t ? "active" : ""}
+            onClick={() => setTab(t)}
+          >
+            {t === "msgs" ? "Msgs" : t === "queries" ? "Queries" : "Types"}{" "}
+            <span className="count">{counts[t]}</span>
+          </button>
+        ))}
         <input
           className="filter"
           type="search"
@@ -505,20 +562,29 @@ function ChainView({
             </button>
             {isOpen(g.ns) && (
               <div className="ns-body">
-                {tab === "msgs"
-                  ? (g.items as MsgDef[]).map((m) => (
-                      <MsgRow key={m.typeUrl} msg={m} />
-                    ))
-                  : (g.items as QueryDef[]).map((q) => (
-                      <QueryRow key={`${q.service}.${q.method}`} query={q} />
-                    ))}
+                {tab === "msgs" &&
+                  (g.items as MsgDef[]).map((m) => (
+                    <MsgRow key={m.typeUrl} msg={m} />
+                  ))}
+                {tab === "queries" &&
+                  (g.items as QueryDef[]).map((q) => (
+                    <QueryRow key={`${q.service}.${q.method}`} query={q} />
+                  ))}
+                {tab === "types" &&
+                  (g.items as TypeDef[]).map((t) => (
+                    <TypeRow
+                      key={t.fullName}
+                      type={t}
+                      focus={focusType === t.fullName}
+                    />
+                  ))}
               </div>
             )}
           </section>
         ))}
         {groups.length === 0 && <div className="status">No matches.</div>}
       </div>
-    </>
+    </TypeNav.Provider>
   );
 }
 
@@ -557,12 +623,55 @@ function QueryRow({ query }: { query: QueryDef }) {
       {open && (
         <div className="row-body">
           {query.comment && <p className="doc">{query.comment}</p>}
-          <p className="response">→ {query.responseType}</p>
+          <p className="response">
+            → <TypeLink name={query.responseType} />
+          </p>
           <FieldTable fields={query.requestFields} />
         </div>
       )}
     </div>
   );
+}
+
+function TypeRow({ type, focus }: { type: TypeDef; focus: boolean }) {
+  const [open, setOpen] = useState(focus);
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (focus) {
+      setOpen(true);
+      ref.current?.scrollIntoView({ block: "center", behavior: "smooth" });
+    }
+  }, [focus]);
+  return (
+    <div
+      ref={ref}
+      className={`row ${open ? "open" : ""} ${focus ? "focus" : ""}`}
+    >
+      <button className="row-head" onClick={() => setOpen(!open)}>
+        <code className="id">{type.fullName}</code>
+        {type.module && <span className="module">{type.module}</span>}
+        <CopyButton text={type.fullName} />
+      </button>
+      {open && (
+        <div className="row-body">
+          {type.comment && <p className="doc">{type.comment}</p>}
+          <FieldTable fields={type.fields} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+/** Render a fully-qualified type name, linking to its definition when we have it. */
+function TypeLink({ name }: { name: string }) {
+  const nav = useContext(TypeNav);
+  if (nav.types.has(name))
+    return (
+      <button className="type-link" onClick={() => nav.goto(name)}>
+        {name}
+      </button>
+    );
+  return <>{name}</>;
 }
 
 function FieldTable({ fields }: { fields: FieldDef[] }) {
@@ -576,7 +685,7 @@ function FieldTable({ fields }: { fields: FieldDef[] }) {
             <td className="fname">{f.name}</td>
             <td className="ftype">
               {f.repeated && <span className="rep">repeated </span>}
-              {f.type}
+              {f.typeRef ? <TypeLink name={f.typeRef} /> : f.type}
               {f.optional && <span className="opt"> ?</span>}
             </td>
             <td className="fcomment">{f.comment}</td>

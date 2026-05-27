@@ -5,9 +5,10 @@
   "logoUrl": "https://raw.githubusercontent.com/cosmos/chain-registry/master/celestia/images/celestia.svg",
   "msgCount": 15,
   "queryCount": 27,
+  "typeCount": 137,
   "provenance": {
     "source": "source",
-    "harvestedAt": "2026-05-27T17:17:12.261Z",
+    "harvestedAt": "2026-05-27T17:31:47.132Z",
     "origin": "git:https://github.com/celestiaorg/celestia-app@1a67e20b7590:proto",
     "commentsFromSource": true
   }

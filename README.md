@@ -55,7 +55,7 @@ For each chain in the allowlist (`packages/harvester/src/allowlist.ts`):
 2. **Live gRPC reflection** — pull the full `FileDescriptorSet` from a public endpoint via `cosmos.reflection.v1.ReflectionService` (one call), falling back to standard `grpc.reflection.v1alpha` server reflection.
 3. **Source fallback** — if reflection is unavailable/broken (dead endpoints, HTTP/1.1 servers that crash gRPC, malformed descriptors), shallow-clone the source repo (or pull a Buf Schema Registry module) and `buf build` the protos. This path also recovers doc comments.
 4. Parse the descriptors: Msgs are detected via the `cosmos.msg.v1` service/signer options, everything else service-side is a query. Fields are extracted with type, repeated/optional, message refs, and comments.
-5. Write `data/<chain>/{msgs,queries}.json` + `data/index.json` with provenance.
+5. Write `data/<chain>/{msgs,queries,types}.json` + `data/index.json` with provenance. `types.json` holds **every** message type (e.g. `CollectionApproval`), so fields that reference a type are browsable end-to-end — like a multi-chain Swagger for Cosmos.
 
 Each chain is harvested in an **isolated worker process** with a per-chain timeout, so one flaky endpoint can't sink the run. On failure the orchestrator retries once with the other source (the hybrid).
 

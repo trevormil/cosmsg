@@ -307,6 +307,23 @@ body {
 .row.open {
   border-color: var(--accent);
 }
+.row.focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(78, 161, 255, 0.25);
+}
+
+.type-link {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: var(--accent);
+  cursor: pointer;
+  border-bottom: 1px dotted currentColor;
+}
+.type-link:hover {
+  color: #8cc4ff;
+}
 .row-head {
   display: flex;
   align-items: center;
@@ -453,6 +470,10 @@ body {
 .badge.query {
   background: rgba(86, 184, 108, 0.15);
   color: var(--query);
+}
+.badge.type {
+  background: rgba(78, 161, 255, 0.15);
+  color: var(--accent);
 }
 .result-id {
   font-family: var(--mono);

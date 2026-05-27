@@ -5,6 +5,7 @@ import {
   DatasetIndex,
   type MsgDef,
   type QueryDef,
+  type TypeDef,
 } from "@cosmsg/schema";
 
 export interface Dataset {
@@ -28,13 +29,23 @@ export function loadDatasetFromDir(dataDir: string): Dataset {
     const queries = JSON.parse(
       readFileSync(join(dataDir, entry.chainName, "queries.json"), "utf8"),
     ) as QueryDef[];
+    let types: TypeDef[] = [];
+    try {
+      types = JSON.parse(
+        readFileSync(join(dataDir, entry.chainName, "types.json"), "utf8"),
+      ) as TypeDef[];
+    } catch {
+      /* older data may predate types.json */
+    }
     catalogs[entry.chainName] = ChainCatalog.parse({
       chainName: entry.chainName,
       prettyName: entry.prettyName,
       chainId: entry.chainId,
+      logoUrl: entry.logoUrl,
       provenance: entry.provenance,
       msgs,
       queries,
+      types,
     });
   }
   return { index, catalogs };
