@@ -8,8 +8,8 @@
   "typeCount": 137,
   "provenance": {
     "source": "source",
-    "harvestedAt": "2026-05-27T17:31:47.132Z",
-    "origin": "git:https://github.com/celestiaorg/celestia-app@1a67e20b7590:proto",
+    "harvestedAt": "2026-06-01T07:44:11.660Z",
+    "origin": "git:https://github.com/celestiaorg/celestia-app@77300e70b688:proto",
     "commentsFromSource": true
   }
 }
