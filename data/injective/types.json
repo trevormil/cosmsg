@@ -55445,3879 +55445,6 @@
     ]
   },
   {
-    "fullName": "hyperlane.core.interchain_security.v1.EventAnnounceStorageLocation",
-    "name": "EventAnnounceStorageLocation",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "fields": [
-      {
-        "name": "mailbox_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "sender",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "validator",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "storage_location",
-        "type": "string",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.interchain_security.v1.EventCreateMerkleRootMultisigIsm",
-    "name": "EventCreateMerkleRootMultisigIsm",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "fields": [
-      {
-        "name": "ism_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "validators",
-        "type": "string",
-        "number": 3,
-        "repeated": true,
-        "optional": false
-      },
-      {
-        "name": "threshold",
-        "type": "uint32",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.interchain_security.v1.EventCreateMessageIdMultisigIsm",
-    "name": "EventCreateMessageIdMultisigIsm",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "fields": [
-      {
-        "name": "ism_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "validators",
-        "type": "string",
-        "number": 3,
-        "repeated": true,
-        "optional": false
-      },
-      {
-        "name": "threshold",
-        "type": "uint32",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.interchain_security.v1.EventCreateNoopIsm",
-    "name": "EventCreateNoopIsm",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "fields": [
-      {
-        "name": "ism_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.interchain_security.v1.EventCreateRoutingIsm",
-    "name": "EventCreateRoutingIsm",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "fields": [
-      {
-        "name": "ism_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.interchain_security.v1.EventRemoveRoutingIsmDomain",
-    "name": "EventRemoveRoutingIsmDomain",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "fields": [
-      {
-        "name": "ism_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "route_domain",
-        "type": "uint32",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.interchain_security.v1.EventSetRoutingIsm",
-    "name": "EventSetRoutingIsm",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "fields": [
-      {
-        "name": "ism_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "new_owner",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "renounce_ownership",
-        "type": "bool",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.interchain_security.v1.EventSetRoutingIsmDomain",
-    "name": "EventSetRoutingIsmDomain",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "fields": [
-      {
-        "name": "ism_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "route_ism_id",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "route_domain",
-        "type": "uint32",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.interchain_security.v1.GenesisState",
-    "name": "GenesisState",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "fields": [
-      {
-        "name": "isms",
-        "type": "google.protobuf.Any",
-        "number": 1,
-        "repeated": true,
-        "optional": false,
-        "typeRef": "google.protobuf.Any"
-      },
-      {
-        "name": "validator_storage_locations",
-        "type": "hyperlane.core.interchain_security.v1.GenesisValidatorStorageLocationWrapper",
-        "number": 2,
-        "repeated": true,
-        "optional": false,
-        "typeRef": "hyperlane.core.interchain_security.v1.GenesisValidatorStorageLocationWrapper"
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.interchain_security.v1.GenesisValidatorStorageLocationWrapper",
-    "name": "GenesisValidatorStorageLocationWrapper",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "fields": [
-      {
-        "name": "mailbox_id",
-        "type": "uint64",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "validator_address",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "index",
-        "type": "uint64",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "storage_location",
-        "type": "string",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.interchain_security.v1.MerkleRootMultisigISM",
-    "name": "MerkleRootMultisigISM",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "fields": [
-      {
-        "name": "id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "validators",
-        "type": "string",
-        "number": 3,
-        "repeated": true,
-        "optional": false
-      },
-      {
-        "name": "threshold",
-        "type": "uint32",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.interchain_security.v1.MessageIdMultisigISM",
-    "name": "MessageIdMultisigISM",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "fields": [
-      {
-        "name": "id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "validators",
-        "type": "string",
-        "number": 3,
-        "repeated": true,
-        "optional": false
-      },
-      {
-        "name": "threshold",
-        "type": "uint32",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.interchain_security.v1.MsgAnnounceValidator",
-    "name": "MsgAnnounceValidator",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "fields": [
-      {
-        "name": "validator",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "storage_location",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "signature",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "mailbox_id",
-        "type": "string",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "creator",
-        "type": "string",
-        "number": 5,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.interchain_security.v1.MsgAnnounceValidatorResponse",
-    "name": "MsgAnnounceValidatorResponse",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "fields": []
-  },
-  {
-    "fullName": "hyperlane.core.interchain_security.v1.MsgCreateMerkleRootMultisigIsm",
-    "name": "MsgCreateMerkleRootMultisigIsm",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "fields": [
-      {
-        "name": "creator",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "validators",
-        "type": "string",
-        "number": 2,
-        "repeated": true,
-        "optional": false
-      },
-      {
-        "name": "threshold",
-        "type": "uint32",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.interchain_security.v1.MsgCreateMerkleRootMultisigIsmResponse",
-    "name": "MsgCreateMerkleRootMultisigIsmResponse",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "fields": [
-      {
-        "name": "id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.interchain_security.v1.MsgCreateMessageIdMultisigIsm",
-    "name": "MsgCreateMessageIdMultisigIsm",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "fields": [
-      {
-        "name": "creator",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "validators",
-        "type": "string",
-        "number": 2,
-        "repeated": true,
-        "optional": false
-      },
-      {
-        "name": "threshold",
-        "type": "uint32",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.interchain_security.v1.MsgCreateMessageIdMultisigIsmResponse",
-    "name": "MsgCreateMessageIdMultisigIsmResponse",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "fields": [
-      {
-        "name": "id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.interchain_security.v1.MsgCreateNoopIsm",
-    "name": "MsgCreateNoopIsm",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "fields": [
-      {
-        "name": "creator",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.interchain_security.v1.MsgCreateNoopIsmResponse",
-    "name": "MsgCreateNoopIsmResponse",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "fields": [
-      {
-        "name": "id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.interchain_security.v1.MsgCreateRoutingIsm",
-    "name": "MsgCreateRoutingIsm",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "fields": [
-      {
-        "name": "creator",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "routes",
-        "type": "hyperlane.core.interchain_security.v1.Route",
-        "number": 2,
-        "repeated": true,
-        "optional": false,
-        "typeRef": "hyperlane.core.interchain_security.v1.Route"
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.interchain_security.v1.MsgCreateRoutingIsmResponse",
-    "name": "MsgCreateRoutingIsmResponse",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "fields": [
-      {
-        "name": "id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.interchain_security.v1.MsgRemoveRoutingIsmDomain",
-    "name": "MsgRemoveRoutingIsmDomain",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "fields": [
-      {
-        "name": "ism_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "domain",
-        "type": "uint32",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.interchain_security.v1.MsgRemoveRoutingIsmDomainResponse",
-    "name": "MsgRemoveRoutingIsmDomainResponse",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "fields": []
-  },
-  {
-    "fullName": "hyperlane.core.interchain_security.v1.MsgSetRoutingIsmDomain",
-    "name": "MsgSetRoutingIsmDomain",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "fields": [
-      {
-        "name": "ism_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "route",
-        "type": "hyperlane.core.interchain_security.v1.Route",
-        "number": 2,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "hyperlane.core.interchain_security.v1.Route"
-      },
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.interchain_security.v1.MsgSetRoutingIsmDomainResponse",
-    "name": "MsgSetRoutingIsmDomainResponse",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "fields": []
-  },
-  {
-    "fullName": "hyperlane.core.interchain_security.v1.MsgUpdateRoutingIsmOwner",
-    "name": "MsgUpdateRoutingIsmOwner",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "fields": [
-      {
-        "name": "ism_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "new_owner",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "renounce_ownership",
-        "type": "bool",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.interchain_security.v1.MsgUpdateRoutingIsmOwnerResponse",
-    "name": "MsgUpdateRoutingIsmOwnerResponse",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "fields": []
-  },
-  {
-    "fullName": "hyperlane.core.interchain_security.v1.NoopISM",
-    "name": "NoopISM",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "fields": [
-      {
-        "name": "id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.interchain_security.v1.QueryAnnouncedStorageLocationsRequest",
-    "name": "QueryAnnouncedStorageLocationsRequest",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "fields": [
-      {
-        "name": "mailbox_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "validator_address",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.interchain_security.v1.QueryAnnouncedStorageLocationsResponse",
-    "name": "QueryAnnouncedStorageLocationsResponse",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "fields": [
-      {
-        "name": "storage_locations",
-        "type": "string",
-        "number": 1,
-        "repeated": true,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.interchain_security.v1.QueryIsmRequest",
-    "name": "QueryIsmRequest",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "fields": [
-      {
-        "name": "id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.interchain_security.v1.QueryIsmResponse",
-    "name": "QueryIsmResponse",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "fields": [
-      {
-        "name": "ism",
-        "type": "google.protobuf.Any",
-        "number": 1,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "google.protobuf.Any"
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.interchain_security.v1.QueryIsmsRequest",
-    "name": "QueryIsmsRequest",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "fields": [
-      {
-        "name": "pagination",
-        "type": "cosmos.base.query.v1beta1.PageRequest",
-        "number": 1,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "cosmos.base.query.v1beta1.PageRequest"
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.interchain_security.v1.QueryIsmsResponse",
-    "name": "QueryIsmsResponse",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "fields": [
-      {
-        "name": "isms",
-        "type": "google.protobuf.Any",
-        "number": 1,
-        "repeated": true,
-        "optional": false,
-        "typeRef": "google.protobuf.Any"
-      },
-      {
-        "name": "pagination",
-        "type": "cosmos.base.query.v1beta1.PageResponse",
-        "number": 2,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "cosmos.base.query.v1beta1.PageResponse"
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.interchain_security.v1.QueryLatestAnnouncedStorageLocationRequest",
-    "name": "QueryLatestAnnouncedStorageLocationRequest",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "fields": [
-      {
-        "name": "mailbox_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "validator_address",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.interchain_security.v1.QueryLatestAnnouncedStorageLocationResponse",
-    "name": "QueryLatestAnnouncedStorageLocationResponse",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "fields": [
-      {
-        "name": "storage_location",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.interchain_security.v1.Route",
-    "name": "Route",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "fields": [
-      {
-        "name": "ism",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "domain",
-        "type": "uint32",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.interchain_security.v1.RoutingISM",
-    "name": "RoutingISM",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "fields": [
-      {
-        "name": "id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "routes",
-        "type": "hyperlane.core.interchain_security.v1.Route",
-        "number": 3,
-        "repeated": true,
-        "optional": false,
-        "typeRef": "hyperlane.core.interchain_security.v1.Route"
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.module.v1.Module",
-    "name": "Module",
-    "package": "hyperlane.core.module.v1",
-    "module": "module",
-    "fields": [
-      {
-        "name": "authority",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.DestinationGasConfig",
-    "name": "DestinationGasConfig",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "remote_domain",
-        "type": "uint32",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "gas_oracle",
-        "type": "hyperlane.core.post_dispatch.v1.GasOracle",
-        "number": 2,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "hyperlane.core.post_dispatch.v1.GasOracle"
-      },
-      {
-        "name": "gas_overhead",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.EventClaimIgp",
-    "name": "EventClaimIgp",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "igp_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "amount",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.EventCreateIgp",
-    "name": "EventCreateIgp",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "igp_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "denom",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.EventCreateMerkleTreeHook",
-    "name": "EventCreateMerkleTreeHook",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "merkle_tree_hook_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "mailbox_id",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.EventCreateNoopHook",
-    "name": "EventCreateNoopHook",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "noop_hook_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.EventGasPayment",
-    "name": "EventGasPayment",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "message_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "destination",
-        "type": "uint32",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "gas_amount",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "payment",
-        "type": "string",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "igp_id",
-        "type": "string",
-        "number": 5,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.EventInsertedIntoTree",
-    "name": "EventInsertedIntoTree",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "message_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "index",
-        "type": "uint32",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "merkle_tree_hook_id",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.EventSetDestinationGasConfig",
-    "name": "EventSetDestinationGasConfig",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "igp_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "remote_domain",
-        "type": "uint32",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "gas_overhead",
-        "type": "string",
-        "number": 5,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "gas_price",
-        "type": "string",
-        "number": 6,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "token_exchange_rate",
-        "type": "string",
-        "number": 7,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.EventSetIgp",
-    "name": "EventSetIgp",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "igp_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "new_owner",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "renounce_ownership",
-        "type": "bool",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.GasOracle",
-    "name": "GasOracle",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "token_exchange_rate",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "gas_price",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.GenesisDestinationGasConfigWrapper",
-    "name": "GenesisDestinationGasConfigWrapper",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "remote_domain",
-        "type": "uint32",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "gas_oracle",
-        "type": "hyperlane.core.post_dispatch.v1.GasOracle",
-        "number": 2,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "hyperlane.core.post_dispatch.v1.GasOracle"
-      },
-      {
-        "name": "gas_overhead",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "igp_id",
-        "type": "uint64",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.GenesisState",
-    "name": "GenesisState",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "igps",
-        "type": "hyperlane.core.post_dispatch.v1.InterchainGasPaymaster",
-        "number": 1,
-        "repeated": true,
-        "optional": false,
-        "typeRef": "hyperlane.core.post_dispatch.v1.InterchainGasPaymaster"
-      },
-      {
-        "name": "igp_gas_configs",
-        "type": "hyperlane.core.post_dispatch.v1.GenesisDestinationGasConfigWrapper",
-        "number": 2,
-        "repeated": true,
-        "optional": false,
-        "typeRef": "hyperlane.core.post_dispatch.v1.GenesisDestinationGasConfigWrapper"
-      },
-      {
-        "name": "merkle_tree_hooks",
-        "type": "hyperlane.core.post_dispatch.v1.MerkleTreeHook",
-        "number": 3,
-        "repeated": true,
-        "optional": false,
-        "typeRef": "hyperlane.core.post_dispatch.v1.MerkleTreeHook"
-      },
-      {
-        "name": "noop_hooks",
-        "type": "hyperlane.core.post_dispatch.v1.NoopHook",
-        "number": 4,
-        "repeated": true,
-        "optional": false,
-        "typeRef": "hyperlane.core.post_dispatch.v1.NoopHook"
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.InterchainGasPaymaster",
-    "name": "InterchainGasPaymaster",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "denom",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "claimable_fees",
-        "type": "cosmos.base.v1beta1.Coin",
-        "number": 4,
-        "repeated": true,
-        "optional": false,
-        "typeRef": "cosmos.base.v1beta1.Coin"
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.MerkleTreeHook",
-    "name": "MerkleTreeHook",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "mailbox_id",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "tree",
-        "type": "hyperlane.core.post_dispatch.v1.Tree",
-        "number": 4,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "hyperlane.core.post_dispatch.v1.Tree"
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.MsgClaim",
-    "name": "MsgClaim",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "sender",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "igp_id",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.MsgClaimResponse",
-    "name": "MsgClaimResponse",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": []
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.MsgCreateIgp",
-    "name": "MsgCreateIgp",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "denom",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.MsgCreateIgpResponse",
-    "name": "MsgCreateIgpResponse",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.MsgCreateMerkleTreeHook",
-    "name": "MsgCreateMerkleTreeHook",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "mailbox_id",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.MsgCreateMerkleTreeHookResponse",
-    "name": "MsgCreateMerkleTreeHookResponse",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.MsgCreateNoopHook",
-    "name": "MsgCreateNoopHook",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.MsgCreateNoopHookResponse",
-    "name": "MsgCreateNoopHookResponse",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.MsgPayForGas",
-    "name": "MsgPayForGas",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "sender",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "igp_id",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "message_id",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "destination_domain",
-        "type": "uint32",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "gas_limit",
-        "type": "string",
-        "number": 5,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "amount",
-        "type": "cosmos.base.v1beta1.Coin",
-        "number": 6,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "cosmos.base.v1beta1.Coin"
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.MsgPayForGasResponse",
-    "name": "MsgPayForGasResponse",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": []
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.MsgSetDestinationGasConfig",
-    "name": "MsgSetDestinationGasConfig",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "igp_id",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "destination_gas_config",
-        "type": "hyperlane.core.post_dispatch.v1.DestinationGasConfig",
-        "number": 3,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "hyperlane.core.post_dispatch.v1.DestinationGasConfig"
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.MsgSetDestinationGasConfigResponse",
-    "name": "MsgSetDestinationGasConfigResponse",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": []
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.MsgSetIgpOwner",
-    "name": "MsgSetIgpOwner",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "igp_id",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "new_owner",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "renounce_ownership",
-        "type": "bool",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.MsgSetIgpOwnerResponse",
-    "name": "MsgSetIgpOwnerResponse",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": []
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.NoopHook",
-    "name": "NoopHook",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.QueryDestinationGasConfigsRequest",
-    "name": "QueryDestinationGasConfigsRequest",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "pagination",
-        "type": "cosmos.base.query.v1beta1.PageRequest",
-        "number": 2,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "cosmos.base.query.v1beta1.PageRequest"
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.QueryDestinationGasConfigsResponse",
-    "name": "QueryDestinationGasConfigsResponse",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "destination_gas_configs",
-        "type": "hyperlane.core.post_dispatch.v1.DestinationGasConfig",
-        "number": 1,
-        "repeated": true,
-        "optional": false,
-        "typeRef": "hyperlane.core.post_dispatch.v1.DestinationGasConfig"
-      },
-      {
-        "name": "pagination",
-        "type": "cosmos.base.query.v1beta1.PageResponse",
-        "number": 2,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "cosmos.base.query.v1beta1.PageResponse"
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.QueryIgpRequest",
-    "name": "QueryIgpRequest",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.QueryIgpResponse",
-    "name": "QueryIgpResponse",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "igp",
-        "type": "hyperlane.core.post_dispatch.v1.InterchainGasPaymaster",
-        "number": 1,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "hyperlane.core.post_dispatch.v1.InterchainGasPaymaster"
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.QueryIgpsRequest",
-    "name": "QueryIgpsRequest",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "pagination",
-        "type": "cosmos.base.query.v1beta1.PageRequest",
-        "number": 1,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "cosmos.base.query.v1beta1.PageRequest"
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.QueryIgpsResponse",
-    "name": "QueryIgpsResponse",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "igps",
-        "type": "hyperlane.core.post_dispatch.v1.InterchainGasPaymaster",
-        "number": 1,
-        "repeated": true,
-        "optional": false,
-        "typeRef": "hyperlane.core.post_dispatch.v1.InterchainGasPaymaster"
-      },
-      {
-        "name": "pagination",
-        "type": "cosmos.base.query.v1beta1.PageResponse",
-        "number": 2,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "cosmos.base.query.v1beta1.PageResponse"
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.QueryMerkleTreeHookRequest",
-    "name": "QueryMerkleTreeHookRequest",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.QueryMerkleTreeHookResponse",
-    "name": "QueryMerkleTreeHookResponse",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "merkle_tree_hook",
-        "type": "hyperlane.core.post_dispatch.v1.WrappedMerkleTreeHookResponse",
-        "number": 1,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "hyperlane.core.post_dispatch.v1.WrappedMerkleTreeHookResponse"
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.QueryMerkleTreeHooksRequest",
-    "name": "QueryMerkleTreeHooksRequest",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "pagination",
-        "type": "cosmos.base.query.v1beta1.PageRequest",
-        "number": 1,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "cosmos.base.query.v1beta1.PageRequest"
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.QueryMerkleTreeHooksResponse",
-    "name": "QueryMerkleTreeHooksResponse",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "merkle_tree_hooks",
-        "type": "hyperlane.core.post_dispatch.v1.WrappedMerkleTreeHookResponse",
-        "number": 1,
-        "repeated": true,
-        "optional": false,
-        "typeRef": "hyperlane.core.post_dispatch.v1.WrappedMerkleTreeHookResponse"
-      },
-      {
-        "name": "pagination",
-        "type": "cosmos.base.query.v1beta1.PageResponse",
-        "number": 2,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "cosmos.base.query.v1beta1.PageResponse"
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.QueryNoopHookRequest",
-    "name": "QueryNoopHookRequest",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.QueryNoopHookResponse",
-    "name": "QueryNoopHookResponse",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "noop_hook",
-        "type": "hyperlane.core.post_dispatch.v1.NoopHook",
-        "number": 1,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "hyperlane.core.post_dispatch.v1.NoopHook"
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.QueryNoopHooksRequest",
-    "name": "QueryNoopHooksRequest",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "pagination",
-        "type": "cosmos.base.query.v1beta1.PageRequest",
-        "number": 1,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "cosmos.base.query.v1beta1.PageRequest"
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.QueryNoopHooksResponse",
-    "name": "QueryNoopHooksResponse",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "noop_hooks",
-        "type": "hyperlane.core.post_dispatch.v1.NoopHook",
-        "number": 1,
-        "repeated": true,
-        "optional": false,
-        "typeRef": "hyperlane.core.post_dispatch.v1.NoopHook"
-      },
-      {
-        "name": "pagination",
-        "type": "cosmos.base.query.v1beta1.PageResponse",
-        "number": 2,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "cosmos.base.query.v1beta1.PageResponse"
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.QueryQuoteGasPaymentRequest",
-    "name": "QueryQuoteGasPaymentRequest",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "igp_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "destination_domain",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "gas_limit",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.QueryQuoteGasPaymentResponse",
-    "name": "QueryQuoteGasPaymentResponse",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "gas_payment",
-        "type": "cosmos.base.v1beta1.Coin",
-        "number": 1,
-        "repeated": true,
-        "optional": false,
-        "typeRef": "cosmos.base.v1beta1.Coin"
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.Tree",
-    "name": "Tree",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "branch",
-        "type": "bytes",
-        "number": 1,
-        "repeated": true,
-        "optional": false
-      },
-      {
-        "name": "count",
-        "type": "uint32",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.TreeResponse",
-    "name": "TreeResponse",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "leafs",
-        "type": "bytes",
-        "number": 1,
-        "repeated": true,
-        "optional": false
-      },
-      {
-        "name": "count",
-        "type": "uint32",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "root",
-        "type": "bytes",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.post_dispatch.v1.WrappedMerkleTreeHookResponse",
-    "name": "WrappedMerkleTreeHookResponse",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "fields": [
-      {
-        "name": "id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "mailbox_id",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "merkle_tree",
-        "type": "hyperlane.core.post_dispatch.v1.TreeResponse",
-        "number": 4,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "hyperlane.core.post_dispatch.v1.TreeResponse"
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.v1.EventCreateMailbox",
-    "name": "EventCreateMailbox",
-    "package": "hyperlane.core.v1",
-    "module": "core",
-    "fields": [
-      {
-        "name": "mailbox_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "default_ism",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "default_hook",
-        "type": "string",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "required_hook",
-        "type": "string",
-        "number": 5,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "local_domain",
-        "type": "uint32",
-        "number": 6,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.v1.EventDispatch",
-    "name": "EventDispatch",
-    "package": "hyperlane.core.v1",
-    "module": "core",
-    "fields": [
-      {
-        "name": "origin_mailbox_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "sender",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "destination",
-        "type": "uint32",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "recipient",
-        "type": "string",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "message",
-        "type": "string",
-        "number": 5,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.v1.EventProcess",
-    "name": "EventProcess",
-    "package": "hyperlane.core.v1",
-    "module": "core",
-    "fields": [
-      {
-        "name": "origin_mailbox_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "origin",
-        "type": "uint32",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "sender",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "recipient",
-        "type": "string",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "message_id",
-        "type": "string",
-        "number": 5,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "message",
-        "type": "string",
-        "number": 6,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.v1.EventSetMailbox",
-    "name": "EventSetMailbox",
-    "package": "hyperlane.core.v1",
-    "module": "core",
-    "fields": [
-      {
-        "name": "mailbox_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "default_ism",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "default_hook",
-        "type": "string",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "new_owner",
-        "type": "string",
-        "number": 5,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "renounce_ownership",
-        "type": "bool",
-        "number": 6,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.v1.GenesisMailboxMessageWrapper",
-    "name": "GenesisMailboxMessageWrapper",
-    "package": "hyperlane.core.v1",
-    "module": "core",
-    "fields": [
-      {
-        "name": "mailbox_id",
-        "type": "uint64",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "message_id",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.v1.GenesisState",
-    "name": "GenesisState",
-    "package": "hyperlane.core.v1",
-    "module": "core",
-    "fields": [
-      {
-        "name": "ism_genesis",
-        "type": "hyperlane.core.interchain_security.v1.GenesisState",
-        "number": 1,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "hyperlane.core.interchain_security.v1.GenesisState"
-      },
-      {
-        "name": "post_dispatch_genesis",
-        "type": "hyperlane.core.post_dispatch.v1.GenesisState",
-        "number": 2,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "hyperlane.core.post_dispatch.v1.GenesisState"
-      },
-      {
-        "name": "mailboxes",
-        "type": "hyperlane.core.v1.Mailbox",
-        "number": 3,
-        "repeated": true,
-        "optional": false,
-        "typeRef": "hyperlane.core.v1.Mailbox"
-      },
-      {
-        "name": "messages",
-        "type": "hyperlane.core.v1.GenesisMailboxMessageWrapper",
-        "number": 4,
-        "repeated": true,
-        "optional": false,
-        "typeRef": "hyperlane.core.v1.GenesisMailboxMessageWrapper"
-      },
-      {
-        "name": "ism_sequence",
-        "type": "uint64",
-        "number": 5,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "post_dispatch_sequence",
-        "type": "uint64",
-        "number": 6,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "app_sequence",
-        "type": "uint64",
-        "number": 7,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.v1.Mailbox",
-    "name": "Mailbox",
-    "package": "hyperlane.core.v1",
-    "module": "core",
-    "fields": [
-      {
-        "name": "id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "message_sent",
-        "type": "uint32",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "message_received",
-        "type": "uint32",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "default_ism",
-        "type": "string",
-        "number": 5,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "default_hook",
-        "type": "string",
-        "number": 6,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "required_hook",
-        "type": "string",
-        "number": 7,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "local_domain",
-        "type": "uint32",
-        "number": 8,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.v1.MsgCreateMailbox",
-    "name": "MsgCreateMailbox",
-    "package": "hyperlane.core.v1",
-    "module": "core",
-    "fields": [
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "local_domain",
-        "type": "uint32",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "default_ism",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "default_hook",
-        "type": "string",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "required_hook",
-        "type": "string",
-        "number": 5,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.v1.MsgCreateMailboxResponse",
-    "name": "MsgCreateMailboxResponse",
-    "package": "hyperlane.core.v1",
-    "module": "core",
-    "fields": [
-      {
-        "name": "id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.v1.MsgProcessMessage",
-    "name": "MsgProcessMessage",
-    "package": "hyperlane.core.v1",
-    "module": "core",
-    "fields": [
-      {
-        "name": "mailbox_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "relayer",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "metadata",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "message",
-        "type": "string",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.v1.MsgProcessMessageResponse",
-    "name": "MsgProcessMessageResponse",
-    "package": "hyperlane.core.v1",
-    "module": "core",
-    "fields": []
-  },
-  {
-    "fullName": "hyperlane.core.v1.MsgSetMailbox",
-    "name": "MsgSetMailbox",
-    "package": "hyperlane.core.v1",
-    "module": "core",
-    "fields": [
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "mailbox_id",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "default_ism",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "default_hook",
-        "type": "string",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "required_hook",
-        "type": "string",
-        "number": 5,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "new_owner",
-        "type": "string",
-        "number": 6,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "renounce_ownership",
-        "type": "bool",
-        "number": 7,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.v1.MsgSetMailboxResponse",
-    "name": "MsgSetMailboxResponse",
-    "package": "hyperlane.core.v1",
-    "module": "core",
-    "fields": []
-  },
-  {
-    "fullName": "hyperlane.core.v1.QueryDeliveredRequest",
-    "name": "QueryDeliveredRequest",
-    "package": "hyperlane.core.v1",
-    "module": "core",
-    "fields": [
-      {
-        "name": "id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "message_id",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.v1.QueryDeliveredResponse",
-    "name": "QueryDeliveredResponse",
-    "package": "hyperlane.core.v1",
-    "module": "core",
-    "fields": [
-      {
-        "name": "delivered",
-        "type": "bool",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.v1.QueryMailboxesRequest",
-    "name": "QueryMailboxesRequest",
-    "package": "hyperlane.core.v1",
-    "module": "core",
-    "fields": [
-      {
-        "name": "pagination",
-        "type": "cosmos.base.query.v1beta1.PageRequest",
-        "number": 1,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "cosmos.base.query.v1beta1.PageRequest"
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.v1.QueryMailboxesResponse",
-    "name": "QueryMailboxesResponse",
-    "package": "hyperlane.core.v1",
-    "module": "core",
-    "fields": [
-      {
-        "name": "mailboxes",
-        "type": "hyperlane.core.v1.Mailbox",
-        "number": 1,
-        "repeated": true,
-        "optional": false,
-        "typeRef": "hyperlane.core.v1.Mailbox"
-      },
-      {
-        "name": "pagination",
-        "type": "cosmos.base.query.v1beta1.PageResponse",
-        "number": 2,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "cosmos.base.query.v1beta1.PageResponse"
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.v1.QueryMailboxRequest",
-    "name": "QueryMailboxRequest",
-    "package": "hyperlane.core.v1",
-    "module": "core",
-    "fields": [
-      {
-        "name": "id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.v1.QueryMailboxResponse",
-    "name": "QueryMailboxResponse",
-    "package": "hyperlane.core.v1",
-    "module": "core",
-    "fields": [
-      {
-        "name": "mailbox",
-        "type": "hyperlane.core.v1.Mailbox",
-        "number": 1,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "hyperlane.core.v1.Mailbox"
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.v1.QueryRecipientIsmRequest",
-    "name": "QueryRecipientIsmRequest",
-    "package": "hyperlane.core.v1",
-    "module": "core",
-    "fields": [
-      {
-        "name": "recipient",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.v1.QueryRecipientIsmResponse",
-    "name": "QueryRecipientIsmResponse",
-    "package": "hyperlane.core.v1",
-    "module": "core",
-    "fields": [
-      {
-        "name": "ism_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.v1.QueryRegisteredApps",
-    "name": "QueryRegisteredApps",
-    "package": "hyperlane.core.v1",
-    "module": "core",
-    "fields": []
-  },
-  {
-    "fullName": "hyperlane.core.v1.QueryRegisteredAppsResponse",
-    "name": "QueryRegisteredAppsResponse",
-    "package": "hyperlane.core.v1",
-    "module": "core",
-    "fields": [
-      {
-        "name": "ids",
-        "type": "uint32",
-        "number": 1,
-        "repeated": true,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.v1.QueryRegisteredHooks",
-    "name": "QueryRegisteredHooks",
-    "package": "hyperlane.core.v1",
-    "module": "core",
-    "fields": []
-  },
-  {
-    "fullName": "hyperlane.core.v1.QueryRegisteredHooksResponse",
-    "name": "QueryRegisteredHooksResponse",
-    "package": "hyperlane.core.v1",
-    "module": "core",
-    "fields": [
-      {
-        "name": "ids",
-        "type": "uint32",
-        "number": 1,
-        "repeated": true,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.v1.QueryRegisteredISMs",
-    "name": "QueryRegisteredISMs",
-    "package": "hyperlane.core.v1",
-    "module": "core",
-    "fields": []
-  },
-  {
-    "fullName": "hyperlane.core.v1.QueryRegisteredISMsResponse",
-    "name": "QueryRegisteredISMsResponse",
-    "package": "hyperlane.core.v1",
-    "module": "core",
-    "fields": [
-      {
-        "name": "ids",
-        "type": "uint32",
-        "number": 1,
-        "repeated": true,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.v1.QueryVerifyDryRunRequest",
-    "name": "QueryVerifyDryRunRequest",
-    "package": "hyperlane.core.v1",
-    "module": "core",
-    "fields": [
-      {
-        "name": "ism_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "message",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "metadata",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "gas_limit",
-        "type": "string",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.core.v1.QueryVerifyDryRunResponse",
-    "name": "QueryVerifyDryRunResponse",
-    "package": "hyperlane.core.v1",
-    "module": "core",
-    "fields": [
-      {
-        "name": "verified",
-        "type": "bool",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.warp.module.v1.Module",
-    "name": "Module",
-    "package": "hyperlane.warp.module.v1",
-    "module": "module",
-    "fields": [
-      {
-        "name": "enabled_tokens",
-        "type": "int32",
-        "number": 1,
-        "repeated": true,
-        "optional": false
-      },
-      {
-        "name": "authority",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.warp.v1.EventCreateCollateralToken",
-    "name": "EventCreateCollateralToken",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "fields": [
-      {
-        "name": "token_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "origin_mailbox",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "origin_denom",
-        "type": "string",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.warp.v1.EventCreateSyntheticToken",
-    "name": "EventCreateSyntheticToken",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "fields": [
-      {
-        "name": "token_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "origin_mailbox",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "origin_denom",
-        "type": "string",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.warp.v1.EventEnrollRemoteRouter",
-    "name": "EventEnrollRemoteRouter",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "fields": [
-      {
-        "name": "token_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "receiver_domain",
-        "type": "uint32",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "receiver_contract",
-        "type": "string",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "gas",
-        "type": "string",
-        "number": 5,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.warp.v1.EventReceiveRemoteTransfer",
-    "name": "EventReceiveRemoteTransfer",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "fields": [
-      {
-        "name": "token_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "sender",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "origin_domain",
-        "type": "uint32",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "recipient",
-        "type": "string",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "amount",
-        "type": "string",
-        "number": 5,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.warp.v1.EventSendRemoteTransfer",
-    "name": "EventSendRemoteTransfer",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "fields": [
-      {
-        "name": "token_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "sender",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "destination_domain",
-        "type": "uint32",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "recipient",
-        "type": "string",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "amount",
-        "type": "string",
-        "number": 5,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.warp.v1.EventSetToken",
-    "name": "EventSetToken",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "fields": [
-      {
-        "name": "token_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "ism_id",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "new_owner",
-        "type": "string",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "renounce_ownership",
-        "type": "bool",
-        "number": 5,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.warp.v1.EventUnrollRemoteRouter",
-    "name": "EventUnrollRemoteRouter",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "fields": [
-      {
-        "name": "token_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "receiver_domain",
-        "type": "uint32",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.warp.v1.GenesisRemoteRouterWrapper",
-    "name": "GenesisRemoteRouterWrapper",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "fields": [
-      {
-        "name": "token_id",
-        "type": "uint64",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "remote_router",
-        "type": "hyperlane.warp.v1.RemoteRouter",
-        "number": 2,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "hyperlane.warp.v1.RemoteRouter"
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.warp.v1.GenesisState",
-    "name": "GenesisState",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "fields": [
-      {
-        "name": "params",
-        "type": "hyperlane.warp.v1.Params",
-        "number": 1,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "hyperlane.warp.v1.Params"
-      },
-      {
-        "name": "tokens",
-        "type": "hyperlane.warp.v1.HypToken",
-        "number": 2,
-        "repeated": true,
-        "optional": false,
-        "typeRef": "hyperlane.warp.v1.HypToken"
-      },
-      {
-        "name": "remote_routers",
-        "type": "hyperlane.warp.v1.GenesisRemoteRouterWrapper",
-        "number": 3,
-        "repeated": true,
-        "optional": false,
-        "typeRef": "hyperlane.warp.v1.GenesisRemoteRouterWrapper"
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.warp.v1.HypToken",
-    "name": "HypToken",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "fields": [
-      {
-        "name": "id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "token_type",
-        "type": "hyperlane.warp.v1.HypTokenType",
-        "number": 3,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "hyperlane.warp.v1.HypTokenType"
-      },
-      {
-        "name": "origin_mailbox",
-        "type": "string",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "origin_denom",
-        "type": "string",
-        "number": 5,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "collateral_balance",
-        "type": "string",
-        "number": 6,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "ism_id",
-        "type": "string",
-        "number": 7,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.warp.v1.MsgCreateCollateralToken",
-    "name": "MsgCreateCollateralToken",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "fields": [
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "origin_mailbox",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "origin_denom",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.warp.v1.MsgCreateCollateralTokenResponse",
-    "name": "MsgCreateCollateralTokenResponse",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "fields": [
-      {
-        "name": "id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.warp.v1.MsgCreateNativeSyntheticToken",
-    "name": "MsgCreateNativeSyntheticToken",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "fields": [
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "origin_mailbox",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "origin_denom",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.warp.v1.MsgCreateSyntheticToken",
-    "name": "MsgCreateSyntheticToken",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "fields": [
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "origin_mailbox",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.warp.v1.MsgCreateSyntheticTokenResponse",
-    "name": "MsgCreateSyntheticTokenResponse",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "fields": [
-      {
-        "name": "id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.warp.v1.MsgEnrollRemoteRouter",
-    "name": "MsgEnrollRemoteRouter",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "fields": [
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "token_id",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "remote_router",
-        "type": "hyperlane.warp.v1.RemoteRouter",
-        "number": 3,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "hyperlane.warp.v1.RemoteRouter"
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.warp.v1.MsgEnrollRemoteRouterResponse",
-    "name": "MsgEnrollRemoteRouterResponse",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "fields": []
-  },
-  {
-    "fullName": "hyperlane.warp.v1.MsgRemoteTransfer",
-    "name": "MsgRemoteTransfer",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "fields": [
-      {
-        "name": "sender",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "token_id",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "destination_domain",
-        "type": "uint32",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "recipient",
-        "type": "string",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "amount",
-        "type": "string",
-        "number": 5,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "custom_hook_id",
-        "type": "string",
-        "number": 6,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "gas_limit",
-        "type": "string",
-        "number": 7,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "max_fee",
-        "type": "cosmos.base.v1beta1.Coin",
-        "number": 8,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "cosmos.base.v1beta1.Coin"
-      },
-      {
-        "name": "custom_hook_metadata",
-        "type": "string",
-        "number": 9,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.warp.v1.MsgRemoteTransferResponse",
-    "name": "MsgRemoteTransferResponse",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "fields": [
-      {
-        "name": "message_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.warp.v1.MsgSetToken",
-    "name": "MsgSetToken",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "fields": [
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "token_id",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "new_owner",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "ism_id",
-        "type": "string",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "renounce_ownership",
-        "type": "bool",
-        "number": 7,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.warp.v1.MsgSetTokenResponse",
-    "name": "MsgSetTokenResponse",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "fields": []
-  },
-  {
-    "fullName": "hyperlane.warp.v1.MsgUnrollRemoteRouter",
-    "name": "MsgUnrollRemoteRouter",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "fields": [
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "token_id",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "receiver_domain",
-        "type": "uint32",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.warp.v1.MsgUnrollRemoteRouterResponse",
-    "name": "MsgUnrollRemoteRouterResponse",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "fields": []
-  },
-  {
-    "fullName": "hyperlane.warp.v1.Params",
-    "name": "Params",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "fields": []
-  },
-  {
-    "fullName": "hyperlane.warp.v1.QueryBridgedSupplyRequest",
-    "name": "QueryBridgedSupplyRequest",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "fields": [
-      {
-        "name": "id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.warp.v1.QueryBridgedSupplyResponse",
-    "name": "QueryBridgedSupplyResponse",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "fields": [
-      {
-        "name": "bridged_supply",
-        "type": "cosmos.base.v1beta1.Coin",
-        "number": 1,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "cosmos.base.v1beta1.Coin"
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.warp.v1.QueryQuoteRemoteTransferRequest",
-    "name": "QueryQuoteRemoteTransferRequest",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "fields": [
-      {
-        "name": "id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "destination_domain",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "custom_hook_id",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "custom_hook_metadata",
-        "type": "string",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.warp.v1.QueryQuoteRemoteTransferResponse",
-    "name": "QueryQuoteRemoteTransferResponse",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "fields": [
-      {
-        "name": "gas_payment",
-        "type": "cosmos.base.v1beta1.Coin",
-        "number": 1,
-        "repeated": true,
-        "optional": false,
-        "typeRef": "cosmos.base.v1beta1.Coin"
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.warp.v1.QueryRemoteRoutersRequest",
-    "name": "QueryRemoteRoutersRequest",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "fields": [
-      {
-        "name": "id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "pagination",
-        "type": "cosmos.base.query.v1beta1.PageRequest",
-        "number": 2,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "cosmos.base.query.v1beta1.PageRequest"
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.warp.v1.QueryRemoteRoutersResponse",
-    "name": "QueryRemoteRoutersResponse",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "fields": [
-      {
-        "name": "remote_routers",
-        "type": "hyperlane.warp.v1.RemoteRouter",
-        "number": 1,
-        "repeated": true,
-        "optional": false,
-        "typeRef": "hyperlane.warp.v1.RemoteRouter"
-      },
-      {
-        "name": "pagination",
-        "type": "cosmos.base.query.v1beta1.PageResponse",
-        "number": 2,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "cosmos.base.query.v1beta1.PageResponse"
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.warp.v1.QueryTokenRequest",
-    "name": "QueryTokenRequest",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "fields": [
-      {
-        "name": "id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.warp.v1.QueryTokenResponse",
-    "name": "QueryTokenResponse",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "fields": [
-      {
-        "name": "token",
-        "type": "hyperlane.warp.v1.WrappedHypToken",
-        "number": 1,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "hyperlane.warp.v1.WrappedHypToken"
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.warp.v1.QueryTokensRequest",
-    "name": "QueryTokensRequest",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "fields": [
-      {
-        "name": "pagination",
-        "type": "cosmos.base.query.v1beta1.PageRequest",
-        "number": 1,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "cosmos.base.query.v1beta1.PageRequest"
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.warp.v1.QueryTokensResponse",
-    "name": "QueryTokensResponse",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "fields": [
-      {
-        "name": "tokens",
-        "type": "hyperlane.warp.v1.WrappedHypToken",
-        "number": 1,
-        "repeated": true,
-        "optional": false,
-        "typeRef": "hyperlane.warp.v1.WrappedHypToken"
-      },
-      {
-        "name": "pagination",
-        "type": "cosmos.base.query.v1beta1.PageResponse",
-        "number": 2,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "cosmos.base.query.v1beta1.PageResponse"
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.warp.v1.RemoteRouter",
-    "name": "RemoteRouter",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "fields": [
-      {
-        "name": "receiver_domain",
-        "type": "uint32",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "receiver_contract",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "gas",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "fullName": "hyperlane.warp.v1.WrappedHypToken",
-    "name": "WrappedHypToken",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "fields": [
-      {
-        "name": "id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "token_type",
-        "type": "hyperlane.warp.v1.HypTokenType",
-        "number": 3,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "hyperlane.warp.v1.HypTokenType"
-      },
-      {
-        "name": "origin_mailbox",
-        "type": "string",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "origin_denom",
-        "type": "string",
-        "number": 5,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "ism_id",
-        "type": "string",
-        "number": 7,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
     "fullName": "iavl.ChangeSet",
     "name": "ChangeSet",
     "package": "iavl",
@@ -72132,6 +68259,35 @@
     ]
   },
   {
+    "fullName": "injective.exchange.v1beta1.EventLostFundsFromCrossPoolLiquidation",
+    "name": "EventLostFundsFromCrossPoolLiquidation",
+    "package": "injective.exchange.v1beta1",
+    "module": "exchange",
+    "fields": [
+      {
+        "name": "subaccount_id",
+        "type": "bytes",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "quote_denom",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "lost_funds_from_available_during_payout",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
     "fullName": "injective.exchange.v1beta1.EventLostFundsFromLiquidation",
     "name": "EventLostFundsFromLiquidation",
     "package": "injective.exchange.v1beta1",
@@ -81687,6 +77843,63 @@
     ]
   },
   {
+    "fullName": "injective.exchange.v2.CrossMarginParams",
+    "name": "CrossMarginParams",
+    "package": "injective.exchange.v2",
+    "module": "exchange",
+    "fields": [
+      {
+        "name": "positive_upnl_haircut_rate",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "fees_buffer",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "enabled_quote_denoms",
+        "type": "string",
+        "number": 3,
+        "repeated": true,
+        "optional": false
+      },
+      {
+        "name": "perpetual_enabled",
+        "type": "bool",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "expiry_enabled",
+        "type": "bool",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "max_active_derivative_markets_per_pool",
+        "type": "uint32",
+        "number": 6,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "emergency_paused",
+        "type": "bool",
+        "number": 7,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
     "fullName": "injective.exchange.v2.DenomDecimals",
     "name": "DenomDecimals",
     "package": "injective.exchange.v2",
@@ -82041,6 +78254,13 @@
         "repeated": false,
         "optional": false,
         "typeRef": "injective.exchange.v2.ForcePausedInfo"
+      },
+      {
+        "name": "cross_margin_eligible",
+        "type": "bool",
+        "number": 25,
+        "repeated": false,
+        "optional": false
       }
     ]
   },
@@ -82313,6 +78533,14 @@
         "repeated": false,
         "optional": false,
         "typeRef": "injective.exchange.v2.DisableMinimalProtocolFeeUpdate"
+      },
+      {
+        "name": "cross_margin_eligibility",
+        "type": "injective.exchange.v2.CrossMarginEligibility",
+        "number": 21,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "injective.exchange.v2.CrossMarginEligibility"
       }
     ]
   },
@@ -82333,6 +78561,13 @@
         "name": "settlement_price",
         "type": "string",
         "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "is_forced_settlement",
+        "type": "bool",
+        "number": 3,
         "repeated": false,
         "optional": false
       }
@@ -83205,6 +79440,35 @@
     ]
   },
   {
+    "fullName": "injective.exchange.v2.EventLostFundsFromCrossPoolLiquidation",
+    "name": "EventLostFundsFromCrossPoolLiquidation",
+    "package": "injective.exchange.v2",
+    "module": "exchange",
+    "fields": [
+      {
+        "name": "subaccount_id",
+        "type": "bytes",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "quote_denom",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "lost_funds_from_available_during_payout",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
     "fullName": "injective.exchange.v2.EventLostFundsFromLiquidation",
     "name": "EventLostFundsFromLiquidation",
     "package": "injective.exchange.v2",
@@ -83735,6 +79999,44 @@
     ]
   },
   {
+    "fullName": "injective.exchange.v2.EventSubaccountRiskProfileUpdated",
+    "name": "EventSubaccountRiskProfileUpdated",
+    "package": "injective.exchange.v2",
+    "module": "exchange",
+    "fields": [
+      {
+        "name": "subaccount_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "previous_profile",
+        "type": "injective.exchange.v2.SubaccountRiskProfile",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "injective.exchange.v2.SubaccountRiskProfile"
+      },
+      {
+        "name": "new_profile",
+        "type": "injective.exchange.v2.SubaccountRiskProfile",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "injective.exchange.v2.SubaccountRiskProfile"
+      },
+      {
+        "name": "is_default",
+        "type": "bool",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
     "fullName": "injective.exchange.v2.EventSubaccountWithdraw",
     "name": "EventSubaccountWithdraw",
     "package": "injective.exchange.v2",
@@ -84155,6 +80457,13 @@
         "repeated": false,
         "optional": false,
         "typeRef": "injective.exchange.v2.OpenNotionalCap"
+      },
+      {
+        "name": "cross_margin_eligible",
+        "type": "bool",
+        "number": 20,
+        "repeated": false,
+        "optional": false
       }
     ]
   },
@@ -84808,6 +81117,14 @@
         "repeated": true,
         "optional": false,
         "typeRef": "injective.exchange.v2.DenomMinNotional"
+      },
+      {
+        "name": "subaccount_risk_profiles",
+        "type": "injective.exchange.v2.SubaccountRiskProfileRecord",
+        "number": 38,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "injective.exchange.v2.SubaccountRiskProfileRecord"
       }
     ]
   },
@@ -84850,6 +81167,72 @@
         "name": "q",
         "type": "string",
         "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "fullName": "injective.exchange.v2.LiquidatePositionData",
+    "name": "LiquidatePositionData",
+    "package": "injective.exchange.v2",
+    "module": "exchange",
+    "fields": [
+      {
+        "name": "subaccount_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "market_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "order",
+        "type": "injective.exchange.v2.DerivativeOrder",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "injective.exchange.v2.DerivativeOrder"
+      }
+    ]
+  },
+  {
+    "fullName": "injective.exchange.v2.LiquidatePositionResult",
+    "name": "LiquidatePositionResult",
+    "package": "injective.exchange.v2",
+    "module": "exchange",
+    "fields": [
+      {
+        "name": "subaccount_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "market_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "success",
+        "type": "bool",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "error",
+        "type": "string",
+        "number": 4,
         "repeated": false,
         "optional": false
       }
@@ -85505,6 +81888,45 @@
     "package": "injective.exchange.v2",
     "module": "exchange",
     "fields": []
+  },
+  {
+    "fullName": "injective.exchange.v2.MsgBatchLiquidatePositions",
+    "name": "MsgBatchLiquidatePositions",
+    "package": "injective.exchange.v2",
+    "module": "exchange",
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "liquidations",
+        "type": "injective.exchange.v2.LiquidatePositionData",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "injective.exchange.v2.LiquidatePositionData"
+      }
+    ]
+  },
+  {
+    "fullName": "injective.exchange.v2.MsgBatchLiquidatePositionsResponse",
+    "name": "MsgBatchLiquidatePositionsResponse",
+    "package": "injective.exchange.v2",
+    "module": "exchange",
+    "fields": [
+      {
+        "name": "results",
+        "type": "injective.exchange.v2.LiquidatePositionResult",
+        "number": 1,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "injective.exchange.v2.LiquidatePositionResult"
+      }
+    ]
   },
   {
     "fullName": "injective.exchange.v2.MsgBatchUpdateOrders",
@@ -86908,6 +83330,13 @@
         "repeated": false,
         "optional": false,
         "typeRef": "injective.exchange.v2.OpenNotionalCap"
+      },
+      {
+        "name": "cross_margin_eligible",
+        "type": "bool",
+        "number": 18,
+        "repeated": false,
+        "optional": false
       }
     ]
   },
@@ -87037,6 +83466,13 @@
         "repeated": false,
         "optional": false,
         "typeRef": "injective.exchange.v2.OpenNotionalCap"
+      },
+      {
+        "name": "cross_margin_eligible",
+        "type": "bool",
+        "number": 17,
+        "repeated": false,
+        "optional": false
       }
     ]
   },
@@ -87121,6 +83557,42 @@
   {
     "fullName": "injective.exchange.v2.MsgInstantSpotMarketLaunchResponse",
     "name": "MsgInstantSpotMarketLaunchResponse",
+    "package": "injective.exchange.v2",
+    "module": "exchange",
+    "fields": []
+  },
+  {
+    "fullName": "injective.exchange.v2.MsgLiquidateCrossMarginPool",
+    "name": "MsgLiquidateCrossMarginPool",
+    "package": "injective.exchange.v2",
+    "module": "exchange",
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "subaccount_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "quote_denom",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "fullName": "injective.exchange.v2.MsgLiquidateCrossMarginPoolResponse",
+    "name": "MsgLiquidateCrossMarginPoolResponse",
     "package": "injective.exchange.v2",
     "module": "exchange",
     "fields": []
@@ -87378,6 +83850,35 @@
   {
     "fullName": "injective.exchange.v2.MsgRewardsOptOutResponse",
     "name": "MsgRewardsOptOutResponse",
+    "package": "injective.exchange.v2",
+    "module": "exchange",
+    "fields": []
+  },
+  {
+    "fullName": "injective.exchange.v2.MsgSetDelegationTransferReceivers",
+    "name": "MsgSetDelegationTransferReceivers",
+    "package": "injective.exchange.v2",
+    "module": "exchange",
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "receivers",
+        "type": "string",
+        "number": 2,
+        "repeated": true,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "fullName": "injective.exchange.v2.MsgSetDelegationTransferReceiversResponse",
+    "name": "MsgSetDelegationTransferReceiversResponse",
     "package": "injective.exchange.v2",
     "module": "exchange",
     "fields": []
@@ -87697,6 +84198,14 @@
         "repeated": false,
         "optional": false,
         "typeRef": "injective.exchange.v2.OpenNotionalCap"
+      },
+      {
+        "name": "cross_margin_eligibility",
+        "type": "injective.exchange.v2.CrossMarginEligibility",
+        "number": 11,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "injective.exchange.v2.CrossMarginEligibility"
       }
     ]
   },
@@ -87790,6 +84299,43 @@
   {
     "fullName": "injective.exchange.v2.MsgUpdateSpotMarketResponse",
     "name": "MsgUpdateSpotMarketResponse",
+    "package": "injective.exchange.v2",
+    "module": "exchange",
+    "fields": []
+  },
+  {
+    "fullName": "injective.exchange.v2.MsgUpdateSubaccountRiskProfile",
+    "name": "MsgUpdateSubaccountRiskProfile",
+    "package": "injective.exchange.v2",
+    "module": "exchange",
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "subaccount_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "risk_profile",
+        "type": "injective.exchange.v2.SubaccountRiskProfile",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "injective.exchange.v2.SubaccountRiskProfile"
+      }
+    ]
+  },
+  {
+    "fullName": "injective.exchange.v2.MsgUpdateSubaccountRiskProfileResponse",
+    "name": "MsgUpdateSubaccountRiskProfileResponse",
     "package": "injective.exchange.v2",
     "module": "exchange",
     "fields": []
@@ -88382,6 +84928,14 @@
         "number": 38,
         "repeated": false,
         "optional": false
+      },
+      {
+        "name": "cross_margin_params",
+        "type": "injective.exchange.v2.CrossMarginParams",
+        "number": 39,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "injective.exchange.v2.CrossMarginParams"
       }
     ]
   },
@@ -88614,6 +85168,13 @@
         "repeated": false,
         "optional": false,
         "typeRef": "injective.exchange.v2.OpenNotionalCap"
+      },
+      {
+        "name": "cross_margin_eligible",
+        "type": "bool",
+        "number": 19,
+        "repeated": false,
+        "optional": false
       }
     ]
   },
@@ -89198,6 +85759,141 @@
         "repeated": true,
         "optional": false,
         "typeRef": "injective.exchange.v2.BinaryOptionsMarket"
+      }
+    ]
+  },
+  {
+    "fullName": "injective.exchange.v2.QueryCrossMarginPoolSnapshotRequest",
+    "name": "QueryCrossMarginPoolSnapshotRequest",
+    "package": "injective.exchange.v2",
+    "module": "exchange",
+    "fields": [
+      {
+        "name": "subaccount_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "quote_denom",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "fullName": "injective.exchange.v2.QueryCrossMarginPoolSnapshotResponse",
+    "name": "QueryCrossMarginPoolSnapshotResponse",
+    "package": "injective.exchange.v2",
+    "module": "exchange",
+    "fields": [
+      {
+        "name": "quote_denom",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "quote_balance",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "position_margin_total",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "unrealized_pnl",
+        "type": "string",
+        "number": 4,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "unrealized_pnl_effective",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "equity_admission",
+        "type": "string",
+        "number": 6,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "equity_liquidation",
+        "type": "string",
+        "number": 7,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "initial_margin_total",
+        "type": "string",
+        "number": 8,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "maintenance_margin_total",
+        "type": "string",
+        "number": 9,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "initial_margin_with_orders_total",
+        "type": "string",
+        "number": 10,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "entry_loss_total",
+        "type": "string",
+        "number": 11,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "fee_reserve_total",
+        "type": "string",
+        "number": 12,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "order_lock_requirement",
+        "type": "string",
+        "number": 13,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "positive_upnl_haircut_rate",
+        "type": "string",
+        "number": 14,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "health_factor",
+        "type": "string",
+        "number": 15,
+        "repeated": false,
+        "optional": false
       }
     ]
   },
@@ -90701,6 +87397,14 @@
         "repeated": false,
         "optional": false,
         "typeRef": "injective.exchange.v2.EffectivePosition"
+      },
+      {
+        "name": "risk_mode",
+        "type": "injective.exchange.v2.RiskMode",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "injective.exchange.v2.RiskMode"
       }
     ]
   },
@@ -90816,6 +87520,14 @@
         "repeated": false,
         "optional": false,
         "typeRef": "injective.exchange.v2.Position"
+      },
+      {
+        "name": "risk_mode",
+        "type": "injective.exchange.v2.RiskMode",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "injective.exchange.v2.RiskMode"
       }
     ]
   },
@@ -90847,6 +87559,44 @@
         "repeated": true,
         "optional": false,
         "typeRef": "injective.exchange.v2.DerivativePosition"
+      }
+    ]
+  },
+  {
+    "fullName": "injective.exchange.v2.QuerySubaccountRiskProfileRequest",
+    "name": "QuerySubaccountRiskProfileRequest",
+    "package": "injective.exchange.v2",
+    "module": "exchange",
+    "fields": [
+      {
+        "name": "subaccount_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "fullName": "injective.exchange.v2.QuerySubaccountRiskProfileResponse",
+    "name": "QuerySubaccountRiskProfileResponse",
+    "package": "injective.exchange.v2",
+    "module": "exchange",
+    "fields": [
+      {
+        "name": "profile",
+        "type": "injective.exchange.v2.SubaccountRiskProfile",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "injective.exchange.v2.SubaccountRiskProfile"
+      },
+      {
+        "name": "is_default",
+        "type": "bool",
+        "number": 2,
+        "repeated": false,
+        "optional": false
       }
     ]
   },
@@ -92031,6 +88781,60 @@
         "number": 2,
         "repeated": false,
         "optional": false
+      }
+    ]
+  },
+  {
+    "fullName": "injective.exchange.v2.SubaccountRiskProfile",
+    "name": "SubaccountRiskProfile",
+    "package": "injective.exchange.v2",
+    "module": "exchange",
+    "fields": [
+      {
+        "name": "mode",
+        "type": "injective.exchange.v2.RiskMode",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "injective.exchange.v2.RiskMode"
+      },
+      {
+        "name": "reservation_policy",
+        "type": "injective.exchange.v2.ReservationPolicy",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "injective.exchange.v2.ReservationPolicy"
+      },
+      {
+        "name": "credit_line_id",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "fullName": "injective.exchange.v2.SubaccountRiskProfileRecord",
+    "name": "SubaccountRiskProfileRecord",
+    "package": "injective.exchange.v2",
+    "module": "exchange",
+    "fields": [
+      {
+        "name": "subaccount_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "risk_profile",
+        "type": "injective.exchange.v2.SubaccountRiskProfile",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "injective.exchange.v2.SubaccountRiskProfile"
       }
     ]
   },
@@ -94106,6 +90910,37 @@
     ]
   },
   {
+    "fullName": "injective.oracle.v1beta1.EventOraclePriceUpdate",
+    "name": "EventOraclePriceUpdate",
+    "package": "injective.oracle.v1beta1",
+    "module": "oracle",
+    "fields": [
+      {
+        "name": "oracle_type",
+        "type": "injective.oracle.v1beta1.OracleType",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "injective.oracle.v1beta1.OracleType"
+      },
+      {
+        "name": "id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "price_state",
+        "type": "injective.oracle.v1beta1.PriceState",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "injective.oracle.v1beta1.PriceState"
+      }
+    ]
+  },
+  {
     "fullName": "injective.oracle.v1beta1.EventSetChainlinkDataStreamsPrices",
     "name": "EventSetChainlinkDataStreamsPrices",
     "package": "injective.oracle.v1beta1",
@@ -94298,6 +91133,22 @@
         "repeated": true,
         "optional": false,
         "typeRef": "injective.oracle.v1beta1.ChainlinkDataStreamsPriceState"
+      },
+      {
+        "name": "pyth_pro_price_states",
+        "type": "injective.oracle.v1beta1.PythProPriceState",
+        "number": 19,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "injective.oracle.v1beta1.PythProPriceState"
+      },
+      {
+        "name": "seda_fast_price_states",
+        "type": "injective.oracle.v1beta1.SedaFastPriceState",
+        "number": 20,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "injective.oracle.v1beta1.SedaFastPriceState"
       }
     ]
   },
@@ -94526,6 +91377,56 @@
     ]
   },
   {
+    "fullName": "injective.oracle.v1beta1.MsgRelayBandRates",
+    "name": "MsgRelayBandRates",
+    "package": "injective.oracle.v1beta1",
+    "module": "oracle",
+    "fields": [
+      {
+        "name": "relayer",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "symbols",
+        "type": "string",
+        "number": 2,
+        "repeated": true,
+        "optional": false
+      },
+      {
+        "name": "rates",
+        "type": "uint64",
+        "number": 3,
+        "repeated": true,
+        "optional": false
+      },
+      {
+        "name": "resolve_times",
+        "type": "uint64",
+        "number": 4,
+        "repeated": true,
+        "optional": false
+      },
+      {
+        "name": "requestIDs",
+        "type": "uint64",
+        "number": 5,
+        "repeated": true,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "fullName": "injective.oracle.v1beta1.MsgRelayBandRatesResponse",
+    "name": "MsgRelayBandRatesResponse",
+    "package": "injective.oracle.v1beta1",
+    "module": "oracle",
+    "fields": []
+  },
+  {
     "fullName": "injective.oracle.v1beta1.MsgRelayChainlinkPrices",
     "name": "MsgRelayChainlinkPrices",
     "package": "injective.oracle.v1beta1",
@@ -94708,6 +91609,64 @@
     "fields": []
   },
   {
+    "fullName": "injective.oracle.v1beta1.MsgRelayPythProPrices",
+    "name": "MsgRelayPythProPrices",
+    "package": "injective.oracle.v1beta1",
+    "module": "oracle",
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "updates",
+        "type": "bytes",
+        "number": 2,
+        "repeated": true,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "fullName": "injective.oracle.v1beta1.MsgRelayPythProPricesResponse",
+    "name": "MsgRelayPythProPricesResponse",
+    "package": "injective.oracle.v1beta1",
+    "module": "oracle",
+    "fields": []
+  },
+  {
+    "fullName": "injective.oracle.v1beta1.MsgRelaySedaFastPrices",
+    "name": "MsgRelaySedaFastPrices",
+    "package": "injective.oracle.v1beta1",
+    "module": "oracle",
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "updates",
+        "type": "bytes",
+        "number": 2,
+        "repeated": true,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "fullName": "injective.oracle.v1beta1.MsgRelaySedaFastPricesResponse",
+    "name": "MsgRelaySedaFastPricesResponse",
+    "package": "injective.oracle.v1beta1",
+    "module": "oracle",
+    "fields": []
+  },
+  {
     "fullName": "injective.oracle.v1beta1.MsgRelayStorkPrices",
     "name": "MsgRelayStorkPrices",
     "package": "injective.oracle.v1beta1",
@@ -94733,6 +91692,35 @@
   {
     "fullName": "injective.oracle.v1beta1.MsgRelayStorkPricesResponse",
     "name": "MsgRelayStorkPricesResponse",
+    "package": "injective.oracle.v1beta1",
+    "module": "oracle",
+    "fields": []
+  },
+  {
+    "fullName": "injective.oracle.v1beta1.MsgRequestBandIBCRates",
+    "name": "MsgRequestBandIBCRates",
+    "package": "injective.oracle.v1beta1",
+    "module": "oracle",
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "request_id",
+        "type": "uint64",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "fullName": "injective.oracle.v1beta1.MsgRequestBandIBCRatesResponse",
+    "name": "MsgRequestBandIBCRatesResponse",
     "package": "injective.oracle.v1beta1",
     "module": "oracle",
     "fields": []
@@ -94845,6 +91833,35 @@
         "number": 4,
         "repeated": false,
         "optional": false
+      },
+      {
+        "name": "pyth_pro_verifier_contract",
+        "type": "string",
+        "number": 5,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "pyth_pro_verification_gas_limit",
+        "type": "uint64",
+        "number": 6,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "pyth_pro_verification_fee",
+        "type": "uint64",
+        "number": 7,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "seda_fast_params",
+        "type": "injective.oracle.v1beta1.SedaFastParams",
+        "number": 8,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "injective.oracle.v1beta1.SedaFastParams"
       }
     ]
   },
@@ -95239,6 +92256,36 @@
         "name": "price_state",
         "type": "injective.oracle.v1beta1.PriceState",
         "number": 6,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "injective.oracle.v1beta1.PriceState"
+      }
+    ]
+  },
+  {
+    "fullName": "injective.oracle.v1beta1.PythProPriceState",
+    "name": "PythProPriceState",
+    "package": "injective.oracle.v1beta1",
+    "module": "oracle",
+    "fields": [
+      {
+        "name": "feed_id",
+        "type": "uint32",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "timestamp",
+        "type": "uint64",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "price_state",
+        "type": "injective.oracle.v1beta1.PriceState",
+        "number": 3,
         "repeated": false,
         "optional": false,
         "typeRef": "injective.oracle.v1beta1.PriceState"
@@ -95731,6 +92778,52 @@
     ]
   },
   {
+    "fullName": "injective.oracle.v1beta1.QueryPythProPriceStatesRequest",
+    "name": "QueryPythProPriceStatesRequest",
+    "package": "injective.oracle.v1beta1",
+    "module": "oracle",
+    "fields": []
+  },
+  {
+    "fullName": "injective.oracle.v1beta1.QueryPythProPriceStatesResponse",
+    "name": "QueryPythProPriceStatesResponse",
+    "package": "injective.oracle.v1beta1",
+    "module": "oracle",
+    "fields": [
+      {
+        "name": "price_states",
+        "type": "injective.oracle.v1beta1.PythProPriceState",
+        "number": 1,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "injective.oracle.v1beta1.PythProPriceState"
+      }
+    ]
+  },
+  {
+    "fullName": "injective.oracle.v1beta1.QuerySedaFastPriceStatesRequest",
+    "name": "QuerySedaFastPriceStatesRequest",
+    "package": "injective.oracle.v1beta1",
+    "module": "oracle",
+    "fields": []
+  },
+  {
+    "fullName": "injective.oracle.v1beta1.QuerySedaFastPriceStatesResponse",
+    "name": "QuerySedaFastPriceStatesResponse",
+    "package": "injective.oracle.v1beta1",
+    "module": "oracle",
+    "fields": [
+      {
+        "name": "price_states",
+        "type": "injective.oracle.v1beta1.SedaFastPriceState",
+        "number": 1,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "injective.oracle.v1beta1.SedaFastPriceState"
+      }
+    ]
+  },
+  {
     "fullName": "injective.oracle.v1beta1.QueryStorkPriceStatesRequest",
     "name": "QueryStorkPriceStatesRequest",
     "package": "injective.oracle.v1beta1",
@@ -95931,6 +93024,65 @@
         "number": 2,
         "repeated": false,
         "optional": false
+      }
+    ]
+  },
+  {
+    "fullName": "injective.oracle.v1beta1.SedaFastParams",
+    "name": "SedaFastParams",
+    "package": "injective.oracle.v1beta1",
+    "module": "oracle",
+    "fields": [
+      {
+        "name": "public_key",
+        "type": "bytes",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "simple_program_ids",
+        "type": "string",
+        "number": 2,
+        "repeated": true,
+        "optional": false
+      },
+      {
+        "name": "json_program_ids",
+        "type": "string",
+        "number": 3,
+        "repeated": true,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "fullName": "injective.oracle.v1beta1.SedaFastPriceState",
+    "name": "SedaFastPriceState",
+    "package": "injective.oracle.v1beta1",
+    "module": "oracle",
+    "fields": [
+      {
+        "name": "feed_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "timestamp",
+        "type": "uint64",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "price_state",
+        "type": "injective.oracle.v1beta1.PriceState",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "injective.oracle.v1beta1.PriceState"
       }
     ]
   },
@@ -101379,6 +98531,13 @@
         "name": "trade_id",
         "type": "string",
         "number": 11,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "is_liquidation",
+        "type": "bool",
+        "number": 12,
         "repeated": false,
         "optional": false
       }

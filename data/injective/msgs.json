@@ -2766,903 +2766,6 @@
     ]
   },
   {
-    "typeUrl": "/hyperlane.core.interchain_security.v1.MsgCreateMessageIdMultisigIsm",
-    "name": "MsgCreateMessageIdMultisigIsm",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "signers": [
-      "creator"
-    ],
-    "fields": [
-      {
-        "name": "creator",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "validators",
-        "type": "string",
-        "number": 2,
-        "repeated": true,
-        "optional": false
-      },
-      {
-        "name": "threshold",
-        "type": "uint32",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "typeUrl": "/hyperlane.core.interchain_security.v1.MsgCreateMerkleRootMultisigIsm",
-    "name": "MsgCreateMerkleRootMultisigIsm",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "signers": [
-      "creator"
-    ],
-    "fields": [
-      {
-        "name": "creator",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "validators",
-        "type": "string",
-        "number": 2,
-        "repeated": true,
-        "optional": false
-      },
-      {
-        "name": "threshold",
-        "type": "uint32",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "typeUrl": "/hyperlane.core.interchain_security.v1.MsgCreateNoopIsm",
-    "name": "MsgCreateNoopIsm",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "signers": [
-      "creator"
-    ],
-    "fields": [
-      {
-        "name": "creator",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "typeUrl": "/hyperlane.core.interchain_security.v1.MsgCreateRoutingIsm",
-    "name": "MsgCreateRoutingIsm",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "signers": [
-      "creator"
-    ],
-    "fields": [
-      {
-        "name": "creator",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "routes",
-        "type": "hyperlane.core.interchain_security.v1.Route",
-        "number": 2,
-        "repeated": true,
-        "optional": false,
-        "typeRef": "hyperlane.core.interchain_security.v1.Route"
-      }
-    ]
-  },
-  {
-    "typeUrl": "/hyperlane.core.interchain_security.v1.MsgSetRoutingIsmDomain",
-    "name": "MsgSetRoutingIsmDomain",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "signers": [
-      "owner"
-    ],
-    "fields": [
-      {
-        "name": "ism_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "route",
-        "type": "hyperlane.core.interchain_security.v1.Route",
-        "number": 2,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "hyperlane.core.interchain_security.v1.Route"
-      },
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "typeUrl": "/hyperlane.core.interchain_security.v1.MsgRemoveRoutingIsmDomain",
-    "name": "MsgRemoveRoutingIsmDomain",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "signers": [
-      "owner"
-    ],
-    "fields": [
-      {
-        "name": "ism_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "domain",
-        "type": "uint32",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "typeUrl": "/hyperlane.core.interchain_security.v1.MsgUpdateRoutingIsmOwner",
-    "name": "MsgUpdateRoutingIsmOwner",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "signers": [
-      "owner"
-    ],
-    "fields": [
-      {
-        "name": "ism_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "new_owner",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "renounce_ownership",
-        "type": "bool",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "typeUrl": "/hyperlane.core.interchain_security.v1.MsgAnnounceValidator",
-    "name": "MsgAnnounceValidator",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "signers": [
-      "creator"
-    ],
-    "fields": [
-      {
-        "name": "validator",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "storage_location",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "signature",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "mailbox_id",
-        "type": "string",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "creator",
-        "type": "string",
-        "number": 5,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "typeUrl": "/hyperlane.core.post_dispatch.v1.MsgCreateIgp",
-    "name": "MsgCreateIgp",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "signers": [
-      "owner"
-    ],
-    "fields": [
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "denom",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "typeUrl": "/hyperlane.core.post_dispatch.v1.MsgSetIgpOwner",
-    "name": "MsgSetIgpOwner",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "signers": [
-      "owner"
-    ],
-    "fields": [
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "igp_id",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "new_owner",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "renounce_ownership",
-        "type": "bool",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "typeUrl": "/hyperlane.core.post_dispatch.v1.MsgSetDestinationGasConfig",
-    "name": "MsgSetDestinationGasConfig",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "signers": [
-      "owner"
-    ],
-    "fields": [
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "igp_id",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "destination_gas_config",
-        "type": "hyperlane.core.post_dispatch.v1.DestinationGasConfig",
-        "number": 3,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "hyperlane.core.post_dispatch.v1.DestinationGasConfig"
-      }
-    ]
-  },
-  {
-    "typeUrl": "/hyperlane.core.post_dispatch.v1.MsgPayForGas",
-    "name": "MsgPayForGas",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "signers": [
-      "sender"
-    ],
-    "fields": [
-      {
-        "name": "sender",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "igp_id",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "message_id",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "destination_domain",
-        "type": "uint32",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "gas_limit",
-        "type": "string",
-        "number": 5,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "amount",
-        "type": "cosmos.base.v1beta1.Coin",
-        "number": 6,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "cosmos.base.v1beta1.Coin"
-      }
-    ]
-  },
-  {
-    "typeUrl": "/hyperlane.core.post_dispatch.v1.MsgClaim",
-    "name": "MsgClaim",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "signers": [
-      "sender"
-    ],
-    "fields": [
-      {
-        "name": "sender",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "igp_id",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "typeUrl": "/hyperlane.core.post_dispatch.v1.MsgCreateMerkleTreeHook",
-    "name": "MsgCreateMerkleTreeHook",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "signers": [
-      "owner"
-    ],
-    "fields": [
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "mailbox_id",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "typeUrl": "/hyperlane.core.post_dispatch.v1.MsgCreateNoopHook",
-    "name": "MsgCreateNoopHook",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "signers": [
-      "owner"
-    ],
-    "fields": [
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "typeUrl": "/hyperlane.core.v1.MsgCreateMailbox",
-    "name": "MsgCreateMailbox",
-    "package": "hyperlane.core.v1",
-    "module": "core",
-    "signers": [
-      "owner"
-    ],
-    "fields": [
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "local_domain",
-        "type": "uint32",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "default_ism",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "default_hook",
-        "type": "string",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "required_hook",
-        "type": "string",
-        "number": 5,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "typeUrl": "/hyperlane.core.v1.MsgSetMailbox",
-    "name": "MsgSetMailbox",
-    "package": "hyperlane.core.v1",
-    "module": "core",
-    "signers": [
-      "owner"
-    ],
-    "fields": [
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "mailbox_id",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "default_ism",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "default_hook",
-        "type": "string",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "required_hook",
-        "type": "string",
-        "number": 5,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "new_owner",
-        "type": "string",
-        "number": 6,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "renounce_ownership",
-        "type": "bool",
-        "number": 7,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "typeUrl": "/hyperlane.core.v1.MsgProcessMessage",
-    "name": "MsgProcessMessage",
-    "package": "hyperlane.core.v1",
-    "module": "core",
-    "signers": [
-      "relayer"
-    ],
-    "fields": [
-      {
-        "name": "mailbox_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "relayer",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "metadata",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "message",
-        "type": "string",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "typeUrl": "/hyperlane.warp.v1.MsgCreateCollateralToken",
-    "name": "MsgCreateCollateralToken",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "signers": [
-      "owner"
-    ],
-    "fields": [
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "origin_mailbox",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "origin_denom",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "typeUrl": "/hyperlane.warp.v1.MsgCreateSyntheticToken",
-    "name": "MsgCreateSyntheticToken",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "signers": [
-      "owner"
-    ],
-    "fields": [
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "origin_mailbox",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "typeUrl": "/hyperlane.warp.v1.MsgCreateNativeSyntheticToken",
-    "name": "MsgCreateNativeSyntheticToken",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "signers": [
-      "owner"
-    ],
-    "fields": [
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "origin_mailbox",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "origin_denom",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "typeUrl": "/hyperlane.warp.v1.MsgSetToken",
-    "name": "MsgSetToken",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "signers": [
-      "owner"
-    ],
-    "fields": [
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "token_id",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "new_owner",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "ism_id",
-        "type": "string",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "renounce_ownership",
-        "type": "bool",
-        "number": 7,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "typeUrl": "/hyperlane.warp.v1.MsgEnrollRemoteRouter",
-    "name": "MsgEnrollRemoteRouter",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "signers": [
-      "owner"
-    ],
-    "fields": [
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "token_id",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "remote_router",
-        "type": "hyperlane.warp.v1.RemoteRouter",
-        "number": 3,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "hyperlane.warp.v1.RemoteRouter"
-      }
-    ]
-  },
-  {
-    "typeUrl": "/hyperlane.warp.v1.MsgUnrollRemoteRouter",
-    "name": "MsgUnrollRemoteRouter",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "signers": [
-      "owner"
-    ],
-    "fields": [
-      {
-        "name": "owner",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "token_id",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "receiver_domain",
-        "type": "uint32",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "typeUrl": "/hyperlane.warp.v1.MsgRemoteTransfer",
-    "name": "MsgRemoteTransfer",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "signers": [
-      "sender"
-    ],
-    "fields": [
-      {
-        "name": "sender",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "token_id",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "destination_domain",
-        "type": "uint32",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "recipient",
-        "type": "string",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "amount",
-        "type": "string",
-        "number": 5,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "custom_hook_id",
-        "type": "string",
-        "number": 6,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "gas_limit",
-        "type": "string",
-        "number": 7,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "max_fee",
-        "type": "cosmos.base.v1beta1.Coin",
-        "number": 8,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "cosmos.base.v1beta1.Coin"
-      },
-      {
-        "name": "custom_hook_metadata",
-        "type": "string",
-        "number": 9,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
     "typeUrl": "/ibc.applications.fee.v1.MsgRegisterPayee",
     "name": "MsgRegisterPayee",
     "package": "ibc.applications.fee.v1",
@@ -7444,6 +6547,13 @@
         "repeated": false,
         "optional": false,
         "typeRef": "injective.exchange.v2.OpenNotionalCap"
+      },
+      {
+        "name": "cross_margin_eligible",
+        "type": "bool",
+        "number": 17,
+        "repeated": false,
+        "optional": false
       }
     ]
   },
@@ -7576,6 +6686,13 @@
         "repeated": false,
         "optional": false,
         "typeRef": "injective.exchange.v2.OpenNotionalCap"
+      },
+      {
+        "name": "cross_margin_eligible",
+        "type": "bool",
+        "number": 18,
+        "repeated": false,
+        "optional": false
       }
     ]
   },
@@ -8420,6 +7537,32 @@
     ]
   },
   {
+    "typeUrl": "/injective.exchange.v2.MsgBatchLiquidatePositions",
+    "name": "MsgBatchLiquidatePositions",
+    "package": "injective.exchange.v2",
+    "module": "exchange",
+    "signers": [
+      "sender"
+    ],
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "liquidations",
+        "type": "injective.exchange.v2.LiquidatePositionData",
+        "number": 2,
+        "repeated": true,
+        "optional": false,
+        "typeRef": "injective.exchange.v2.LiquidatePositionData"
+      }
+    ]
+  },
+  {
     "typeUrl": "/injective.exchange.v2.MsgEmergencySettleMarket",
     "name": "MsgEmergencySettleMarket",
     "package": "injective.exchange.v2",
@@ -8812,6 +7955,14 @@
         "repeated": false,
         "optional": false,
         "typeRef": "injective.exchange.v2.OpenNotionalCap"
+      },
+      {
+        "name": "cross_margin_eligibility",
+        "type": "injective.exchange.v2.CrossMarginEligibility",
+        "number": 11,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "injective.exchange.v2.CrossMarginEligibility"
       }
     ]
   },
@@ -9326,6 +8477,71 @@
     ]
   },
   {
+    "typeUrl": "/injective.exchange.v2.MsgLiquidateCrossMarginPool",
+    "name": "MsgLiquidateCrossMarginPool",
+    "package": "injective.exchange.v2",
+    "module": "exchange",
+    "signers": [
+      "sender"
+    ],
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "subaccount_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "quote_denom",
+        "type": "string",
+        "number": 3,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/injective.exchange.v2.MsgUpdateSubaccountRiskProfile",
+    "name": "MsgUpdateSubaccountRiskProfile",
+    "package": "injective.exchange.v2",
+    "module": "exchange",
+    "signers": [
+      "sender"
+    ],
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "subaccount_id",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "risk_profile",
+        "type": "injective.exchange.v2.SubaccountRiskProfile",
+        "number": 3,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "injective.exchange.v2.SubaccountRiskProfile"
+      }
+    ]
+  },
+  {
     "typeUrl": "/injective.insurance.v1beta1.MsgCreateInsuranceFund",
     "name": "MsgCreateInsuranceFund",
     "package": "injective.insurance.v1beta1",
@@ -9696,6 +8912,56 @@
         "repeated": true,
         "optional": false,
         "typeRef": "injective.oracle.v1beta1.ChainlinkReport"
+      }
+    ]
+  },
+  {
+    "typeUrl": "/injective.oracle.v1beta1.MsgRelayPythProPrices",
+    "name": "MsgRelayPythProPrices",
+    "package": "injective.oracle.v1beta1",
+    "module": "oracle",
+    "signers": [
+      "sender"
+    ],
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "updates",
+        "type": "bytes",
+        "number": 2,
+        "repeated": true,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "typeUrl": "/injective.oracle.v1beta1.MsgRelaySedaFastPrices",
+    "name": "MsgRelaySedaFastPrices",
+    "package": "injective.oracle.v1beta1",
+    "module": "oracle",
+    "signers": [
+      "sender"
+    ],
+    "fields": [
+      {
+        "name": "sender",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "updates",
+        "type": "bytes",
+        "number": 2,
+        "repeated": true,
+        "optional": false
       }
     ]
   },

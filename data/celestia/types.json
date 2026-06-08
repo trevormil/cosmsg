@@ -683,21 +683,14 @@
         "typeRef": "celestia.fibre.v1.BlobRow"
       },
       {
-        "name": "coefficients",
+        "name": "rlcs",
         "type": "bytes",
         "number": 2,
         "repeated": false,
         "optional": false
-      },
-      {
-        "name": "root",
-        "type": "bytes",
-        "number": 3,
-        "repeated": false,
-        "optional": false
       }
     ],
-    "comment": "BlobShard represents a subset of rows of a Fibre blob.\n Contains row data along with RLC proof data:\n - coefficients: flattened RLC coefficients (K × 16 bytes), stored during upload\n - root: RLC Merkle root (32 bytes), computed during upload verification"
+    "comment": "BlobShard represents a subset of rows of a Fibre blob.\n Contains row data along with the RLC (random linear combination) vector\n computed during upload: flattened, 16 bytes per original row."
   },
   {
     "fullName": "celestia.fibre.v1.DownloadShardRequest",
@@ -709,13 +702,6 @@
         "name": "blob_id",
         "type": "bytes",
         "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "with_rlc",
-        "type": "bool",
-        "number": 2,
         "repeated": false,
         "optional": false
       }

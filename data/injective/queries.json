@@ -6932,506 +6932,6 @@
     ]
   },
   {
-    "service": "hyperlane.core.interchain_security.v1.Query",
-    "method": "Isms",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "requestType": "hyperlane.core.interchain_security.v1.QueryIsmsRequest",
-    "responseType": "hyperlane.core.interchain_security.v1.QueryIsmsResponse",
-    "requestFields": [
-      {
-        "name": "pagination",
-        "type": "cosmos.base.query.v1beta1.PageRequest",
-        "number": 1,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "cosmos.base.query.v1beta1.PageRequest"
-      }
-    ]
-  },
-  {
-    "service": "hyperlane.core.interchain_security.v1.Query",
-    "method": "Ism",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "requestType": "hyperlane.core.interchain_security.v1.QueryIsmRequest",
-    "responseType": "hyperlane.core.interchain_security.v1.QueryIsmResponse",
-    "requestFields": [
-      {
-        "name": "id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "service": "hyperlane.core.interchain_security.v1.Query",
-    "method": "AnnouncedStorageLocations",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "requestType": "hyperlane.core.interchain_security.v1.QueryAnnouncedStorageLocationsRequest",
-    "responseType": "hyperlane.core.interchain_security.v1.QueryAnnouncedStorageLocationsResponse",
-    "requestFields": [
-      {
-        "name": "mailbox_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "validator_address",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "service": "hyperlane.core.interchain_security.v1.Query",
-    "method": "LatestAnnouncedStorageLocation",
-    "package": "hyperlane.core.interchain_security.v1",
-    "module": "interchain_security",
-    "requestType": "hyperlane.core.interchain_security.v1.QueryLatestAnnouncedStorageLocationRequest",
-    "responseType": "hyperlane.core.interchain_security.v1.QueryLatestAnnouncedStorageLocationResponse",
-    "requestFields": [
-      {
-        "name": "mailbox_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "validator_address",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "service": "hyperlane.core.post_dispatch.v1.Query",
-    "method": "Igps",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "requestType": "hyperlane.core.post_dispatch.v1.QueryIgpsRequest",
-    "responseType": "hyperlane.core.post_dispatch.v1.QueryIgpsResponse",
-    "requestFields": [
-      {
-        "name": "pagination",
-        "type": "cosmos.base.query.v1beta1.PageRequest",
-        "number": 1,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "cosmos.base.query.v1beta1.PageRequest"
-      }
-    ]
-  },
-  {
-    "service": "hyperlane.core.post_dispatch.v1.Query",
-    "method": "Igp",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "requestType": "hyperlane.core.post_dispatch.v1.QueryIgpRequest",
-    "responseType": "hyperlane.core.post_dispatch.v1.QueryIgpResponse",
-    "requestFields": [
-      {
-        "name": "id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "service": "hyperlane.core.post_dispatch.v1.Query",
-    "method": "DestinationGasConfigs",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "requestType": "hyperlane.core.post_dispatch.v1.QueryDestinationGasConfigsRequest",
-    "responseType": "hyperlane.core.post_dispatch.v1.QueryDestinationGasConfigsResponse",
-    "requestFields": [
-      {
-        "name": "id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "pagination",
-        "type": "cosmos.base.query.v1beta1.PageRequest",
-        "number": 2,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "cosmos.base.query.v1beta1.PageRequest"
-      }
-    ]
-  },
-  {
-    "service": "hyperlane.core.post_dispatch.v1.Query",
-    "method": "QuoteGasPayment",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "requestType": "hyperlane.core.post_dispatch.v1.QueryQuoteGasPaymentRequest",
-    "responseType": "hyperlane.core.post_dispatch.v1.QueryQuoteGasPaymentResponse",
-    "requestFields": [
-      {
-        "name": "igp_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "destination_domain",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "gas_limit",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "service": "hyperlane.core.post_dispatch.v1.Query",
-    "method": "MerkleTreeHooks",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "requestType": "hyperlane.core.post_dispatch.v1.QueryMerkleTreeHooksRequest",
-    "responseType": "hyperlane.core.post_dispatch.v1.QueryMerkleTreeHooksResponse",
-    "requestFields": [
-      {
-        "name": "pagination",
-        "type": "cosmos.base.query.v1beta1.PageRequest",
-        "number": 1,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "cosmos.base.query.v1beta1.PageRequest"
-      }
-    ]
-  },
-  {
-    "service": "hyperlane.core.post_dispatch.v1.Query",
-    "method": "MerkleTreeHook",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "requestType": "hyperlane.core.post_dispatch.v1.QueryMerkleTreeHookRequest",
-    "responseType": "hyperlane.core.post_dispatch.v1.QueryMerkleTreeHookResponse",
-    "requestFields": [
-      {
-        "name": "id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "service": "hyperlane.core.post_dispatch.v1.Query",
-    "method": "NoopHooks",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "requestType": "hyperlane.core.post_dispatch.v1.QueryNoopHooksRequest",
-    "responseType": "hyperlane.core.post_dispatch.v1.QueryNoopHooksResponse",
-    "requestFields": [
-      {
-        "name": "pagination",
-        "type": "cosmos.base.query.v1beta1.PageRequest",
-        "number": 1,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "cosmos.base.query.v1beta1.PageRequest"
-      }
-    ]
-  },
-  {
-    "service": "hyperlane.core.post_dispatch.v1.Query",
-    "method": "NoopHook",
-    "package": "hyperlane.core.post_dispatch.v1",
-    "module": "post_dispatch",
-    "requestType": "hyperlane.core.post_dispatch.v1.QueryNoopHookRequest",
-    "responseType": "hyperlane.core.post_dispatch.v1.QueryNoopHookResponse",
-    "requestFields": [
-      {
-        "name": "id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "service": "hyperlane.core.v1.Query",
-    "method": "Mailboxes",
-    "package": "hyperlane.core.v1",
-    "module": "core",
-    "requestType": "hyperlane.core.v1.QueryMailboxesRequest",
-    "responseType": "hyperlane.core.v1.QueryMailboxesResponse",
-    "requestFields": [
-      {
-        "name": "pagination",
-        "type": "cosmos.base.query.v1beta1.PageRequest",
-        "number": 1,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "cosmos.base.query.v1beta1.PageRequest"
-      }
-    ]
-  },
-  {
-    "service": "hyperlane.core.v1.Query",
-    "method": "Mailbox",
-    "package": "hyperlane.core.v1",
-    "module": "core",
-    "requestType": "hyperlane.core.v1.QueryMailboxRequest",
-    "responseType": "hyperlane.core.v1.QueryMailboxResponse",
-    "requestFields": [
-      {
-        "name": "id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "service": "hyperlane.core.v1.Query",
-    "method": "Delivered",
-    "package": "hyperlane.core.v1",
-    "module": "core",
-    "requestType": "hyperlane.core.v1.QueryDeliveredRequest",
-    "responseType": "hyperlane.core.v1.QueryDeliveredResponse",
-    "requestFields": [
-      {
-        "name": "id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "message_id",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "service": "hyperlane.core.v1.Query",
-    "method": "RecipientIsm",
-    "package": "hyperlane.core.v1",
-    "module": "core",
-    "requestType": "hyperlane.core.v1.QueryRecipientIsmRequest",
-    "responseType": "hyperlane.core.v1.QueryRecipientIsmResponse",
-    "requestFields": [
-      {
-        "name": "recipient",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "service": "hyperlane.core.v1.Query",
-    "method": "VerifyDryRun",
-    "package": "hyperlane.core.v1",
-    "module": "core",
-    "requestType": "hyperlane.core.v1.QueryVerifyDryRunRequest",
-    "responseType": "hyperlane.core.v1.QueryVerifyDryRunResponse",
-    "requestFields": [
-      {
-        "name": "ism_id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "message",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "metadata",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "gas_limit",
-        "type": "string",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "service": "hyperlane.core.v1.Query",
-    "method": "RegisteredISMs",
-    "package": "hyperlane.core.v1",
-    "module": "core",
-    "requestType": "hyperlane.core.v1.QueryRegisteredISMs",
-    "responseType": "hyperlane.core.v1.QueryRegisteredISMsResponse",
-    "requestFields": []
-  },
-  {
-    "service": "hyperlane.core.v1.Query",
-    "method": "RegisteredHooks",
-    "package": "hyperlane.core.v1",
-    "module": "core",
-    "requestType": "hyperlane.core.v1.QueryRegisteredHooks",
-    "responseType": "hyperlane.core.v1.QueryRegisteredHooksResponse",
-    "requestFields": []
-  },
-  {
-    "service": "hyperlane.core.v1.Query",
-    "method": "RegisteredApps",
-    "package": "hyperlane.core.v1",
-    "module": "core",
-    "requestType": "hyperlane.core.v1.QueryRegisteredApps",
-    "responseType": "hyperlane.core.v1.QueryRegisteredAppsResponse",
-    "requestFields": []
-  },
-  {
-    "service": "hyperlane.warp.v1.Query",
-    "method": "Tokens",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "requestType": "hyperlane.warp.v1.QueryTokensRequest",
-    "responseType": "hyperlane.warp.v1.QueryTokensResponse",
-    "requestFields": [
-      {
-        "name": "pagination",
-        "type": "cosmos.base.query.v1beta1.PageRequest",
-        "number": 1,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "cosmos.base.query.v1beta1.PageRequest"
-      }
-    ]
-  },
-  {
-    "service": "hyperlane.warp.v1.Query",
-    "method": "Token",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "requestType": "hyperlane.warp.v1.QueryTokenRequest",
-    "responseType": "hyperlane.warp.v1.QueryTokenResponse",
-    "requestFields": [
-      {
-        "name": "id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "service": "hyperlane.warp.v1.Query",
-    "method": "BridgedSupply",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "requestType": "hyperlane.warp.v1.QueryBridgedSupplyRequest",
-    "responseType": "hyperlane.warp.v1.QueryBridgedSupplyResponse",
-    "requestFields": [
-      {
-        "name": "id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
-    "service": "hyperlane.warp.v1.Query",
-    "method": "RemoteRouters",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "requestType": "hyperlane.warp.v1.QueryRemoteRoutersRequest",
-    "responseType": "hyperlane.warp.v1.QueryRemoteRoutersResponse",
-    "requestFields": [
-      {
-        "name": "id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "pagination",
-        "type": "cosmos.base.query.v1beta1.PageRequest",
-        "number": 2,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "cosmos.base.query.v1beta1.PageRequest"
-      }
-    ]
-  },
-  {
-    "service": "hyperlane.warp.v1.Query",
-    "method": "QuoteRemoteTransfer",
-    "package": "hyperlane.warp.v1",
-    "module": "warp",
-    "requestType": "hyperlane.warp.v1.QueryQuoteRemoteTransferRequest",
-    "responseType": "hyperlane.warp.v1.QueryQuoteRemoteTransferResponse",
-    "requestFields": [
-      {
-        "name": "id",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "destination_domain",
-        "type": "string",
-        "number": 2,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "custom_hook_id",
-        "type": "string",
-        "number": 3,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "custom_hook_metadata",
-        "type": "string",
-        "number": 4,
-        "repeated": false,
-        "optional": false
-      }
-    ]
-  },
-  {
     "service": "ibc.applications.fee.v1.Query",
     "method": "IncentivizedPackets",
     "package": "ibc.applications.fee.v1",
@@ -11186,6 +10686,47 @@
   },
   {
     "service": "injective.exchange.v2.Query",
+    "method": "SubaccountRiskProfile",
+    "package": "injective.exchange.v2",
+    "module": "exchange",
+    "requestType": "injective.exchange.v2.QuerySubaccountRiskProfileRequest",
+    "responseType": "injective.exchange.v2.QuerySubaccountRiskProfileResponse",
+    "requestFields": [
+      {
+        "name": "subaccount_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "service": "injective.exchange.v2.Query",
+    "method": "CrossMarginPoolSnapshot",
+    "package": "injective.exchange.v2",
+    "module": "exchange",
+    "requestType": "injective.exchange.v2.QueryCrossMarginPoolSnapshotRequest",
+    "responseType": "injective.exchange.v2.QueryCrossMarginPoolSnapshotResponse",
+    "requestFields": [
+      {
+        "name": "subaccount_id",
+        "type": "string",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "quote_denom",
+        "type": "string",
+        "number": 2,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "service": "injective.exchange.v2.Query",
     "method": "ExchangeModuleState",
     "package": "injective.exchange.v2",
     "module": "exchange",
@@ -11952,6 +11493,24 @@
     "module": "oracle",
     "requestType": "injective.oracle.v1beta1.QueryPythPriceStatesRequest",
     "responseType": "injective.oracle.v1beta1.QueryPythPriceStatesResponse",
+    "requestFields": []
+  },
+  {
+    "service": "injective.oracle.v1beta1.Query",
+    "method": "PythProPriceStates",
+    "package": "injective.oracle.v1beta1",
+    "module": "oracle",
+    "requestType": "injective.oracle.v1beta1.QueryPythProPriceStatesRequest",
+    "responseType": "injective.oracle.v1beta1.QueryPythProPriceStatesResponse",
+    "requestFields": []
+  },
+  {
+    "service": "injective.oracle.v1beta1.Query",
+    "method": "SedaFastPriceStates",
+    "package": "injective.oracle.v1beta1",
+    "module": "oracle",
+    "requestType": "injective.oracle.v1beta1.QuerySedaFastPriceStatesRequest",
+    "responseType": "injective.oracle.v1beta1.QuerySedaFastPriceStatesResponse",
     "requestFields": []
   },
   {

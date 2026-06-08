@@ -208,7 +208,7 @@
         "typeRef": "celestia.fibre.v1.BlobShard"
       }
     ],
-    "comment": "UploadShard uploads a blob shard with RLC coefficients to a validator."
+    "comment": "UploadShard uploads a blob shard with its RLC vector to a validator."
   },
   {
     "service": "celestia.fibre.v1.Fibre",
@@ -224,16 +224,9 @@
         "number": 1,
         "repeated": false,
         "optional": false
-      },
-      {
-        "name": "with_rlc",
-        "type": "bool",
-        "number": 2,
-        "repeated": false,
-        "optional": false
       }
     ],
-    "comment": "DownloadShard downloads a blob shard with RLC root from a validator."
+    "comment": "DownloadShard downloads a blob shard with its RLC vector from a validator."
   },
   {
     "service": "celestia.forwarding.v1.Query",
