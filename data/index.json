@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-08T07:43:56.238Z",
+  "generatedAt": "2026-06-15T07:59:33.921Z",
   "chains": [
     {
       "chainName": "akash",
@@ -8,10 +8,10 @@
       "logoUrl": "https://raw.githubusercontent.com/cosmos/chain-registry/master/akash/images/akt.svg",
       "msgCount": 146,
       "queryCount": 349,
-      "typeCount": 2602,
+      "typeCount": 2607,
       "provenance": {
         "source": "reflection",
-        "harvestedAt": "2026-06-08T07:42:16.992Z",
+        "harvestedAt": "2026-06-15T07:57:56.290Z",
         "origin": "reflection:akash.lavenderfive.com:443",
         "commentsFromSource": false
       }
@@ -26,7 +26,7 @@
       "typeCount": 2880,
       "provenance": {
         "source": "reflection",
-        "harvestedAt": "2026-06-08T07:43:56.148Z",
+        "harvestedAt": "2026-06-15T07:59:33.831Z",
         "origin": "reflection:grpc.bitbadges.io:443",
         "commentsFromSource": false
       }
@@ -41,8 +41,8 @@
       "typeCount": 137,
       "provenance": {
         "source": "source",
-        "harvestedAt": "2026-06-08T07:40:44.858Z",
-        "origin": "git:https://github.com/celestiaorg/celestia-app@a3d68db44642:proto",
+        "harvestedAt": "2026-06-15T07:56:26.952Z",
+        "origin": "git:https://github.com/celestiaorg/celestia-app@4c9cee27af16:proto",
         "commentsFromSource": true
       }
     },
@@ -56,7 +56,7 @@
       "typeCount": 2548,
       "provenance": {
         "source": "reflection",
-        "harvestedAt": "2026-06-08T07:40:08.629Z",
+        "harvestedAt": "2026-06-15T07:55:52.217Z",
         "origin": "reflection:grpc.cosmoshub-main.ccvalidators.com:443",
         "commentsFromSource": false
       }
@@ -71,7 +71,7 @@
       "typeCount": 163,
       "provenance": {
         "source": "source",
-        "harvestedAt": "2026-06-08T07:43:22.361Z",
+        "harvestedAt": "2026-06-15T07:59:01.682Z",
         "origin": "git:https://github.com/evmos/evmos@0402a01c9036:proto",
         "commentsFromSource": true
       }
@@ -86,7 +86,7 @@
       "typeCount": 3700,
       "provenance": {
         "source": "reflection",
-        "harvestedAt": "2026-06-08T07:41:48.750Z",
+        "harvestedAt": "2026-06-15T07:57:28.560Z",
         "origin": "reflection:injective.lavenderfive.com:443",
         "commentsFromSource": false
       }
@@ -101,7 +101,7 @@
       "typeCount": 2423,
       "provenance": {
         "source": "reflection",
-        "harvestedAt": "2026-06-08T07:40:14.143Z",
+        "harvestedAt": "2026-06-15T07:55:56.844Z",
         "origin": "reflection:juno-grpc.polkachu.com:12690",
         "commentsFromSource": false
       }
@@ -116,7 +116,7 @@
       "typeCount": 408,
       "provenance": {
         "source": "source",
-        "harvestedAt": "2026-06-08T07:42:19.073Z",
+        "harvestedAt": "2026-06-15T07:57:58.093Z",
         "origin": "git:https://github.com/kava-Labs/kava/@917cc322eae2:proto",
         "commentsFromSource": true
       }
@@ -146,7 +146,7 @@
       "typeCount": 3074,
       "provenance": {
         "source": "reflection",
-        "harvestedAt": "2026-06-08T07:43:26.546Z",
+        "harvestedAt": "2026-06-15T07:59:05.179Z",
         "origin": "reflection:noble-grpc.polkachu.com:21590",
         "commentsFromSource": false
       }
@@ -161,7 +161,7 @@
       "typeCount": 3066,
       "provenance": {
         "source": "reflection",
-        "harvestedAt": "2026-06-08T07:40:10.190Z",
+        "harvestedAt": "2026-06-15T07:55:53.545Z",
         "origin": "reflection:osmosis.lavenderfive.com:443",
         "commentsFromSource": false
       }
@@ -176,7 +176,7 @@
       "typeCount": 1600,
       "provenance": {
         "source": "reflection",
-        "harvestedAt": "2026-06-08T07:42:15.468Z",
+        "harvestedAt": "2026-06-15T07:57:55.024Z",
         "origin": "reflection:stargaze-grpc.polkachu.com:13790",
         "commentsFromSource": false
       }
@@ -191,7 +191,7 @@
       "typeCount": 2867,
       "provenance": {
         "source": "reflection",
-        "harvestedAt": "2026-06-08T07:43:54.819Z",
+        "harvestedAt": "2026-06-15T07:59:32.844Z",
         "origin": "reflection:stride-grpc.polkachu.com:12290",
         "commentsFromSource": false
       }

@@ -5,10 +5,10 @@
   "logoUrl": "https://raw.githubusercontent.com/cosmos/chain-registry/master/akash/images/akt.svg",
   "msgCount": 146,
   "queryCount": 349,
-  "typeCount": 2602,
+  "typeCount": 2607,
   "provenance": {
     "source": "reflection",
-    "harvestedAt": "2026-06-08T07:42:16.992Z",
+    "harvestedAt": "2026-06-15T07:57:56.290Z",
     "origin": "reflection:akash.lavenderfive.com:443",
     "commentsFromSource": false
   }

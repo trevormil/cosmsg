@@ -268,6 +268,15 @@
     "requestFields": []
   },
   {
+    "service": "akash.discovery.v1.Discovery",
+    "method": "GetInfo",
+    "package": "akash.discovery.v1",
+    "module": "discovery",
+    "requestType": "akash.discovery.v1.GetInfoRequest",
+    "responseType": "akash.discovery.v1.GetInfoResponse",
+    "requestFields": []
+  },
+  {
     "service": "akash.epochs.v1beta1.Query",
     "method": "EpochInfos",
     "package": "akash.epochs.v1beta1",
@@ -598,20 +607,20 @@
     "requestFields": []
   },
   {
-    "service": "akash.oracle.v1.Query",
+    "service": "akash.oracle.v2.Query",
     "method": "Prices",
-    "package": "akash.oracle.v1",
+    "package": "akash.oracle.v2",
     "module": "oracle",
-    "requestType": "akash.oracle.v1.QueryPricesRequest",
-    "responseType": "akash.oracle.v1.QueryPricesResponse",
+    "requestType": "akash.oracle.v2.QueryPricesRequest",
+    "responseType": "akash.oracle.v2.QueryPricesResponse",
     "requestFields": [
       {
         "name": "filters",
-        "type": "akash.oracle.v1.PricesFilter",
+        "type": "akash.oracle.v2.PricesFilter",
         "number": 1,
         "repeated": false,
         "optional": false,
-        "typeRef": "akash.oracle.v1.PricesFilter"
+        "typeRef": "akash.oracle.v2.PricesFilter"
       },
       {
         "name": "pagination",
@@ -624,21 +633,21 @@
     ]
   },
   {
-    "service": "akash.oracle.v1.Query",
+    "service": "akash.oracle.v2.Query",
     "method": "Params",
-    "package": "akash.oracle.v1",
+    "package": "akash.oracle.v2",
     "module": "oracle",
-    "requestType": "akash.oracle.v1.QueryParamsRequest",
-    "responseType": "akash.oracle.v1.QueryParamsResponse",
+    "requestType": "akash.oracle.v2.QueryParamsRequest",
+    "responseType": "akash.oracle.v2.QueryParamsResponse",
     "requestFields": []
   },
   {
-    "service": "akash.oracle.v1.Query",
+    "service": "akash.oracle.v2.Query",
     "method": "AggregatedPrice",
-    "package": "akash.oracle.v1",
+    "package": "akash.oracle.v2",
     "module": "oracle",
-    "requestType": "akash.oracle.v1.QueryAggregatedPriceRequest",
-    "responseType": "akash.oracle.v1.QueryAggregatedPriceResponse",
+    "requestType": "akash.oracle.v2.QueryAggregatedPriceRequest",
+    "responseType": "akash.oracle.v2.QueryAggregatedPriceResponse",
     "requestFields": [
       {
         "name": "denom",
@@ -683,15 +692,6 @@
         "optional": false
       }
     ]
-  },
-  {
-    "service": "akash.take.v1.Query",
-    "method": "Params",
-    "package": "akash.take.v1",
-    "module": "take",
-    "requestType": "akash.take.v1.QueryParamsRequest",
-    "responseType": "akash.take.v1.QueryParamsResponse",
-    "requestFields": []
   },
   {
     "service": "akash.wasm.v1.Query",

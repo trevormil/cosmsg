@@ -8,7 +8,7 @@
   "typeCount": 2880,
   "provenance": {
     "source": "reflection",
-    "harvestedAt": "2026-06-08T07:43:56.148Z",
+    "harvestedAt": "2026-06-15T07:59:33.831Z",
     "origin": "reflection:grpc.bitbadges.io:443",
     "commentsFromSource": false
   }

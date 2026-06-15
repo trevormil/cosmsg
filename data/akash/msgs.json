@@ -313,6 +313,14 @@
         "repeated": false,
         "optional": false,
         "typeRef": "akash.base.deposit.v1.Deposit"
+      },
+      {
+        "name": "reclamation",
+        "type": "akash.deployment.v1.DeploymentReclamation",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "akash.deployment.v1.DeploymentReclamation"
       }
     ]
   },
@@ -500,6 +508,14 @@
         "repeated": true,
         "optional": false,
         "typeRef": "akash.market.v1beta5.ResourceOffer"
+      },
+      {
+        "name": "reclamation_window",
+        "type": "google.protobuf.Duration",
+        "number": 5,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "google.protobuf.Duration"
       }
     ]
   },
@@ -584,6 +600,30 @@
     ]
   },
   {
+    "typeUrl": "/akash.market.v1beta5.MsgLeaseStartReclaim",
+    "name": "MsgLeaseStartReclaim",
+    "package": "akash.market.v1beta5",
+    "module": "market",
+    "fields": [
+      {
+        "name": "id",
+        "type": "akash.market.v1.LeaseID",
+        "number": 1,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "akash.market.v1.LeaseID"
+      },
+      {
+        "name": "reason",
+        "type": "akash.market.v1.LeaseClosedReason",
+        "number": 2,
+        "repeated": false,
+        "optional": false,
+        "typeRef": "akash.market.v1.LeaseClosedReason"
+      }
+    ]
+  },
+  {
     "typeUrl": "/akash.market.v1beta5.MsgUpdateParams",
     "name": "MsgUpdateParams",
     "package": "akash.market.v1beta5",
@@ -610,9 +650,9 @@
     ]
   },
   {
-    "typeUrl": "/akash.oracle.v1.MsgAddPriceEntry",
+    "typeUrl": "/akash.oracle.v2.MsgAddPriceEntry",
     "name": "MsgAddPriceEntry",
-    "package": "akash.oracle.v1",
+    "package": "akash.oracle.v2",
     "module": "oracle",
     "signers": [
       "signer"
@@ -627,26 +667,33 @@
       },
       {
         "name": "id",
-        "type": "akash.oracle.v1.DataID",
+        "type": "akash.oracle.v2.DataID",
         "number": 2,
         "repeated": false,
         "optional": false,
-        "typeRef": "akash.oracle.v1.DataID"
+        "typeRef": "akash.oracle.v2.DataID"
       },
       {
         "name": "price",
-        "type": "akash.oracle.v1.PriceDataState",
+        "type": "string",
         "number": 3,
         "repeated": false,
+        "optional": false
+      },
+      {
+        "name": "timestamp",
+        "type": "google.protobuf.Timestamp",
+        "number": 4,
+        "repeated": false,
         "optional": false,
-        "typeRef": "akash.oracle.v1.PriceDataState"
+        "typeRef": "google.protobuf.Timestamp"
       }
     ]
   },
   {
-    "typeUrl": "/akash.oracle.v1.MsgUpdateParams",
+    "typeUrl": "/akash.oracle.v2.MsgUpdateParams",
     "name": "MsgUpdateParams",
-    "package": "akash.oracle.v1",
+    "package": "akash.oracle.v2",
     "module": "oracle",
     "signers": [
       "authority"
@@ -661,11 +708,11 @@
       },
       {
         "name": "params",
-        "type": "akash.oracle.v1.Params",
+        "type": "akash.oracle.v2.Params",
         "number": 2,
         "repeated": false,
         "optional": false,
-        "typeRef": "akash.oracle.v1.Params"
+        "typeRef": "akash.oracle.v2.Params"
       }
     ]
   },
@@ -766,32 +813,6 @@
         "number": 1,
         "repeated": false,
         "optional": false
-      }
-    ]
-  },
-  {
-    "typeUrl": "/akash.take.v1.MsgUpdateParams",
-    "name": "MsgUpdateParams",
-    "package": "akash.take.v1",
-    "module": "take",
-    "signers": [
-      "authority"
-    ],
-    "fields": [
-      {
-        "name": "authority",
-        "type": "string",
-        "number": 1,
-        "repeated": false,
-        "optional": false
-      },
-      {
-        "name": "params",
-        "type": "akash.take.v1.Params",
-        "number": 2,
-        "repeated": false,
-        "optional": false,
-        "typeRef": "akash.take.v1.Params"
       }
     ]
   },
