@@ -60157,6 +60157,36 @@
     ]
   },
   {
+    "fullName": "ledger_go.ExchangeReply",
+    "name": "ExchangeReply",
+    "package": "ledger_go",
+    "module": "ledger_go",
+    "fields": [
+      {
+        "name": "reply",
+        "type": "bytes",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
+    "fullName": "ledger_go.ExchangeRequest",
+    "name": "ExchangeRequest",
+    "package": "ledger_go",
+    "module": "ledger_go",
+    "fields": [
+      {
+        "name": "command",
+        "type": "bytes",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ]
+  },
+  {
     "fullName": "osmosis.tokenfactory.v1beta1.DenomAuthorityMetadata",
     "name": "DenomAuthorityMetadata",
     "package": "osmosis.tokenfactory.v1beta1",

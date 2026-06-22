@@ -3,13 +3,13 @@
   "prettyName": "Stargaze",
   "chainId": "stargaze-1",
   "logoUrl": "https://raw.githubusercontent.com/cosmos/chain-registry/master/stargaze/images/stars.svg",
-  "msgCount": 153,
-  "queryCount": 283,
-  "typeCount": 1600,
+  "msgCount": 27,
+  "queryCount": 17,
+  "typeCount": 130,
   "provenance": {
-    "source": "reflection",
-    "harvestedAt": "2026-06-15T07:57:55.024Z",
-    "origin": "reflection:stargaze-grpc.polkachu.com:13790",
-    "commentsFromSource": false
+    "source": "source",
+    "harvestedAt": "2026-06-22T08:00:12.346Z",
+    "origin": "git:https://github.com/public-awesome/stargaze@2825fe063908:proto",
+    "commentsFromSource": true
   }
 }

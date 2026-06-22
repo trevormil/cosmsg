@@ -8729,5 +8729,22 @@
         "optional": false
       }
     ]
+  },
+  {
+    "service": "ledger_go.ZemuCommand",
+    "method": "Exchange",
+    "package": "ledger_go",
+    "module": "ledger_go",
+    "requestType": "ledger_go.ExchangeRequest",
+    "responseType": "ledger_go.ExchangeReply",
+    "requestFields": [
+      {
+        "name": "command",
+        "type": "bytes",
+        "number": 1,
+        "repeated": false,
+        "optional": false
+      }
+    ]
   }
 ]

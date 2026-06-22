@@ -4,11 +4,11 @@
   "chainId": "juno-1",
   "logoUrl": "https://raw.githubusercontent.com/cosmos/chain-registry/master/juno/images/juno.svg",
   "msgCount": 154,
-  "queryCount": 346,
-  "typeCount": 2423,
+  "queryCount": 347,
+  "typeCount": 2425,
   "provenance": {
     "source": "reflection",
-    "harvestedAt": "2026-06-15T07:55:56.844Z",
+    "harvestedAt": "2026-06-22T07:57:33.789Z",
     "origin": "reflection:juno-grpc.polkachu.com:12690",
     "commentsFromSource": false
   }
