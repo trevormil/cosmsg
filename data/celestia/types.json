@@ -2451,16 +2451,16 @@
     "comment": "MsgSetFibreProviderInfoResponse describes the response returned after setting fibre provider info."
   },
   {
-    "fullName": "celestia.valaddr.v1.QueryAllFibreProvidersRequest",
-    "name": "QueryAllFibreProvidersRequest",
+    "fullName": "celestia.valaddr.v1.QueryAllBondedFibreProvidersRequest",
+    "name": "QueryAllBondedFibreProvidersRequest",
     "package": "celestia.valaddr.v1",
     "module": "valaddr",
     "fields": [],
-    "comment": "QueryAllFibreProvidersRequest is the request type for the Query/AllFibreProviders RPC method."
+    "comment": "QueryAllBondedFibreProvidersRequest is the request type for the Query/AllBondedFibreProviders RPC method."
   },
   {
-    "fullName": "celestia.valaddr.v1.QueryAllFibreProvidersResponse",
-    "name": "QueryAllFibreProvidersResponse",
+    "fullName": "celestia.valaddr.v1.QueryAllBondedFibreProvidersResponse",
+    "name": "QueryAllBondedFibreProvidersResponse",
     "package": "celestia.valaddr.v1",
     "module": "valaddr",
     "fields": [
@@ -2471,10 +2471,10 @@
         "repeated": true,
         "optional": false,
         "typeRef": "celestia.valaddr.v1.FibreProvider",
-        "comment": "providers contains all fibre providers with a host defined"
+        "comment": "providers contains the fibre providers of all currently bonded validators"
       }
     ],
-    "comment": "QueryAllFibreProvidersResponse is the response type for the Query/AllFibreProviders RPC method."
+    "comment": "QueryAllBondedFibreProvidersResponse is the response type for the Query/AllBondedFibreProviders RPC method."
   },
   {
     "fullName": "celestia.valaddr.v1.QueryFibreProviderInfoRequest",

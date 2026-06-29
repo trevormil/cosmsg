@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-22T08:01:57.241Z",
+  "generatedAt": "2026-06-29T07:44:41.758Z",
   "chains": [
     {
       "chainName": "akash",
@@ -11,7 +11,7 @@
       "typeCount": 2607,
       "provenance": {
         "source": "reflection",
-        "harvestedAt": "2026-06-22T08:00:14.173Z",
+        "harvestedAt": "2026-06-29T07:42:55.499Z",
         "origin": "reflection:akash.lavenderfive.com:443",
         "commentsFromSource": false
       }
@@ -26,7 +26,7 @@
       "typeCount": 2880,
       "provenance": {
         "source": "reflection",
-        "harvestedAt": "2026-06-22T08:01:57.142Z",
+        "harvestedAt": "2026-06-29T07:44:41.702Z",
         "origin": "reflection:grpc.bitbadges.io:443",
         "commentsFromSource": false
       }
@@ -41,8 +41,8 @@
       "typeCount": 137,
       "provenance": {
         "source": "source",
-        "harvestedAt": "2026-06-22T07:58:07.238Z",
-        "origin": "git:https://github.com/celestiaorg/celestia-app@10976b0afaf7:proto",
+        "harvestedAt": "2026-06-29T07:40:36.491Z",
+        "origin": "git:https://github.com/celestiaorg/celestia-app@c4a18f366e6f:proto",
         "commentsFromSource": true
       }
     },
@@ -56,7 +56,7 @@
       "typeCount": 2548,
       "provenance": {
         "source": "reflection",
-        "harvestedAt": "2026-06-22T07:57:27.480Z",
+        "harvestedAt": "2026-06-29T07:39:56.413Z",
         "origin": "reflection:grpc.cosmoshub-main.ccvalidators.com:443",
         "commentsFromSource": false
       }
@@ -71,7 +71,7 @@
       "typeCount": 163,
       "provenance": {
         "source": "source",
-        "harvestedAt": "2026-06-22T08:01:21.758Z",
+        "harvestedAt": "2026-06-29T07:44:04.422Z",
         "origin": "git:https://github.com/evmos/evmos@0402a01c9036:proto",
         "commentsFromSource": true
       }
@@ -86,7 +86,7 @@
       "typeCount": 3700,
       "provenance": {
         "source": "reflection",
-        "harvestedAt": "2026-06-22T07:59:09.400Z",
+        "harvestedAt": "2026-06-29T07:41:50.534Z",
         "origin": "reflection:injective.lavenderfive.com:443",
         "commentsFromSource": false
       }
@@ -101,7 +101,7 @@
       "typeCount": 2425,
       "provenance": {
         "source": "reflection",
-        "harvestedAt": "2026-06-22T07:57:33.789Z",
+        "harvestedAt": "2026-06-29T07:40:03.179Z",
         "origin": "reflection:juno-grpc.polkachu.com:12690",
         "commentsFromSource": false
       }
@@ -116,7 +116,7 @@
       "typeCount": 408,
       "provenance": {
         "source": "source",
-        "harvestedAt": "2026-06-22T08:00:17.162Z",
+        "harvestedAt": "2026-06-29T07:42:59.279Z",
         "origin": "git:https://github.com/kava-Labs/kava/@917cc322eae2:proto",
         "commentsFromSource": true
       }
@@ -146,7 +146,7 @@
       "typeCount": 3074,
       "provenance": {
         "source": "reflection",
-        "harvestedAt": "2026-06-22T08:01:26.513Z",
+        "harvestedAt": "2026-06-29T07:44:09.855Z",
         "origin": "reflection:noble-grpc.polkachu.com:21590",
         "commentsFromSource": false
       }
@@ -161,7 +161,7 @@
       "typeCount": 3066,
       "provenance": {
         "source": "reflection",
-        "harvestedAt": "2026-06-22T07:57:29.240Z",
+        "harvestedAt": "2026-06-29T07:39:58.412Z",
         "origin": "reflection:osmosis.lavenderfive.com:443",
         "commentsFromSource": false
       }
@@ -176,7 +176,7 @@
       "typeCount": 130,
       "provenance": {
         "source": "source",
-        "harvestedAt": "2026-06-22T08:00:12.346Z",
+        "harvestedAt": "2026-06-29T07:42:53.452Z",
         "origin": "git:https://github.com/public-awesome/stargaze@2825fe063908:proto",
         "commentsFromSource": true
       }
@@ -191,7 +191,7 @@
       "typeCount": 2867,
       "provenance": {
         "source": "reflection",
-        "harvestedAt": "2026-06-22T08:01:55.310Z",
+        "harvestedAt": "2026-06-29T07:44:39.151Z",
         "origin": "reflection:stride-grpc.polkachu.com:12290",
         "commentsFromSource": false
       }
